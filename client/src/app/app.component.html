@@ -1,0 +1,18 @@
+<main class="ml-2">
+    <h1 class="mt-2 text-3xl">Mega Millions</h1>
+    <p>
+    @for (num of megamillions; track num) {
+        <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+    }
+    <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{megaplier}}</span>
+    </p>
+    <h1 class="mt-2 text-3xl">Powerball</h1>
+    <p>
+    @for (num of powerball; track num) {
+        <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+    }
+    <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{powerup}}</span>
+    </p>
+</main>
+
+<router-outlet />
