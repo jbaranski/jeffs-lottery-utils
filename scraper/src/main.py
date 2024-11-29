@@ -77,6 +77,55 @@ class Lottery:
 
 
 @dataclass()
+class MegaMillions(Lottery):
+    url = 'https://www.megamillions.com/Winning-Numbers/Previous-Drawings.aspx'
+
+    def __post_init__(self):
+        super().__post_init__()
+        self.chrome_driver = Lottery.chrome_driver_factory()
+
+    def get_latest_number(self) -> None:
+        self.chrome_driver.get(self.url)
+        previous_draw = self.chrome_driver.find_elements(By.XPATH, '//a[@class="prevDrawItem"]')
+        entry = MegaMillions.extract_one_draw(previous_draw[0])
+        if entry.strip() != self.last_entry:
+            with open(self.output_absolute_path, 'a') as f:
+                f.write(entry)
+        else:
+            logging.info('Last entry matches latest Mega Millions number fetched')
+        self.chrome_driver.quit()
+
+    def get_historical_numbers(self) -> None:
+        self.chrome_driver.get(self.url)
+        count = 0
+        while count < 100:
+            try:
+                self.wait_and_click('//button[@class="loadMoreBtn button"]')
+                time.sleep(.5)
+            except TimeoutException:
+                # The load more button is no longer available
+                break
+            count += 1
+        links = self.chrome_driver.find_elements(By.XPATH, '//a[@class="prevDrawItem"]')
+        items = []
+        for link in links:
+            items.append(MegaMillions.extract_one_draw(link))
+        with open(self.output_absolute_path, 'w') as f:
+            f.write('date,white_balls,yellow_ball,megaplier\n')
+            f.writelines(list(reversed(items)))
+        self.chrome_driver.quit()
+
+    @staticmethod
+    def extract_one_draw(link: WebElement) -> str:
+        draw_date = link.find_elements(By.XPATH, './h5[@class="drawItemDate"]')[0].text.strip()
+        draw_numbers = [x.text.strip() for x in link.find_elements(By.XPATH, './ul[@class="numbers"]')[0].find_elements(By.XPATH, './li[contains(@class, "ball")]')]
+        draw_white_balls = '|'.join(draw_numbers[:-1])
+        draw_yellow_ball = ''.join(draw_numbers)[-1:]
+        draw_megaplier = link.find_elements(By.XPATH, './span[@class="megaplier pastNumMP"]')[0].text.strip().upper()
+        return f'{draw_date},{draw_white_balls},{draw_yellow_ball},{draw_megaplier}\n'
+
+
+@dataclass()
 class Powerball(Lottery):
     url = 'https://www.powerball.com/previous-results?gc=powerball'
 
@@ -138,55 +187,6 @@ class Powerball(Lottery):
             f.write('date,white_balls,red_ball,power_play\n')
             f.writelines(list(reversed(items)))
         self.chrome_driver.quit()
-
-
-@dataclass()
-class MegaMillions(Lottery):
-    url = 'https://www.megamillions.com/Winning-Numbers/Previous-Drawings.aspx'
-
-    def __post_init__(self):
-        super().__post_init__()
-        self.chrome_driver = Lottery.chrome_driver_factory()
-
-    def get_latest_number(self) -> None:
-        self.chrome_driver.get(self.url)
-        previous_draw = self.chrome_driver.find_elements(By.XPATH, '//a[@class="prevDrawItem"]')
-        entry = MegaMillions.extract_one_draw(previous_draw[0])
-        if entry.strip() != self.last_entry:
-            with open(self.output_absolute_path, 'a') as f:
-                f.write(entry)
-        else:
-            logging.info('Last entry matches latest Mega Millions number fetched')
-        self.chrome_driver.quit()
-
-    def get_historical_numbers(self) -> None:
-        self.chrome_driver.get(self.url)
-        count = 0
-        while count < 100:
-            try:
-                self.wait_and_click('//button[@class="loadMoreBtn button"]')
-                time.sleep(.5)
-            except TimeoutException:
-                # The load more button is no longer available
-                break
-            count += 1
-        links = self.chrome_driver.find_elements(By.XPATH, '//a[@class="prevDrawItem"]')
-        items = []
-        for link in links:
-            items.append(MegaMillions.extract_one_draw(link))
-        with open(self.output_absolute_path, 'w') as f:
-            f.write('date,white_balls,yellow_ball,megaplier\n')
-            f.writelines(list(reversed(items)))
-        self.chrome_driver.quit()
-
-    @staticmethod
-    def extract_one_draw(link: WebElement) -> str:
-        draw_date = link.find_elements(By.XPATH, './h5[@class="drawItemDate"]')[0].text.strip()
-        draw_numbers = [x.text.strip() for x in link.find_elements(By.XPATH, './ul[@class="numbers"]')[0].find_elements(By.XPATH, './li[contains(@class, "ball")]')]
-        draw_white_balls = '|'.join(draw_numbers[:-1])
-        draw_yellow_ball = ''.join(draw_numbers)[-1:]
-        draw_megaplier = link.find_elements(By.XPATH, './span[@class="megaplier pastNumMP"]')[0].text.strip().upper()
-        return f'{draw_date},{draw_white_balls},{draw_yellow_ball},{draw_megaplier}\n'
 
 
 def megamillions():
