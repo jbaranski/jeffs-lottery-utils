@@ -9,9 +9,12 @@ on:
     #   ET:  Monday, Wednesday, Saturday at 11:00 PM
     #   UTC: Tuesday, Thursday, Sunday at 4:00 AM (EST - winter) or 3:00 AM (EDT - summer)
     # Cron schedule:
-    #   ET:  Tuesday, Thursday, Sunday at 1:00 AM (EST - winter) or 2:00 AM (EDT - summer)
-    #   UTC: Tuesday, Thursday, Sunday at 6:00 AM
-    - cron: "0 6 * * 2,4,0"
+    #   ET:  Tuesday, Thursday, Sunday at 1:00 AM, 7:00 AM (EST - winter) or 2:00 AM, 8:00 AM (EDT - summer)
+    #   UTC: Tuesday, Thursday, Sunday at 6:00 AM, 12:00 PM
+    #
+    # Run twice in case of failure to better ensure the newest number gets picked up
+    # If it continues to fail re-run the historical data fetch and fix whatever the issue was
+    - cron: "0 6,12 * * 2,4,0"
 
 jobs:
   build:
