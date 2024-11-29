@@ -5,7 +5,9 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 */12 * * *"
+    # Lottery schedule is Tuesday and Friday at 11 p.m.
+    # Cron schedule is Wednesday and Friday at 2 am
+    - cron: "0 2 * * 3,5"
 
 jobs:
   build:
