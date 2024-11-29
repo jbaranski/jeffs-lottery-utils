@@ -1,3 +1,5 @@
+import csv
+import json
 import logging
 import os
 import sys
@@ -40,6 +42,15 @@ class Lottery:
     def wait_and_click(self, xpath: str) -> None:
         el = WebDriverWait(self.chrome_driver, 2).until(ExpectedConditions.element_to_be_clickable((By.XPATH, xpath)))
         el.click()
+
+    def csv_to_json(self):
+        data = []
+        with open(self.output_absolute_path, 'r') as f:
+            csv_reader = csv.DictReader(f)
+            for row in csv_reader:
+                data.append(row)
+        with open(self.output_absolute_path.replace('.csv', '.json'), 'w') as f:
+            json.dump(data, f, indent=2)
 
     @staticmethod
     def chrome_driver_factory() -> WebDriver:
@@ -173,11 +184,13 @@ class MegaMillions(Lottery):
 def megamillions():
     m = MegaMillions(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/megamillions.csv')
     m.get_latest_number()
+    m.csv_to_json()
 
 
 def powerball():
     p = Powerball(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/powerball.csv')
     p.get_latest_number()
+    p.csv_to_json()
 
 
 if __name__ == '__main__':
