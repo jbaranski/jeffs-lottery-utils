@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "prod:build": "ng build --c=production",
+    "prod:start": "http-server -a localhost -p 4200 dist/jeffs-word-bank/browser"
   },
   "private": true,
   "dependencies": {
