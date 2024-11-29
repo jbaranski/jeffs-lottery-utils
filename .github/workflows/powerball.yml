@@ -1,0 +1,48 @@
+name: fetch-latest-powerball
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 */12 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install Python dependencies
+        run: |-
+          cd $GITHUB_WORKSPACE/scraper
+          pip install -r requirements.txt
+
+      # https://github.com/MarketingPipeline/Python-Selenium-Action/blob/main/.github/workflows/Selenium-Action_Template.yaml
+      - name: Installed OS package list
+        run: apt list --installed
+      - name: Removing previous chrome instances on runner
+        run: sudo apt purge google-chrome-stable
+      - name: Installing OS packages
+        run: pip install chromedriver-autoinstaller selenium
+
+      - name: Fetch latest Powerball numbers
+        env:
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+        run: |-
+          cd $GITHUB_WORKSPACE/scraper
+          python -m src.main powerball
+          cat $GITHUB_WORKSPACE/numbers/powerball.csv
+      - name: Commit powerball.csv file if changed
+        run: |-
+          git diff
+          git config --global user.email "actions@users.noreply.github.com"
+          git config --global user.name "JEFF-bot"
+          git add -A
+          git commit -m "Update powerball.csv" || exit 0
+          git push
