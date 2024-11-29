@@ -13,20 +13,34 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  powerball: number[] = []
-  powerup: number = 0;
-  megamillions: number[] = []
-  megaplier: number = 0;
+  NUMS: number = 3;
+  powerballs: number[][] = [[]];
+  powerup: number[] = [];
+  megamillions: number[][] = [[]];
+  megaplier: number[] = [];
+  seen: Set<number> = new Set<number>();
   constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
-    const megamillions_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions.json'));
-    const powerball_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball.json'));
-    this.megamillions = Array.from({ length: 5 }, (_1, _2) => this.generateRandomNumber(70));
-    this.megaplier = this.generateRandomNumber(25);
+    // const megamillions_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions.json'));
+    // const powerball_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball.json'));
+    this.megamillions = Array.from({ length: this.NUMS }, (_1, _2) => Array.from(this.unqiueRandomNumbers(70)));
+    this.megaplier = Array.from({ length: this.NUMS }, (_1, _2) => this.generateRandomNumber(25));
 
-    this.powerball = Array.from({ length: 5 }, (_1, _2) => this.generateRandomNumber(69));
-    this.powerup = this.generateRandomNumber(26);
+    this.powerballs = Array.from({ length: this.NUMS }, (_1, _2) => Array.from(this.unqiueRandomNumbers(69)));
+    this.powerup = Array.from({ length: this.NUMS }, (_1, _2) => this.generateRandomNumber(26));
+  }
+
+  unqiueRandomNumbers(max: number, size: number = 5): Set<number> {
+    const uniqueNumbers = new Set<number>();
+    while (uniqueNumbers.size < size) {
+      const num = this.generateRandomNumber(max);
+      if (this.seen.has(num)) {
+        continue;
+      }
+      uniqueNumbers.add(num);
+    }
+    return uniqueNumbers;
   }
 
   generateRandomNumber(max: number): number {

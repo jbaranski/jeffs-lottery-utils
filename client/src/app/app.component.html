@@ -1,18 +1,23 @@
 <main class="ml-2">
-    <h1 class="mt-2 text-3xl">Mega Millions</h1>
-    <p>
-    @for (num of megamillions; track num) {
-        <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+    <h1 class="mt-2 text-3xl">Lottery Number Generator</h1>
+    <h3 class="mt-2 text-2xl">Mega Millions</h3>
+    @for (megamillion of megamillions; track megamillion; let i = $index) {
+        <p class="mt-4">
+        @for (num of megamillion; track num) {
+            <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+        }
+        <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{megaplier[i]}}</span>
+        </p>
     }
-    <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{megaplier}}</span>
-    </p>
-    <h1 class="mt-2 text-3xl">Powerball</h1>
-    <p>
-    @for (num of powerball; track num) {
-        <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+    <h3 class="mt-2 text-2xl">Powerball</h3>
+    @for (powerball of powerballs; track powerball; let i = $index) {
+        <p class="mt-4">
+        @for (num of powerball; track num) {
+            <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+        }
+        <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{megaplier[i]}}</span>
+        </p>
     }
-    <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{powerup}}</span>
-    </p>
 </main>
 
 <router-outlet />
