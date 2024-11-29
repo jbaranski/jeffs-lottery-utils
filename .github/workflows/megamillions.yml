@@ -6,8 +6,9 @@ on:
       - main
   schedule:
     # Lottery schedule is Tuesday and Friday at 11 p.m.
-    # Cron schedule is Wednesday and Friday at 2 am
-    - cron: "0 2 * * 3,5"
+    # Cron schedule is Wednesday and Saturday at 2 am
+    # - cron: "0 2 * * 3,6"
+    - cron: "*/5 * * * *"
 
 jobs:
   build:
