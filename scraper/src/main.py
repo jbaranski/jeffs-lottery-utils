@@ -90,9 +90,11 @@ class Powerball(Lottery):
         draw_date = previous_draw.find_all('h5', {'class': 'card-title'})[0].get_text(strip=True)
         # Example input: Wed, Nov 27, 2024
         draw_date_parsed = datetime.strptime(draw_date, '%a, %b %d, %Y').strftime('%m/%d/%Y')
-        draw_numbers = '|'.join([x.get_text(strip=True) for x in previous_draw.find_all('div', {'class': 'item-powerball'})])
+        draw_numbers = [x.get_text(strip=True) for x in previous_draw.find_all('div', {'class': 'item-powerball'})]
+        draw_white_balls = '|'.join(draw_numbers[:-1])
+        draw_red_ball = ''.join(draw_numbers[-1:])
         draw_power_play = previous_draw.find_all('span', {'class': 'multiplier'})[0].get_text(strip=True).upper()
-        entry = f'{draw_date_parsed},{draw_numbers},{draw_power_play}\n'
+        entry = f'{draw_date_parsed},{draw_white_balls},{draw_red_ball},{draw_power_play}\n'
         if entry.strip() != self.last_entry:
             with open(self.output_absolute_path, 'a') as f:
                 f.write(entry)
@@ -123,21 +125,23 @@ class Powerball(Lottery):
             draw_date = link.find_elements(By.XPATH, './/h5[@class="card-title"]')[0].text.strip()
             # Example input: Wed, Nov 27, 2024
             draw_date_parsed = datetime.strptime(draw_date, '%a, %b %d, %Y').strftime('%m/%d/%Y')
-            draw_numbers = '|'.join([x.text.strip() for x in link.find_elements(By.XPATH, './/div[contains(@class, "item-powerball")]')])
+            draw_numbers = [x.text.strip() for x in link.find_elements(By.XPATH, './/div[contains(@class, "item-powerball")]')]
+            draw_white_balls = '|'.join(draw_numbers[:-1])
+            draw_red_ball = ''.join(draw_numbers[-1:])
             draw_power_play = link.find_elements(By.XPATH, './/span[@class="multiplier"]')
             # Continuously hitting load more loads dates without numbers... just stop if we ever hit that
             if len(draw_power_play) == 0 and not draw_numbers:
                 break
             draw_power_play = '0X' if len(draw_power_play) == 0 else draw_power_play[0].text.strip().upper()
-            items.append(f'{draw_date_parsed},{draw_numbers},{draw_power_play}\n')
+            items.append(f'{draw_date_parsed},{draw_white_balls},{draw_red_ball},{draw_power_play}\n')
         with open(self.output_absolute_path, 'w') as f:
-            f.write('date,numbers,power_play\n')
+            f.write('date,white_balls,red_ball,power_play\n')
             f.writelines(list(reversed(items)))
+        self.chrome_driver.quit()
 
 
 @dataclass()
 class MegaMillions(Lottery):
-    chrome_driver: WebDriver = field(init=False)
     url = 'https://www.megamillions.com/Winning-Numbers/Previous-Drawings.aspx'
 
     def __post_init__(self):
@@ -153,6 +157,7 @@ class MegaMillions(Lottery):
                 f.write(entry)
         else:
             logging.info('Last entry matches latest Mega Millions number fetched')
+        self.chrome_driver.quit()
 
     def get_historical_numbers(self) -> None:
         self.chrome_driver.get(self.url)
@@ -170,25 +175,30 @@ class MegaMillions(Lottery):
         for link in links:
             items.append(MegaMillions.extract_one_draw(link))
         with open(self.output_absolute_path, 'w') as f:
-            f.write('date,numbers,megaplier\n')
+            f.write('date,white_balls,yellow_ball,megaplier\n')
             f.writelines(list(reversed(items)))
+        self.chrome_driver.quit()
 
     @staticmethod
     def extract_one_draw(link: WebElement) -> str:
         draw_date = link.find_elements(By.XPATH, './h5[@class="drawItemDate"]')[0].text.strip()
         draw_numbers = [x.text.strip() for x in link.find_elements(By.XPATH, './ul[@class="numbers"]')[0].find_elements(By.XPATH, './li[contains(@class, "ball")]')]
+        draw_white_balls = '|'.join(draw_numbers[:-1])
+        draw_yellow_ball = ''.join(draw_numbers)[-1:]
         draw_megaplier = link.find_elements(By.XPATH, './span[@class="megaplier pastNumMP"]')[0].text.strip().upper()
-        return f'{draw_date},{"|".join(draw_numbers)},{draw_megaplier}\n'
+        return f'{draw_date},{draw_white_balls},{draw_yellow_ball},{draw_megaplier}\n'
 
 
 def megamillions():
     m = MegaMillions(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/megamillions.csv')
+    # m.get_historical_numbers()
     m.get_latest_number()
     m.csv_to_json()
 
 
 def powerball():
     p = Powerball(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/powerball.csv')
+    # p.get_historical_numbers()
     p.get_latest_number()
     p.csv_to_json()
 
