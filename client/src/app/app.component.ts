@@ -14,33 +14,46 @@ import { firstValueFrom } from 'rxjs';
 })
 export class AppComponent {
   NUMS: number = 3;
-  powerballs: number[][] = [[]];
-  powerup: number[] = [];
-  megamillions: number[][] = [[]];
+  megamillions: number[][] = [];
   megaplier: number[] = [];
-  seen: Set<number> = new Set<number>();
+  powerballs: number[][] = [];
+  powerup: number[] = [];
   constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
     // const megamillions_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions.json'));
     // const powerball_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball.json'));
-    this.megamillions = Array.from({ length: this.NUMS }, (_1, _2) => Array.from(this.unqiueRandomNumbers(70)));
-    this.megaplier = Array.from({ length: this.NUMS }, (_1, _2) => this.generateRandomNumber(25));
 
-    this.powerballs = Array.from({ length: this.NUMS }, (_1, _2) => Array.from(this.unqiueRandomNumbers(69)));
-    this.powerup = Array.from({ length: this.NUMS }, (_1, _2) => this.generateRandomNumber(26));
+    this.whiteBall(this.megamillions, 70, new Set<number>());
+    this.xUp(this.megaplier, 25, new Set<number>());
+
+    this.whiteBall(this.powerballs, 69, new Set<number>());
+    this.xUp(this.powerup, 26, new Set<number>());
   }
 
-  unqiueRandomNumbers(max: number, size: number = 5): Set<number> {
-    const uniqueNumbers = new Set<number>();
-    while (uniqueNumbers.size < size) {
-      const num = this.generateRandomNumber(max);
-      if (this.seen.has(num)) {
-        continue;
+  whiteBall(target: number[][], max: number, seen: Set<number>) {
+    for (let i = 0; i < this.NUMS; i++) {
+      const nums: number[] = [];
+      for (let j = 0; j < 5; j++) {
+        nums.push(this.uniqueRandomNumber(max, seen));
       }
-      uniqueNumbers.add(num);
+      target.push(nums);
     }
-    return uniqueNumbers;
+  }
+
+  xUp(target: number[], max: number, seen: Set<number>) {
+    for (let i = 0; i < this.NUMS; i++) {
+      target.push(this.uniqueRandomNumber(max, seen));
+    }
+  }
+
+  uniqueRandomNumber(max: number, seen: Set<number>): number {
+    let num = this.generateRandomNumber(max);
+    while (seen.has(num)) {
+      num = this.generateRandomNumber(max);
+    }
+    seen.add(num);
+    return num;
   }
 
   generateRandomNumber(max: number): number {
