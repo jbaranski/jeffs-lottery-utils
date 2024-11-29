@@ -5,9 +5,13 @@ on:
     branches:
       - main
   schedule:
-    # Lottery schedule is Monday, Wednesday and Saturday at 11 p.m.
-    # Cron schedule is Tuesday, Thursday and Sunday at 2 am
-    - cron: "0 2 * * 2,4,0"
+    # Lottery schedule:
+    #   ET:  Monday, Wednesday, Saturday at 11:00 PM
+    #   UTC: Tuesday, Thursday, Sunday at 4:00 AM (EST - winter) or 3:00 AM (EDT - summer)
+    # Cron schedule:
+    #   ET:  Tuesday, Thursday, Sunday at 1:00 AM (EST - winter) or 2:00 AM (EDT - summer)
+    #   UTC: Tuesday, Thursday, Sunday at 6:00 AM
+    - cron: "0 6 * * 2,4,0"
 
 jobs:
   build:
