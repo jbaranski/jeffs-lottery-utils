@@ -22,19 +22,11 @@ export class AppComponent {
   async ngOnInit(): Promise<void> {
     const megamillions_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions.json'));
     const powerball_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball.json'));
-    this.generatePowerball();
-  }
-
-  generatePowerball(): void {
     this.megamillions = Array.from({ length: 5 }, (_1, _2) => this.generateRandomNumber(70));
     this.megaplier = this.generateRandomNumber(25);
 
     this.powerball = Array.from({ length: 5 }, (_1, _2) => this.generateRandomNumber(69));
     this.powerup = this.generateRandomNumber(26);
-  }
-
-  generateMegaMillions(): void {
-
   }
 
   generateRandomNumber(max: number): number {
