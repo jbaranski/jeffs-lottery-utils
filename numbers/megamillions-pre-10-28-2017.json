@@ -1,4850 +1,9698 @@
 [
   {
     "date": "2/2/2010",
-    "white_balls": "6|7|26|27|49",
-    "yellow_ball": "9",
+    "white_balls": [
+      6,
+      7,
+      26,
+      27,
+      49
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "2/5/2010",
-    "white_balls": "10|20|45|51|53",
-    "yellow_ball": "41",
+    "white_balls": [
+      10,
+      20,
+      45,
+      51,
+      53
+    ],
+    "yellow_ball": 41,
     "megaplier": "4X"
   },
   {
     "date": "2/9/2010",
-    "white_balls": "2|17|20|26|48",
-    "yellow_ball": "12",
+    "white_balls": [
+      2,
+      17,
+      20,
+      26,
+      48
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "2/12/2010",
-    "white_balls": "14|16|17|33|47",
-    "yellow_ball": "23",
+    "white_balls": [
+      14,
+      16,
+      17,
+      33,
+      47
+    ],
+    "yellow_ball": 23,
     "megaplier": "4X"
   },
   {
     "date": "2/16/2010",
-    "white_balls": "11|12|21|29|45",
-    "yellow_ball": "5",
+    "white_balls": [
+      11,
+      12,
+      21,
+      29,
+      45
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "2/19/2010",
-    "white_balls": "1|22|39|42|46",
-    "yellow_ball": "36",
+    "white_balls": [
+      1,
+      22,
+      39,
+      42,
+      46
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "2/23/2010",
-    "white_balls": "4|16|36|40|53",
-    "yellow_ball": "18",
+    "white_balls": [
+      4,
+      16,
+      36,
+      40,
+      53
+    ],
+    "yellow_ball": 18,
     "megaplier": "4X"
   },
   {
     "date": "2/26/2010",
-    "white_balls": "4|14|29|54|56",
-    "yellow_ball": "40",
+    "white_balls": [
+      4,
+      14,
+      29,
+      54,
+      56
+    ],
+    "yellow_ball": 40,
     "megaplier": "3X"
   },
   {
     "date": "3/2/2010",
-    "white_balls": "9|12|47|48|56",
-    "yellow_ball": "25",
+    "white_balls": [
+      9,
+      12,
+      47,
+      48,
+      56
+    ],
+    "yellow_ball": 25,
     "megaplier": "3X"
   },
   {
     "date": "3/5/2010",
-    "white_balls": "11|31|34|44|52",
-    "yellow_ball": "32",
+    "white_balls": [
+      11,
+      31,
+      34,
+      44,
+      52
+    ],
+    "yellow_ball": 32,
     "megaplier": "4X"
   },
   {
     "date": "3/9/2010",
-    "white_balls": "14|16|18|19|29",
-    "yellow_ball": "16",
+    "white_balls": [
+      14,
+      16,
+      18,
+      19,
+      29
+    ],
+    "yellow_ball": 16,
     "megaplier": "2X"
   },
   {
     "date": "3/12/2010",
-    "white_balls": "2|15|25|48|53",
-    "yellow_ball": "41",
+    "white_balls": [
+      2,
+      15,
+      25,
+      48,
+      53
+    ],
+    "yellow_ball": 41,
     "megaplier": "3X"
   },
   {
     "date": "3/16/2010",
-    "white_balls": "3|22|48|52|56",
-    "yellow_ball": "13",
+    "white_balls": [
+      3,
+      22,
+      48,
+      52,
+      56
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "3/19/2010",
-    "white_balls": "10|31|45|50|54",
-    "yellow_ball": "25",
+    "white_balls": [
+      10,
+      31,
+      45,
+      50,
+      54
+    ],
+    "yellow_ball": 25,
     "megaplier": "4X"
   },
   {
     "date": "3/23/2010",
-    "white_balls": "3|25|28|29|40",
-    "yellow_ball": "13",
+    "white_balls": [
+      3,
+      25,
+      28,
+      29,
+      40
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "3/26/2010",
-    "white_balls": "23|41|46|47|52",
-    "yellow_ball": "22",
+    "white_balls": [
+      23,
+      41,
+      46,
+      47,
+      52
+    ],
+    "yellow_ball": 22,
     "megaplier": "4X"
   },
   {
     "date": "3/30/2010",
-    "white_balls": "1|11|24|38|44",
-    "yellow_ball": "41",
+    "white_balls": [
+      1,
+      11,
+      24,
+      38,
+      44
+    ],
+    "yellow_ball": 41,
     "megaplier": "3X"
   },
   {
     "date": "4/2/2010",
-    "white_balls": "2|17|22|30|31",
-    "yellow_ball": "19",
+    "white_balls": [
+      2,
+      17,
+      22,
+      30,
+      31
+    ],
+    "yellow_ball": 19,
     "megaplier": "4X"
   },
   {
     "date": "4/6/2010",
-    "white_balls": "16|43|44|52|56",
-    "yellow_ball": "26",
+    "white_balls": [
+      16,
+      43,
+      44,
+      52,
+      56
+    ],
+    "yellow_ball": 26,
     "megaplier": "4X"
   },
   {
     "date": "4/9/2010",
-    "white_balls": "15|18|39|48|53",
-    "yellow_ball": "3",
+    "white_balls": [
+      15,
+      18,
+      39,
+      48,
+      53
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "4/13/2010",
-    "white_balls": "3|12|27|39|47",
-    "yellow_ball": "32",
+    "white_balls": [
+      3,
+      12,
+      27,
+      39,
+      47
+    ],
+    "yellow_ball": 32,
     "megaplier": "4X"
   },
   {
     "date": "4/16/2010",
-    "white_balls": "10|16|31|48|50",
-    "yellow_ball": "44",
+    "white_balls": [
+      10,
+      16,
+      31,
+      48,
+      50
+    ],
+    "yellow_ball": 44,
     "megaplier": "3X"
   },
   {
     "date": "4/20/2010",
-    "white_balls": "5|8|10|34|42",
-    "yellow_ball": "25",
+    "white_balls": [
+      5,
+      8,
+      10,
+      34,
+      42
+    ],
+    "yellow_ball": 25,
     "megaplier": "4X"
   },
   {
     "date": "4/23/2010",
-    "white_balls": "19|26|28|37|52",
-    "yellow_ball": "18",
+    "white_balls": [
+      19,
+      26,
+      28,
+      37,
+      52
+    ],
+    "yellow_ball": 18,
     "megaplier": "4X"
   },
   {
     "date": "4/27/2010",
-    "white_balls": "23|37|41|50|55",
-    "yellow_ball": "6",
+    "white_balls": [
+      23,
+      37,
+      41,
+      50,
+      55
+    ],
+    "yellow_ball": 6,
     "megaplier": "2X"
   },
   {
     "date": "4/30/2010",
-    "white_balls": "14|20|41|47|53",
-    "yellow_ball": "40",
+    "white_balls": [
+      14,
+      20,
+      41,
+      47,
+      53
+    ],
+    "yellow_ball": 40,
     "megaplier": "4X"
   },
   {
     "date": "5/4/2010",
-    "white_balls": "9|21|31|36|43",
-    "yellow_ball": "8",
+    "white_balls": [
+      9,
+      21,
+      31,
+      36,
+      43
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "5/7/2010",
-    "white_balls": "2|7|20|34|50",
-    "yellow_ball": "40",
+    "white_balls": [
+      2,
+      7,
+      20,
+      34,
+      50
+    ],
+    "yellow_ball": 40,
     "megaplier": "3X"
   },
   {
     "date": "5/11/2010",
-    "white_balls": "26|33|43|46|54",
-    "yellow_ball": "9",
+    "white_balls": [
+      26,
+      33,
+      43,
+      46,
+      54
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "5/14/2010",
-    "white_balls": "20|21|40|47|56",
-    "yellow_ball": "12",
+    "white_balls": [
+      20,
+      21,
+      40,
+      47,
+      56
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "5/18/2010",
-    "white_balls": "11|13|19|37|40",
-    "yellow_ball": "26",
+    "white_balls": [
+      11,
+      13,
+      19,
+      37,
+      40
+    ],
+    "yellow_ball": 26,
     "megaplier": "4X"
   },
   {
     "date": "5/21/2010",
-    "white_balls": "15|20|23|26|30",
-    "yellow_ball": "17",
+    "white_balls": [
+      15,
+      20,
+      23,
+      26,
+      30
+    ],
+    "yellow_ball": 17,
     "megaplier": "3X"
   },
   {
     "date": "5/25/2010",
-    "white_balls": "5|14|17|19|24",
-    "yellow_ball": "25",
+    "white_balls": [
+      5,
+      14,
+      17,
+      19,
+      24
+    ],
+    "yellow_ball": 25,
     "megaplier": "4X"
   },
   {
     "date": "5/28/2010",
-    "white_balls": "3|11|20|29|39",
-    "yellow_ball": "26",
+    "white_balls": [
+      3,
+      11,
+      20,
+      29,
+      39
+    ],
+    "yellow_ball": 26,
     "megaplier": "4X"
   },
   {
     "date": "6/1/2010",
-    "white_balls": "12|27|44|45|51",
-    "yellow_ball": "30",
+    "white_balls": [
+      12,
+      27,
+      44,
+      45,
+      51
+    ],
+    "yellow_ball": 30,
     "megaplier": "2X"
   },
   {
     "date": "6/4/2010",
-    "white_balls": "12|13|15|17|50",
-    "yellow_ball": "23",
+    "white_balls": [
+      12,
+      13,
+      15,
+      17,
+      50
+    ],
+    "yellow_ball": 23,
     "megaplier": "4X"
   },
   {
     "date": "6/8/2010",
-    "white_balls": "12|18|28|48|54",
-    "yellow_ball": "6",
+    "white_balls": [
+      12,
+      18,
+      28,
+      48,
+      54
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "6/11/2010",
-    "white_balls": "6|13|33|34|42",
-    "yellow_ball": "25",
+    "white_balls": [
+      6,
+      13,
+      33,
+      34,
+      42
+    ],
+    "yellow_ball": 25,
     "megaplier": "3X"
   },
   {
     "date": "6/15/2010",
-    "white_balls": "4|12|13|21|27",
-    "yellow_ball": "46",
+    "white_balls": [
+      4,
+      12,
+      13,
+      21,
+      27
+    ],
+    "yellow_ball": 46,
     "megaplier": "4X"
   },
   {
     "date": "6/18/2010",
-    "white_balls": "11|36|37|41|55",
-    "yellow_ball": "7",
+    "white_balls": [
+      11,
+      36,
+      37,
+      41,
+      55
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "6/22/2010",
-    "white_balls": "12|17|21|23|30",
-    "yellow_ball": "24",
+    "white_balls": [
+      12,
+      17,
+      21,
+      23,
+      30
+    ],
+    "yellow_ball": 24,
     "megaplier": "4X"
   },
   {
     "date": "6/25/2010",
-    "white_balls": "1|2|13|19|27",
-    "yellow_ball": "21",
+    "white_balls": [
+      1,
+      2,
+      13,
+      19,
+      27
+    ],
+    "yellow_ball": 21,
     "megaplier": "4X"
   },
   {
     "date": "6/29/2010",
-    "white_balls": "3|4|15|27|37",
-    "yellow_ball": "35",
+    "white_balls": [
+      3,
+      4,
+      15,
+      27,
+      37
+    ],
+    "yellow_ball": 35,
     "megaplier": "3X"
   },
   {
     "date": "7/2/2010",
-    "white_balls": "1|10|12|32|36",
-    "yellow_ball": "25",
+    "white_balls": [
+      1,
+      10,
+      12,
+      32,
+      36
+    ],
+    "yellow_ball": 25,
     "megaplier": "4X"
   },
   {
     "date": "7/6/2010",
-    "white_balls": "8|18|45|47|50",
-    "yellow_ball": "36",
+    "white_balls": [
+      8,
+      18,
+      45,
+      47,
+      50
+    ],
+    "yellow_ball": 36,
     "megaplier": "2X"
   },
   {
     "date": "7/9/2010",
-    "white_balls": "1|31|33|34|50",
-    "yellow_ball": "41",
+    "white_balls": [
+      1,
+      31,
+      33,
+      34,
+      50
+    ],
+    "yellow_ball": 41,
     "megaplier": "4X"
   },
   {
     "date": "7/13/2010",
-    "white_balls": "7|11|14|15|34",
-    "yellow_ball": "14",
+    "white_balls": [
+      7,
+      11,
+      14,
+      15,
+      34
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "7/16/2010",
-    "white_balls": "2|15|18|20|39",
-    "yellow_ball": "34",
+    "white_balls": [
+      2,
+      15,
+      18,
+      20,
+      39
+    ],
+    "yellow_ball": 34,
     "megaplier": "3X"
   },
   {
     "date": "7/20/2010",
-    "white_balls": "12|18|28|36|43",
-    "yellow_ball": "19",
+    "white_balls": [
+      12,
+      18,
+      28,
+      36,
+      43
+    ],
+    "yellow_ball": 19,
     "megaplier": "3X"
   },
   {
     "date": "7/23/2010",
-    "white_balls": "16|19|39|44|49",
-    "yellow_ball": "26",
+    "white_balls": [
+      16,
+      19,
+      39,
+      44,
+      49
+    ],
+    "yellow_ball": 26,
     "megaplier": "2X"
   },
   {
     "date": "7/27/2010",
-    "white_balls": "2|7|10|16|29",
-    "yellow_ball": "8",
+    "white_balls": [
+      2,
+      7,
+      10,
+      16,
+      29
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "7/30/2010",
-    "white_balls": "11|30|40|48|52",
-    "yellow_ball": "42",
+    "white_balls": [
+      11,
+      30,
+      40,
+      48,
+      52
+    ],
+    "yellow_ball": 42,
     "megaplier": "4X"
   },
   {
     "date": "8/3/2010",
-    "white_balls": "4|13|20|22|56",
-    "yellow_ball": "32",
+    "white_balls": [
+      4,
+      13,
+      20,
+      22,
+      56
+    ],
+    "yellow_ball": 32,
     "megaplier": "2X"
   },
   {
     "date": "8/6/2010",
-    "white_balls": "7|13|30|33|54",
-    "yellow_ball": "30",
+    "white_balls": [
+      7,
+      13,
+      30,
+      33,
+      54
+    ],
+    "yellow_ball": 30,
     "megaplier": "3X"
   },
   {
     "date": "8/10/2010",
-    "white_balls": "2|14|26|50|56",
-    "yellow_ball": "12",
+    "white_balls": [
+      2,
+      14,
+      26,
+      50,
+      56
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "8/13/2010",
-    "white_balls": "6|17|24|43|55",
-    "yellow_ball": "36",
+    "white_balls": [
+      6,
+      17,
+      24,
+      43,
+      55
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "8/17/2010",
-    "white_balls": "11|19|40|43|44",
-    "yellow_ball": "33",
+    "white_balls": [
+      11,
+      19,
+      40,
+      43,
+      44
+    ],
+    "yellow_ball": 33,
     "megaplier": "4X"
   },
   {
     "date": "8/20/2010",
-    "white_balls": "4|13|20|29|48",
-    "yellow_ball": "36",
+    "white_balls": [
+      4,
+      13,
+      20,
+      29,
+      48
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "8/24/2010",
-    "white_balls": "4|23|24|28|32",
-    "yellow_ball": "31",
+    "white_balls": [
+      4,
+      23,
+      24,
+      28,
+      32
+    ],
+    "yellow_ball": 31,
     "megaplier": "3X"
   },
   {
     "date": "8/27/2010",
-    "white_balls": "4|10|26|32|41",
-    "yellow_ball": "31",
+    "white_balls": [
+      4,
+      10,
+      26,
+      32,
+      41
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "8/31/2010",
-    "white_balls": "10|20|29|47|48",
-    "yellow_ball": "38",
+    "white_balls": [
+      10,
+      20,
+      29,
+      47,
+      48
+    ],
+    "yellow_ball": 38,
     "megaplier": "3X"
   },
   {
     "date": "9/3/2010",
-    "white_balls": "10|13|20|28|36",
-    "yellow_ball": "9",
+    "white_balls": [
+      10,
+      13,
+      20,
+      28,
+      36
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "9/7/2010",
-    "white_balls": "8|18|22|24|38",
-    "yellow_ball": "23",
+    "white_balls": [
+      8,
+      18,
+      22,
+      24,
+      38
+    ],
+    "yellow_ball": 23,
     "megaplier": "4X"
   },
   {
     "date": "9/10/2010",
-    "white_balls": "11|12|17|21|23",
-    "yellow_ball": "20",
+    "white_balls": [
+      11,
+      12,
+      17,
+      21,
+      23
+    ],
+    "yellow_ball": 20,
     "megaplier": "3X"
   },
   {
     "date": "9/14/2010",
-    "white_balls": "6|14|50|55|56",
-    "yellow_ball": "1",
+    "white_balls": [
+      6,
+      14,
+      50,
+      55,
+      56
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "9/17/2010",
-    "white_balls": "3|4|14|18|27",
-    "yellow_ball": "13",
+    "white_balls": [
+      3,
+      4,
+      14,
+      18,
+      27
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "9/21/2010",
-    "white_balls": "3|20|43|47|52",
-    "yellow_ball": "26",
+    "white_balls": [
+      3,
+      20,
+      43,
+      47,
+      52
+    ],
+    "yellow_ball": 26,
     "megaplier": "4X"
   },
   {
     "date": "9/24/2010",
-    "white_balls": "2|28|38|42|55",
-    "yellow_ball": "25",
+    "white_balls": [
+      2,
+      28,
+      38,
+      42,
+      55
+    ],
+    "yellow_ball": 25,
     "megaplier": "4X"
   },
   {
     "date": "9/28/2010",
-    "white_balls": "2|10|13|36|38",
-    "yellow_ball": "18",
+    "white_balls": [
+      2,
+      10,
+      13,
+      36,
+      38
+    ],
+    "yellow_ball": 18,
     "megaplier": "3X"
   },
   {
     "date": "10/1/2010",
-    "white_balls": "3|8|21|28|52",
-    "yellow_ball": "43",
+    "white_balls": [
+      3,
+      8,
+      21,
+      28,
+      52
+    ],
+    "yellow_ball": 43,
     "megaplier": "4X"
   },
   {
     "date": "10/5/2010",
-    "white_balls": "10|19|24|37|44",
-    "yellow_ball": "27",
+    "white_balls": [
+      10,
+      19,
+      24,
+      37,
+      44
+    ],
+    "yellow_ball": 27,
     "megaplier": "4X"
   },
   {
     "date": "10/8/2010",
-    "white_balls": "24|29|37|48|50",
-    "yellow_ball": "19",
+    "white_balls": [
+      24,
+      29,
+      37,
+      48,
+      50
+    ],
+    "yellow_ball": 19,
     "megaplier": "4X"
   },
   {
     "date": "10/12/2010",
-    "white_balls": "10|31|36|37|43",
-    "yellow_ball": "15",
+    "white_balls": [
+      10,
+      31,
+      36,
+      37,
+      43
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "10/15/2010",
-    "white_balls": "9|10|13|31|50",
-    "yellow_ball": "10",
+    "white_balls": [
+      9,
+      10,
+      13,
+      31,
+      50
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "10/19/2010",
-    "white_balls": "2|9|14|37|42",
-    "yellow_ball": "41",
+    "white_balls": [
+      2,
+      9,
+      14,
+      37,
+      42
+    ],
+    "yellow_ball": 41,
     "megaplier": "4X"
   },
   {
     "date": "10/22/2010",
-    "white_balls": "2|7|18|32|53",
-    "yellow_ball": "18",
+    "white_balls": [
+      2,
+      7,
+      18,
+      32,
+      53
+    ],
+    "yellow_ball": 18,
     "megaplier": "4X"
   },
   {
     "date": "10/26/2010",
-    "white_balls": "15|21|30|31|32",
-    "yellow_ball": "26",
+    "white_balls": [
+      15,
+      21,
+      30,
+      31,
+      32
+    ],
+    "yellow_ball": 26,
     "megaplier": "4X"
   },
   {
     "date": "10/29/2010",
-    "white_balls": "4|19|26|28|39",
-    "yellow_ball": "14",
+    "white_balls": [
+      4,
+      19,
+      26,
+      28,
+      39
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "11/2/2010",
-    "white_balls": "1|3|12|16|54",
-    "yellow_ball": "46",
+    "white_balls": [
+      1,
+      3,
+      12,
+      16,
+      54
+    ],
+    "yellow_ball": 46,
     "megaplier": "2X"
   },
   {
     "date": "11/5/2010",
-    "white_balls": "19|25|34|46|53",
-    "yellow_ball": "15",
+    "white_balls": [
+      19,
+      25,
+      34,
+      46,
+      53
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "11/9/2010",
-    "white_balls": "8|26|28|33|53",
-    "yellow_ball": "11",
+    "white_balls": [
+      8,
+      26,
+      28,
+      33,
+      53
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "11/12/2010",
-    "white_balls": "9|26|28|35|38",
-    "yellow_ball": "10",
+    "white_balls": [
+      9,
+      26,
+      28,
+      35,
+      38
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "11/16/2010",
-    "white_balls": "1|26|27|39|46",
-    "yellow_ball": "21",
+    "white_balls": [
+      1,
+      26,
+      27,
+      39,
+      46
+    ],
+    "yellow_ball": 21,
     "megaplier": "3X"
   },
   {
     "date": "11/19/2010",
-    "white_balls": "7|14|31|51|54",
-    "yellow_ball": "35",
+    "white_balls": [
+      7,
+      14,
+      31,
+      51,
+      54
+    ],
+    "yellow_ball": 35,
     "megaplier": "2X"
   },
   {
     "date": "11/23/2010",
-    "white_balls": "2|6|12|34|35",
-    "yellow_ball": "33",
+    "white_balls": [
+      2,
+      6,
+      12,
+      34,
+      35
+    ],
+    "yellow_ball": 33,
     "megaplier": "4X"
   },
   {
     "date": "11/26/2010",
-    "white_balls": "5|9|34|43|47",
-    "yellow_ball": "8",
+    "white_balls": [
+      5,
+      9,
+      34,
+      43,
+      47
+    ],
+    "yellow_ball": 8,
     "megaplier": "2X"
   },
   {
     "date": "11/30/2010",
-    "white_balls": "11|16|19|47|53",
-    "yellow_ball": "2",
+    "white_balls": [
+      11,
+      16,
+      19,
+      47,
+      53
+    ],
+    "yellow_ball": 2,
     "megaplier": "4X"
   },
   {
     "date": "12/3/2010",
-    "white_balls": "6|11|12|18|56",
-    "yellow_ball": "12",
+    "white_balls": [
+      6,
+      11,
+      12,
+      18,
+      56
+    ],
+    "yellow_ball": 12,
     "megaplier": "3X"
   },
   {
     "date": "12/7/2010",
-    "white_balls": "4|38|45|53|54",
-    "yellow_ball": "9",
+    "white_balls": [
+      4,
+      38,
+      45,
+      53,
+      54
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "12/10/2010",
-    "white_balls": "23|27|33|44|46",
-    "yellow_ball": "36",
+    "white_balls": [
+      23,
+      27,
+      33,
+      44,
+      46
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "12/14/2010",
-    "white_balls": "18|22|25|31|38",
-    "yellow_ball": "29",
+    "white_balls": [
+      18,
+      22,
+      25,
+      31,
+      38
+    ],
+    "yellow_ball": 29,
     "megaplier": "3X"
   },
   {
     "date": "12/17/2010",
-    "white_balls": "11|20|26|46|53",
-    "yellow_ball": "12",
+    "white_balls": [
+      11,
+      20,
+      26,
+      46,
+      53
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "12/21/2010",
-    "white_balls": "8|11|12|31|32",
-    "yellow_ball": "29",
+    "white_balls": [
+      8,
+      11,
+      12,
+      31,
+      32
+    ],
+    "yellow_ball": 29,
     "megaplier": "4X"
   },
   {
     "date": "12/24/2010",
-    "white_balls": "15|16|27|40|52",
-    "yellow_ball": "16",
+    "white_balls": [
+      15,
+      16,
+      27,
+      40,
+      52
+    ],
+    "yellow_ball": 16,
     "megaplier": "4X"
   },
   {
     "date": "12/28/2010",
-    "white_balls": "6|18|36|40|49",
-    "yellow_ball": "7",
+    "white_balls": [
+      6,
+      18,
+      36,
+      40,
+      49
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "12/31/2010",
-    "white_balls": "10|12|13|35|56",
-    "yellow_ball": "9",
+    "white_balls": [
+      10,
+      12,
+      13,
+      35,
+      56
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "1/4/2011",
-    "white_balls": "4|8|15|25|47",
-    "yellow_ball": "42",
+    "white_balls": [
+      4,
+      8,
+      15,
+      25,
+      47
+    ],
+    "yellow_ball": 42,
     "megaplier": "4X"
   },
   {
     "date": "1/7/2011",
-    "white_balls": "4|22|42|46|53",
-    "yellow_ball": "20",
+    "white_balls": [
+      4,
+      22,
+      42,
+      46,
+      53
+    ],
+    "yellow_ball": 20,
     "megaplier": "2X"
   },
   {
     "date": "1/11/2011",
-    "white_balls": "1|4|11|16|45",
-    "yellow_ball": "37",
+    "white_balls": [
+      1,
+      4,
+      11,
+      16,
+      45
+    ],
+    "yellow_ball": 37,
     "megaplier": "4X"
   },
   {
     "date": "1/14/2011",
-    "white_balls": "2|15|17|33|35",
-    "yellow_ball": "8",
+    "white_balls": [
+      2,
+      15,
+      17,
+      33,
+      35
+    ],
+    "yellow_ball": 8,
     "megaplier": "2X"
   },
   {
     "date": "1/18/2011",
-    "white_balls": "4|27|29|38|45",
-    "yellow_ball": "5",
+    "white_balls": [
+      4,
+      27,
+      29,
+      38,
+      45
+    ],
+    "yellow_ball": 5,
     "megaplier": "4X"
   },
   {
     "date": "1/21/2011",
-    "white_balls": "5|9|21|35|38",
-    "yellow_ball": "20",
+    "white_balls": [
+      5,
+      9,
+      21,
+      35,
+      38
+    ],
+    "yellow_ball": 20,
     "megaplier": "4X"
   },
   {
     "date": "1/25/2011",
-    "white_balls": "5|8|31|46|50",
-    "yellow_ball": "4",
+    "white_balls": [
+      5,
+      8,
+      31,
+      46,
+      50
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "1/28/2011",
-    "white_balls": "14|33|48|49|50",
-    "yellow_ball": "18",
+    "white_balls": [
+      14,
+      33,
+      48,
+      49,
+      50
+    ],
+    "yellow_ball": 18,
     "megaplier": "4X"
   },
   {
     "date": "2/1/2011",
-    "white_balls": "16|22|23|26|35",
-    "yellow_ball": "31",
+    "white_balls": [
+      16,
+      22,
+      23,
+      26,
+      35
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "2/4/2011",
-    "white_balls": "6|20|29|48|55",
-    "yellow_ball": "6",
+    "white_balls": [
+      6,
+      20,
+      29,
+      48,
+      55
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "2/8/2011",
-    "white_balls": "25|35|36|47|48",
-    "yellow_ball": "18",
+    "white_balls": [
+      25,
+      35,
+      36,
+      47,
+      48
+    ],
+    "yellow_ball": 18,
     "megaplier": "2X"
   },
   {
     "date": "2/11/2011",
-    "white_balls": "8|9|17|32|34",
-    "yellow_ball": "13",
+    "white_balls": [
+      8,
+      9,
+      17,
+      32,
+      34
+    ],
+    "yellow_ball": 13,
     "megaplier": "2X"
   },
   {
     "date": "2/15/2011",
-    "white_balls": "17|18|24|35|39",
-    "yellow_ball": "18",
+    "white_balls": [
+      17,
+      18,
+      24,
+      35,
+      39
+    ],
+    "yellow_ball": 18,
     "megaplier": "4X"
   },
   {
     "date": "2/18/2011",
-    "white_balls": "5|6|7|30|45",
-    "yellow_ball": "42",
+    "white_balls": [
+      5,
+      6,
+      7,
+      30,
+      45
+    ],
+    "yellow_ball": 42,
     "megaplier": "3X"
   },
   {
     "date": "2/22/2011",
-    "white_balls": "15|22|23|48|55",
-    "yellow_ball": "31",
+    "white_balls": [
+      15,
+      22,
+      23,
+      48,
+      55
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "2/25/2011",
-    "white_balls": "4|5|17|19|50",
-    "yellow_ball": "7",
+    "white_balls": [
+      4,
+      5,
+      17,
+      19,
+      50
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "3/1/2011",
-    "white_balls": "1|12|19|20|47",
-    "yellow_ball": "25",
+    "white_balls": [
+      1,
+      12,
+      19,
+      20,
+      47
+    ],
+    "yellow_ball": 25,
     "megaplier": "3X"
   },
   {
     "date": "3/4/2011",
-    "white_balls": "8|10|15|23|41",
-    "yellow_ball": "7",
+    "white_balls": [
+      8,
+      10,
+      15,
+      23,
+      41
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "3/8/2011",
-    "white_balls": "3|17|19|41|55",
-    "yellow_ball": "24",
+    "white_balls": [
+      3,
+      17,
+      19,
+      41,
+      55
+    ],
+    "yellow_ball": 24,
     "megaplier": "4X"
   },
   {
     "date": "3/11/2011",
-    "white_balls": "14|19|21|42|45",
-    "yellow_ball": "6",
+    "white_balls": [
+      14,
+      19,
+      21,
+      42,
+      45
+    ],
+    "yellow_ball": 6,
     "megaplier": "2X"
   },
   {
     "date": "3/15/2011",
-    "white_balls": "10|11|12|28|43",
-    "yellow_ball": "45",
+    "white_balls": [
+      10,
+      11,
+      12,
+      28,
+      43
+    ],
+    "yellow_ball": 45,
     "megaplier": "4X"
   },
   {
     "date": "3/18/2011",
-    "white_balls": "14|33|34|54|56",
-    "yellow_ball": "37",
+    "white_balls": [
+      14,
+      33,
+      34,
+      54,
+      56
+    ],
+    "yellow_ball": 37,
     "megaplier": "4X"
   },
   {
     "date": "3/22/2011",
-    "white_balls": "1|14|35|50|53",
-    "yellow_ball": "43",
+    "white_balls": [
+      1,
+      14,
+      35,
+      50,
+      53
+    ],
+    "yellow_ball": 43,
     "megaplier": "4X"
   },
   {
     "date": "3/25/2011",
-    "white_balls": "22|24|31|52|54",
-    "yellow_ball": "4",
+    "white_balls": [
+      22,
+      24,
+      31,
+      52,
+      54
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "3/29/2011",
-    "white_balls": "6|15|23|34|38",
-    "yellow_ball": "43",
+    "white_balls": [
+      6,
+      15,
+      23,
+      34,
+      38
+    ],
+    "yellow_ball": 43,
     "megaplier": "4X"
   },
   {
     "date": "4/1/2011",
-    "white_balls": "13|14|35|36|53",
-    "yellow_ball": "19",
+    "white_balls": [
+      13,
+      14,
+      35,
+      36,
+      53
+    ],
+    "yellow_ball": 19,
     "megaplier": "3X"
   },
   {
     "date": "4/5/2011",
-    "white_balls": "1|19|20|31|36",
-    "yellow_ball": "9",
+    "white_balls": [
+      1,
+      19,
+      20,
+      31,
+      36
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "4/8/2011",
-    "white_balls": "6|40|45|50|56",
-    "yellow_ball": "11",
+    "white_balls": [
+      6,
+      40,
+      45,
+      50,
+      56
+    ],
+    "yellow_ball": 11,
     "megaplier": "3X"
   },
   {
     "date": "4/12/2011",
-    "white_balls": "10|23|39|41|45",
-    "yellow_ball": "15",
+    "white_balls": [
+      10,
+      23,
+      39,
+      41,
+      45
+    ],
+    "yellow_ball": 15,
     "megaplier": "2X"
   },
   {
     "date": "4/15/2011",
-    "white_balls": "22|23|33|39|48",
-    "yellow_ball": "29",
+    "white_balls": [
+      22,
+      23,
+      33,
+      39,
+      48
+    ],
+    "yellow_ball": 29,
     "megaplier": "3X"
   },
   {
     "date": "4/19/2011",
-    "white_balls": "20|24|32|45|51",
-    "yellow_ball": "43",
+    "white_balls": [
+      20,
+      24,
+      32,
+      45,
+      51
+    ],
+    "yellow_ball": 43,
     "megaplier": "4X"
   },
   {
     "date": "4/22/2011",
-    "white_balls": "3|18|46|51|53",
-    "yellow_ball": "17",
+    "white_balls": [
+      3,
+      18,
+      46,
+      51,
+      53
+    ],
+    "yellow_ball": 17,
     "megaplier": "3X"
   },
   {
     "date": "4/26/2011",
-    "white_balls": "19|29|32|38|55",
-    "yellow_ball": "15",
+    "white_balls": [
+      19,
+      29,
+      32,
+      38,
+      55
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "4/29/2011",
-    "white_balls": "9|10|11|33|51",
-    "yellow_ball": "29",
+    "white_balls": [
+      9,
+      10,
+      11,
+      33,
+      51
+    ],
+    "yellow_ball": 29,
     "megaplier": "4X"
   },
   {
     "date": "5/3/2011",
-    "white_balls": "1|16|29|36|50",
-    "yellow_ball": "16",
+    "white_balls": [
+      1,
+      16,
+      29,
+      36,
+      50
+    ],
+    "yellow_ball": 16,
     "megaplier": "2X"
   },
   {
     "date": "5/6/2011",
-    "white_balls": "6|18|26|37|41",
-    "yellow_ball": "9",
+    "white_balls": [
+      6,
+      18,
+      26,
+      37,
+      41
+    ],
+    "yellow_ball": 9,
     "megaplier": "3X"
   },
   {
     "date": "5/10/2011",
-    "white_balls": "11|16|34|40|51",
-    "yellow_ball": "34",
+    "white_balls": [
+      11,
+      16,
+      34,
+      40,
+      51
+    ],
+    "yellow_ball": 34,
     "megaplier": "4X"
   },
   {
     "date": "5/13/2011",
-    "white_balls": "3|33|39|47|53",
-    "yellow_ball": "9",
+    "white_balls": [
+      3,
+      33,
+      39,
+      47,
+      53
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "5/17/2011",
-    "white_balls": "1|2|17|25|48",
-    "yellow_ball": "45",
+    "white_balls": [
+      1,
+      2,
+      17,
+      25,
+      48
+    ],
+    "yellow_ball": 45,
     "megaplier": "4X"
   },
   {
     "date": "5/20/2011",
-    "white_balls": "10|17|19|45|48",
-    "yellow_ball": "30",
+    "white_balls": [
+      10,
+      17,
+      19,
+      45,
+      48
+    ],
+    "yellow_ball": 30,
     "megaplier": "4X"
   },
   {
     "date": "5/24/2011",
-    "white_balls": "9|12|21|42|43",
-    "yellow_ball": "42",
+    "white_balls": [
+      9,
+      12,
+      21,
+      42,
+      43
+    ],
+    "yellow_ball": 42,
     "megaplier": "3X"
   },
   {
     "date": "5/27/2011",
-    "white_balls": "5|7|14|28|56",
-    "yellow_ball": "10",
+    "white_balls": [
+      5,
+      7,
+      14,
+      28,
+      56
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "5/31/2011",
-    "white_balls": "28|30|31|37|55",
-    "yellow_ball": "13",
+    "white_balls": [
+      28,
+      30,
+      31,
+      37,
+      55
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "6/3/2011",
-    "white_balls": "20|23|41|49|53",
-    "yellow_ball": "31",
+    "white_balls": [
+      20,
+      23,
+      41,
+      49,
+      53
+    ],
+    "yellow_ball": 31,
     "megaplier": "3X"
   },
   {
     "date": "6/7/2011",
-    "white_balls": "29|32|35|47|52",
-    "yellow_ball": "13",
+    "white_balls": [
+      29,
+      32,
+      35,
+      47,
+      52
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "6/10/2011",
-    "white_balls": "18|21|27|37|38",
-    "yellow_ball": "7",
+    "white_balls": [
+      18,
+      21,
+      27,
+      37,
+      38
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "6/14/2011",
-    "white_balls": "9|10|20|51|53",
-    "yellow_ball": "24",
+    "white_balls": [
+      9,
+      10,
+      20,
+      51,
+      53
+    ],
+    "yellow_ball": 24,
     "megaplier": "4X"
   },
   {
     "date": "6/17/2011",
-    "white_balls": "12|29|46|47|51",
-    "yellow_ball": "24",
+    "white_balls": [
+      12,
+      29,
+      46,
+      47,
+      51
+    ],
+    "yellow_ball": 24,
     "megaplier": "4X"
   },
   {
     "date": "6/21/2011",
-    "white_balls": "11|24|25|31|46",
-    "yellow_ball": "17",
+    "white_balls": [
+      11,
+      24,
+      25,
+      31,
+      46
+    ],
+    "yellow_ball": 17,
     "megaplier": "3X"
   },
   {
     "date": "6/24/2011",
-    "white_balls": "10|14|40|49|51",
-    "yellow_ball": "4",
+    "white_balls": [
+      10,
+      14,
+      40,
+      49,
+      51
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "6/28/2011",
-    "white_balls": "12|17|27|47|48",
-    "yellow_ball": "33",
+    "white_balls": [
+      12,
+      17,
+      27,
+      47,
+      48
+    ],
+    "yellow_ball": 33,
     "megaplier": "4X"
   },
   {
     "date": "7/1/2011",
-    "white_balls": "12|17|30|35|47",
-    "yellow_ball": "26",
+    "white_balls": [
+      12,
+      17,
+      30,
+      35,
+      47
+    ],
+    "yellow_ball": 26,
     "megaplier": "4X"
   },
   {
     "date": "7/5/2011",
-    "white_balls": "1|10|13|18|46",
-    "yellow_ball": "19",
+    "white_balls": [
+      1,
+      10,
+      13,
+      18,
+      46
+    ],
+    "yellow_ball": 19,
     "megaplier": "2X"
   },
   {
     "date": "7/8/2011",
-    "white_balls": "1|2|22|37|50",
-    "yellow_ball": "45",
+    "white_balls": [
+      1,
+      2,
+      22,
+      37,
+      50
+    ],
+    "yellow_ball": 45,
     "megaplier": "3X"
   },
   {
     "date": "7/12/2011",
-    "white_balls": "3|9|11|44|49",
-    "yellow_ball": "9",
+    "white_balls": [
+      3,
+      9,
+      11,
+      44,
+      49
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "7/15/2011",
-    "white_balls": "16|29|30|46|56",
-    "yellow_ball": "6",
+    "white_balls": [
+      16,
+      29,
+      30,
+      46,
+      56
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "7/19/2011",
-    "white_balls": "2|9|10|16|35",
-    "yellow_ball": "40",
+    "white_balls": [
+      2,
+      9,
+      10,
+      16,
+      35
+    ],
+    "yellow_ball": 40,
     "megaplier": "4X"
   },
   {
     "date": "7/22/2011",
-    "white_balls": "23|31|32|39|56",
-    "yellow_ball": "38",
+    "white_balls": [
+      23,
+      31,
+      32,
+      39,
+      56
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "7/26/2011",
-    "white_balls": "20|25|35|52|55",
-    "yellow_ball": "10",
+    "white_balls": [
+      20,
+      25,
+      35,
+      52,
+      55
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "7/29/2011",
-    "white_balls": "8|10|22|47|48",
-    "yellow_ball": "35",
+    "white_balls": [
+      8,
+      10,
+      22,
+      47,
+      48
+    ],
+    "yellow_ball": 35,
     "megaplier": "4X"
   },
   {
     "date": "8/2/2011",
-    "white_balls": "14|17|19|20|32",
-    "yellow_ball": "28",
+    "white_balls": [
+      14,
+      17,
+      19,
+      20,
+      32
+    ],
+    "yellow_ball": 28,
     "megaplier": "4X"
   },
   {
     "date": "8/5/2011",
-    "white_balls": "6|24|28|33|42",
-    "yellow_ball": "19",
+    "white_balls": [
+      6,
+      24,
+      28,
+      33,
+      42
+    ],
+    "yellow_ball": 19,
     "megaplier": "3X"
   },
   {
     "date": "8/9/2011",
-    "white_balls": "11|19|39|45|54",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      19,
+      39,
+      45,
+      54
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "8/12/2011",
-    "white_balls": "9|43|51|54|55",
-    "yellow_ball": "13",
+    "white_balls": [
+      9,
+      43,
+      51,
+      54,
+      55
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "8/16/2011",
-    "white_balls": "4|38|41|42|43",
-    "yellow_ball": "44",
+    "white_balls": [
+      4,
+      38,
+      41,
+      42,
+      43
+    ],
+    "yellow_ball": 44,
     "megaplier": "4X"
   },
   {
     "date": "8/19/2011",
-    "white_balls": "5|15|53|54|56",
-    "yellow_ball": "22",
+    "white_balls": [
+      5,
+      15,
+      53,
+      54,
+      56
+    ],
+    "yellow_ball": 22,
     "megaplier": "2X"
   },
   {
     "date": "8/23/2011",
-    "white_balls": "11|21|44|48|49",
-    "yellow_ball": "23",
+    "white_balls": [
+      11,
+      21,
+      44,
+      48,
+      49
+    ],
+    "yellow_ball": 23,
     "megaplier": "3X"
   },
   {
     "date": "8/26/2011",
-    "white_balls": "2|3|27|30|47",
-    "yellow_ball": "36",
+    "white_balls": [
+      2,
+      3,
+      27,
+      30,
+      47
+    ],
+    "yellow_ball": 36,
     "megaplier": "3X"
   },
   {
     "date": "8/30/2011",
-    "white_balls": "2|22|25|28|50",
-    "yellow_ball": "18",
+    "white_balls": [
+      2,
+      22,
+      25,
+      28,
+      50
+    ],
+    "yellow_ball": 18,
     "megaplier": "4X"
   },
   {
     "date": "9/2/2011",
-    "white_balls": "25|44|48|49|55",
-    "yellow_ball": "20",
+    "white_balls": [
+      25,
+      44,
+      48,
+      49,
+      55
+    ],
+    "yellow_ball": 20,
     "megaplier": "3X"
   },
   {
     "date": "9/6/2011",
-    "white_balls": "1|36|38|42|49",
-    "yellow_ball": "19",
+    "white_balls": [
+      1,
+      36,
+      38,
+      42,
+      49
+    ],
+    "yellow_ball": 19,
     "megaplier": "4X"
   },
   {
     "date": "9/9/2011",
-    "white_balls": "7|12|19|23|31",
-    "yellow_ball": "45",
+    "white_balls": [
+      7,
+      12,
+      19,
+      23,
+      31
+    ],
+    "yellow_ball": 45,
     "megaplier": "4X"
   },
   {
     "date": "9/13/2011",
-    "white_balls": "22|31|43|48|56",
-    "yellow_ball": "45",
+    "white_balls": [
+      22,
+      31,
+      43,
+      48,
+      56
+    ],
+    "yellow_ball": 45,
     "megaplier": "4X"
   },
   {
     "date": "9/16/2011",
-    "white_balls": "6|23|41|45|56",
-    "yellow_ball": "24",
+    "white_balls": [
+      6,
+      23,
+      41,
+      45,
+      56
+    ],
+    "yellow_ball": 24,
     "megaplier": "4X"
   },
   {
     "date": "9/20/2011",
-    "white_balls": "6|29|38|50|51",
-    "yellow_ball": "39",
+    "white_balls": [
+      6,
+      29,
+      38,
+      50,
+      51
+    ],
+    "yellow_ball": 39,
     "megaplier": "4X"
   },
   {
     "date": "9/23/2011",
-    "white_balls": "21|27|32|40|52",
-    "yellow_ball": "36",
+    "white_balls": [
+      21,
+      27,
+      32,
+      40,
+      52
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "9/27/2011",
-    "white_balls": "2|20|28|36|45",
-    "yellow_ball": "37",
+    "white_balls": [
+      2,
+      20,
+      28,
+      36,
+      45
+    ],
+    "yellow_ball": 37,
     "megaplier": "4X"
   },
   {
     "date": "9/30/2011",
-    "white_balls": "3|19|21|44|45",
-    "yellow_ball": "29",
+    "white_balls": [
+      3,
+      19,
+      21,
+      44,
+      45
+    ],
+    "yellow_ball": 29,
     "megaplier": "4X"
   },
   {
     "date": "10/4/2011",
-    "white_balls": "3|26|40|45|52",
-    "yellow_ball": "11",
+    "white_balls": [
+      3,
+      26,
+      40,
+      45,
+      52
+    ],
+    "yellow_ball": 11,
     "megaplier": "3X"
   },
   {
     "date": "10/7/2011",
-    "white_balls": "5|15|19|23|38",
-    "yellow_ball": "19",
+    "white_balls": [
+      5,
+      15,
+      19,
+      23,
+      38
+    ],
+    "yellow_ball": 19,
     "megaplier": "4X"
   },
   {
     "date": "10/11/2011",
-    "white_balls": "25|34|38|44|56",
-    "yellow_ball": "27",
+    "white_balls": [
+      25,
+      34,
+      38,
+      44,
+      56
+    ],
+    "yellow_ball": 27,
     "megaplier": "4X"
   },
   {
     "date": "10/14/2011",
-    "white_balls": "13|35|42|45|54",
-    "yellow_ball": "26",
+    "white_balls": [
+      13,
+      35,
+      42,
+      45,
+      54
+    ],
+    "yellow_ball": 26,
     "megaplier": "4X"
   },
   {
     "date": "10/18/2011",
-    "white_balls": "24|25|45|47|53",
-    "yellow_ball": "42",
+    "white_balls": [
+      24,
+      25,
+      45,
+      47,
+      53
+    ],
+    "yellow_ball": 42,
     "megaplier": "2X"
   },
   {
     "date": "10/21/2011",
-    "white_balls": "6|21|35|37|38",
-    "yellow_ball": "17",
+    "white_balls": [
+      6,
+      21,
+      35,
+      37,
+      38
+    ],
+    "yellow_ball": 17,
     "megaplier": "3X"
   },
   {
     "date": "10/25/2011",
-    "white_balls": "13|33|40|44|46",
-    "yellow_ball": "8",
+    "white_balls": [
+      13,
+      33,
+      40,
+      44,
+      46
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "10/28/2011",
-    "white_balls": "13|31|49|52|56",
-    "yellow_ball": "41",
+    "white_balls": [
+      13,
+      31,
+      49,
+      52,
+      56
+    ],
+    "yellow_ball": 41,
     "megaplier": "4X"
   },
   {
     "date": "11/1/2011",
-    "white_balls": "27|31|39|40|46",
-    "yellow_ball": "36",
+    "white_balls": [
+      27,
+      31,
+      39,
+      40,
+      46
+    ],
+    "yellow_ball": 36,
     "megaplier": "3X"
   },
   {
     "date": "11/4/2011",
-    "white_balls": "26|30|32|33|44",
-    "yellow_ball": "1",
+    "white_balls": [
+      26,
+      30,
+      32,
+      33,
+      44
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "11/8/2011",
-    "white_balls": "5|31|45|47|54",
-    "yellow_ball": "4",
+    "white_balls": [
+      5,
+      31,
+      45,
+      47,
+      54
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "11/11/2011",
-    "white_balls": "2|16|22|29|50",
-    "yellow_ball": "27",
+    "white_balls": [
+      2,
+      16,
+      22,
+      29,
+      50
+    ],
+    "yellow_ball": 27,
     "megaplier": "4X"
   },
   {
     "date": "11/15/2011",
-    "white_balls": "3|6|24|30|33",
-    "yellow_ball": "21",
+    "white_balls": [
+      3,
+      6,
+      24,
+      30,
+      33
+    ],
+    "yellow_ball": 21,
     "megaplier": "4X"
   },
   {
     "date": "11/18/2011",
-    "white_balls": "4|13|33|39|55",
-    "yellow_ball": "3",
+    "white_balls": [
+      4,
+      13,
+      33,
+      39,
+      55
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "11/22/2011",
-    "white_balls": "4|16|23|33|48",
-    "yellow_ball": "38",
+    "white_balls": [
+      4,
+      16,
+      23,
+      33,
+      48
+    ],
+    "yellow_ball": 38,
     "megaplier": "2X"
   },
   {
     "date": "11/25/2011",
-    "white_balls": "22|28|42|49|54",
-    "yellow_ball": "43",
+    "white_balls": [
+      22,
+      28,
+      42,
+      49,
+      54
+    ],
+    "yellow_ball": 43,
     "megaplier": "3X"
   },
   {
     "date": "11/29/2011",
-    "white_balls": "17|29|43|48|52",
-    "yellow_ball": "36",
+    "white_balls": [
+      17,
+      29,
+      43,
+      48,
+      52
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "12/2/2011",
-    "white_balls": "24|30|48|51|56",
-    "yellow_ball": "45",
+    "white_balls": [
+      24,
+      30,
+      48,
+      51,
+      56
+    ],
+    "yellow_ball": 45,
     "megaplier": "4X"
   },
   {
     "date": "12/6/2011",
-    "white_balls": "7|21|29|35|49",
-    "yellow_ball": "39",
+    "white_balls": [
+      7,
+      21,
+      29,
+      35,
+      49
+    ],
+    "yellow_ball": 39,
     "megaplier": "4X"
   },
   {
     "date": "12/9/2011",
-    "white_balls": "4|12|29|49|51",
-    "yellow_ball": "44",
+    "white_balls": [
+      4,
+      12,
+      29,
+      49,
+      51
+    ],
+    "yellow_ball": 44,
     "megaplier": "4X"
   },
   {
     "date": "12/13/2011",
-    "white_balls": "5|6|22|26|41",
-    "yellow_ball": "6",
+    "white_balls": [
+      5,
+      6,
+      22,
+      26,
+      41
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "12/16/2011",
-    "white_balls": "2|4|26|36|39",
-    "yellow_ball": "27",
+    "white_balls": [
+      2,
+      4,
+      26,
+      36,
+      39
+    ],
+    "yellow_ball": 27,
     "megaplier": "3X"
   },
   {
     "date": "12/20/2011",
-    "white_balls": "20|24|27|45|51",
-    "yellow_ball": "31",
+    "white_balls": [
+      20,
+      24,
+      27,
+      45,
+      51
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "12/23/2011",
-    "white_balls": "3|5|8|18|29",
-    "yellow_ball": "14",
+    "white_balls": [
+      3,
+      5,
+      8,
+      18,
+      29
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "12/27/2011",
-    "white_balls": "23|32|33|39|43",
-    "yellow_ball": "8",
+    "white_balls": [
+      23,
+      32,
+      33,
+      39,
+      43
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "12/30/2011",
-    "white_balls": "4|24|45|46|52",
-    "yellow_ball": "1",
+    "white_balls": [
+      4,
+      24,
+      45,
+      46,
+      52
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "1/3/2012",
-    "white_balls": "2|3|15|22|36",
-    "yellow_ball": "23",
+    "white_balls": [
+      2,
+      3,
+      15,
+      22,
+      36
+    ],
+    "yellow_ball": 23,
     "megaplier": "2X"
   },
   {
     "date": "1/6/2012",
-    "white_balls": "9|17|28|34|48",
-    "yellow_ball": "46",
+    "white_balls": [
+      9,
+      17,
+      28,
+      34,
+      48
+    ],
+    "yellow_ball": 46,
     "megaplier": "2X"
   },
   {
     "date": "1/10/2012",
-    "white_balls": "4|10|16|38|48",
-    "yellow_ball": "34",
+    "white_balls": [
+      4,
+      10,
+      16,
+      38,
+      48
+    ],
+    "yellow_ball": 34,
     "megaplier": "3X"
   },
   {
     "date": "1/13/2012",
-    "white_balls": "10|27|28|37|51",
-    "yellow_ball": "19",
+    "white_balls": [
+      10,
+      27,
+      28,
+      37,
+      51
+    ],
+    "yellow_ball": 19,
     "megaplier": "3X"
   },
   {
     "date": "1/17/2012",
-    "white_balls": "3|15|31|36|53",
-    "yellow_ball": "27",
+    "white_balls": [
+      3,
+      15,
+      31,
+      36,
+      53
+    ],
+    "yellow_ball": 27,
     "megaplier": "2X"
   },
   {
     "date": "1/20/2012",
-    "white_balls": "1|9|28|38|47",
-    "yellow_ball": "8",
+    "white_balls": [
+      1,
+      9,
+      28,
+      38,
+      47
+    ],
+    "yellow_ball": 8,
     "megaplier": "2X"
   },
   {
     "date": "1/24/2012",
-    "white_balls": "10|22|24|36|49",
-    "yellow_ball": "33",
+    "white_balls": [
+      10,
+      22,
+      24,
+      36,
+      49
+    ],
+    "yellow_ball": 33,
     "megaplier": "4X"
   },
   {
     "date": "1/27/2012",
-    "white_balls": "3|5|30|36|48",
-    "yellow_ball": "23",
+    "white_balls": [
+      3,
+      5,
+      30,
+      36,
+      48
+    ],
+    "yellow_ball": 23,
     "megaplier": "4X"
   },
   {
     "date": "1/31/2012",
-    "white_balls": "9|17|18|28|43",
-    "yellow_ball": "9",
+    "white_balls": [
+      9,
+      17,
+      18,
+      28,
+      43
+    ],
+    "yellow_ball": 9,
     "megaplier": "3X"
   },
   {
     "date": "2/3/2012",
-    "white_balls": "7|19|21|49|53",
-    "yellow_ball": "35",
+    "white_balls": [
+      7,
+      19,
+      21,
+      49,
+      53
+    ],
+    "yellow_ball": 35,
     "megaplier": "4X"
   },
   {
     "date": "2/7/2012",
-    "white_balls": "17|23|30|37|45",
-    "yellow_ball": "4",
+    "white_balls": [
+      17,
+      23,
+      30,
+      37,
+      45
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "2/10/2012",
-    "white_balls": "3|4|18|29|50",
-    "yellow_ball": "20",
+    "white_balls": [
+      3,
+      4,
+      18,
+      29,
+      50
+    ],
+    "yellow_ball": 20,
     "megaplier": "4X"
   },
   {
     "date": "2/14/2012",
-    "white_balls": "3|5|10|26|27",
-    "yellow_ball": "27",
+    "white_balls": [
+      3,
+      5,
+      10,
+      26,
+      27
+    ],
+    "yellow_ball": 27,
     "megaplier": "2X"
   },
   {
     "date": "2/17/2012",
-    "white_balls": "16|25|28|32|40",
-    "yellow_ball": "3",
+    "white_balls": [
+      16,
+      25,
+      28,
+      32,
+      40
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "2/21/2012",
-    "white_balls": "9|30|39|42|47",
-    "yellow_ball": "37",
+    "white_balls": [
+      9,
+      30,
+      39,
+      42,
+      47
+    ],
+    "yellow_ball": 37,
     "megaplier": "3X"
   },
   {
     "date": "2/24/2012",
-    "white_balls": "1|16|18|25|27",
-    "yellow_ball": "3",
+    "white_balls": [
+      1,
+      16,
+      18,
+      25,
+      27
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "2/28/2012",
-    "white_balls": "6|15|29|39|51",
-    "yellow_ball": "36",
+    "white_balls": [
+      6,
+      15,
+      29,
+      39,
+      51
+    ],
+    "yellow_ball": 36,
     "megaplier": "3X"
   },
   {
     "date": "3/2/2012",
-    "white_balls": "16|29|48|52|54",
-    "yellow_ball": "5",
+    "white_balls": [
+      16,
+      29,
+      48,
+      52,
+      54
+    ],
+    "yellow_ball": 5,
     "megaplier": "2X"
   },
   {
     "date": "3/6/2012",
-    "white_balls": "20|24|31|33|36",
-    "yellow_ball": "44",
+    "white_balls": [
+      20,
+      24,
+      31,
+      33,
+      36
+    ],
+    "yellow_ball": 44,
     "megaplier": "4X"
   },
   {
     "date": "3/9/2012",
-    "white_balls": "9|10|27|36|42",
-    "yellow_ball": "11",
+    "white_balls": [
+      9,
+      10,
+      27,
+      36,
+      42
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "3/13/2012",
-    "white_balls": "2|8|30|36|48",
-    "yellow_ball": "31",
+    "white_balls": [
+      2,
+      8,
+      30,
+      36,
+      48
+    ],
+    "yellow_ball": 31,
     "megaplier": "3X"
   },
   {
     "date": "3/16/2012",
-    "white_balls": "28|29|43|51|53",
-    "yellow_ball": "7",
+    "white_balls": [
+      28,
+      29,
+      43,
+      51,
+      53
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "3/20/2012",
-    "white_balls": "1|4|6|11|14",
-    "yellow_ball": "30",
+    "white_balls": [
+      1,
+      4,
+      6,
+      11,
+      14
+    ],
+    "yellow_ball": 30,
     "megaplier": "4X"
   },
   {
     "date": "3/23/2012",
-    "white_balls": "6|17|19|20|21",
-    "yellow_ball": "20",
+    "white_balls": [
+      6,
+      17,
+      19,
+      20,
+      21
+    ],
+    "yellow_ball": 20,
     "megaplier": "4X"
   },
   {
     "date": "3/27/2012",
-    "white_balls": "9|19|34|44|51",
-    "yellow_ball": "24",
+    "white_balls": [
+      9,
+      19,
+      34,
+      44,
+      51
+    ],
+    "yellow_ball": 24,
     "megaplier": "3X"
   },
   {
     "date": "3/30/2012",
-    "white_balls": "2|4|23|38|46",
-    "yellow_ball": "23",
+    "white_balls": [
+      2,
+      4,
+      23,
+      38,
+      46
+    ],
+    "yellow_ball": 23,
     "megaplier": "3X"
   },
   {
     "date": "4/3/2012",
-    "white_balls": "11|35|38|41|52",
-    "yellow_ball": "40",
+    "white_balls": [
+      11,
+      35,
+      38,
+      41,
+      52
+    ],
+    "yellow_ball": 40,
     "megaplier": "4X"
   },
   {
     "date": "4/6/2012",
-    "white_balls": "2|19|20|24|33",
-    "yellow_ball": "39",
+    "white_balls": [
+      2,
+      19,
+      20,
+      24,
+      33
+    ],
+    "yellow_ball": 39,
     "megaplier": "4X"
   },
   {
     "date": "4/10/2012",
-    "white_balls": "2|6|12|31|48",
-    "yellow_ball": "25",
+    "white_balls": [
+      2,
+      6,
+      12,
+      31,
+      48
+    ],
+    "yellow_ball": 25,
     "megaplier": "4X"
   },
   {
     "date": "4/13/2012",
-    "white_balls": "9|14|17|36|42",
-    "yellow_ball": "33",
+    "white_balls": [
+      9,
+      14,
+      17,
+      36,
+      42
+    ],
+    "yellow_ball": 33,
     "megaplier": "4X"
   },
   {
     "date": "4/17/2012",
-    "white_balls": "1|16|24|32|48",
-    "yellow_ball": "2",
+    "white_balls": [
+      1,
+      16,
+      24,
+      32,
+      48
+    ],
+    "yellow_ball": 2,
     "megaplier": "4X"
   },
   {
     "date": "4/20/2012",
-    "white_balls": "14|23|26|33|35",
-    "yellow_ball": "40",
+    "white_balls": [
+      14,
+      23,
+      26,
+      33,
+      35
+    ],
+    "yellow_ball": 40,
     "megaplier": "3X"
   },
   {
     "date": "4/24/2012",
-    "white_balls": "3|9|15|37|38",
-    "yellow_ball": "39",
+    "white_balls": [
+      3,
+      9,
+      15,
+      37,
+      38
+    ],
+    "yellow_ball": 39,
     "megaplier": "4X"
   },
   {
     "date": "4/27/2012",
-    "white_balls": "2|5|45|46|47",
-    "yellow_ball": "37",
+    "white_balls": [
+      2,
+      5,
+      45,
+      46,
+      47
+    ],
+    "yellow_ball": 37,
     "megaplier": "4X"
   },
   {
     "date": "5/1/2012",
-    "white_balls": "24|27|31|45|52",
-    "yellow_ball": "38",
+    "white_balls": [
+      24,
+      27,
+      31,
+      45,
+      52
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "5/4/2012",
-    "white_balls": "4|11|21|42|53",
-    "yellow_ball": "38",
+    "white_balls": [
+      4,
+      11,
+      21,
+      42,
+      53
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "5/8/2012",
-    "white_balls": "2|6|8|18|51",
-    "yellow_ball": "19",
+    "white_balls": [
+      2,
+      6,
+      8,
+      18,
+      51
+    ],
+    "yellow_ball": 19,
     "megaplier": "3X"
   },
   {
     "date": "5/11/2012",
-    "white_balls": "3|15|29|35|54",
-    "yellow_ball": "8",
+    "white_balls": [
+      3,
+      15,
+      29,
+      35,
+      54
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "5/15/2012",
-    "white_balls": "10|11|12|14|24",
-    "yellow_ball": "6",
+    "white_balls": [
+      10,
+      11,
+      12,
+      14,
+      24
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "5/18/2012",
-    "white_balls": "3|11|22|34|49",
-    "yellow_ball": "1",
+    "white_balls": [
+      3,
+      11,
+      22,
+      34,
+      49
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "5/22/2012",
-    "white_balls": "10|14|35|43|52",
-    "yellow_ball": "16",
+    "white_balls": [
+      10,
+      14,
+      35,
+      43,
+      52
+    ],
+    "yellow_ball": 16,
     "megaplier": "2X"
   },
   {
     "date": "5/25/2012",
-    "white_balls": "9|15|21|40|54",
-    "yellow_ball": "11",
+    "white_balls": [
+      9,
+      15,
+      21,
+      40,
+      54
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "5/29/2012",
-    "white_balls": "2|14|29|53|55",
-    "yellow_ball": "31",
+    "white_balls": [
+      2,
+      14,
+      29,
+      53,
+      55
+    ],
+    "yellow_ball": 31,
     "megaplier": "3X"
   },
   {
     "date": "6/1/2012",
-    "white_balls": "2|27|38|46|52",
-    "yellow_ball": "45",
+    "white_balls": [
+      2,
+      27,
+      38,
+      46,
+      52
+    ],
+    "yellow_ball": 45,
     "megaplier": "3X"
   },
   {
     "date": "6/5/2012",
-    "white_balls": "37|39|42|53|55",
-    "yellow_ball": "22",
+    "white_balls": [
+      37,
+      39,
+      42,
+      53,
+      55
+    ],
+    "yellow_ball": 22,
     "megaplier": "3X"
   },
   {
     "date": "6/8/2012",
-    "white_balls": "4|9|34|40|48",
-    "yellow_ball": "25",
+    "white_balls": [
+      4,
+      9,
+      34,
+      40,
+      48
+    ],
+    "yellow_ball": 25,
     "megaplier": "3X"
   },
   {
     "date": "6/12/2012",
-    "white_balls": "2|9|17|34|50",
-    "yellow_ball": "45",
+    "white_balls": [
+      2,
+      9,
+      17,
+      34,
+      50
+    ],
+    "yellow_ball": 45,
     "megaplier": "4X"
   },
   {
     "date": "6/15/2012",
-    "white_balls": "8|12|18|30|40",
-    "yellow_ball": "4",
+    "white_balls": [
+      8,
+      12,
+      18,
+      30,
+      40
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "6/19/2012",
-    "white_balls": "11|21|27|30|53",
-    "yellow_ball": "11",
+    "white_balls": [
+      11,
+      21,
+      27,
+      30,
+      53
+    ],
+    "yellow_ball": 11,
     "megaplier": "2X"
   },
   {
     "date": "6/22/2012",
-    "white_balls": "10|16|19|32|36",
-    "yellow_ball": "13",
+    "white_balls": [
+      10,
+      16,
+      19,
+      32,
+      36
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "6/26/2012",
-    "white_balls": "3|16|23|35|36",
-    "yellow_ball": "20",
+    "white_balls": [
+      3,
+      16,
+      23,
+      35,
+      36
+    ],
+    "yellow_ball": 20,
     "megaplier": "4X"
   },
   {
     "date": "6/29/2012",
-    "white_balls": "28|34|39|45|53",
-    "yellow_ball": "34",
+    "white_balls": [
+      28,
+      34,
+      39,
+      45,
+      53
+    ],
+    "yellow_ball": 34,
     "megaplier": "4X"
   },
   {
     "date": "7/3/2012",
-    "white_balls": "3|4|24|36|52",
-    "yellow_ball": "45",
+    "white_balls": [
+      3,
+      4,
+      24,
+      36,
+      52
+    ],
+    "yellow_ball": 45,
     "megaplier": "4X"
   },
   {
     "date": "7/6/2012",
-    "white_balls": "20|23|28|35|39",
-    "yellow_ball": "21",
+    "white_balls": [
+      20,
+      23,
+      28,
+      35,
+      39
+    ],
+    "yellow_ball": 21,
     "megaplier": "3X"
   },
   {
     "date": "7/10/2012",
-    "white_balls": "3|11|19|23|36",
-    "yellow_ball": "21",
+    "white_balls": [
+      3,
+      11,
+      19,
+      23,
+      36
+    ],
+    "yellow_ball": 21,
     "megaplier": "4X"
   },
   {
     "date": "7/13/2012",
-    "white_balls": "6|7|13|24|46",
-    "yellow_ball": "34",
+    "white_balls": [
+      6,
+      7,
+      13,
+      24,
+      46
+    ],
+    "yellow_ball": 34,
     "megaplier": "2X"
   },
   {
     "date": "7/17/2012",
-    "white_balls": "1|13|21|49|55",
-    "yellow_ball": "17",
+    "white_balls": [
+      1,
+      13,
+      21,
+      49,
+      55
+    ],
+    "yellow_ball": 17,
     "megaplier": "4X"
   },
   {
     "date": "7/20/2012",
-    "white_balls": "2|44|48|50|52",
-    "yellow_ball": "3",
+    "white_balls": [
+      2,
+      44,
+      48,
+      50,
+      52
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "7/24/2012",
-    "white_balls": "5|9|38|46|51",
-    "yellow_ball": "5",
+    "white_balls": [
+      5,
+      9,
+      38,
+      46,
+      51
+    ],
+    "yellow_ball": 5,
     "megaplier": "4X"
   },
   {
     "date": "7/27/2012",
-    "white_balls": "2|3|4|8|43",
-    "yellow_ball": "26",
+    "white_balls": [
+      2,
+      3,
+      4,
+      8,
+      43
+    ],
+    "yellow_ball": 26,
     "megaplier": "3X"
   },
   {
     "date": "7/31/2012",
-    "white_balls": "5|18|21|29|41",
-    "yellow_ball": "37",
+    "white_balls": [
+      5,
+      18,
+      21,
+      29,
+      41
+    ],
+    "yellow_ball": 37,
     "megaplier": "3X"
   },
   {
     "date": "8/3/2012",
-    "white_balls": "2|10|13|38|46",
-    "yellow_ball": "2",
+    "white_balls": [
+      2,
+      10,
+      13,
+      38,
+      46
+    ],
+    "yellow_ball": 2,
     "megaplier": "3X"
   },
   {
     "date": "8/7/2012",
-    "white_balls": "30|32|33|42|48",
-    "yellow_ball": "7",
+    "white_balls": [
+      30,
+      32,
+      33,
+      42,
+      48
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "8/10/2012",
-    "white_balls": "10|18|36|38|44",
-    "yellow_ball": "8",
+    "white_balls": [
+      10,
+      18,
+      36,
+      38,
+      44
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "8/14/2012",
-    "white_balls": "15|23|34|39|55",
-    "yellow_ball": "32",
+    "white_balls": [
+      15,
+      23,
+      34,
+      39,
+      55
+    ],
+    "yellow_ball": 32,
     "megaplier": "4X"
   },
   {
     "date": "8/17/2012",
-    "white_balls": "8|20|24|35|56",
-    "yellow_ball": "24",
+    "white_balls": [
+      8,
+      20,
+      24,
+      35,
+      56
+    ],
+    "yellow_ball": 24,
     "megaplier": "3X"
   },
   {
     "date": "8/21/2012",
-    "white_balls": "5|13|20|23|33",
-    "yellow_ball": "30",
+    "white_balls": [
+      5,
+      13,
+      20,
+      23,
+      33
+    ],
+    "yellow_ball": 30,
     "megaplier": "2X"
   },
   {
     "date": "8/24/2012",
-    "white_balls": "25|34|45|46|49",
-    "yellow_ball": "34",
+    "white_balls": [
+      25,
+      34,
+      45,
+      46,
+      49
+    ],
+    "yellow_ball": 34,
     "megaplier": "2X"
   },
   {
     "date": "8/28/2012",
-    "white_balls": "4|9|40|45|50",
-    "yellow_ball": "39",
+    "white_balls": [
+      4,
+      9,
+      40,
+      45,
+      50
+    ],
+    "yellow_ball": 39,
     "megaplier": "4X"
   },
   {
     "date": "8/31/2012",
-    "white_balls": "31|40|41|47|48",
-    "yellow_ball": "45",
+    "white_balls": [
+      31,
+      40,
+      41,
+      47,
+      48
+    ],
+    "yellow_ball": 45,
     "megaplier": "3X"
   },
   {
     "date": "9/4/2012",
-    "white_balls": "16|32|39|41|53",
-    "yellow_ball": "16",
+    "white_balls": [
+      16,
+      32,
+      39,
+      41,
+      53
+    ],
+    "yellow_ball": 16,
     "megaplier": "3X"
   },
   {
     "date": "9/7/2012",
-    "white_balls": "15|32|38|42|46",
-    "yellow_ball": "31",
+    "white_balls": [
+      15,
+      32,
+      38,
+      42,
+      46
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "9/11/2012",
-    "white_balls": "5|11|20|33|36",
-    "yellow_ball": "11",
+    "white_balls": [
+      5,
+      11,
+      20,
+      33,
+      36
+    ],
+    "yellow_ball": 11,
     "megaplier": "3X"
   },
   {
     "date": "9/14/2012",
-    "white_balls": "16|17|21|40|51",
-    "yellow_ball": "20",
+    "white_balls": [
+      16,
+      17,
+      21,
+      40,
+      51
+    ],
+    "yellow_ball": 20,
     "megaplier": "4X"
   },
   {
     "date": "9/18/2012",
-    "white_balls": "5|9|22|36|49",
-    "yellow_ball": "36",
+    "white_balls": [
+      5,
+      9,
+      22,
+      36,
+      49
+    ],
+    "yellow_ball": 36,
     "megaplier": "3X"
   },
   {
     "date": "9/21/2012",
-    "white_balls": "3|13|14|46|55",
-    "yellow_ball": "34",
+    "white_balls": [
+      3,
+      13,
+      14,
+      46,
+      55
+    ],
+    "yellow_ball": 34,
     "megaplier": "4X"
   },
   {
     "date": "9/25/2012",
-    "white_balls": "7|8|23|50|51",
-    "yellow_ball": "26",
+    "white_balls": [
+      7,
+      8,
+      23,
+      50,
+      51
+    ],
+    "yellow_ball": 26,
     "megaplier": "3X"
   },
   {
     "date": "9/28/2012",
-    "white_balls": "6|8|14|43|56",
-    "yellow_ball": "28",
+    "white_balls": [
+      6,
+      8,
+      14,
+      43,
+      56
+    ],
+    "yellow_ball": 28,
     "megaplier": "4X"
   },
   {
     "date": "10/2/2012",
-    "white_balls": "10|11|20|42|55",
-    "yellow_ball": "9",
+    "white_balls": [
+      10,
+      11,
+      20,
+      42,
+      55
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "10/5/2012",
-    "white_balls": "8|9|16|32|39",
-    "yellow_ball": "15",
+    "white_balls": [
+      8,
+      9,
+      16,
+      32,
+      39
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "10/9/2012",
-    "white_balls": "6|15|16|22|37",
-    "yellow_ball": "3",
+    "white_balls": [
+      6,
+      15,
+      16,
+      22,
+      37
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "10/12/2012",
-    "white_balls": "6|10|24|26|42",
-    "yellow_ball": "15",
+    "white_balls": [
+      6,
+      10,
+      24,
+      26,
+      42
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "10/16/2012",
-    "white_balls": "13|37|40|46|52",
-    "yellow_ball": "29",
+    "white_balls": [
+      13,
+      37,
+      40,
+      46,
+      52
+    ],
+    "yellow_ball": 29,
     "megaplier": "4X"
   },
   {
     "date": "10/19/2012",
-    "white_balls": "14|34|36|48|53",
-    "yellow_ball": "42",
+    "white_balls": [
+      14,
+      34,
+      36,
+      48,
+      53
+    ],
+    "yellow_ball": 42,
     "megaplier": "3X"
   },
   {
     "date": "10/23/2012",
-    "white_balls": "1|17|42|46|55",
-    "yellow_ball": "1",
+    "white_balls": [
+      1,
+      17,
+      42,
+      46,
+      55
+    ],
+    "yellow_ball": 1,
     "megaplier": "2X"
   },
   {
     "date": "10/26/2012",
-    "white_balls": "4|15|24|36|40",
-    "yellow_ball": "44",
+    "white_balls": [
+      4,
+      15,
+      24,
+      36,
+      40
+    ],
+    "yellow_ball": 44,
     "megaplier": "2X"
   },
   {
     "date": "10/30/2012",
-    "white_balls": "5|12|18|29|56",
-    "yellow_ball": "38",
+    "white_balls": [
+      5,
+      12,
+      18,
+      29,
+      56
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "11/2/2012",
-    "white_balls": "4|18|22|38|44",
-    "yellow_ball": "24",
+    "white_balls": [
+      4,
+      18,
+      22,
+      38,
+      44
+    ],
+    "yellow_ball": 24,
     "megaplier": "3X"
   },
   {
     "date": "11/6/2012",
-    "white_balls": "3|5|13|32|35",
-    "yellow_ball": "6",
+    "white_balls": [
+      3,
+      5,
+      13,
+      32,
+      35
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "11/9/2012",
-    "white_balls": "18|22|33|35|40",
-    "yellow_ball": "11",
+    "white_balls": [
+      18,
+      22,
+      33,
+      35,
+      40
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "11/13/2012",
-    "white_balls": "6|12|31|46|56",
-    "yellow_ball": "34",
+    "white_balls": [
+      6,
+      12,
+      31,
+      46,
+      56
+    ],
+    "yellow_ball": 34,
     "megaplier": "2X"
   },
   {
     "date": "11/16/2012",
-    "white_balls": "5|24|26|29|53",
-    "yellow_ball": "36",
+    "white_balls": [
+      5,
+      24,
+      26,
+      29,
+      53
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "11/20/2012",
-    "white_balls": "9|13|22|38|52",
-    "yellow_ball": "44",
+    "white_balls": [
+      9,
+      13,
+      22,
+      38,
+      52
+    ],
+    "yellow_ball": 44,
     "megaplier": "4X"
   },
   {
     "date": "11/23/2012",
-    "white_balls": "8|37|44|47|48",
-    "yellow_ball": "27",
+    "white_balls": [
+      8,
+      37,
+      44,
+      47,
+      48
+    ],
+    "yellow_ball": 27,
     "megaplier": "4X"
   },
   {
     "date": "11/27/2012",
-    "white_balls": "5|12|26|42|49",
-    "yellow_ball": "24",
+    "white_balls": [
+      5,
+      12,
+      26,
+      42,
+      49
+    ],
+    "yellow_ball": 24,
     "megaplier": "4X"
   },
   {
     "date": "11/30/2012",
-    "white_balls": "11|22|24|28|31",
-    "yellow_ball": "46",
+    "white_balls": [
+      11,
+      22,
+      24,
+      28,
+      31
+    ],
+    "yellow_ball": 46,
     "megaplier": "3X"
   },
   {
     "date": "12/4/2012",
-    "white_balls": "3|19|24|32|43",
-    "yellow_ball": "44",
+    "white_balls": [
+      3,
+      19,
+      24,
+      32,
+      43
+    ],
+    "yellow_ball": 44,
     "megaplier": "4X"
   },
   {
     "date": "12/7/2012",
-    "white_balls": "7|43|44|51|56",
-    "yellow_ball": "4",
+    "white_balls": [
+      7,
+      43,
+      44,
+      51,
+      56
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "12/11/2012",
-    "white_balls": "39|44|51|52|54",
-    "yellow_ball": "13",
+    "white_balls": [
+      39,
+      44,
+      51,
+      52,
+      54
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "12/14/2012",
-    "white_balls": "11|28|33|41|43",
-    "yellow_ball": "41",
+    "white_balls": [
+      11,
+      28,
+      33,
+      41,
+      43
+    ],
+    "yellow_ball": 41,
     "megaplier": "4X"
   },
   {
     "date": "12/18/2012",
-    "white_balls": "1|6|7|18|29",
-    "yellow_ball": "16",
+    "white_balls": [
+      1,
+      6,
+      7,
+      18,
+      29
+    ],
+    "yellow_ball": 16,
     "megaplier": "3X"
   },
   {
     "date": "12/21/2012",
-    "white_balls": "3|18|32|41|56",
-    "yellow_ball": "19",
+    "white_balls": [
+      3,
+      18,
+      32,
+      41,
+      56
+    ],
+    "yellow_ball": 19,
     "megaplier": "3X"
   },
   {
     "date": "12/25/2012",
-    "white_balls": "2|3|18|34|48",
-    "yellow_ball": "36",
+    "white_balls": [
+      2,
+      3,
+      18,
+      34,
+      48
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "12/28/2012",
-    "white_balls": "10|13|32|40|41",
-    "yellow_ball": "32",
+    "white_balls": [
+      10,
+      13,
+      32,
+      40,
+      41
+    ],
+    "yellow_ball": 32,
     "megaplier": "4X"
   },
   {
     "date": "1/1/2013",
-    "white_balls": "4|11|21|25|44",
-    "yellow_ball": "29",
+    "white_balls": [
+      4,
+      11,
+      21,
+      25,
+      44
+    ],
+    "yellow_ball": 29,
     "megaplier": "4X"
   },
   {
     "date": "1/4/2013",
-    "white_balls": "1|2|23|25|55",
-    "yellow_ball": "39",
+    "white_balls": [
+      1,
+      2,
+      23,
+      25,
+      55
+    ],
+    "yellow_ball": 39,
     "megaplier": "4X"
   },
   {
     "date": "1/8/2013",
-    "white_balls": "3|20|21|38|42",
-    "yellow_ball": "19",
+    "white_balls": [
+      3,
+      20,
+      21,
+      38,
+      42
+    ],
+    "yellow_ball": 19,
     "megaplier": "4X"
   },
   {
     "date": "1/11/2013",
-    "white_balls": "24|29|30|34|56",
-    "yellow_ball": "1",
+    "white_balls": [
+      24,
+      29,
+      30,
+      34,
+      56
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "1/15/2013",
-    "white_balls": "1|6|12|19|41",
-    "yellow_ball": "14",
+    "white_balls": [
+      1,
+      6,
+      12,
+      19,
+      41
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "1/18/2013",
-    "white_balls": "8|18|25|42|49",
-    "yellow_ball": "14",
+    "white_balls": [
+      8,
+      18,
+      25,
+      42,
+      49
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "1/22/2013",
-    "white_balls": "7|11|16|39|54",
-    "yellow_ball": "13",
+    "white_balls": [
+      7,
+      11,
+      16,
+      39,
+      54
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "1/25/2013",
-    "white_balls": "11|12|17|31|48",
-    "yellow_ball": "1",
+    "white_balls": [
+      11,
+      12,
+      17,
+      31,
+      48
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "1/29/2013",
-    "white_balls": "8|12|27|46|47",
-    "yellow_ball": "6",
+    "white_balls": [
+      8,
+      12,
+      27,
+      46,
+      47
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "2/1/2013",
-    "white_balls": "1|30|32|40|41",
-    "yellow_ball": "17",
+    "white_balls": [
+      1,
+      30,
+      32,
+      40,
+      41
+    ],
+    "yellow_ball": 17,
     "megaplier": "3X"
   },
   {
     "date": "2/5/2013",
-    "white_balls": "2|5|10|26|44",
-    "yellow_ball": "46",
+    "white_balls": [
+      2,
+      5,
+      10,
+      26,
+      44
+    ],
+    "yellow_ball": 46,
     "megaplier": "4X"
   },
   {
     "date": "2/8/2013",
-    "white_balls": "6|15|20|39|50",
-    "yellow_ball": "5",
+    "white_balls": [
+      6,
+      15,
+      20,
+      39,
+      50
+    ],
+    "yellow_ball": 5,
     "megaplier": "4X"
   },
   {
     "date": "2/12/2013",
-    "white_balls": "9|22|32|38|55",
-    "yellow_ball": "44",
+    "white_balls": [
+      9,
+      22,
+      32,
+      38,
+      55
+    ],
+    "yellow_ball": 44,
     "megaplier": "3X"
   },
   {
     "date": "2/15/2013",
-    "white_balls": "11|35|41|42|44",
-    "yellow_ball": "42",
+    "white_balls": [
+      11,
+      35,
+      41,
+      42,
+      44
+    ],
+    "yellow_ball": 42,
     "megaplier": "4X"
   },
   {
     "date": "2/19/2013",
-    "white_balls": "1|15|19|30|56",
-    "yellow_ball": "28",
+    "white_balls": [
+      1,
+      15,
+      19,
+      30,
+      56
+    ],
+    "yellow_ball": 28,
     "megaplier": "3X"
   },
   {
     "date": "2/22/2013",
-    "white_balls": "9|13|24|38|49",
-    "yellow_ball": "30",
+    "white_balls": [
+      9,
+      13,
+      24,
+      38,
+      49
+    ],
+    "yellow_ball": 30,
     "megaplier": "3X"
   },
   {
     "date": "2/26/2013",
-    "white_balls": "6|7|13|15|43",
-    "yellow_ball": "7",
+    "white_balls": [
+      6,
+      7,
+      13,
+      15,
+      43
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "3/1/2013",
-    "white_balls": "17|30|38|43|51",
-    "yellow_ball": "20",
+    "white_balls": [
+      17,
+      30,
+      38,
+      43,
+      51
+    ],
+    "yellow_ball": 20,
     "megaplier": "4X"
   },
   {
     "date": "3/5/2013",
-    "white_balls": "6|20|39|41|46",
-    "yellow_ball": "42",
+    "white_balls": [
+      6,
+      20,
+      39,
+      41,
+      46
+    ],
+    "yellow_ball": 42,
     "megaplier": "3X"
   },
   {
     "date": "3/8/2013",
-    "white_balls": "4|11|25|34|35",
-    "yellow_ball": "44",
+    "white_balls": [
+      4,
+      11,
+      25,
+      34,
+      35
+    ],
+    "yellow_ball": 44,
     "megaplier": "4X"
   },
   {
     "date": "3/12/2013",
-    "white_balls": "9|12|19|20|30",
-    "yellow_ball": "39",
+    "white_balls": [
+      9,
+      12,
+      19,
+      20,
+      30
+    ],
+    "yellow_ball": 39,
     "megaplier": "4X"
   },
   {
     "date": "3/15/2013",
-    "white_balls": "4|8|17|22|32",
-    "yellow_ball": "8",
+    "white_balls": [
+      4,
+      8,
+      17,
+      22,
+      32
+    ],
+    "yellow_ball": 8,
     "megaplier": "2X"
   },
   {
     "date": "3/19/2013",
-    "white_balls": "3|6|14|21|37",
-    "yellow_ball": "35",
+    "white_balls": [
+      3,
+      6,
+      14,
+      21,
+      37
+    ],
+    "yellow_ball": 35,
     "megaplier": "3X"
   },
   {
     "date": "3/22/2013",
-    "white_balls": "14|27|34|37|41",
-    "yellow_ball": "38",
+    "white_balls": [
+      14,
+      27,
+      34,
+      37,
+      41
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "3/26/2013",
-    "white_balls": "20|33|46|49|51",
-    "yellow_ball": "46",
+    "white_balls": [
+      20,
+      33,
+      46,
+      49,
+      51
+    ],
+    "yellow_ball": 46,
     "megaplier": "4X"
   },
   {
     "date": "3/29/2013",
-    "white_balls": "25|31|36|46|53",
-    "yellow_ball": "21",
+    "white_balls": [
+      25,
+      31,
+      36,
+      46,
+      53
+    ],
+    "yellow_ball": 21,
     "megaplier": "4X"
   },
   {
     "date": "4/2/2013",
-    "white_balls": "7|10|14|40|47",
-    "yellow_ball": "34",
+    "white_balls": [
+      7,
+      10,
+      14,
+      40,
+      47
+    ],
+    "yellow_ball": 34,
     "megaplier": "4X"
   },
   {
     "date": "4/5/2013",
-    "white_balls": "8|15|23|36|41",
-    "yellow_ball": "5",
+    "white_balls": [
+      8,
+      15,
+      23,
+      36,
+      41
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "4/9/2013",
-    "white_balls": "17|30|41|48|54",
-    "yellow_ball": "13",
+    "white_balls": [
+      17,
+      30,
+      41,
+      48,
+      54
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "4/12/2013",
-    "white_balls": "1|10|13|19|21",
-    "yellow_ball": "28",
+    "white_balls": [
+      1,
+      10,
+      13,
+      19,
+      21
+    ],
+    "yellow_ball": 28,
     "megaplier": "3X"
   },
   {
     "date": "4/16/2013",
-    "white_balls": "2|5|15|18|39",
-    "yellow_ball": "42",
+    "white_balls": [
+      2,
+      5,
+      15,
+      18,
+      39
+    ],
+    "yellow_ball": 42,
     "megaplier": "2X"
   },
   {
     "date": "4/19/2013",
-    "white_balls": "6|8|12|22|43",
-    "yellow_ball": "28",
+    "white_balls": [
+      6,
+      8,
+      12,
+      22,
+      43
+    ],
+    "yellow_ball": 28,
     "megaplier": "4X"
   },
   {
     "date": "4/23/2013",
-    "white_balls": "9|21|22|32|50",
-    "yellow_ball": "10",
+    "white_balls": [
+      9,
+      21,
+      22,
+      32,
+      50
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "4/26/2013",
-    "white_balls": "17|42|49|54|55",
-    "yellow_ball": "31",
+    "white_balls": [
+      17,
+      42,
+      49,
+      54,
+      55
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "4/30/2013",
-    "white_balls": "21|30|34|39|49",
-    "yellow_ball": "43",
+    "white_balls": [
+      21,
+      30,
+      34,
+      39,
+      49
+    ],
+    "yellow_ball": 43,
     "megaplier": "3X"
   },
   {
     "date": "5/3/2013",
-    "white_balls": "2|20|34|42|54",
-    "yellow_ball": "39",
+    "white_balls": [
+      2,
+      20,
+      34,
+      42,
+      54
+    ],
+    "yellow_ball": 39,
     "megaplier": "2X"
   },
   {
     "date": "5/7/2013",
-    "white_balls": "1|6|13|20|51",
-    "yellow_ball": "31",
+    "white_balls": [
+      1,
+      6,
+      13,
+      20,
+      51
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "5/10/2013",
-    "white_balls": "1|19|20|39|49",
-    "yellow_ball": "28",
+    "white_balls": [
+      1,
+      19,
+      20,
+      39,
+      49
+    ],
+    "yellow_ball": 28,
     "megaplier": "4X"
   },
   {
     "date": "5/14/2013",
-    "white_balls": "6|10|12|28|32",
-    "yellow_ball": "38",
+    "white_balls": [
+      6,
+      10,
+      12,
+      28,
+      32
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "5/17/2013",
-    "white_balls": "11|15|35|43|49",
-    "yellow_ball": "41",
+    "white_balls": [
+      11,
+      15,
+      35,
+      43,
+      49
+    ],
+    "yellow_ball": 41,
     "megaplier": "4X"
   },
   {
     "date": "5/21/2013",
-    "white_balls": "2|15|17|48|55",
-    "yellow_ball": "11",
+    "white_balls": [
+      2,
+      15,
+      17,
+      48,
+      55
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "5/24/2013",
-    "white_balls": "4|5|16|18|53",
-    "yellow_ball": "28",
+    "white_balls": [
+      4,
+      5,
+      16,
+      18,
+      53
+    ],
+    "yellow_ball": 28,
     "megaplier": "4X"
   },
   {
     "date": "5/28/2013",
-    "white_balls": "4|12|25|32|54",
-    "yellow_ball": "36",
+    "white_balls": [
+      4,
+      12,
+      25,
+      32,
+      54
+    ],
+    "yellow_ball": 36,
     "megaplier": "4X"
   },
   {
     "date": "5/31/2013",
-    "white_balls": "2|20|26|44|46",
-    "yellow_ball": "26",
+    "white_balls": [
+      2,
+      20,
+      26,
+      44,
+      46
+    ],
+    "yellow_ball": 26,
     "megaplier": "3X"
   },
   {
     "date": "6/4/2013",
-    "white_balls": "10|11|12|20|55",
-    "yellow_ball": "19",
+    "white_balls": [
+      10,
+      11,
+      12,
+      20,
+      55
+    ],
+    "yellow_ball": 19,
     "megaplier": "3X"
   },
   {
     "date": "6/7/2013",
-    "white_balls": "1|10|37|48|55",
-    "yellow_ball": "21",
+    "white_balls": [
+      1,
+      10,
+      37,
+      48,
+      55
+    ],
+    "yellow_ball": 21,
     "megaplier": "4X"
   },
   {
     "date": "6/11/2013",
-    "white_balls": "15|40|45|50|53",
-    "yellow_ball": "28",
+    "white_balls": [
+      15,
+      40,
+      45,
+      50,
+      53
+    ],
+    "yellow_ball": 28,
     "megaplier": "4X"
   },
   {
     "date": "6/14/2013",
-    "white_balls": "2|5|31|33|34",
-    "yellow_ball": "20",
+    "white_balls": [
+      2,
+      5,
+      31,
+      33,
+      34
+    ],
+    "yellow_ball": 20,
     "megaplier": "4X"
   },
   {
     "date": "6/18/2013",
-    "white_balls": "6|17|34|40|48",
-    "yellow_ball": "30",
+    "white_balls": [
+      6,
+      17,
+      34,
+      40,
+      48
+    ],
+    "yellow_ball": 30,
     "megaplier": "2X"
   },
   {
     "date": "6/21/2013",
-    "white_balls": "3|14|17|40|50",
-    "yellow_ball": "3",
+    "white_balls": [
+      3,
+      14,
+      17,
+      40,
+      50
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "6/25/2013",
-    "white_balls": "3|5|28|33|51",
-    "yellow_ball": "16",
+    "white_balls": [
+      3,
+      5,
+      28,
+      33,
+      51
+    ],
+    "yellow_ball": 16,
     "megaplier": "2X"
   },
   {
     "date": "6/28/2013",
-    "white_balls": "8|15|35|46|52",
-    "yellow_ball": "38",
+    "white_balls": [
+      8,
+      15,
+      35,
+      46,
+      52
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "7/2/2013",
-    "white_balls": "36|42|51|52|53",
-    "yellow_ball": "40",
+    "white_balls": [
+      36,
+      42,
+      51,
+      52,
+      53
+    ],
+    "yellow_ball": 40,
     "megaplier": "4X"
   },
   {
     "date": "7/5/2013",
-    "white_balls": "2|23|41|47|54",
-    "yellow_ball": "42",
+    "white_balls": [
+      2,
+      23,
+      41,
+      47,
+      54
+    ],
+    "yellow_ball": 42,
     "megaplier": "4X"
   },
   {
     "date": "7/9/2013",
-    "white_balls": "3|21|43|45|48",
-    "yellow_ball": "14",
+    "white_balls": [
+      3,
+      21,
+      43,
+      45,
+      48
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "7/12/2013",
-    "white_balls": "4|5|25|27|51",
-    "yellow_ball": "10",
+    "white_balls": [
+      4,
+      5,
+      25,
+      27,
+      51
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "7/16/2013",
-    "white_balls": "10|14|21|40|53",
-    "yellow_ball": "20",
+    "white_balls": [
+      10,
+      14,
+      21,
+      40,
+      53
+    ],
+    "yellow_ball": 20,
     "megaplier": "2X"
   },
   {
     "date": "7/19/2013",
-    "white_balls": "16|20|24|39|42",
-    "yellow_ball": "46",
+    "white_balls": [
+      16,
+      20,
+      24,
+      39,
+      42
+    ],
+    "yellow_ball": 46,
     "megaplier": "3X"
   },
   {
     "date": "7/23/2013",
-    "white_balls": "25|32|35|50|51",
-    "yellow_ball": "46",
+    "white_balls": [
+      25,
+      32,
+      35,
+      50,
+      51
+    ],
+    "yellow_ball": 46,
     "megaplier": "3X"
   },
   {
     "date": "7/26/2013",
-    "white_balls": "4|22|23|27|38",
-    "yellow_ball": "42",
+    "white_balls": [
+      4,
+      22,
+      23,
+      27,
+      38
+    ],
+    "yellow_ball": 42,
     "megaplier": "4X"
   },
   {
     "date": "7/30/2013",
-    "white_balls": "25|27|36|42|44",
-    "yellow_ball": "39",
+    "white_balls": [
+      25,
+      27,
+      36,
+      42,
+      44
+    ],
+    "yellow_ball": 39,
     "megaplier": "3X"
   },
   {
     "date": "8/2/2013",
-    "white_balls": "8|21|23|25|39",
-    "yellow_ball": "4",
+    "white_balls": [
+      8,
+      21,
+      23,
+      25,
+      39
+    ],
+    "yellow_ball": 4,
     "megaplier": "2X"
   },
   {
     "date": "8/6/2013",
-    "white_balls": "1|11|16|51|55",
-    "yellow_ball": "41",
+    "white_balls": [
+      1,
+      11,
+      16,
+      51,
+      55
+    ],
+    "yellow_ball": 41,
     "megaplier": "3X"
   },
   {
     "date": "8/9/2013",
-    "white_balls": "11|20|30|34|38",
-    "yellow_ball": "12",
+    "white_balls": [
+      11,
+      20,
+      30,
+      34,
+      38
+    ],
+    "yellow_ball": 12,
     "megaplier": "3X"
   },
   {
     "date": "8/13/2013",
-    "white_balls": "2|31|32|37|41",
-    "yellow_ball": "40",
+    "white_balls": [
+      2,
+      31,
+      32,
+      37,
+      41
+    ],
+    "yellow_ball": 40,
     "megaplier": "4X"
   },
   {
     "date": "8/16/2013",
-    "white_balls": "7|13|26|36|46",
-    "yellow_ball": "37",
+    "white_balls": [
+      7,
+      13,
+      26,
+      36,
+      46
+    ],
+    "yellow_ball": 37,
     "megaplier": "4X"
   },
   {
     "date": "8/20/2013",
-    "white_balls": "13|28|35|38|41",
-    "yellow_ball": "33",
+    "white_balls": [
+      13,
+      28,
+      35,
+      38,
+      41
+    ],
+    "yellow_ball": 33,
     "megaplier": "3X"
   },
   {
     "date": "8/23/2013",
-    "white_balls": "1|9|17|20|53",
-    "yellow_ball": "14",
+    "white_balls": [
+      1,
+      9,
+      17,
+      20,
+      53
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "8/27/2013",
-    "white_balls": "4|7|30|36|38",
-    "yellow_ball": "38",
+    "white_balls": [
+      4,
+      7,
+      30,
+      36,
+      38
+    ],
+    "yellow_ball": 38,
     "megaplier": "4X"
   },
   {
     "date": "8/30/2013",
-    "white_balls": "6|19|24|43|44",
-    "yellow_ball": "33",
+    "white_balls": [
+      6,
+      19,
+      24,
+      43,
+      44
+    ],
+    "yellow_ball": 33,
     "megaplier": "2X"
   },
   {
     "date": "9/3/2013",
-    "white_balls": "4|13|14|28|41",
-    "yellow_ball": "28",
+    "white_balls": [
+      4,
+      13,
+      14,
+      28,
+      41
+    ],
+    "yellow_ball": 28,
     "megaplier": "3X"
   },
   {
     "date": "9/6/2013",
-    "white_balls": "2|16|17|22|41",
-    "yellow_ball": "31",
+    "white_balls": [
+      2,
+      16,
+      17,
+      22,
+      41
+    ],
+    "yellow_ball": 31,
     "megaplier": "4X"
   },
   {
     "date": "9/10/2013",
-    "white_balls": "2|12|18|54|56",
-    "yellow_ball": "1",
+    "white_balls": [
+      2,
+      12,
+      18,
+      54,
+      56
+    ],
+    "yellow_ball": 1,
     "megaplier": "3X"
   },
   {
     "date": "9/13/2013",
-    "white_balls": "9|22|28|48|54",
-    "yellow_ball": "8",
+    "white_balls": [
+      9,
+      22,
+      28,
+      48,
+      54
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "9/17/2013",
-    "white_balls": "6|15|27|31|39",
-    "yellow_ball": "25",
+    "white_balls": [
+      6,
+      15,
+      27,
+      31,
+      39
+    ],
+    "yellow_ball": 25,
     "megaplier": "2X"
   },
   {
     "date": "9/20/2013",
-    "white_balls": "1|15|20|21|47",
-    "yellow_ball": "34",
+    "white_balls": [
+      1,
+      15,
+      20,
+      21,
+      47
+    ],
+    "yellow_ball": 34,
     "megaplier": "2X"
   },
   {
     "date": "9/24/2013",
-    "white_balls": "4|11|32|39|40",
-    "yellow_ball": "33",
+    "white_balls": [
+      4,
+      11,
+      32,
+      39,
+      40
+    ],
+    "yellow_ball": 33,
     "megaplier": "3X"
   },
   {
     "date": "9/27/2013",
-    "white_balls": "9|23|27|49|51",
-    "yellow_ball": "38",
+    "white_balls": [
+      9,
+      23,
+      27,
+      49,
+      51
+    ],
+    "yellow_ball": 38,
     "megaplier": "2X"
   },
   {
     "date": "10/1/2013",
-    "white_balls": "7|10|30|37|53",
-    "yellow_ball": "1",
+    "white_balls": [
+      7,
+      10,
+      30,
+      37,
+      53
+    ],
+    "yellow_ball": 1,
     "megaplier": "3X"
   },
   {
     "date": "10/4/2013",
-    "white_balls": "4|16|24|25|44",
-    "yellow_ball": "5",
+    "white_balls": [
+      4,
+      16,
+      24,
+      25,
+      44
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "10/8/2013",
-    "white_balls": "6|15|19|23|40",
-    "yellow_ball": "5",
+    "white_balls": [
+      6,
+      15,
+      19,
+      23,
+      40
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "10/11/2013",
-    "white_balls": "3|27|37|45|48",
-    "yellow_ball": "46",
+    "white_balls": [
+      3,
+      27,
+      37,
+      45,
+      48
+    ],
+    "yellow_ball": 46,
     "megaplier": "4X"
   },
   {
     "date": "10/15/2013",
-    "white_balls": "4|23|30|43|50",
-    "yellow_ball": "11",
+    "white_balls": [
+      4,
+      23,
+      30,
+      43,
+      50
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "10/18/2013",
-    "white_balls": "5|20|45|48|56",
-    "yellow_ball": "1",
+    "white_balls": [
+      5,
+      20,
+      45,
+      48,
+      56
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "10/22/2013",
-    "white_balls": "2|3|19|52|71",
-    "yellow_ball": "14",
+    "white_balls": [
+      2,
+      3,
+      19,
+      52,
+      71
+    ],
+    "yellow_ball": 14,
     "megaplier": "5X"
   },
   {
     "date": "10/25/2013",
-    "white_balls": "6|16|45|54|60",
-    "yellow_ball": "15",
+    "white_balls": [
+      6,
+      16,
+      45,
+      54,
+      60
+    ],
+    "yellow_ball": 15,
     "megaplier": "2X"
   },
   {
     "date": "10/29/2013",
-    "white_balls": "20|33|50|53|54",
-    "yellow_ball": "7",
+    "white_balls": [
+      20,
+      33,
+      50,
+      53,
+      54
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "11/1/2013",
-    "white_balls": "32|35|49|62|67",
-    "yellow_ball": "1",
+    "white_balls": [
+      32,
+      35,
+      49,
+      62,
+      67
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "11/5/2013",
-    "white_balls": "2|11|42|64|74",
-    "yellow_ball": "2",
+    "white_balls": [
+      2,
+      11,
+      42,
+      64,
+      74
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "11/8/2013",
-    "white_balls": "41|42|51|57|65",
-    "yellow_ball": "7",
+    "white_balls": [
+      41,
+      42,
+      51,
+      57,
+      65
+    ],
+    "yellow_ball": 7,
     "megaplier": "2X"
   },
   {
     "date": "11/12/2013",
-    "white_balls": "20|30|32|42|71",
-    "yellow_ball": "15",
+    "white_balls": [
+      20,
+      30,
+      32,
+      42,
+      71
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "11/15/2013",
-    "white_balls": "25|44|49|54|63",
-    "yellow_ball": "8",
+    "white_balls": [
+      25,
+      44,
+      49,
+      54,
+      63
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "11/19/2013",
-    "white_balls": "14|15|29|49|63",
-    "yellow_ball": "2",
+    "white_balls": [
+      14,
+      15,
+      29,
+      49,
+      63
+    ],
+    "yellow_ball": 2,
     "megaplier": "3X"
   },
   {
     "date": "11/22/2013",
-    "white_balls": "17|23|35|36|44",
-    "yellow_ball": "8",
+    "white_balls": [
+      17,
+      23,
+      35,
+      36,
+      44
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "11/26/2013",
-    "white_balls": "27|44|59|74|75",
-    "yellow_ball": "3",
+    "white_balls": [
+      27,
+      44,
+      59,
+      74,
+      75
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "11/29/2013",
-    "white_balls": "9|41|43|47|57",
-    "yellow_ball": "5",
+    "white_balls": [
+      9,
+      41,
+      43,
+      47,
+      57
+    ],
+    "yellow_ball": 5,
     "megaplier": "4X"
   },
   {
     "date": "12/3/2013",
-    "white_balls": "7|12|41|44|59",
-    "yellow_ball": "3",
+    "white_balls": [
+      7,
+      12,
+      41,
+      44,
+      59
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "12/6/2013",
-    "white_balls": "11|29|44|63|64",
-    "yellow_ball": "3",
+    "white_balls": [
+      11,
+      29,
+      44,
+      63,
+      64
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "12/10/2013",
-    "white_balls": "5|12|22|41|65",
-    "yellow_ball": "13",
+    "white_balls": [
+      5,
+      12,
+      22,
+      41,
+      65
+    ],
+    "yellow_ball": 13,
     "megaplier": "2X"
   },
   {
     "date": "12/13/2013",
-    "white_balls": "19|24|26|27|70",
-    "yellow_ball": "12",
+    "white_balls": [
+      19,
+      24,
+      26,
+      27,
+      70
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "12/17/2013",
-    "white_balls": "8|14|17|20|39",
-    "yellow_ball": "7",
+    "white_balls": [
+      8,
+      14,
+      17,
+      20,
+      39
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "12/20/2013",
-    "white_balls": "3|4|31|49|57",
-    "yellow_ball": "6",
+    "white_balls": [
+      3,
+      4,
+      31,
+      49,
+      57
+    ],
+    "yellow_ball": 6,
     "megaplier": "2X"
   },
   {
     "date": "12/24/2013",
-    "white_balls": "23|34|53|58|73",
-    "yellow_ball": "2",
+    "white_balls": [
+      23,
+      34,
+      53,
+      58,
+      73
+    ],
+    "yellow_ball": 2,
     "megaplier": "3X"
   },
   {
     "date": "12/27/2013",
-    "white_balls": "4|15|35|48|49",
-    "yellow_ball": "11",
+    "white_balls": [
+      4,
+      15,
+      35,
+      48,
+      49
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "12/31/2013",
-    "white_balls": "8|12|34|52|58",
-    "yellow_ball": "8",
+    "white_balls": [
+      8,
+      12,
+      34,
+      52,
+      58
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "1/3/2014",
-    "white_balls": "22|24|25|40|70",
-    "yellow_ball": "5",
+    "white_balls": [
+      22,
+      24,
+      25,
+      40,
+      70
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "1/7/2014",
-    "white_balls": "13|34|56|62|64",
-    "yellow_ball": "6",
+    "white_balls": [
+      13,
+      34,
+      56,
+      62,
+      64
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "1/10/2014",
-    "white_balls": "8|28|36|37|57",
-    "yellow_ball": "8",
+    "white_balls": [
+      8,
+      28,
+      36,
+      37,
+      57
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "1/14/2014",
-    "white_balls": "4|23|26|62|69",
-    "yellow_ball": "13",
+    "white_balls": [
+      4,
+      23,
+      26,
+      62,
+      69
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "1/17/2014",
-    "white_balls": "1|10|26|31|51",
-    "yellow_ball": "11",
+    "white_balls": [
+      1,
+      10,
+      26,
+      31,
+      51
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "1/21/2014",
-    "white_balls": "8|23|33|45|52",
-    "yellow_ball": "4",
+    "white_balls": [
+      8,
+      23,
+      33,
+      45,
+      52
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "1/24/2014",
-    "white_balls": "22|45|46|47|65",
-    "yellow_ball": "10",
+    "white_balls": [
+      22,
+      45,
+      46,
+      47,
+      65
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "1/28/2014",
-    "white_balls": "7|16|28|53|60",
-    "yellow_ball": "2",
+    "white_balls": [
+      7,
+      16,
+      28,
+      53,
+      60
+    ],
+    "yellow_ball": 2,
     "megaplier": "3X"
   },
   {
     "date": "1/31/2014",
-    "white_balls": "3|9|13|47|52",
-    "yellow_ball": "8",
+    "white_balls": [
+      3,
+      9,
+      13,
+      47,
+      52
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "2/4/2014",
-    "white_balls": "25|44|49|60|73",
-    "yellow_ball": "9",
+    "white_balls": [
+      25,
+      44,
+      49,
+      60,
+      73
+    ],
+    "yellow_ball": 9,
     "megaplier": "3X"
   },
   {
     "date": "2/7/2014",
-    "white_balls": "11|21|23|35|64",
-    "yellow_ball": "10",
+    "white_balls": [
+      11,
+      21,
+      23,
+      35,
+      64
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "2/11/2014",
-    "white_balls": "43|64|67|71|73",
-    "yellow_ball": "4",
+    "white_balls": [
+      43,
+      64,
+      67,
+      71,
+      73
+    ],
+    "yellow_ball": 4,
     "megaplier": "2X"
   },
   {
     "date": "2/14/2014",
-    "white_balls": "20|28|35|71|72",
-    "yellow_ball": "7",
+    "white_balls": [
+      20,
+      28,
+      35,
+      71,
+      72
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "2/18/2014",
-    "white_balls": "23|29|31|37|70",
-    "yellow_ball": "14",
+    "white_balls": [
+      23,
+      29,
+      31,
+      37,
+      70
+    ],
+    "yellow_ball": 14,
     "megaplier": "5X"
   },
   {
     "date": "2/21/2014",
-    "white_balls": "23|29|32|45|46",
-    "yellow_ball": "15",
+    "white_balls": [
+      23,
+      29,
+      32,
+      45,
+      46
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "2/25/2014",
-    "white_balls": "12|18|25|35|66",
-    "yellow_ball": "15",
+    "white_balls": [
+      12,
+      18,
+      25,
+      35,
+      66
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "2/28/2014",
-    "white_balls": "3|31|50|58|59",
-    "yellow_ball": "6",
+    "white_balls": [
+      3,
+      31,
+      50,
+      58,
+      59
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "3/4/2014",
-    "white_balls": "10|29|31|35|45",
-    "yellow_ball": "10",
+    "white_balls": [
+      10,
+      29,
+      31,
+      35,
+      45
+    ],
+    "yellow_ball": 10,
     "megaplier": "2X"
   },
   {
     "date": "3/7/2014",
-    "white_balls": "11|13|51|57|69",
-    "yellow_ball": "1",
+    "white_balls": [
+      11,
+      13,
+      51,
+      57,
+      69
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "3/11/2014",
-    "white_balls": "9|14|56|57|69",
-    "yellow_ball": "10",
+    "white_balls": [
+      9,
+      14,
+      56,
+      57,
+      69
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "3/14/2014",
-    "white_balls": "7|20|40|54|69",
-    "yellow_ball": "12",
+    "white_balls": [
+      7,
+      20,
+      40,
+      54,
+      69
+    ],
+    "yellow_ball": 12,
     "megaplier": "3X"
   },
   {
     "date": "3/18/2014",
-    "white_balls": "11|19|24|33|51",
-    "yellow_ball": "7",
+    "white_balls": [
+      11,
+      19,
+      24,
+      33,
+      51
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "3/21/2014",
-    "white_balls": "2|23|30|35|53",
-    "yellow_ball": "10",
+    "white_balls": [
+      2,
+      23,
+      30,
+      35,
+      53
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "3/25/2014",
-    "white_balls": "19|26|51|57|73",
-    "yellow_ball": "15",
+    "white_balls": [
+      19,
+      26,
+      51,
+      57,
+      73
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "3/28/2014",
-    "white_balls": "2|3|9|50|73",
-    "yellow_ball": "12",
+    "white_balls": [
+      2,
+      3,
+      9,
+      50,
+      73
+    ],
+    "yellow_ball": 12,
     "megaplier": "3X"
   },
   {
     "date": "4/1/2014",
-    "white_balls": "10|23|68|74|75",
-    "yellow_ball": "9",
+    "white_balls": [
+      10,
+      23,
+      68,
+      74,
+      75
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "4/4/2014",
-    "white_balls": "1|10|15|41|54",
-    "yellow_ball": "9",
+    "white_balls": [
+      1,
+      10,
+      15,
+      41,
+      54
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "4/8/2014",
-    "white_balls": "35|36|41|60|71",
-    "yellow_ball": "3",
+    "white_balls": [
+      35,
+      36,
+      41,
+      60,
+      71
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "4/11/2014",
-    "white_balls": "3|42|44|47|57",
-    "yellow_ball": "8",
+    "white_balls": [
+      3,
+      42,
+      44,
+      47,
+      57
+    ],
+    "yellow_ball": 8,
     "megaplier": "5X"
   },
   {
     "date": "4/15/2014",
-    "white_balls": "4|39|46|47|70",
-    "yellow_ball": "13",
+    "white_balls": [
+      4,
+      39,
+      46,
+      47,
+      70
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "4/18/2014",
-    "white_balls": "18|25|38|45|63",
-    "yellow_ball": "9",
+    "white_balls": [
+      18,
+      25,
+      38,
+      45,
+      63
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "4/22/2014",
-    "white_balls": "2|18|19|49|50",
-    "yellow_ball": "1",
+    "white_balls": [
+      2,
+      18,
+      19,
+      49,
+      50
+    ],
+    "yellow_ball": 1,
     "megaplier": "3X"
   },
   {
     "date": "4/25/2014",
-    "white_balls": "3|11|18|20|66",
-    "yellow_ball": "9",
+    "white_balls": [
+      3,
+      11,
+      18,
+      20,
+      66
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "4/29/2014",
-    "white_balls": "7|43|59|61|66",
-    "yellow_ball": "3",
+    "white_balls": [
+      7,
+      43,
+      59,
+      61,
+      66
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "5/2/2014",
-    "white_balls": "1|18|26|35|40",
-    "yellow_ball": "13",
+    "white_balls": [
+      1,
+      18,
+      26,
+      35,
+      40
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "5/6/2014",
-    "white_balls": "18|20|27|48|51",
-    "yellow_ball": "5",
+    "white_balls": [
+      18,
+      20,
+      27,
+      48,
+      51
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "5/9/2014",
-    "white_balls": "10|28|39|51|59",
-    "yellow_ball": "14",
+    "white_balls": [
+      10,
+      28,
+      39,
+      51,
+      59
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "5/13/2014",
-    "white_balls": "37|46|48|70|74",
-    "yellow_ball": "1",
+    "white_balls": [
+      37,
+      46,
+      48,
+      70,
+      74
+    ],
+    "yellow_ball": 1,
     "megaplier": "2X"
   },
   {
     "date": "5/16/2014",
-    "white_balls": "13|14|16|50|56",
-    "yellow_ball": "11",
+    "white_balls": [
+      13,
+      14,
+      16,
+      50,
+      56
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "5/20/2014",
-    "white_balls": "10|40|63|64|69",
-    "yellow_ball": "7",
+    "white_balls": [
+      10,
+      40,
+      63,
+      64,
+      69
+    ],
+    "yellow_ball": 7,
     "megaplier": "2X"
   },
   {
     "date": "5/23/2014",
-    "white_balls": "12|14|21|38|70",
-    "yellow_ball": "15",
+    "white_balls": [
+      12,
+      14,
+      21,
+      38,
+      70
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "5/27/2014",
-    "white_balls": "1|6|10|46|58",
-    "yellow_ball": "13",
+    "white_balls": [
+      1,
+      6,
+      10,
+      46,
+      58
+    ],
+    "yellow_ball": 13,
     "megaplier": "2X"
   },
   {
     "date": "5/30/2014",
-    "white_balls": "10|13|42|43|62",
-    "yellow_ball": "2",
+    "white_balls": [
+      10,
+      13,
+      42,
+      43,
+      62
+    ],
+    "yellow_ball": 2,
     "megaplier": "4X"
   },
   {
     "date": "6/3/2014",
-    "white_balls": "19|28|62|66|74",
-    "yellow_ball": "6",
+    "white_balls": [
+      19,
+      28,
+      62,
+      66,
+      74
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "6/6/2014",
-    "white_balls": "12|29|37|49|72",
-    "yellow_ball": "9",
+    "white_balls": [
+      12,
+      29,
+      37,
+      49,
+      72
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "6/10/2014",
-    "white_balls": "2|10|24|26|74",
-    "yellow_ball": "7",
+    "white_balls": [
+      2,
+      10,
+      24,
+      26,
+      74
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "6/13/2014",
-    "white_balls": "7|38|46|49|56",
-    "yellow_ball": "1",
+    "white_balls": [
+      7,
+      38,
+      46,
+      49,
+      56
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "6/17/2014",
-    "white_balls": "10|14|24|47|60",
-    "yellow_ball": "3",
+    "white_balls": [
+      10,
+      14,
+      24,
+      47,
+      60
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "6/20/2014",
-    "white_balls": "1|22|25|29|56",
-    "yellow_ball": "3",
+    "white_balls": [
+      1,
+      22,
+      25,
+      29,
+      56
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "6/24/2014",
-    "white_balls": "13|17|24|47|65",
-    "yellow_ball": "10",
+    "white_balls": [
+      13,
+      17,
+      24,
+      47,
+      65
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "6/27/2014",
-    "white_balls": "15|29|31|46|64",
-    "yellow_ball": "10",
+    "white_balls": [
+      15,
+      29,
+      31,
+      46,
+      64
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "7/1/2014",
-    "white_balls": "9|22|38|47|49",
-    "yellow_ball": "15",
+    "white_balls": [
+      9,
+      22,
+      38,
+      47,
+      49
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "7/4/2014",
-    "white_balls": "16|33|39|58|69",
-    "yellow_ball": "2",
+    "white_balls": [
+      16,
+      33,
+      39,
+      58,
+      69
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "7/8/2014",
-    "white_balls": "14|25|27|48|49",
-    "yellow_ball": "9",
+    "white_balls": [
+      14,
+      25,
+      27,
+      48,
+      49
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "7/11/2014",
-    "white_balls": "9|13|30|35|69",
-    "yellow_ball": "10",
+    "white_balls": [
+      9,
+      13,
+      30,
+      35,
+      69
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "7/15/2014",
-    "white_balls": "2|4|17|36|40",
-    "yellow_ball": "5",
+    "white_balls": [
+      2,
+      4,
+      17,
+      36,
+      40
+    ],
+    "yellow_ball": 5,
     "megaplier": "2X"
   },
   {
     "date": "7/18/2014",
-    "white_balls": "5|8|59|65|72",
-    "yellow_ball": "3",
+    "white_balls": [
+      5,
+      8,
+      59,
+      65,
+      72
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "7/22/2014",
-    "white_balls": "14|18|22|31|47",
-    "yellow_ball": "15",
+    "white_balls": [
+      14,
+      18,
+      22,
+      31,
+      47
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "7/25/2014",
-    "white_balls": "22|29|33|41|68",
-    "yellow_ball": "12",
+    "white_balls": [
+      22,
+      29,
+      33,
+      41,
+      68
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "7/29/2014",
-    "white_balls": "2|8|16|43|74",
-    "yellow_ball": "1",
+    "white_balls": [
+      2,
+      8,
+      16,
+      43,
+      74
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "8/1/2014",
-    "white_balls": "13|29|34|37|72",
-    "yellow_ball": "6",
+    "white_balls": [
+      13,
+      29,
+      34,
+      37,
+      72
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "8/5/2014",
-    "white_balls": "25|28|36|45|53",
-    "yellow_ball": "6",
+    "white_balls": [
+      25,
+      28,
+      36,
+      45,
+      53
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "8/8/2014",
-    "white_balls": "9|16|61|70|75",
-    "yellow_ball": "7",
+    "white_balls": [
+      9,
+      16,
+      61,
+      70,
+      75
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "8/12/2014",
-    "white_balls": "32|53|60|63|68",
-    "yellow_ball": "6",
+    "white_balls": [
+      32,
+      53,
+      60,
+      63,
+      68
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "8/15/2014",
-    "white_balls": "16|19|28|29|68",
-    "yellow_ball": "9",
+    "white_balls": [
+      16,
+      19,
+      28,
+      29,
+      68
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "8/19/2014",
-    "white_balls": "22|39|56|67|71",
-    "yellow_ball": "15",
+    "white_balls": [
+      22,
+      39,
+      56,
+      67,
+      71
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "8/22/2014",
-    "white_balls": "5|31|34|41|74",
-    "yellow_ball": "3",
+    "white_balls": [
+      5,
+      31,
+      34,
+      41,
+      74
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "8/26/2014",
-    "white_balls": "29|31|51|60|64",
-    "yellow_ball": "1",
+    "white_balls": [
+      29,
+      31,
+      51,
+      60,
+      64
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "8/29/2014",
-    "white_balls": "3|26|45|58|73",
-    "yellow_ball": "12",
+    "white_balls": [
+      3,
+      26,
+      45,
+      58,
+      73
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "9/2/2014",
-    "white_balls": "1|8|54|69|72",
-    "yellow_ball": "1",
+    "white_balls": [
+      1,
+      8,
+      54,
+      69,
+      72
+    ],
+    "yellow_ball": 1,
     "megaplier": "3X"
   },
   {
     "date": "9/5/2014",
-    "white_balls": "7|12|20|24|59",
-    "yellow_ball": "7",
+    "white_balls": [
+      7,
+      12,
+      20,
+      24,
+      59
+    ],
+    "yellow_ball": 7,
     "megaplier": "2X"
   },
   {
     "date": "9/9/2014",
-    "white_balls": "25|34|55|70|71",
-    "yellow_ball": "1",
+    "white_balls": [
+      25,
+      34,
+      55,
+      70,
+      71
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "9/12/2014",
-    "white_balls": "18|28|33|36|42",
-    "yellow_ball": "7",
+    "white_balls": [
+      18,
+      28,
+      33,
+      36,
+      42
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "9/16/2014",
-    "white_balls": "25|45|51|53|73",
-    "yellow_ball": "2",
+    "white_balls": [
+      25,
+      45,
+      51,
+      53,
+      73
+    ],
+    "yellow_ball": 2,
     "megaplier": "2X"
   },
   {
     "date": "9/19/2014",
-    "white_balls": "16|25|27|29|34",
-    "yellow_ball": "2",
+    "white_balls": [
+      16,
+      25,
+      27,
+      29,
+      34
+    ],
+    "yellow_ball": 2,
     "megaplier": "2X"
   },
   {
     "date": "9/23/2014",
-    "white_balls": "21|24|25|40|43",
-    "yellow_ball": "12",
+    "white_balls": [
+      21,
+      24,
+      25,
+      40,
+      43
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "9/26/2014",
-    "white_balls": "17|26|35|46|62",
-    "yellow_ball": "9",
+    "white_balls": [
+      17,
+      26,
+      35,
+      46,
+      62
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "9/30/2014",
-    "white_balls": "3|16|52|54|61",
-    "yellow_ball": "6",
+    "white_balls": [
+      3,
+      16,
+      52,
+      54,
+      61
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "10/3/2014",
-    "white_balls": "3|20|34|58|67",
-    "yellow_ball": "6",
+    "white_balls": [
+      3,
+      20,
+      34,
+      58,
+      67
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "10/7/2014",
-    "white_balls": "16|29|46|48|55",
-    "yellow_ball": "2",
+    "white_balls": [
+      16,
+      29,
+      46,
+      48,
+      55
+    ],
+    "yellow_ball": 2,
     "megaplier": "3X"
   },
   {
     "date": "10/10/2014",
-    "white_balls": "2|32|35|50|59",
-    "yellow_ball": "3",
+    "white_balls": [
+      2,
+      32,
+      35,
+      50,
+      59
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "10/14/2014",
-    "white_balls": "11|37|46|64|68",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      37,
+      46,
+      64,
+      68
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "10/17/2014",
-    "white_balls": "21|31|43|56|60",
-    "yellow_ball": "12",
+    "white_balls": [
+      21,
+      31,
+      43,
+      56,
+      60
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "10/21/2014",
-    "white_balls": "5|35|37|41|66",
-    "yellow_ball": "11",
+    "white_balls": [
+      5,
+      35,
+      37,
+      41,
+      66
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "10/24/2014",
-    "white_balls": "2|14|21|28|55",
-    "yellow_ball": "3",
+    "white_balls": [
+      2,
+      14,
+      21,
+      28,
+      55
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "10/28/2014",
-    "white_balls": "3|50|57|58|60",
-    "yellow_ball": "11",
+    "white_balls": [
+      3,
+      50,
+      57,
+      58,
+      60
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "10/31/2014",
-    "white_balls": "11|29|36|58|67",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      29,
+      36,
+      58,
+      67
+    ],
+    "yellow_ball": 15,
     "megaplier": "2X"
   },
   {
     "date": "11/4/2014",
-    "white_balls": "9|15|24|39|41",
-    "yellow_ball": "1",
+    "white_balls": [
+      9,
+      15,
+      24,
+      39,
+      41
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "11/7/2014",
-    "white_balls": "31|35|41|65|66",
-    "yellow_ball": "5",
+    "white_balls": [
+      31,
+      35,
+      41,
+      65,
+      66
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "11/11/2014",
-    "white_balls": "23|25|28|30|75",
-    "yellow_ball": "11",
+    "white_balls": [
+      23,
+      25,
+      28,
+      30,
+      75
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "11/14/2014",
-    "white_balls": "3|49|61|62|68",
-    "yellow_ball": "15",
+    "white_balls": [
+      3,
+      49,
+      61,
+      62,
+      68
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "11/18/2014",
-    "white_balls": "37|39|53|68|75",
-    "yellow_ball": "6",
+    "white_balls": [
+      37,
+      39,
+      53,
+      68,
+      75
+    ],
+    "yellow_ball": 6,
     "megaplier": "2X"
   },
   {
     "date": "11/21/2014",
-    "white_balls": "3|12|35|37|63",
-    "yellow_ball": "15",
+    "white_balls": [
+      3,
+      12,
+      35,
+      37,
+      63
+    ],
+    "yellow_ball": 15,
     "megaplier": "2X"
   },
   {
     "date": "11/25/2014",
-    "white_balls": "10|11|29|47|56",
-    "yellow_ball": "4",
+    "white_balls": [
+      10,
+      11,
+      29,
+      47,
+      56
+    ],
+    "yellow_ball": 4,
     "megaplier": "2X"
   },
   {
     "date": "11/28/2014",
-    "white_balls": "8|26|29|36|47",
-    "yellow_ball": "10",
+    "white_balls": [
+      8,
+      26,
+      29,
+      36,
+      47
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "12/2/2014",
-    "white_balls": "13|18|22|49|62",
-    "yellow_ball": "11",
+    "white_balls": [
+      13,
+      18,
+      22,
+      49,
+      62
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "12/5/2014",
-    "white_balls": "4|5|11|51|59",
-    "yellow_ball": "5",
+    "white_balls": [
+      4,
+      5,
+      11,
+      51,
+      59
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "12/9/2014",
-    "white_balls": "27|45|49|51|52",
-    "yellow_ball": "14",
+    "white_balls": [
+      27,
+      45,
+      49,
+      51,
+      52
+    ],
+    "yellow_ball": 14,
     "megaplier": "5X"
   },
   {
     "date": "12/12/2014",
-    "white_balls": "2|31|46|58|65",
-    "yellow_ball": "7",
+    "white_balls": [
+      2,
+      31,
+      46,
+      58,
+      65
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "12/16/2014",
-    "white_balls": "41|58|68|72|73",
-    "yellow_ball": "1",
+    "white_balls": [
+      41,
+      58,
+      68,
+      72,
+      73
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "12/19/2014",
-    "white_balls": "14|18|58|59|68",
-    "yellow_ball": "4",
+    "white_balls": [
+      14,
+      18,
+      58,
+      59,
+      68
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "12/23/2014",
-    "white_balls": "4|10|31|56|66",
-    "yellow_ball": "7",
+    "white_balls": [
+      4,
+      10,
+      31,
+      56,
+      66
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "12/26/2014",
-    "white_balls": "2|5|10|20|38",
-    "yellow_ball": "14",
+    "white_balls": [
+      2,
+      5,
+      10,
+      20,
+      38
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "12/30/2014",
-    "white_balls": "3|7|44|63|67",
-    "yellow_ball": "12",
+    "white_balls": [
+      3,
+      7,
+      44,
+      63,
+      67
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "1/2/2015",
-    "white_balls": "13|15|35|62|74",
-    "yellow_ball": "12",
+    "white_balls": [
+      13,
+      15,
+      35,
+      62,
+      74
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "1/6/2015",
-    "white_balls": "12|20|27|38|75",
-    "yellow_ball": "4",
+    "white_balls": [
+      12,
+      20,
+      27,
+      38,
+      75
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "1/9/2015",
-    "white_balls": "37|49|50|56|57",
-    "yellow_ball": "8",
+    "white_balls": [
+      37,
+      49,
+      50,
+      56,
+      57
+    ],
+    "yellow_ball": 8,
     "megaplier": "5X"
   },
   {
     "date": "1/13/2015",
-    "white_balls": "12|20|25|50|51",
-    "yellow_ball": "7",
+    "white_balls": [
+      12,
+      20,
+      25,
+      50,
+      51
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "1/16/2015",
-    "white_balls": "26|32|44|45|58",
-    "yellow_ball": "11",
+    "white_balls": [
+      26,
+      32,
+      44,
+      45,
+      58
+    ],
+    "yellow_ball": 11,
     "megaplier": "3X"
   },
   {
     "date": "1/20/2015",
-    "white_balls": "31|35|56|59|63",
-    "yellow_ball": "6",
+    "white_balls": [
+      31,
+      35,
+      56,
+      59,
+      63
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "1/23/2015",
-    "white_balls": "14|15|32|68|72",
-    "yellow_ball": "8",
+    "white_balls": [
+      14,
+      15,
+      32,
+      68,
+      72
+    ],
+    "yellow_ball": 8,
     "megaplier": "2X"
   },
   {
     "date": "1/27/2015",
-    "white_balls": "5|26|27|44|57",
-    "yellow_ball": "7",
+    "white_balls": [
+      5,
+      26,
+      27,
+      44,
+      57
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "1/30/2015",
-    "white_balls": "18|31|39|45|55",
-    "yellow_ball": "6",
+    "white_balls": [
+      18,
+      31,
+      39,
+      45,
+      55
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "2/3/2015",
-    "white_balls": "11|22|25|58|69",
-    "yellow_ball": "13",
+    "white_balls": [
+      11,
+      22,
+      25,
+      58,
+      69
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "2/6/2015",
-    "white_balls": "5|6|17|33|68",
-    "yellow_ball": "13",
+    "white_balls": [
+      5,
+      6,
+      17,
+      33,
+      68
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "2/10/2015",
-    "white_balls": "7|42|53|58|71",
-    "yellow_ball": "15",
+    "white_balls": [
+      7,
+      42,
+      53,
+      58,
+      71
+    ],
+    "yellow_ball": 15,
     "megaplier": "2X"
   },
   {
     "date": "2/13/2015",
-    "white_balls": "4|20|44|65|74",
-    "yellow_ball": "14",
+    "white_balls": [
+      4,
+      20,
+      44,
+      65,
+      74
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "2/17/2015",
-    "white_balls": "6|45|50|65|66",
-    "yellow_ball": "1",
+    "white_balls": [
+      6,
+      45,
+      50,
+      65,
+      66
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "2/20/2015",
-    "white_balls": "2|6|8|52|66",
-    "yellow_ball": "13",
+    "white_balls": [
+      2,
+      6,
+      8,
+      52,
+      66
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "2/24/2015",
-    "white_balls": "15|23|26|45|66",
-    "yellow_ball": "4",
+    "white_balls": [
+      15,
+      23,
+      26,
+      45,
+      66
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "2/27/2015",
-    "white_balls": "7|49|53|60|64",
-    "yellow_ball": "4",
+    "white_balls": [
+      7,
+      49,
+      53,
+      60,
+      64
+    ],
+    "yellow_ball": 4,
     "megaplier": "2X"
   },
   {
     "date": "3/3/2015",
-    "white_balls": "9|11|42|44|50",
-    "yellow_ball": "3",
+    "white_balls": [
+      9,
+      11,
+      42,
+      44,
+      50
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "3/6/2015",
-    "white_balls": "30|48|55|68|73",
-    "yellow_ball": "5",
+    "white_balls": [
+      30,
+      48,
+      55,
+      68,
+      73
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "3/10/2015",
-    "white_balls": "10|14|19|30|73",
-    "yellow_ball": "14",
+    "white_balls": [
+      10,
+      14,
+      19,
+      30,
+      73
+    ],
+    "yellow_ball": 14,
     "megaplier": "5X"
   },
   {
     "date": "3/13/2015",
-    "white_balls": "8|22|30|42|45",
-    "yellow_ball": "3",
+    "white_balls": [
+      8,
+      22,
+      30,
+      42,
+      45
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "3/17/2015",
-    "white_balls": "11|27|44|45|58",
-    "yellow_ball": "3",
+    "white_balls": [
+      11,
+      27,
+      44,
+      45,
+      58
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "3/20/2015",
-    "white_balls": "7|50|54|61|75",
-    "yellow_ball": "7",
+    "white_balls": [
+      7,
+      50,
+      54,
+      61,
+      75
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "3/24/2015",
-    "white_balls": "2|23|32|45|55",
-    "yellow_ball": "12",
+    "white_balls": [
+      2,
+      23,
+      32,
+      45,
+      55
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "3/27/2015",
-    "white_balls": "17|21|36|58|70",
-    "yellow_ball": "3",
+    "white_balls": [
+      17,
+      21,
+      36,
+      58,
+      70
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "3/31/2015",
-    "white_balls": "8|26|41|61|73",
-    "yellow_ball": "11",
+    "white_balls": [
+      8,
+      26,
+      41,
+      61,
+      73
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "4/3/2015",
-    "white_balls": "10|36|47|63|74",
-    "yellow_ball": "2",
+    "white_balls": [
+      10,
+      36,
+      47,
+      63,
+      74
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "4/7/2015",
-    "white_balls": "5|15|22|26|64",
-    "yellow_ball": "6",
+    "white_balls": [
+      5,
+      15,
+      22,
+      26,
+      64
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "4/10/2015",
-    "white_balls": "6|11|32|46|68",
-    "yellow_ball": "9",
+    "white_balls": [
+      6,
+      11,
+      32,
+      46,
+      68
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "4/14/2015",
-    "white_balls": "3|7|25|68|71",
-    "yellow_ball": "3",
+    "white_balls": [
+      3,
+      7,
+      25,
+      68,
+      71
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "4/17/2015",
-    "white_balls": "15|18|29|41|50",
-    "yellow_ball": "5",
+    "white_balls": [
+      15,
+      18,
+      29,
+      41,
+      50
+    ],
+    "yellow_ball": 5,
     "megaplier": "2X"
   },
   {
     "date": "4/21/2015",
-    "white_balls": "31|33|35|41|69",
-    "yellow_ball": "11",
+    "white_balls": [
+      31,
+      33,
+      35,
+      41,
+      69
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "4/24/2015",
-    "white_balls": "24|25|29|47|67",
-    "yellow_ball": "4",
+    "white_balls": [
+      24,
+      25,
+      29,
+      47,
+      67
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "4/28/2015",
-    "white_balls": "22|27|55|58|63",
-    "yellow_ball": "11",
+    "white_balls": [
+      22,
+      27,
+      55,
+      58,
+      63
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "5/1/2015",
-    "white_balls": "17|18|61|66|74",
-    "yellow_ball": "3",
+    "white_balls": [
+      17,
+      18,
+      61,
+      66,
+      74
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "5/5/2015",
-    "white_balls": "11|21|42|62|71",
-    "yellow_ball": "7",
+    "white_balls": [
+      11,
+      21,
+      42,
+      62,
+      71
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "5/8/2015",
-    "white_balls": "9|21|25|66|72",
-    "yellow_ball": "7",
+    "white_balls": [
+      9,
+      21,
+      25,
+      66,
+      72
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "5/12/2015",
-    "white_balls": "14|30|33|36|44",
-    "yellow_ball": "2",
+    "white_balls": [
+      14,
+      30,
+      33,
+      36,
+      44
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "5/15/2015",
-    "white_balls": "11|17|21|36|74",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      17,
+      21,
+      36,
+      74
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "5/19/2015",
-    "white_balls": "10|12|21|29|65",
-    "yellow_ball": "10",
+    "white_balls": [
+      10,
+      12,
+      21,
+      29,
+      65
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "5/22/2015",
-    "white_balls": "3|14|15|25|48",
-    "yellow_ball": "8",
+    "white_balls": [
+      3,
+      14,
+      15,
+      25,
+      48
+    ],
+    "yellow_ball": 8,
     "megaplier": "5X"
   },
   {
     "date": "5/26/2015",
-    "white_balls": "1|39|52|69|72",
-    "yellow_ball": "12",
+    "white_balls": [
+      1,
+      39,
+      52,
+      69,
+      72
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "5/29/2015",
-    "white_balls": "20|27|38|49|66",
-    "yellow_ball": "2",
+    "white_balls": [
+      20,
+      27,
+      38,
+      49,
+      66
+    ],
+    "yellow_ball": 2,
     "megaplier": "4X"
   },
   {
     "date": "6/2/2015",
-    "white_balls": "2|9|11|22|23",
-    "yellow_ball": "12",
+    "white_balls": [
+      2,
+      9,
+      11,
+      22,
+      23
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "6/5/2015",
-    "white_balls": "7|22|27|41|49",
-    "yellow_ball": "10",
+    "white_balls": [
+      7,
+      22,
+      27,
+      41,
+      49
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "6/9/2015",
-    "white_balls": "6|16|17|25|36",
-    "yellow_ball": "7",
+    "white_balls": [
+      6,
+      16,
+      17,
+      25,
+      36
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "6/12/2015",
-    "white_balls": "1|40|42|56|62",
-    "yellow_ball": "2",
+    "white_balls": [
+      1,
+      40,
+      42,
+      56,
+      62
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "6/16/2015",
-    "white_balls": "8|19|26|56|67",
-    "yellow_ball": "14",
+    "white_balls": [
+      8,
+      19,
+      26,
+      56,
+      67
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "6/19/2015",
-    "white_balls": "4|35|36|52|68",
-    "yellow_ball": "8",
+    "white_balls": [
+      4,
+      35,
+      36,
+      52,
+      68
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "6/23/2015",
-    "white_balls": "6|13|38|56|70",
-    "yellow_ball": "2",
+    "white_balls": [
+      6,
+      13,
+      38,
+      56,
+      70
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "6/26/2015",
-    "white_balls": "12|23|33|47|50",
-    "yellow_ball": "3",
+    "white_balls": [
+      12,
+      23,
+      33,
+      47,
+      50
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "6/30/2015",
-    "white_balls": "11|17|34|43|50",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      17,
+      34,
+      43,
+      50
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "7/3/2015",
-    "white_balls": "33|50|64|71|72",
-    "yellow_ball": "9",
+    "white_balls": [
+      33,
+      50,
+      64,
+      71,
+      72
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "7/7/2015",
-    "white_balls": "6|15|16|28|49",
-    "yellow_ball": "14",
+    "white_balls": [
+      6,
+      15,
+      16,
+      28,
+      49
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "9/18/2015",
-    "white_balls": "17|34|35|51|65",
-    "yellow_ball": "7",
+    "white_balls": [
+      17,
+      34,
+      35,
+      51,
+      65
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "9/22/2015",
-    "white_balls": "28|30|38|45|51",
-    "yellow_ball": "8",
+    "white_balls": [
+      28,
+      30,
+      38,
+      45,
+      51
+    ],
+    "yellow_ball": 8,
     "megaplier": "5X"
   },
   {
     "date": "9/25/2015",
-    "white_balls": "3|8|38|51|64",
-    "yellow_ball": "4",
+    "white_balls": [
+      3,
+      8,
+      38,
+      51,
+      64
+    ],
+    "yellow_ball": 4,
     "megaplier": "5X"
   },
   {
     "date": "9/29/2015",
-    "white_balls": "8|21|30|61|62",
-    "yellow_ball": "9",
+    "white_balls": [
+      8,
+      21,
+      30,
+      61,
+      62
+    ],
+    "yellow_ball": 9,
     "megaplier": "3X"
   },
   {
     "date": "10/2/2015",
-    "white_balls": "4|14|29|31|47",
-    "yellow_ball": "9",
+    "white_balls": [
+      4,
+      14,
+      29,
+      31,
+      47
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "10/6/2015",
-    "white_balls": "17|58|63|64|66",
-    "yellow_ball": "13",
+    "white_balls": [
+      17,
+      58,
+      63,
+      64,
+      66
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "10/9/2015",
-    "white_balls": "8|9|21|63|75",
-    "yellow_ball": "14",
+    "white_balls": [
+      8,
+      9,
+      21,
+      63,
+      75
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "10/13/2015",
-    "white_balls": "7|9|24|38|52",
-    "yellow_ball": "1",
+    "white_balls": [
+      7,
+      9,
+      24,
+      38,
+      52
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "10/16/2015",
-    "white_balls": "2|38|48|61|68",
-    "yellow_ball": "4",
+    "white_balls": [
+      2,
+      38,
+      48,
+      61,
+      68
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "10/20/2015",
-    "white_balls": "6|25|35|38|52",
-    "yellow_ball": "4",
+    "white_balls": [
+      6,
+      25,
+      35,
+      38,
+      52
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "10/23/2015",
-    "white_balls": "25|32|37|45|70",
-    "yellow_ball": "1",
+    "white_balls": [
+      25,
+      32,
+      37,
+      45,
+      70
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "10/27/2015",
-    "white_balls": "9|26|27|29|74",
-    "yellow_ball": "4",
+    "white_balls": [
+      9,
+      26,
+      27,
+      29,
+      74
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "10/30/2015",
-    "white_balls": "17|41|51|53|56",
-    "yellow_ball": "15",
+    "white_balls": [
+      17,
+      41,
+      51,
+      53,
+      56
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "11/3/2015",
-    "white_balls": "16|29|44|69|74",
-    "yellow_ball": "12",
+    "white_balls": [
+      16,
+      29,
+      44,
+      69,
+      74
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "11/6/2015",
-    "white_balls": "10|31|35|50|72",
-    "yellow_ball": "8",
+    "white_balls": [
+      10,
+      31,
+      35,
+      50,
+      72
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "11/10/2015",
-    "white_balls": "8|17|20|45|71",
-    "yellow_ball": "4",
+    "white_balls": [
+      8,
+      17,
+      20,
+      45,
+      71
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "11/13/2015",
-    "white_balls": "17|18|31|35|59",
-    "yellow_ball": "9",
+    "white_balls": [
+      17,
+      18,
+      31,
+      35,
+      59
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "11/17/2015",
-    "white_balls": "12|14|18|24|61",
-    "yellow_ball": "10",
+    "white_balls": [
+      12,
+      14,
+      18,
+      24,
+      61
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "11/20/2015",
-    "white_balls": "9|12|29|37|67",
-    "yellow_ball": "15",
+    "white_balls": [
+      9,
+      12,
+      29,
+      37,
+      67
+    ],
+    "yellow_ball": 15,
     "megaplier": "2X"
   },
   {
     "date": "11/24/2015",
-    "white_balls": "2|19|30|38|70",
-    "yellow_ball": "8",
+    "white_balls": [
+      2,
+      19,
+      30,
+      38,
+      70
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "7/10/2015",
-    "white_balls": "24|27|45|51|54",
-    "yellow_ball": "8",
+    "white_balls": [
+      24,
+      27,
+      45,
+      51,
+      54
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "7/14/2015",
-    "white_balls": "19|24|30|35|72",
-    "yellow_ball": "5",
+    "white_balls": [
+      19,
+      24,
+      30,
+      35,
+      72
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "7/17/2015",
-    "white_balls": "6|17|30|31|41",
-    "yellow_ball": "15",
+    "white_balls": [
+      6,
+      17,
+      30,
+      31,
+      41
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "7/21/2015",
-    "white_balls": "20|30|62|65|74",
-    "yellow_ball": "1",
+    "white_balls": [
+      20,
+      30,
+      62,
+      65,
+      74
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "7/24/2015",
-    "white_balls": "10|12|26|60|62",
-    "yellow_ball": "13",
+    "white_balls": [
+      10,
+      12,
+      26,
+      60,
+      62
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "7/28/2015",
-    "white_balls": "8|35|61|68|75",
-    "yellow_ball": "15",
+    "white_balls": [
+      8,
+      35,
+      61,
+      68,
+      75
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "7/31/2015",
-    "white_balls": "28|32|33|40|46",
-    "yellow_ball": "10",
+    "white_balls": [
+      28,
+      32,
+      33,
+      40,
+      46
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "8/4/2015",
-    "white_balls": "2|19|44|51|57",
-    "yellow_ball": "14",
+    "white_balls": [
+      2,
+      19,
+      44,
+      51,
+      57
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "8/7/2015",
-    "white_balls": "1|38|53|63|66",
-    "yellow_ball": "10",
+    "white_balls": [
+      1,
+      38,
+      53,
+      63,
+      66
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "8/11/2015",
-    "white_balls": "3|8|29|57|68",
-    "yellow_ball": "8",
+    "white_balls": [
+      3,
+      8,
+      29,
+      57,
+      68
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "8/14/2015",
-    "white_balls": "12|15|20|52|71",
-    "yellow_ball": "3",
+    "white_balls": [
+      12,
+      15,
+      20,
+      52,
+      71
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "8/18/2015",
-    "white_balls": "2|7|33|39|53",
-    "yellow_ball": "9",
+    "white_balls": [
+      2,
+      7,
+      33,
+      39,
+      53
+    ],
+    "yellow_ball": 9,
     "megaplier": "3X"
   },
   {
     "date": "8/21/2015",
-    "white_balls": "13|15|21|41|72",
-    "yellow_ball": "1",
+    "white_balls": [
+      13,
+      15,
+      21,
+      41,
+      72
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "8/25/2015",
-    "white_balls": "5|44|54|59|63",
-    "yellow_ball": "1",
+    "white_balls": [
+      5,
+      44,
+      54,
+      59,
+      63
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "8/28/2015",
-    "white_balls": "13|35|40|60|68",
-    "yellow_ball": "9",
+    "white_balls": [
+      13,
+      35,
+      40,
+      60,
+      68
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "9/1/2015",
-    "white_balls": "2|5|35|40|54",
-    "yellow_ball": "13",
+    "white_balls": [
+      2,
+      5,
+      35,
+      40,
+      54
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "9/4/2015",
-    "white_balls": "17|21|39|52|57",
-    "yellow_ball": "5",
+    "white_balls": [
+      17,
+      21,
+      39,
+      52,
+      57
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "9/8/2015",
-    "white_balls": "19|20|36|41|46",
-    "yellow_ball": "7",
+    "white_balls": [
+      19,
+      20,
+      36,
+      41,
+      46
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "9/11/2015",
-    "white_balls": "5|11|31|50|67",
-    "yellow_ball": "14",
+    "white_balls": [
+      5,
+      11,
+      31,
+      50,
+      67
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "9/15/2015",
-    "white_balls": "7|20|35|49|56",
-    "yellow_ball": "9",
+    "white_balls": [
+      7,
+      20,
+      35,
+      49,
+      56
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "11/27/2015",
-    "white_balls": "16|20|39|56|59",
-    "yellow_ball": "12",
+    "white_balls": [
+      16,
+      20,
+      39,
+      56,
+      59
+    ],
+    "yellow_ball": 12,
     "megaplier": "3X"
   },
   {
     "date": "12/1/2015",
-    "white_balls": "5|7|25|50|59",
-    "yellow_ball": "12",
+    "white_balls": [
+      5,
+      7,
+      25,
+      50,
+      59
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "12/4/2015",
-    "white_balls": "26|42|47|61|73",
-    "yellow_ball": "6",
+    "white_balls": [
+      26,
+      42,
+      47,
+      61,
+      73
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "12/8/2015",
-    "white_balls": "7|17|37|49|73",
-    "yellow_ball": "15",
+    "white_balls": [
+      7,
+      17,
+      37,
+      49,
+      73
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "12/11/2015",
-    "white_balls": "14|20|43|54|69",
-    "yellow_ball": "5",
+    "white_balls": [
+      14,
+      20,
+      43,
+      54,
+      69
+    ],
+    "yellow_ball": 5,
     "megaplier": "4X"
   },
   {
     "date": "12/15/2015",
-    "white_balls": "18|25|47|51|61",
-    "yellow_ball": "5",
+    "white_balls": [
+      18,
+      25,
+      47,
+      51,
+      61
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "12/18/2015",
-    "white_balls": "6|23|24|28|62",
-    "yellow_ball": "7",
+    "white_balls": [
+      6,
+      23,
+      24,
+      28,
+      62
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "12/22/2015",
-    "white_balls": "11|21|40|50|70",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      21,
+      40,
+      50,
+      70
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "12/25/2015",
-    "white_balls": "15|25|29|44|51",
-    "yellow_ball": "4",
+    "white_balls": [
+      15,
+      25,
+      29,
+      44,
+      51
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "12/29/2015",
-    "white_balls": "20|25|55|62|74",
-    "yellow_ball": "7",
+    "white_balls": [
+      20,
+      25,
+      55,
+      62,
+      74
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "1/1/2016",
-    "white_balls": "7|18|37|38|39",
-    "yellow_ball": "9",
+    "white_balls": [
+      7,
+      18,
+      37,
+      38,
+      39
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "1/5/2016",
-    "white_balls": "1|4|36|48|57",
-    "yellow_ball": "13",
+    "white_balls": [
+      1,
+      4,
+      36,
+      48,
+      57
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "1/8/2016",
-    "white_balls": "11|39|51|57|75",
-    "yellow_ball": "2",
+    "white_balls": [
+      11,
+      39,
+      51,
+      57,
+      75
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "1/12/2016",
-    "white_balls": "15|27|29|31|48",
-    "yellow_ball": "15",
+    "white_balls": [
+      15,
+      27,
+      29,
+      31,
+      48
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "1/15/2016",
-    "white_balls": "29|41|53|54|70",
-    "yellow_ball": "12",
+    "white_balls": [
+      29,
+      41,
+      53,
+      54,
+      70
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "1/19/2016",
-    "white_balls": "2|17|31|39|47",
-    "yellow_ball": "9",
+    "white_balls": [
+      2,
+      17,
+      31,
+      39,
+      47
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "1/22/2016",
-    "white_balls": "21|25|40|46|56",
-    "yellow_ball": "3",
+    "white_balls": [
+      21,
+      25,
+      40,
+      46,
+      56
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "1/26/2016",
-    "white_balls": "14|27|39|50|69",
-    "yellow_ball": "2",
+    "white_balls": [
+      14,
+      27,
+      39,
+      50,
+      69
+    ],
+    "yellow_ball": 2,
     "megaplier": "2X"
   },
   {
     "date": "1/29/2016",
-    "white_balls": "20|28|49|51|52",
-    "yellow_ball": "6",
+    "white_balls": [
+      20,
+      28,
+      49,
+      51,
+      52
+    ],
+    "yellow_ball": 6,
     "megaplier": "2X"
   },
   {
     "date": "2/2/2016",
-    "white_balls": "7|13|25|51|70",
-    "yellow_ball": "9",
+    "white_balls": [
+      7,
+      13,
+      25,
+      51,
+      70
+    ],
+    "yellow_ball": 9,
     "megaplier": "4X"
   },
   {
     "date": "2/5/2016",
-    "white_balls": "4|6|23|55|75",
-    "yellow_ball": "2",
+    "white_balls": [
+      4,
+      6,
+      23,
+      55,
+      75
+    ],
+    "yellow_ball": 2,
     "megaplier": "3X"
   },
   {
     "date": "2/9/2016",
-    "white_balls": "3|42|46|56|71",
-    "yellow_ball": "13",
+    "white_balls": [
+      3,
+      42,
+      46,
+      56,
+      71
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "2/12/2016",
-    "white_balls": "1|7|44|68|73",
-    "yellow_ball": "1",
+    "white_balls": [
+      1,
+      7,
+      44,
+      68,
+      73
+    ],
+    "yellow_ball": 1,
     "megaplier": "3X"
   },
   {
     "date": "2/16/2016",
-    "white_balls": "9|31|33|46|64",
-    "yellow_ball": "4",
+    "white_balls": [
+      9,
+      31,
+      33,
+      46,
+      64
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "2/19/2016",
-    "white_balls": "2|27|41|50|75",
-    "yellow_ball": "4",
+    "white_balls": [
+      2,
+      27,
+      41,
+      50,
+      75
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "2/23/2016",
-    "white_balls": "16|32|39|53|57",
-    "yellow_ball": "10",
+    "white_balls": [
+      16,
+      32,
+      39,
+      53,
+      57
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "2/26/2016",
-    "white_balls": "3|15|19|62|74",
-    "yellow_ball": "14",
+    "white_balls": [
+      3,
+      15,
+      19,
+      62,
+      74
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "3/1/2016",
-    "white_balls": "1|29|33|34|55",
-    "yellow_ball": "6",
+    "white_balls": [
+      1,
+      29,
+      33,
+      34,
+      55
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "3/4/2016",
-    "white_balls": "21|26|33|48|73",
-    "yellow_ball": "14",
+    "white_balls": [
+      21,
+      26,
+      33,
+      48,
+      73
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "3/8/2016",
-    "white_balls": "27|37|54|66|69",
-    "yellow_ball": "5",
+    "white_balls": [
+      27,
+      37,
+      54,
+      66,
+      69
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "3/11/2016",
-    "white_balls": "14|18|48|54|71",
-    "yellow_ball": "13",
+    "white_balls": [
+      14,
+      18,
+      48,
+      54,
+      71
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "3/15/2016",
-    "white_balls": "18|26|30|44|68",
-    "yellow_ball": "7",
+    "white_balls": [
+      18,
+      26,
+      30,
+      44,
+      68
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "3/18/2016",
-    "white_balls": "5|8|57|59|73",
-    "yellow_ball": "13",
+    "white_balls": [
+      5,
+      8,
+      57,
+      59,
+      73
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "3/22/2016",
-    "white_balls": "6|19|34|38|70",
-    "yellow_ball": "5",
+    "white_balls": [
+      6,
+      19,
+      34,
+      38,
+      70
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "3/25/2016",
-    "white_balls": "4|11|12|35|46",
-    "yellow_ball": "12",
+    "white_balls": [
+      4,
+      11,
+      12,
+      35,
+      46
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "3/29/2016",
-    "white_balls": "33|38|40|46|49",
-    "yellow_ball": "15",
+    "white_balls": [
+      33,
+      38,
+      40,
+      46,
+      49
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "4/1/2016",
-    "white_balls": "25|28|33|41|69",
-    "yellow_ball": "6",
+    "white_balls": [
+      25,
+      28,
+      33,
+      41,
+      69
+    ],
+    "yellow_ball": 6,
     "megaplier": "2X"
   },
   {
     "date": "4/5/2016",
-    "white_balls": "13|45|52|53|57",
-    "yellow_ball": "10",
+    "white_balls": [
+      13,
+      45,
+      52,
+      53,
+      57
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "4/8/2016",
-    "white_balls": "31|38|52|65|71",
-    "yellow_ball": "15",
+    "white_balls": [
+      31,
+      38,
+      52,
+      65,
+      71
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "4/12/2016",
-    "white_balls": "7|11|59|62|63",
-    "yellow_ball": "3",
+    "white_balls": [
+      7,
+      11,
+      59,
+      62,
+      63
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "4/15/2016",
-    "white_balls": "9|10|34|37|73",
-    "yellow_ball": "9",
+    "white_balls": [
+      9,
+      10,
+      34,
+      37,
+      73
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "4/19/2016",
-    "white_balls": "9|28|40|57|65",
-    "yellow_ball": "2",
+    "white_balls": [
+      9,
+      28,
+      40,
+      57,
+      65
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "4/22/2016",
-    "white_balls": "2|19|21|42|60",
-    "yellow_ball": "13",
+    "white_balls": [
+      2,
+      19,
+      21,
+      42,
+      60
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "4/26/2016",
-    "white_balls": "14|16|17|28|48",
-    "yellow_ball": "2",
+    "white_balls": [
+      14,
+      16,
+      17,
+      28,
+      48
+    ],
+    "yellow_ball": 2,
     "megaplier": "2X"
   },
   {
     "date": "4/29/2016",
-    "white_balls": "5|6|37|55|74",
-    "yellow_ball": "10",
+    "white_balls": [
+      5,
+      6,
+      37,
+      55,
+      74
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "5/3/2016",
-    "white_balls": "28|29|33|36|45",
-    "yellow_ball": "15",
+    "white_balls": [
+      28,
+      29,
+      33,
+      36,
+      45
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "5/6/2016",
-    "white_balls": "14|26|27|32|36",
-    "yellow_ball": "7",
+    "white_balls": [
+      14,
+      26,
+      27,
+      32,
+      36
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "5/10/2016",
-    "white_balls": "12|22|46|56|74",
-    "yellow_ball": "4",
+    "white_balls": [
+      12,
+      22,
+      46,
+      56,
+      74
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "5/13/2016",
-    "white_balls": "20|21|38|54|66",
-    "yellow_ball": "7",
+    "white_balls": [
+      20,
+      21,
+      38,
+      54,
+      66
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "5/17/2016",
-    "white_balls": "17|24|27|48|75",
-    "yellow_ball": "6",
+    "white_balls": [
+      17,
+      24,
+      27,
+      48,
+      75
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "5/20/2016",
-    "white_balls": "19|24|26|40|68",
-    "yellow_ball": "8",
+    "white_balls": [
+      19,
+      24,
+      26,
+      40,
+      68
+    ],
+    "yellow_ball": 8,
     "megaplier": "2X"
   },
   {
     "date": "5/24/2016",
-    "white_balls": "11|50|51|70|75",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      50,
+      51,
+      70,
+      75
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "5/27/2016",
-    "white_balls": "18|41|50|68|70",
-    "yellow_ball": "9",
+    "white_balls": [
+      18,
+      41,
+      50,
+      68,
+      70
+    ],
+    "yellow_ball": 9,
     "megaplier": "3X"
   },
   {
     "date": "5/31/2016",
-    "white_balls": "9|31|34|41|49",
-    "yellow_ball": "8",
+    "white_balls": [
+      9,
+      31,
+      34,
+      41,
+      49
+    ],
+    "yellow_ball": 8,
     "megaplier": "5X"
   },
   {
     "date": "6/3/2016",
-    "white_balls": "32|54|65|66|71",
-    "yellow_ball": "10",
+    "white_balls": [
+      32,
+      54,
+      65,
+      66,
+      71
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "6/7/2016",
-    "white_balls": "25|48|51|65|72",
-    "yellow_ball": "4",
+    "white_balls": [
+      25,
+      48,
+      51,
+      65,
+      72
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "6/10/2016",
-    "white_balls": "34|61|66|67|68",
-    "yellow_ball": "7",
+    "white_balls": [
+      34,
+      61,
+      66,
+      67,
+      68
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "6/14/2016",
-    "white_balls": "36|37|38|52|62",
-    "yellow_ball": "6",
+    "white_balls": [
+      36,
+      37,
+      38,
+      52,
+      62
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "6/17/2016",
-    "white_balls": "20|23|30|44|59",
-    "yellow_ball": "9",
+    "white_balls": [
+      20,
+      23,
+      30,
+      44,
+      59
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "6/21/2016",
-    "white_balls": "6|13|21|49|50",
-    "yellow_ball": "10",
+    "white_balls": [
+      6,
+      13,
+      21,
+      49,
+      50
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "6/24/2016",
-    "white_balls": "11|14|54|57|63",
-    "yellow_ball": "11",
+    "white_balls": [
+      11,
+      14,
+      54,
+      57,
+      63
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "6/28/2016",
-    "white_balls": "15|17|20|35|55",
-    "yellow_ball": "7",
+    "white_balls": [
+      15,
+      17,
+      20,
+      35,
+      55
+    ],
+    "yellow_ball": 7,
     "megaplier": "2X"
   },
   {
     "date": "7/1/2016",
-    "white_balls": "20|41|42|45|49",
-    "yellow_ball": "14",
+    "white_balls": [
+      20,
+      41,
+      42,
+      45,
+      49
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "7/5/2016",
-    "white_balls": "29|46|53|64|73",
-    "yellow_ball": "10",
+    "white_balls": [
+      29,
+      46,
+      53,
+      64,
+      73
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "7/8/2016",
-    "white_balls": "8|19|20|55|73",
-    "yellow_ball": "5",
+    "white_balls": [
+      8,
+      19,
+      20,
+      55,
+      73
+    ],
+    "yellow_ball": 5,
     "megaplier": "2X"
   },
   {
     "date": "7/12/2016",
-    "white_balls": "6|8|22|46|68",
-    "yellow_ball": "4",
+    "white_balls": [
+      6,
+      8,
+      22,
+      46,
+      68
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "7/15/2016",
-    "white_balls": "16|51|52|56|58",
-    "yellow_ball": "4",
+    "white_balls": [
+      16,
+      51,
+      52,
+      56,
+      58
+    ],
+    "yellow_ball": 4,
     "megaplier": "2X"
   },
   {
     "date": "7/19/2016",
-    "white_balls": "3|34|54|65|66",
-    "yellow_ball": "4",
+    "white_balls": [
+      3,
+      34,
+      54,
+      65,
+      66
+    ],
+    "yellow_ball": 4,
     "megaplier": "5X"
   },
   {
     "date": "7/22/2016",
-    "white_balls": "8|24|25|26|30",
-    "yellow_ball": "7",
+    "white_balls": [
+      8,
+      24,
+      25,
+      26,
+      30
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "7/26/2016",
-    "white_balls": "1|4|31|36|54",
-    "yellow_ball": "9",
+    "white_balls": [
+      1,
+      4,
+      31,
+      36,
+      54
+    ],
+    "yellow_ball": 9,
     "megaplier": "3X"
   },
   {
     "date": "7/29/2016",
-    "white_balls": "11|16|19|31|48",
-    "yellow_ball": "4",
+    "white_balls": [
+      11,
+      16,
+      19,
+      31,
+      48
+    ],
+    "yellow_ball": 4,
     "megaplier": "5X"
   },
   {
     "date": "8/2/2016",
-    "white_balls": "3|12|36|54|70",
-    "yellow_ball": "12",
+    "white_balls": [
+      3,
+      12,
+      36,
+      54,
+      70
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "8/5/2016",
-    "white_balls": "5|18|28|54|74",
-    "yellow_ball": "6",
+    "white_balls": [
+      5,
+      18,
+      28,
+      54,
+      74
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "8/9/2016",
-    "white_balls": "12|19|20|44|66",
-    "yellow_ball": "1",
+    "white_balls": [
+      12,
+      19,
+      20,
+      44,
+      66
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "8/12/2016",
-    "white_balls": "4|41|44|56|69",
-    "yellow_ball": "10",
+    "white_balls": [
+      4,
+      41,
+      44,
+      56,
+      69
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "8/16/2016",
-    "white_balls": "2|43|52|62|63",
-    "yellow_ball": "6",
+    "white_balls": [
+      2,
+      43,
+      52,
+      62,
+      63
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "8/19/2016",
-    "white_balls": "22|37|45|65|73",
-    "yellow_ball": "13",
+    "white_balls": [
+      22,
+      37,
+      45,
+      65,
+      73
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   },
   {
     "date": "8/23/2016",
-    "white_balls": "2|7|46|61|66",
-    "yellow_ball": "1",
+    "white_balls": [
+      2,
+      7,
+      46,
+      61,
+      66
+    ],
+    "yellow_ball": 1,
     "megaplier": "2X"
   },
   {
     "date": "8/26/2016",
-    "white_balls": "10|11|31|41|44",
-    "yellow_ball": "14",
+    "white_balls": [
+      10,
+      11,
+      31,
+      41,
+      44
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "8/30/2016",
-    "white_balls": "28|32|41|51|71",
-    "yellow_ball": "11",
+    "white_balls": [
+      28,
+      32,
+      41,
+      51,
+      71
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "9/2/2016",
-    "white_balls": "22|28|41|46|60",
-    "yellow_ball": "3",
+    "white_balls": [
+      22,
+      28,
+      41,
+      46,
+      60
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "9/6/2016",
-    "white_balls": "25|37|58|69|75",
-    "yellow_ball": "8",
+    "white_balls": [
+      25,
+      37,
+      58,
+      69,
+      75
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "9/9/2016",
-    "white_balls": "1|34|43|44|63",
-    "yellow_ball": "11",
+    "white_balls": [
+      1,
+      34,
+      43,
+      44,
+      63
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "9/13/2016",
-    "white_balls": "6|15|17|39|56",
-    "yellow_ball": "15",
+    "white_balls": [
+      6,
+      15,
+      17,
+      39,
+      56
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "9/16/2016",
-    "white_balls": "13|21|28|34|40",
-    "yellow_ball": "15",
+    "white_balls": [
+      13,
+      21,
+      28,
+      34,
+      40
+    ],
+    "yellow_ball": 15,
     "megaplier": "3X"
   },
   {
     "date": "9/20/2016",
-    "white_balls": "2|22|34|62|72",
-    "yellow_ball": "2",
+    "white_balls": [
+      2,
+      22,
+      34,
+      62,
+      72
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "9/23/2016",
-    "white_balls": "1|5|8|25|62",
-    "yellow_ball": "14",
+    "white_balls": [
+      1,
+      5,
+      8,
+      25,
+      62
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "9/27/2016",
-    "white_balls": "14|16|26|53|72",
-    "yellow_ball": "4",
+    "white_balls": [
+      14,
+      16,
+      26,
+      53,
+      72
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "9/30/2016",
-    "white_balls": "21|30|47|50|57",
-    "yellow_ball": "9",
+    "white_balls": [
+      21,
+      30,
+      47,
+      50,
+      57
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "10/4/2016",
-    "white_balls": "18|29|30|54|66",
-    "yellow_ball": "1",
+    "white_balls": [
+      18,
+      29,
+      30,
+      54,
+      66
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "10/7/2016",
-    "white_balls": "24|37|42|50|65",
-    "yellow_ball": "14",
+    "white_balls": [
+      24,
+      37,
+      42,
+      50,
+      65
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "10/11/2016",
-    "white_balls": "36|39|42|45|48",
-    "yellow_ball": "3",
+    "white_balls": [
+      36,
+      39,
+      42,
+      45,
+      48
+    ],
+    "yellow_ball": 3,
     "megaplier": "2X"
   },
   {
     "date": "10/14/2016",
-    "white_balls": "7|27|60|64|74",
-    "yellow_ball": "5",
+    "white_balls": [
+      7,
+      27,
+      60,
+      64,
+      74
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "10/18/2016",
-    "white_balls": "7|24|28|65|74",
-    "yellow_ball": "1",
+    "white_balls": [
+      7,
+      24,
+      28,
+      65,
+      74
+    ],
+    "yellow_ball": 1,
     "megaplier": "2X"
   },
   {
     "date": "10/21/2016",
-    "white_balls": "12|43|44|48|66",
-    "yellow_ball": "3",
+    "white_balls": [
+      12,
+      43,
+      44,
+      48,
+      66
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "10/25/2016",
-    "white_balls": "8|9|24|49|67",
-    "yellow_ball": "13",
+    "white_balls": [
+      8,
+      9,
+      24,
+      49,
+      67
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "10/28/2016",
-    "white_balls": "7|38|46|57|66",
-    "yellow_ball": "2",
+    "white_balls": [
+      7,
+      38,
+      46,
+      57,
+      66
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "11/1/2016",
-    "white_balls": "19|24|31|39|45",
-    "yellow_ball": "13",
+    "white_balls": [
+      19,
+      24,
+      31,
+      39,
+      45
+    ],
+    "yellow_ball": 13,
     "megaplier": "2X"
   },
   {
     "date": "11/4/2016",
-    "white_balls": "10|29|32|44|46",
-    "yellow_ball": "10",
+    "white_balls": [
+      10,
+      29,
+      32,
+      44,
+      46
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "11/8/2016",
-    "white_balls": "46|48|53|61|74",
-    "yellow_ball": "12",
+    "white_balls": [
+      46,
+      48,
+      53,
+      61,
+      74
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "11/11/2016",
-    "white_balls": "16|40|47|53|59",
-    "yellow_ball": "11",
+    "white_balls": [
+      16,
+      40,
+      47,
+      53,
+      59
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "11/15/2016",
-    "white_balls": "9|17|23|57|71",
-    "yellow_ball": "6",
+    "white_balls": [
+      9,
+      17,
+      23,
+      57,
+      71
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "11/18/2016",
-    "white_balls": "31|32|49|55|58",
-    "yellow_ball": "15",
+    "white_balls": [
+      31,
+      32,
+      49,
+      55,
+      58
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "11/22/2016",
-    "white_balls": "1|43|45|66|69",
-    "yellow_ball": "7",
+    "white_balls": [
+      1,
+      43,
+      45,
+      66,
+      69
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "11/25/2016",
-    "white_balls": "44|47|49|69|75",
-    "yellow_ball": "10",
+    "white_balls": [
+      44,
+      47,
+      49,
+      69,
+      75
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "11/29/2016",
-    "white_balls": "22|33|49|51|59",
-    "yellow_ball": "8",
+    "white_balls": [
+      22,
+      33,
+      49,
+      51,
+      59
+    ],
+    "yellow_ball": 8,
     "megaplier": "4X"
   },
   {
     "date": "12/2/2016",
-    "white_balls": "3|33|35|49|51",
-    "yellow_ball": "1",
+    "white_balls": [
+      3,
+      33,
+      35,
+      49,
+      51
+    ],
+    "yellow_ball": 1,
     "megaplier": "2X"
   },
   {
     "date": "12/6/2016",
-    "white_balls": "13|34|48|53|63",
-    "yellow_ball": "12",
+    "white_balls": [
+      13,
+      34,
+      48,
+      53,
+      63
+    ],
+    "yellow_ball": 12,
     "megaplier": "4X"
   },
   {
     "date": "12/9/2016",
-    "white_balls": "19|27|47|67|68",
-    "yellow_ball": "1",
+    "white_balls": [
+      19,
+      27,
+      47,
+      67,
+      68
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "12/13/2016",
-    "white_balls": "2|15|26|34|41",
-    "yellow_ball": "14",
+    "white_balls": [
+      2,
+      15,
+      26,
+      34,
+      41
+    ],
+    "yellow_ball": 14,
     "megaplier": "5X"
   },
   {
     "date": "12/16/2016",
-    "white_balls": "1|8|15|36|43",
-    "yellow_ball": "6",
+    "white_balls": [
+      1,
+      8,
+      15,
+      36,
+      43
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "12/20/2016",
-    "white_balls": "1|12|14|48|65",
-    "yellow_ball": "2",
+    "white_balls": [
+      1,
+      12,
+      14,
+      48,
+      65
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "12/23/2016",
-    "white_balls": "21|30|39|60|69",
-    "yellow_ball": "15",
+    "white_balls": [
+      21,
+      30,
+      39,
+      60,
+      69
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "12/27/2016",
-    "white_balls": "2|28|30|38|39",
-    "yellow_ball": "11",
+    "white_balls": [
+      2,
+      28,
+      30,
+      38,
+      39
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "12/30/2016",
-    "white_balls": "6|21|33|39|43",
-    "yellow_ball": "2",
+    "white_balls": [
+      6,
+      21,
+      33,
+      39,
+      43
+    ],
+    "yellow_ball": 2,
     "megaplier": "2X"
   },
   {
     "date": "1/3/2017",
-    "white_balls": "14|16|23|49|53",
-    "yellow_ball": "12",
+    "white_balls": [
+      14,
+      16,
+      23,
+      49,
+      53
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "1/6/2017",
-    "white_balls": "6|10|44|47|54",
-    "yellow_ball": "6",
+    "white_balls": [
+      6,
+      10,
+      44,
+      47,
+      54
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "1/10/2017",
-    "white_balls": "11|20|40|41|59",
-    "yellow_ball": "15",
+    "white_balls": [
+      11,
+      20,
+      40,
+      41,
+      59
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "1/13/2017",
-    "white_balls": "10|44|58|74|75",
-    "yellow_ball": "11",
+    "white_balls": [
+      10,
+      44,
+      58,
+      74,
+      75
+    ],
+    "yellow_ball": 11,
     "megaplier": "3X"
   },
   {
     "date": "1/17/2017",
-    "white_balls": "20|31|54|56|59",
-    "yellow_ball": "3",
+    "white_balls": [
+      20,
+      31,
+      54,
+      56,
+      59
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "1/20/2017",
-    "white_balls": "7|9|24|41|53",
-    "yellow_ball": "14",
+    "white_balls": [
+      7,
+      9,
+      24,
+      41,
+      53
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "1/24/2017",
-    "white_balls": "8|42|54|63|67",
-    "yellow_ball": "11",
+    "white_balls": [
+      8,
+      42,
+      54,
+      63,
+      67
+    ],
+    "yellow_ball": 11,
     "megaplier": "4X"
   },
   {
     "date": "1/27/2017",
-    "white_balls": "17|37|53|54|61",
-    "yellow_ball": "8",
+    "white_balls": [
+      17,
+      37,
+      53,
+      54,
+      61
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "1/31/2017",
-    "white_balls": "3|14|27|62|72",
-    "yellow_ball": "4",
+    "white_balls": [
+      3,
+      14,
+      27,
+      62,
+      72
+    ],
+    "yellow_ball": 4,
     "megaplier": "3X"
   },
   {
     "date": "2/3/2017",
-    "white_balls": "3|6|29|30|64",
-    "yellow_ball": "3",
+    "white_balls": [
+      3,
+      6,
+      29,
+      30,
+      64
+    ],
+    "yellow_ball": 3,
     "megaplier": "5X"
   },
   {
     "date": "2/7/2017",
-    "white_balls": "23|28|37|56|71",
-    "yellow_ball": "12",
+    "white_balls": [
+      23,
+      28,
+      37,
+      56,
+      71
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "2/10/2017",
-    "white_balls": "32|39|51|62|75",
-    "yellow_ball": "14",
+    "white_balls": [
+      32,
+      39,
+      51,
+      62,
+      75
+    ],
+    "yellow_ball": 14,
     "megaplier": "5X"
   },
   {
     "date": "2/14/2017",
-    "white_balls": "7|11|33|60|68",
-    "yellow_ball": "15",
+    "white_balls": [
+      7,
+      11,
+      33,
+      60,
+      68
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "2/17/2017",
-    "white_balls": "4|56|58|67|75",
-    "yellow_ball": "8",
+    "white_balls": [
+      4,
+      56,
+      58,
+      67,
+      75
+    ],
+    "yellow_ball": 8,
     "megaplier": "5X"
   },
   {
     "date": "2/21/2017",
-    "white_balls": "9|21|30|32|75",
-    "yellow_ball": "9",
+    "white_balls": [
+      9,
+      21,
+      30,
+      32,
+      75
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "2/24/2017",
-    "white_balls": "12|29|33|42|68",
-    "yellow_ball": "14",
+    "white_balls": [
+      12,
+      29,
+      33,
+      42,
+      68
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "2/28/2017",
-    "white_balls": "20|33|45|58|69",
-    "yellow_ball": "4",
+    "white_balls": [
+      20,
+      33,
+      45,
+      58,
+      69
+    ],
+    "yellow_ball": 4,
     "megaplier": "2X"
   },
   {
     "date": "3/3/2017",
-    "white_balls": "14|26|39|48|51",
-    "yellow_ball": "9",
+    "white_balls": [
+      14,
+      26,
+      39,
+      48,
+      51
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "3/7/2017",
-    "white_balls": "3|30|45|53|68",
-    "yellow_ball": "11",
+    "white_balls": [
+      3,
+      30,
+      45,
+      53,
+      68
+    ],
+    "yellow_ball": 11,
     "megaplier": "3X"
   },
   {
     "date": "3/10/2017",
-    "white_balls": "26|38|42|58|70",
-    "yellow_ball": "5",
+    "white_balls": [
+      26,
+      38,
+      42,
+      58,
+      70
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "3/14/2017",
-    "white_balls": "16|23|28|33|59",
-    "yellow_ball": "13",
+    "white_balls": [
+      16,
+      23,
+      28,
+      33,
+      59
+    ],
+    "yellow_ball": 13,
     "megaplier": "3X"
   },
   {
     "date": "3/17/2017",
-    "white_balls": "11|27|31|58|60",
-    "yellow_ball": "10",
+    "white_balls": [
+      11,
+      27,
+      31,
+      58,
+      60
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "3/21/2017",
-    "white_balls": "4|45|53|73|75",
-    "yellow_ball": "7",
+    "white_balls": [
+      4,
+      45,
+      53,
+      73,
+      75
+    ],
+    "yellow_ball": 7,
     "megaplier": "3X"
   },
   {
     "date": "3/24/2017",
-    "white_balls": "5|28|37|61|69",
-    "yellow_ball": "1",
+    "white_balls": [
+      5,
+      28,
+      37,
+      61,
+      69
+    ],
+    "yellow_ball": 1,
     "megaplier": "5X"
   },
   {
     "date": "3/28/2017",
-    "white_balls": "30|33|35|37|46",
-    "yellow_ball": "10",
+    "white_balls": [
+      30,
+      33,
+      35,
+      37,
+      46
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "3/31/2017",
-    "white_balls": "17|24|27|32|58",
-    "yellow_ball": "10",
+    "white_balls": [
+      17,
+      24,
+      27,
+      32,
+      58
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "4/4/2017",
-    "white_balls": "13|24|34|35|55",
-    "yellow_ball": "9",
+    "white_balls": [
+      13,
+      24,
+      34,
+      35,
+      55
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "4/7/2017",
-    "white_balls": "30|33|43|47|69",
-    "yellow_ball": "15",
+    "white_balls": [
+      30,
+      33,
+      43,
+      47,
+      69
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "4/11/2017",
-    "white_balls": "19|34|35|38|49",
-    "yellow_ball": "8",
+    "white_balls": [
+      19,
+      34,
+      35,
+      38,
+      49
+    ],
+    "yellow_ball": 8,
     "megaplier": "5X"
   },
   {
     "date": "4/14/2017",
-    "white_balls": "5|10|55|60|73",
-    "yellow_ball": "12",
+    "white_balls": [
+      5,
+      10,
+      55,
+      60,
+      73
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "4/18/2017",
-    "white_balls": "8|29|30|43|64",
-    "yellow_ball": "6",
+    "white_balls": [
+      8,
+      29,
+      30,
+      43,
+      64
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "4/21/2017",
-    "white_balls": "1|12|13|32|34",
-    "yellow_ball": "10",
+    "white_balls": [
+      1,
+      12,
+      13,
+      32,
+      34
+    ],
+    "yellow_ball": 10,
     "megaplier": "2X"
   },
   {
     "date": "4/25/2017",
-    "white_balls": "3|13|33|40|50",
-    "yellow_ball": "2",
+    "white_balls": [
+      3,
+      13,
+      33,
+      40,
+      50
+    ],
+    "yellow_ball": 2,
     "megaplier": "4X"
   },
   {
     "date": "4/28/2017",
-    "white_balls": "6|13|18|20|31",
-    "yellow_ball": "13",
+    "white_balls": [
+      6,
+      13,
+      18,
+      20,
+      31
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "5/2/2017",
-    "white_balls": "5|14|42|43|58",
-    "yellow_ball": "1",
+    "white_balls": [
+      5,
+      14,
+      42,
+      43,
+      58
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "5/5/2017",
-    "white_balls": "4|23|33|47|53",
-    "yellow_ball": "7",
+    "white_balls": [
+      4,
+      23,
+      33,
+      47,
+      53
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "5/9/2017",
-    "white_balls": "6|29|45|69|73",
-    "yellow_ball": "11",
+    "white_balls": [
+      6,
+      29,
+      45,
+      69,
+      73
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "5/12/2017",
-    "white_balls": "28|34|41|42|47",
-    "yellow_ball": "13",
+    "white_balls": [
+      28,
+      34,
+      41,
+      42,
+      47
+    ],
+    "yellow_ball": 13,
     "megaplier": "4X"
   },
   {
     "date": "5/16/2017",
-    "white_balls": "4|35|39|56|72",
-    "yellow_ball": "11",
+    "white_balls": [
+      4,
+      35,
+      39,
+      56,
+      72
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "5/19/2017",
-    "white_balls": "1|4|5|24|30",
-    "yellow_ball": "1",
+    "white_balls": [
+      1,
+      4,
+      5,
+      24,
+      30
+    ],
+    "yellow_ball": 1,
     "megaplier": "3X"
   },
   {
     "date": "5/23/2017",
-    "white_balls": "6|13|17|33|60",
-    "yellow_ball": "14",
+    "white_balls": [
+      6,
+      13,
+      17,
+      33,
+      60
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "5/26/2017",
-    "white_balls": "25|26|28|37|56",
-    "yellow_ball": "5",
+    "white_balls": [
+      25,
+      26,
+      28,
+      37,
+      56
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "5/30/2017",
-    "white_balls": "5|20|32|37|67",
-    "yellow_ball": "5",
+    "white_balls": [
+      5,
+      20,
+      32,
+      37,
+      67
+    ],
+    "yellow_ball": 5,
     "megaplier": "5X"
   },
   {
     "date": "6/2/2017",
-    "white_balls": "7|42|57|69|72",
-    "yellow_ball": "10",
+    "white_balls": [
+      7,
+      42,
+      57,
+      69,
+      72
+    ],
+    "yellow_ball": 10,
     "megaplier": "3X"
   },
   {
     "date": "6/6/2017",
-    "white_balls": "3|5|16|49|75",
-    "yellow_ball": "5",
+    "white_balls": [
+      3,
+      5,
+      16,
+      49,
+      75
+    ],
+    "yellow_ball": 5,
     "megaplier": "3X"
   },
   {
     "date": "6/9/2017",
-    "white_balls": "3|16|28|33|37",
-    "yellow_ball": "9",
+    "white_balls": [
+      3,
+      16,
+      28,
+      33,
+      37
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "6/13/2017",
-    "white_balls": "27|51|62|68|75",
-    "yellow_ball": "8",
+    "white_balls": [
+      27,
+      51,
+      62,
+      68,
+      75
+    ],
+    "yellow_ball": 8,
     "megaplier": "3X"
   },
   {
     "date": "6/16/2017",
-    "white_balls": "18|22|26|30|44",
-    "yellow_ball": "9",
+    "white_balls": [
+      18,
+      22,
+      26,
+      30,
+      44
+    ],
+    "yellow_ball": 9,
     "megaplier": "5X"
   },
   {
     "date": "6/20/2017",
-    "white_balls": "2|15|41|49|63",
-    "yellow_ball": "3",
+    "white_balls": [
+      2,
+      15,
+      41,
+      49,
+      63
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "6/23/2017",
-    "white_balls": "12|20|53|66|74",
-    "yellow_ball": "11",
+    "white_balls": [
+      12,
+      20,
+      53,
+      66,
+      74
+    ],
+    "yellow_ball": 11,
     "megaplier": "2X"
   },
   {
     "date": "6/27/2017",
-    "white_balls": "4|21|45|52|57",
-    "yellow_ball": "14",
+    "white_balls": [
+      4,
+      21,
+      45,
+      52,
+      57
+    ],
+    "yellow_ball": 14,
     "megaplier": "4X"
   },
   {
     "date": "6/30/2017",
-    "white_balls": "10|38|51|55|64",
-    "yellow_ball": "6",
+    "white_balls": [
+      10,
+      38,
+      51,
+      55,
+      64
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "7/4/2017",
-    "white_balls": "16|39|47|53|71",
-    "yellow_ball": "15",
+    "white_balls": [
+      16,
+      39,
+      47,
+      53,
+      71
+    ],
+    "yellow_ball": 15,
     "megaplier": "4X"
   },
   {
     "date": "7/7/2017",
-    "white_balls": "2|9|11|28|60",
-    "yellow_ball": "10",
+    "white_balls": [
+      2,
+      9,
+      11,
+      28,
+      60
+    ],
+    "yellow_ball": 10,
     "megaplier": "5X"
   },
   {
     "date": "7/11/2017",
-    "white_balls": "7|18|24|55|74",
-    "yellow_ball": "10",
+    "white_balls": [
+      7,
+      18,
+      24,
+      55,
+      74
+    ],
+    "yellow_ball": 10,
     "megaplier": "2X"
   },
   {
     "date": "7/14/2017",
-    "white_balls": "11|12|24|32|73",
-    "yellow_ball": "1",
+    "white_balls": [
+      11,
+      12,
+      24,
+      32,
+      73
+    ],
+    "yellow_ball": 1,
     "megaplier": "4X"
   },
   {
     "date": "7/18/2017",
-    "white_balls": "8|12|23|51|73",
-    "yellow_ball": "6",
+    "white_balls": [
+      8,
+      12,
+      23,
+      51,
+      73
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "7/21/2017",
-    "white_balls": "18|31|36|50|74",
-    "yellow_ball": "10",
+    "white_balls": [
+      18,
+      31,
+      36,
+      50,
+      74
+    ],
+    "yellow_ball": 10,
     "megaplier": "4X"
   },
   {
     "date": "7/25/2017",
-    "white_balls": "2|5|26|58|60",
-    "yellow_ball": "6",
+    "white_balls": [
+      2,
+      5,
+      26,
+      58,
+      60
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "7/28/2017",
-    "white_balls": "4|6|31|49|52",
-    "yellow_ball": "11",
+    "white_balls": [
+      4,
+      6,
+      31,
+      49,
+      52
+    ],
+    "yellow_ball": 11,
     "megaplier": "3X"
   },
   {
     "date": "8/1/2017",
-    "white_balls": "20|22|52|57|73",
-    "yellow_ball": "7",
+    "white_balls": [
+      20,
+      22,
+      52,
+      57,
+      73
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "8/4/2017",
-    "white_balls": "9|17|25|63|71",
-    "yellow_ball": "4",
+    "white_balls": [
+      9,
+      17,
+      25,
+      63,
+      71
+    ],
+    "yellow_ball": 4,
     "megaplier": "5X"
   },
   {
     "date": "8/8/2017",
-    "white_balls": "11|17|50|52|74",
-    "yellow_ball": "14",
+    "white_balls": [
+      11,
+      17,
+      50,
+      52,
+      74
+    ],
+    "yellow_ball": 14,
     "megaplier": "2X"
   },
   {
     "date": "8/11/2017",
-    "white_balls": "23|33|53|56|58",
-    "yellow_ball": "6",
+    "white_balls": [
+      23,
+      33,
+      53,
+      56,
+      58
+    ],
+    "yellow_ball": 6,
     "megaplier": "5X"
   },
   {
     "date": "8/15/2017",
-    "white_balls": "7|16|20|66|73",
-    "yellow_ball": "7",
+    "white_balls": [
+      7,
+      16,
+      20,
+      66,
+      73
+    ],
+    "yellow_ball": 7,
     "megaplier": "2X"
   },
   {
     "date": "8/18/2017",
-    "white_balls": "1|31|34|40|75",
-    "yellow_ball": "6",
+    "white_balls": [
+      1,
+      31,
+      34,
+      40,
+      75
+    ],
+    "yellow_ball": 6,
     "megaplier": "3X"
   },
   {
     "date": "8/22/2017",
-    "white_balls": "24|35|46|50|51",
-    "yellow_ball": "7",
+    "white_balls": [
+      24,
+      35,
+      46,
+      50,
+      51
+    ],
+    "yellow_ball": 7,
     "megaplier": "4X"
   },
   {
     "date": "8/25/2017",
-    "white_balls": "17|38|42|51|65",
-    "yellow_ball": "11",
+    "white_balls": [
+      17,
+      38,
+      42,
+      51,
+      65
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "8/29/2017",
-    "white_balls": "2|13|17|35|73",
-    "yellow_ball": "3",
+    "white_balls": [
+      2,
+      13,
+      17,
+      35,
+      73
+    ],
+    "yellow_ball": 3,
     "megaplier": "3X"
   },
   {
     "date": "9/1/2017",
-    "white_balls": "4|13|31|50|64",
-    "yellow_ball": "12",
+    "white_balls": [
+      4,
+      13,
+      31,
+      50,
+      64
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "9/5/2017",
-    "white_balls": "11|17|59|70|72",
-    "yellow_ball": "1",
+    "white_balls": [
+      11,
+      17,
+      59,
+      70,
+      72
+    ],
+    "yellow_ball": 1,
     "megaplier": "3X"
   },
   {
     "date": "9/8/2017",
-    "white_balls": "4|5|14|26|73",
-    "yellow_ball": "14",
+    "white_balls": [
+      4,
+      5,
+      14,
+      26,
+      73
+    ],
+    "yellow_ball": 14,
     "megaplier": "3X"
   },
   {
     "date": "9/12/2017",
-    "white_balls": "26|37|41|54|65",
-    "yellow_ball": "3",
+    "white_balls": [
+      26,
+      37,
+      41,
+      54,
+      65
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "9/15/2017",
-    "white_balls": "18|24|34|38|58",
-    "yellow_ball": "3",
+    "white_balls": [
+      18,
+      24,
+      34,
+      38,
+      58
+    ],
+    "yellow_ball": 3,
     "megaplier": "4X"
   },
   {
     "date": "9/19/2017",
-    "white_balls": "9|28|31|50|61",
-    "yellow_ball": "10",
+    "white_balls": [
+      9,
+      28,
+      31,
+      50,
+      61
+    ],
+    "yellow_ball": 10,
     "megaplier": "2X"
   },
   {
     "date": "9/22/2017",
-    "white_balls": "5|39|54|63|66",
-    "yellow_ball": "15",
+    "white_balls": [
+      5,
+      39,
+      54,
+      63,
+      66
+    ],
+    "yellow_ball": 15,
     "megaplier": "5X"
   },
   {
     "date": "9/26/2017",
-    "white_balls": "1|10|57|66|75",
-    "yellow_ball": "4",
+    "white_balls": [
+      1,
+      10,
+      57,
+      66,
+      75
+    ],
+    "yellow_ball": 4,
     "megaplier": "4X"
   },
   {
     "date": "9/29/2017",
-    "white_balls": "25|51|62|73|74",
-    "yellow_ball": "7",
+    "white_balls": [
+      25,
+      51,
+      62,
+      73,
+      74
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "10/3/2017",
-    "white_balls": "12|18|19|25|67",
-    "yellow_ball": "7",
+    "white_balls": [
+      12,
+      18,
+      19,
+      25,
+      67
+    ],
+    "yellow_ball": 7,
     "megaplier": "5X"
   },
   {
     "date": "10/6/2017",
-    "white_balls": "21|33|36|45|56",
-    "yellow_ball": "12",
+    "white_balls": [
+      21,
+      33,
+      36,
+      45,
+      56
+    ],
+    "yellow_ball": 12,
     "megaplier": "5X"
   },
   {
     "date": "10/10/2017",
-    "white_balls": "7|16|24|61|62",
-    "yellow_ball": "2",
+    "white_balls": [
+      7,
+      16,
+      24,
+      61,
+      62
+    ],
+    "yellow_ball": 2,
     "megaplier": "5X"
   },
   {
     "date": "10/13/2017",
-    "white_balls": "2|7|18|26|31",
-    "yellow_ball": "12",
+    "white_balls": [
+      2,
+      7,
+      18,
+      26,
+      31
+    ],
+    "yellow_ball": 12,
     "megaplier": "2X"
   },
   {
     "date": "10/17/2017",
-    "white_balls": "31|45|49|56|70",
-    "yellow_ball": "11",
+    "white_balls": [
+      31,
+      45,
+      49,
+      56,
+      70
+    ],
+    "yellow_ball": 11,
     "megaplier": "5X"
   },
   {
     "date": "10/20/2017",
-    "white_balls": "6|23|63|66|73",
-    "yellow_ball": "9",
+    "white_balls": [
+      6,
+      23,
+      63,
+      66,
+      73
+    ],
+    "yellow_ball": 9,
     "megaplier": "2X"
   },
   {
     "date": "10/24/2017",
-    "white_balls": "20|24|34|56|64",
-    "yellow_ball": "6",
+    "white_balls": [
+      20,
+      24,
+      34,
+      56,
+      64
+    ],
+    "yellow_ball": 6,
     "megaplier": "4X"
   },
   {
     "date": "10/27/2017",
-    "white_balls": "17|27|41|51|52",
-    "yellow_ball": "13",
+    "white_balls": [
+      17,
+      27,
+      41,
+      51,
+      52
+    ],
+    "yellow_ball": 13,
     "megaplier": "5X"
   }
 ]
