@@ -120,7 +120,7 @@ class MegaMillions(Lottery):
         draw_date = link.find_elements(By.XPATH, './h5[@class="drawItemDate"]')[0].text.strip()
         draw_numbers = [x.text.strip() for x in link.find_elements(By.XPATH, './ul[@class="numbers"]')[0].find_elements(By.XPATH, './li[contains(@class, "ball")]')]
         draw_white_balls = '|'.join(draw_numbers[:-1])
-        draw_yellow_ball = ''.join(draw_numbers)[-1:]
+        draw_yellow_ball = ''.join(draw_numbers[-1:])
         draw_megaplier = link.find_elements(By.XPATH, './span[@class="megaplier pastNumMP"]')[0].text.strip().upper()
         return f'{draw_date},{draw_white_balls},{draw_yellow_ball},{draw_megaplier}\n'
 
