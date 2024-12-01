@@ -1,23 +1,155 @@
-<main class="ml-2">
-    <h1 class="mt-2 text-3xl">Lottery Number Generator</h1>
-    <h3 class="mt-2 text-2xl">Mega Millions</h3>
-    @for (megamillion of megamillions; track megamillion; let i = $index) {
-        <p class="mt-4">
-        @for (num of megamillion; track num) {
-            <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
-        }
-        <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{megaplier[i]}}</span>
-        </p>
-    }
-    <h3 class="mt-2 text-2xl">Powerball</h3>
-    @for (powerball of powerballs; track powerball; let i = $index) {
-        <p class="mt-4">
-        @for (num of powerball; track num) {
-            <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
-        }
-        <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{powerup[i]}}</span>
-        </p>
-    }
+
+<main class="container mx-auto p-4 max-w-6xl">
+    <div class="mt-1 grid grid-cols-2 gap-4 content-center ...">
+        <div class="col-2 row-span-3 p-2 border-dashed border-2">
+            <h3 class="mt-2 text-2xl text-center">Mega Millions</h3>
+            @for (megamillion of megamillions; track megamillion; let i = $index) {
+                <p class="mt-4">
+                @for (num of megamillion; track num) {
+                    <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+                }
+                <span class="mr-4 text-xl bg-black text-yellow-500 border-double rounded-lg">{{megaplier[i]}}</span>
+                </p>
+            }
+        </div>
+        <div class="col-2 p-2  border-dashed border-2">
+            <h3 class="mt-2 text-2xl text-center">White ball even/odd frequency</h3>
+            <table class="w-full mt-4 border-double border-4">
+                <thead>
+                    <tr class="border-double border-4">
+                        <th class="border-double border-4 px-0 py-0">Type</th>
+                        <th class="border-double border-4 px-0 py-0">Count</th>
+                        <th class="border-double border-4 px-0 py-0">Percent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (eo of megamillionsEvenOdd; track eo) {
+                        <tr class="border-double border-4 text-center">
+                            <td class="px-0 py-0 border-double border-4">{{eo['type']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{eo['count']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{eo['pct']}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2 p-2  border-dashed border-2">
+            <h3 class="mt-2 text-2xl text-center">White ball low/high frequency</h3>
+            <table class="w-full mt-4 border-double border-4">
+                <thead>
+                    <tr class="border-double border-4">
+                        <th class="border-double border-4 px-0 py-0">Type</th>
+                        <th class="border-double border-4 px-0 py-0">Count</th>
+                        <th class="border-double border-4 px-0 py-0">Percent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (lh of megamillionsLowHigh; track lh) {
+                        <tr class="border-double border-4 text-center">
+                            <td class="px-0 py-0 border-double border-4">{{lh['type']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{lh['count']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{lh['pct']}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2 p-2  border-dashed border-2">
+            <h3 class="mt-2 text-2xl text-center">White ball consecutives frequency</h3>
+            <table class="w-full mt-4 border-double border-4">
+                <thead>
+                    <tr class="border-double border-4">
+                        <th class="border-double border-4 px-0 py-0">Type</th>
+                        <th class="border-double border-4 px-0 py-0">Count</th>
+                        <th class="border-double border-4 px-0 py-0">Percent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (c of megamillionsConsecutives; track c) {
+                        <tr class="border-double border-4 text-center">
+                            <td class="px-0 py-0 border-double border-4">{{c['type']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{c['count']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{c['pct']}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2 row-span-3 p-2 border-dashed border-2">
+            <h3 class="mt-2 text-2xl">Powerball</h3>
+            @for (powerball of powerballs; track powerball; let i = $index) {
+                <p class="mt-4">
+                @for (num of powerball; track num) {
+                    <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
+                }
+                <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{powerup[i]}}</span>
+                </p>
+            }
+        </div>
+        <div class="col-2 p-2  border-dashed border-2">
+            <h3 class="mt-2 text-2xl text-center">White ball even/odd frequency</h3>
+            <table class="w-full mt-4 border-double border-4">
+                <thead>
+                    <tr class="border-double border-4">
+                        <th class="border-double border-4 px-0 py-0">Type</th>
+                        <th class="border-double border-4 px-0 py-0">Count</th>
+                        <th class="border-double border-4 px-0 py-0">Percent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (eo of powerballEvenOdd; track eo) {
+                        <tr class="border-double border-4 text-center">
+                            <td class="px-0 py-0 border-double border-4">{{eo['type']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{eo['count']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{eo['pct']}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2 p-2  border-dashed border-2">
+            <h3 class="mt-2 text-2xl text-center">White ball low/high frequency</h3>
+            <table class="w-full mt-4 border-double border-4">
+                <thead>
+                    <tr class="border-double border-4">
+                        <th class="border-double border-4 px-0 py-0">Type</th>
+                        <th class="border-double border-4 px-0 py-0">Count</th>
+                        <th class="border-double border-4 px-0 py-0">Percent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (lh of powerballLowHigh; track lh) {
+                        <tr class="border-double border-4 text-center">
+                            <td class="px-0 py-0 border-double border-4">{{lh['type']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{lh['count']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{lh['pct']}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2 p-2  border-dashed border-2">
+            <h3 class="mt-2 text-2xl text-center">White ball consecutives frequency</h3>
+            <table class="w-full mt-4 border-double border-4">
+                <thead>
+                    <tr class="border-double border-4">
+                        <th class="border-double border-4 px-0 py-0">Type</th>
+                        <th class="border-double border-4 px-0 py-0">Count</th>
+                        <th class="border-double border-4 px-0 py-0">Percent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (c of powerballConsecutives; track c) {
+                        <tr class="border-double border-4 text-center">
+                            <td class="px-0 py-0 border-double border-4">{{c['type']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{c['count']}}</td>
+                            <td class="px-0 py-0 border-double border-4">{{c['pct']}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+      </div>
 </main>
 
 <router-outlet />

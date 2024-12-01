@@ -18,17 +18,39 @@ export class AppComponent {
   megaplier: number[] = [];
   powerballs: number[][] = [];
   powerup: number[] = [];
+  // TODO: add types
+  megamillionsEvenOdd: any;
+  megamillionsLowHigh: any;
+  megamillionsConsecutives: any;
+  powerballEvenOdd: any;
+  powerballLowHigh: any;
+  powerballConsecutives: any;
+
   constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
-    // const megamillions_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions.json'));
-    // const powerball_history = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball.json'));
+    const megamillionsAnalysis: any = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions-analysis.json'));
+    this.megamillionsEvenOdd = megamillionsAnalysis.white_balls.even_odd;
+    this.megamillionsEvenOdd.sort((a: any, b: any) => b['count'] - a['count'])
+    this.megamillionsLowHigh = megamillionsAnalysis.white_balls.low_high;
+    this.megamillionsLowHigh.sort((a: any, b: any) => b['count'] - a['count'])
+    this.megamillionsConsecutives = megamillionsAnalysis.white_balls.low_high;
+    this.megamillionsConsecutives.sort((a: any, b: any) => b['count'] - a['count'])
 
+    const powerballAnalysis: any = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball-analysis.json'));
+    this.powerballEvenOdd = powerballAnalysis.white_balls.even_odd;
+    this.powerballEvenOdd.sort((a: any, b: any) => b['count'] - a['count'])
+    this.powerballLowHigh = powerballAnalysis.white_balls.low_high;
+    this.powerballLowHigh.sort((a: any, b: any) => b['count'] - a['count'])
+    this.powerballConsecutives = powerballAnalysis.white_balls.low_high;
+    this.powerballConsecutives.sort((a: any, b: any) => b['count'] - a['count'])
+
+    // TODO: add options to generate optimal numbers
     this.whiteBall(this.megamillions, 70, new Set<number>());
-    this.xUp(this.megaplier, 25, new Set<number>());
+    this.xUpBall(this.megaplier, 25, new Set<number>());
 
     this.whiteBall(this.powerballs, 69, new Set<number>());
-    this.xUp(this.powerup, 26, new Set<number>());
+    this.xUpBall(this.powerup, 26, new Set<number>());
   }
 
   whiteBall(target: number[][], max: number, seen: Set<number>) {
@@ -41,7 +63,7 @@ export class AppComponent {
     }
   }
 
-  xUp(target: number[], max: number, seen: Set<number>) {
+  xUpBall(target: number[], max: number, seen: Set<number>) {
     for (let i = 0; i < this.NUMS; i++) {
       target.push(this.uniqueRandomNumber(max, seen));
     }
