@@ -1,79 +1,96 @@
 {
   "total_draws": 1127,
   "white_balls": {
-    "even_odd": {
-      "0 even/5 odd": {
+    "even_odd": [
+      {
+        "type": "0 even/5 odd",
         "count": 28,
         "pct": "2.48%"
       },
-      "1 even/4 odd": {
+      {
+        "type": "1 even/4 odd",
         "count": 196,
         "pct": "17.39%"
       },
-      "2 even/3 odd": {
+      {
+        "type": "2 even/3 odd",
         "count": 371,
         "pct": "32.92%"
       },
-      "3 even/2 odd": {
+      {
+        "type": "3 even/2 odd",
         "count": 347,
         "pct": "30.79%"
       },
-      "4 even/1 odd": {
+      {
+        "type": "4 even/1 odd",
         "count": 156,
         "pct": "13.84%"
       },
-      "5 even/0 odd": {
+      {
+        "type": "5 even/0 odd",
         "count": 29,
         "pct": "2.57%"
       }
-    },
-    "low_high": {
-      "0 low/5 high": {
+    ],
+    "low_high": [
+      {
+        "type": "0 low/5 high",
         "count": 41,
         "pct": "3.64%"
       },
-      "1 low/4 high": {
+      {
+        "type": "1 low/4 high",
         "count": 165,
         "pct": "14.64%"
       },
-      "2 low/3 high": {
+      {
+        "type": "2 low/3 high",
         "count": 395,
         "pct": "35.05%"
       },
-      "3 low/2 high": {
+      {
+        "type": "3 low/2 high",
         "count": 345,
         "pct": "30.61%"
       },
-      "4 low/1 high": {
+      {
+        "type": "4 low/1 high",
         "count": 143,
         "pct": "12.69%"
       },
-      "5 low/0 high": {
+      {
+        "type": "5 low/0 high",
         "count": 38,
         "pct": "3.37%"
       }
-    },
-    "consecutive": {
-      "0": {
+    ],
+    "consecutive": [
+      {
+        "type": "0",
         "count": 822,
         "pct": "72.94%"
       },
-      "1": {
+      {
+        "type": "1",
         "count": 274,
         "pct": "24.31%"
       },
-      "1,1": {
+      {
+        "type": "1,1",
         "count": 19,
         "pct": "1.69%"
       },
-      "2": {
+      {
+        "type": "2",
         "count": 11,
         "pct": "0.98%"
       },
-      "3": {
+      {
+        "type": "3",
         "count": 1,
         "pct": "0.09%"
       }
-    }
+    ]
   }
 }

@@ -112,68 +112,81 @@ class Lottery:
             # print(consecutive)
             # print()
 
-            consecutive_output = {}
+            consecutive_output = []
             for k, v in consecutive.items():
-                consecutive_output[k] = {
+                consecutive_output.append({
+                    'type': k,
                     'count': v,
                     'pct': f'{format((v / L) * 100, ".2f")}%'
-                }
+                })
 
             stats = {
                 'total_draws': L,
                 'white_balls': {
-                    'even_odd': {
-                        '0 even/5 odd': {
+                    'even_odd': [
+                        {
+                            'type': '0 even/5 odd',
                             'count': even_odd[0][0],
                             'pct': even_odd[0][1]
                         },
-                        '1 even/4 odd': {
+                        {
+                            'type': '1 even/4 odd',
                             'count': even_odd[1][0],
                             'pct': even_odd[1][1]
                         },
-                        '2 even/3 odd': {
+                        {
+                            'type': '2 even/3 odd',
                             'count': even_odd[2][0],
                             'pct': even_odd[2][1]
                         },
-                        '3 even/2 odd': {
+                        {
+                            'type': '3 even/2 odd',
                             'count': even_odd[3][0],
                             'pct': even_odd[3][1]
                         },
-                        '4 even/1 odd': {
+                        {
+                            'type': '4 even/1 odd',
                             'count': even_odd[4][0],
                             'pct': even_odd[4][1]
                         },
-                        '5 even/0 odd': {
+                        {
+                            'type': '5 even/0 odd',
                             'count': even_odd[5][0],
                             'pct': even_odd[5][1]
                         }
-                    },
-                    'low_high': {
-                        '0 low/5 high': {
+                    ],
+                    'low_high': [
+                        {
+                            'type': '0 low/5 high',
                             'count': low_high[0][0],
                             'pct': low_high[0][1]
                         },
-                        '1 low/4 high': {
+                        {
+                            'type': '1 low/4 high',
                             'count': low_high[1][0],
                             'pct': low_high[1][1]
                         },
-                        '2 low/3 high': {
+                        {
+                            'type': '2 low/3 high',
                             'count': low_high[2][0],
                             'pct': low_high[2][1]
                         },
-                        '3 low/2 high': {
+                        {
+                            'type': '3 low/2 high',
                             'count': low_high[3][0],
                             'pct': low_high[3][1]
                         },
-                        '4 low/1 high': {
+                        {
+                            'type': '4 low/1 high',
                             'count': low_high[4][0],
                             'pct': low_high[4][1]
                         },
-                        '5 low/0 high': {
+                        {
+                            'type': '5 low/0 high',
                             'count': low_high[5][0],
                             'pct': low_high[5][1]
-                        },
-                    },
+                        }
+                    ],
                     'consecutive': consecutive_output
                 }
             }
