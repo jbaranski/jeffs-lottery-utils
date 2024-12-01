@@ -34,7 +34,7 @@ export class AppComponent {
     this.megamillionsEvenOdd.sort((a: any, b: any) => b['count'] - a['count'])
     this.megamillionsLowHigh = megamillionsAnalysis.white_balls.low_high;
     this.megamillionsLowHigh.sort((a: any, b: any) => b['count'] - a['count'])
-    this.megamillionsConsecutives = megamillionsAnalysis.white_balls.low_high;
+    this.megamillionsConsecutives = megamillionsAnalysis.white_balls.consecutive;
     this.megamillionsConsecutives.sort((a: any, b: any) => b['count'] - a['count'])
 
     const powerballAnalysis: any = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball-analysis.json'));
@@ -42,7 +42,7 @@ export class AppComponent {
     this.powerballEvenOdd.sort((a: any, b: any) => b['count'] - a['count'])
     this.powerballLowHigh = powerballAnalysis.white_balls.low_high;
     this.powerballLowHigh.sort((a: any, b: any) => b['count'] - a['count'])
-    this.powerballConsecutives = powerballAnalysis.white_balls.low_high;
+    this.powerballConsecutives = powerballAnalysis.white_balls.consecutive;
     this.powerballConsecutives.sort((a: any, b: any) => b['count'] - a['count'])
 
     // TODO: add options to generate optimal numbers
