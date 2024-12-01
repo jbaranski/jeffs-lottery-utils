@@ -4,6 +4,7 @@ import logging
 import os
 import sys
 import time
+from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -23,6 +24,8 @@ logging.getLogger().setLevel(logging.INFO)
 @dataclass()
 class Lottery:
     output_absolute_path: str
+    high: int
+    special_high: int
     chrome_driver: WebDriver = field(init=False)
 
     def __post_init__(self):
@@ -32,6 +35,9 @@ class Lottery:
         except FileNotFoundError:
             self.last_entry = ''
             logging.info(f'Unable to read last entry because {self.output_absolute_path} does not exist')
+
+        self.mid = self.high // 2
+        self.special_mid = self.special_high // 2
 
     def get_latest_number(self):
         raise NotImplementedError
@@ -51,6 +57,123 @@ class Lottery:
                 data.append(row)
         with open(self.output_absolute_path.replace('.csv', '.json'), 'w') as f:
             json.dump(data, f, indent=2)
+
+    def analysis(self):
+        """
+        Quick and dirty analysis after the draw is updated
+        """
+        with open(self.output_absolute_path.replace('.csv', '.json'), 'r') as f:
+            data = json.load(f)
+            L = len(data)
+            even_odd = [0] * 6
+            low_high = [0] * 6
+            consecutive = defaultdict(int)
+            for row in data:
+                even_count = 0
+                low_count = 0
+                consecutive_count = 0
+                consecutives = []
+                prev_white_ball = -1
+                for white_ball in sorted(row['white_balls']):
+                    if white_ball % 2 == 0:
+                        even_count += 1
+                    if white_ball <= self.mid:
+                        low_count += 1
+                    if prev_white_ball + 1 == white_ball:
+                        consecutive_count += 1
+                    elif consecutive_count > 0:
+                        consecutives.append(consecutive_count)
+                        consecutive_count = 0
+                    prev_white_ball = white_ball
+
+                if consecutive_count > 0:
+                    consecutives.append(consecutive_count)
+
+                LC = len(consecutives)
+                if LC > 1:
+                    consecutive[','.join([str(x) for x in consecutives])] += 1
+                elif LC == 1:
+                    consecutive[str(consecutives[0])] += 1
+                else:
+                    consecutive['0'] += 1
+                even_odd[even_count] += 1
+                low_high[low_count] += 1
+            even_odd = [(x, f'{format((x / L) * 100, ".2f")}%') for x in even_odd]
+            low_high = [(x, f'{format((x / L) * 100, ".2f")}%') for x in low_high]
+
+            # consecutive = sorted([(k, v, f'{format((v / L) * 100, ".2f")}%') for k, v in consecutive.items()])
+            # print(even_odd)
+            # print(low_high)
+            # print(consecutive)
+            # print()
+
+            consecutive_output = {}
+            for k, v in consecutive.items():
+                consecutive_output[k] = {
+                    'count': v,
+                    'pct': f'{format((v / L) * 100, ".2f")}%'
+                }
+
+            stats = {
+                'total_draws': L,
+                'white_balls': {
+                    'even_odd': {
+                        '0 even/5 odd': {
+                            'count': even_odd[0][0],
+                            'pct': even_odd[0][1]
+                        },
+                        '1 even/4 odd': {
+                            'count': even_odd[1][0],
+                            'pct': even_odd[1][1]
+                        },
+                        '2 even/3 odd': {
+                            'count': even_odd[2][0],
+                            'pct': even_odd[2][1]
+                        },
+                        '3 even/2 odd': {
+                            'count': even_odd[3][0],
+                            'pct': even_odd[3][1]
+                        },
+                        '4 even/1 odd': {
+                            'count': even_odd[4][0],
+                            'pct': even_odd[4][1]
+                        },
+                        '5 even/0 odd': {
+                            'count': even_odd[5][0],
+                            'pct': even_odd[5][1]
+                        }
+                    },
+                    'low_high': {
+                        '0 low/5 high': {
+                            'count': low_high[0][0],
+                            'pct': low_high[0][1]
+                        },
+                        '1 low/4 high': {
+                            'count': low_high[1][0],
+                            'pct': low_high[1][1]
+                        },
+                        '2 low/3 high': {
+                            'count': low_high[2][0],
+                            'pct': low_high[2][1]
+                        },
+                        '3 low/2 high': {
+                            'count': low_high[3][0],
+                            'pct': low_high[3][1]
+                        },
+                        '4 low/1 high': {
+                            'count': low_high[4][0],
+                            'pct': low_high[4][1]
+                        },
+                        '5 low/0 high': {
+                            'count': low_high[5][0],
+                            'pct': low_high[5][1]
+                        },
+                    },
+                    'consecutive': consecutive_output
+                }
+            }
+            with open(self.output_absolute_path.replace('.csv', '-analysis.json'), 'w') as f:
+                f.write(json.dumps(stats, indent=2))
 
     @staticmethod
     def chrome_driver_factory() -> WebDriver:
@@ -190,17 +313,19 @@ class Powerball(Lottery):
 
 
 def megamillions():
-    m = MegaMillions(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/megamillions.csv')
+    m = MegaMillions(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/megamillions.csv', 70, 25)
     # m.get_historical_numbers()
     m.get_latest_number()
     m.csv_to_json()
+    m.analysis()
 
 
 def powerball():
-    p = Powerball(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/powerball.csv')
+    p = Powerball(f'{os.getenv("GITHUB_WORKSPACE")}/numbers/powerball.csv', 69, 26)
     # p.get_historical_numbers()
     p.get_latest_number()
     p.csv_to_json()
+    p.analysis()
 
 
 if __name__ == '__main__':
