@@ -54,6 +54,11 @@ class Lottery:
         with open(self.output_absolute_path, 'r') as f:
             csv_reader = csv.DictReader(f)
             for row in csv_reader:
+                row['white_balls'] = [int(x) for x in row['white_balls'].split('|')]
+                if 'yellow_ball' in row:
+                    row['yellow_ball'] = int(row['yellow_ball'])
+                if 'red_ball' in row:
+                    row['red_ball'] = int(row['red_ball'])
                 data.append(row)
         with open(self.output_absolute_path.replace('.csv', '.json'), 'w') as f:
             json.dump(data, f, indent=2)

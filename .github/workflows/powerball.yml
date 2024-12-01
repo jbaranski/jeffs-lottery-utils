@@ -1,9 +1,9 @@
 name: fetch-latest-powerball
 
 on:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   schedule:
     # Lottery schedule:
     #   ET:  Monday, Wednesday, Saturday at 11:00 PM
