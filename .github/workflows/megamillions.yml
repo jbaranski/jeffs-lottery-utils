@@ -47,11 +47,11 @@ jobs:
           cd $GITHUB_WORKSPACE/scraper
           python -m src.main megamillions
           cat $GITHUB_WORKSPACE/numbers/megamillions.csv
-      - name: Commit megamillions.csv file if changed
+      - name: Commit Mega Millions data if changed
         run: |-
           git diff
           git config --global user.email "actions@users.noreply.github.com"
           git config --global user.name "JEFF-bot"
           git add -A
-          git commit -m "Update megamillions data" || exit 0
+          git commit -m "Update Mega Millions data" || exit 0
           git push
