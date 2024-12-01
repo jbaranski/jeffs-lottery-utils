@@ -8,7 +8,7 @@ See here for how the game has evolved over time: https://en.wikipedia.org/wiki/M
 | -------- | ----------- |
 | [megamillions.csv](megamillions.csv) | Draw data for the current game format, from *October 28, 2017* to present, in `csv` format |
 | [megamillions.json](megamillions.json) | Draw data for the current game format, from *October 28, 2017* to present, in `json` format |
-| [megamillions-analysis.json](megamillions-analysis.json) | Frequency analysis of draw data (even/odd, high/low, consecutives, etc...), from *October 7, 2015* to present, in `json` format |
+| [megamillions-analysis.json](megamillions-analysis.json) | Frequency analysis of draw data (even/odd, high/low, consecutives, etc...), from *October 28, 2017* to present, in `json` format |
 | [megamillions-pre-10-28-2017.csv](megamillions-pre-10-28-2017.csv) | Draw data for older game formats, pre *October 28, 2017*, in `csv` format |
 | [megamillions-pre-10-28-2017.json](megamillions-pre-10-28-2017.json) | Draw data for older game formats, pre *October 28, 2017*, in `json` format |
 
