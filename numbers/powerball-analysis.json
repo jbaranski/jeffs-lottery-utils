@@ -1,63 +1,63 @@
 {
-  "total_draws": 1130,
+  "total_draws": 1131,
   "white_balls": {
     "even_odd": [
       {
         "type": "0 even/5 odd",
         "count": 29,
-        "pct": "2.57%"
+        "pct": "2.56%"
       },
       {
         "type": "1 even/4 odd",
-        "count": 198,
-        "pct": "17.52%"
+        "count": 199,
+        "pct": "17.60%"
       },
       {
         "type": "2 even/3 odd",
         "count": 371,
-        "pct": "32.83%"
+        "pct": "32.80%"
       },
       {
         "type": "3 even/2 odd",
         "count": 347,
-        "pct": "30.71%"
+        "pct": "30.68%"
       },
       {
         "type": "4 even/1 odd",
         "count": 156,
-        "pct": "13.81%"
+        "pct": "13.79%"
       },
       {
         "type": "5 even/0 odd",
         "count": 29,
-        "pct": "2.57%"
+        "pct": "2.56%"
       }
     ],
     "low_high": [
       {
         "type": "0 low/5 high",
-        "count": 41,
-        "pct": "3.63%"
+        "count": 42,
+        "pct": "3.71%"
       },
       {
         "type": "1 low/4 high",
         "count": 165,
-        "pct": "14.60%"
+        "pct": "14.59%"
       },
       {
         "type": "2 low/3 high",
         "count": 396,
-        "pct": "35.04%"
+        "pct": "35.01%"
       },
       {
         "type": "3 low/2 high",
         "count": 346,
-        "pct": "30.62%"
+        "pct": "30.59%"
       },
       {
         "type": "4 low/1 high",
         "count": 144,
-        "pct": "12.74%"
+        "pct": "12.73%"
       },
       {
         "type": "5 low/0 high",
@@ -68,13 +68,13 @@
     "consecutive": [
       {
         "type": "0",
-        "count": 825,
-        "pct": "73.01%"
+        "count": 826,
+        "pct": "73.03%"
       },
       {
         "type": "1",
         "count": 274,
-        "pct": "24.25%"
+        "pct": "24.23%"
       },
       {
         "type": "1,1",
