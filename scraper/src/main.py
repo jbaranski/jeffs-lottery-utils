@@ -4,19 +4,20 @@ import logging
 import os
 import sys
 import time
-from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime
 
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from empiricaldist import Pmf
 from selenium import webdriver
 from selenium.common import TimeoutException
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ExpectedConditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -64,134 +65,75 @@ class Lottery:
             json.dump(data, f, indent=2)
 
     def analysis(self):
-        """
-        Quick and dirty analysis after the draw is updated
-        """
-        with open(self.output_absolute_path.replace('.csv', '.json'), 'r') as f:
-            data = json.load(f)
-            L = len(data)
-            even_odd = [0] * 6
-            low_high = [0] * 6
-            consecutive = defaultdict(int)
-            for row in data:
-                even_count = 0
-                low_count = 0
-                consecutive_count = 0
-                consecutives = []
-                prev_white_ball = -1
-                for white_ball in sorted(row['white_balls']):
-                    if white_ball % 2 == 0:
-                        even_count += 1
-                    if white_ball <= self.mid:
-                        low_count += 1
-                    if prev_white_ball + 1 == white_ball:
-                        consecutive_count += 1
-                    elif consecutive_count > 0:
-                        consecutives.append(consecutive_count)
-                        consecutive_count = 0
-                    prev_white_ball = white_ball
+        def even_odd(nums):
+            nums = [1 if int(x) % 2 == 0 else 0 for x in nums.split('|')]
+            even = sum(nums)
+            odd = 5 - even
+            return (even, odd)
 
-                if consecutive_count > 0:
-                    consecutives.append(consecutive_count)
+        def lo_hi(nums):
+            nums = [1 if int(x) <= self.mid else 0 for x in nums.split('|')]
+            lo = sum(nums)
+            hi = 5 - lo
+            return (lo, hi)
 
-                LC = len(consecutives)
-                if LC > 1:
-                    consecutive[','.join([str(x) for x in consecutives])] += 1
-                elif LC == 1:
-                    consecutive[str(consecutives[0])] += 1
-                else:
-                    consecutive['0'] += 1
-                even_odd[even_count] += 1
-                low_high[low_count] += 1
-            even_odd = [(x, f'{format((x / L) * 100, ".2f")}%') for x in even_odd]
-            low_high = [(x, f'{format((x / L) * 100, ".2f")}%') for x in low_high]
+        def consecutive(nums):
+            nums = sorted([int(x) for x in nums.split('|')])
+            prev = -sys.maxsize
+            count = 0
+            consecutives = []
+            for num in nums:
+                if prev + 1 == num:
+                    count += 1
+                elif count > 0:
+                    consecutives.append(count)
+                    count = 0
+                prev = num
+            if count > 0:
+                consecutives.append(count)
+            return tuple(consecutives) if consecutives else (0,)
 
-            # consecutive = sorted([(k, v, f'{format((v / L) * 100, ".2f")}%') for k, v in consecutive.items()])
-            # print(even_odd)
-            # print(low_high)
-            # print(consecutive)
-            # print()
-
-            consecutive_output = []
-            for k, v in consecutive.items():
-                consecutive_output.append({
-                    'type': k,
-                    'count': v,
-                    'pct': f'{format((v / L) * 100, ".2f")}%'
+        def df_to_dct_arr(items):
+            arr = []
+            for k, v in items:
+                arr.append({
+                    'type': ','.join([str(x) for x in k]),
+                    'pct': f'{format(v * 100, ".2f")}%'
                 })
+            return arr
 
-            stats = {
-                'total_draws': L,
-                'white_balls': {
-                    'even_odd': [
-                        {
-                            'type': '0 even/5 odd',
-                            'count': even_odd[0][0],
-                            'pct': even_odd[0][1]
-                        },
-                        {
-                            'type': '1 even/4 odd',
-                            'count': even_odd[1][0],
-                            'pct': even_odd[1][1]
-                        },
-                        {
-                            'type': '2 even/3 odd',
-                            'count': even_odd[2][0],
-                            'pct': even_odd[2][1]
-                        },
-                        {
-                            'type': '3 even/2 odd',
-                            'count': even_odd[3][0],
-                            'pct': even_odd[3][1]
-                        },
-                        {
-                            'type': '4 even/1 odd',
-                            'count': even_odd[4][0],
-                            'pct': even_odd[4][1]
-                        },
-                        {
-                            'type': '5 even/0 odd',
-                            'count': even_odd[5][0],
-                            'pct': even_odd[5][1]
-                        }
-                    ],
-                    'low_high': [
-                        {
-                            'type': '0 low/5 high',
-                            'count': low_high[0][0],
-                            'pct': low_high[0][1]
-                        },
-                        {
-                            'type': '1 low/4 high',
-                            'count': low_high[1][0],
-                            'pct': low_high[1][1]
-                        },
-                        {
-                            'type': '2 low/3 high',
-                            'count': low_high[2][0],
-                            'pct': low_high[2][1]
-                        },
-                        {
-                            'type': '3 low/2 high',
-                            'count': low_high[3][0],
-                            'pct': low_high[3][1]
-                        },
-                        {
-                            'type': '4 low/1 high',
-                            'count': low_high[4][0],
-                            'pct': low_high[4][1]
-                        },
-                        {
-                            'type': '5 low/0 high',
-                            'count': low_high[5][0],
-                            'pct': low_high[5][1]
-                        }
-                    ],
-                    'consecutive': consecutive_output
-                }
+        df = pd.read_csv(self.output_absolute_path)
+        df['even_odd'] = df['white_balls'].apply(lambda x: even_odd(x))
+        df['lo_hi'] = df['white_balls'].apply(lambda x: lo_hi(x))
+        df['consecutive'] = df['white_balls'].apply(lambda x: consecutive(x))
+
+        df['even_odd_lo_hi'] = df[['even_odd', 'lo_hi']].apply(tuple, axis=1)
+        df['even_odd_consecutive'] = df[['even_odd', 'consecutive']].apply(tuple, axis=1)
+        df['lo_hi_consecutive'] = df[['lo_hi', 'consecutive']].apply(tuple, axis=1)
+        df['even_odd_lo_hi_consecutive'] = df[['even_odd', 'lo_hi', 'consecutive']].apply(tuple, axis=1)
+
+        even_odd_prob = Pmf.from_seq(df['even_odd']).sort_values(ascending=False)
+        lo_hi_prob = Pmf.from_seq(df['lo_hi']).sort_values(ascending=False)
+        consecutive_prob = Pmf.from_seq(df['consecutive']).sort_values(ascending=False)
+        even_odd_lo_hi_prob = Pmf.from_seq(df['even_odd_lo_hi']).sort_values(ascending=False)
+        even_odd_consecutive_prob = Pmf.from_seq(df['even_odd_consecutive']).sort_values(ascending=False)
+        lo_hi_consecutive_prob = Pmf.from_seq(df['lo_hi_consecutive']).sort_values(ascending=False)
+        even_odd_lo_hi_consecutive_prob = Pmf.from_seq(df['even_odd_lo_hi_consecutive']).sort_values(ascending=False)
+
+        stats = {
+            'total_draws': len(df.index),
+            'white_balls': {
+                'even_odd': df_to_dct_arr(even_odd_prob.items()),
+                'low_high': df_to_dct_arr(lo_hi_prob.items()),
+                'consecutive': df_to_dct_arr(consecutive_prob.items()),
+                'even_odd_lo_hi': df_to_dct_arr(even_odd_lo_hi_prob.items()),
+                'even_odd_consecutive': df_to_dct_arr(even_odd_consecutive_prob.items()),
+                'lo_hi_consecutive': df_to_dct_arr(lo_hi_consecutive_prob.items()),
+                'even_odd_lo_hi_consecutive': df_to_dct_arr(even_odd_lo_hi_consecutive_prob.items()),
             }
-            with open(self.output_absolute_path.replace('.csv', '-analysis.json'), 'w') as f:
-                f.write(json.dumps(stats, indent=2))
+        }
+        with open(self.output_absolute_path.replace('.csv', '-analysis.json'), 'w') as f:
+            f.write(json.dumps(stats, indent=2))
 
     @staticmethod
     def chrome_driver_factory() -> WebDriver:

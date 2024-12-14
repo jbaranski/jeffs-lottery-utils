@@ -7,6 +7,10 @@ name = "pypi"
 selenium = "*"
 requests = "*"
 beautifulsoup4 = "*"
+pandas = "*"
+scipy = "*"
+empiricaldist = "*"
+matplotlib = "*"
 
 [dev-packages]
 snakeviz = "*"
