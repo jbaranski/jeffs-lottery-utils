@@ -1,0 +1,5 @@
+/dist/*
+*.gitkeep
+*.ico
+*.js
+*.png
