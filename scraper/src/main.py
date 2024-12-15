@@ -6,6 +6,7 @@ import sys
 import time
 from dataclasses import dataclass, field
 from datetime import datetime
+from datetime import UTC
 
 import pandas as pd
 import requests
@@ -121,6 +122,7 @@ class Lottery:
         even_odd_lo_hi_consecutive_prob = Pmf.from_seq(df['even_odd_lo_hi_consecutive']).sort_values(ascending=False)
 
         stats = {
+            'updated_date': f'{datetime.now(UTC).strftime("%A, %B %d %Y %I:%M %p")} (UTC)',
             'total_draws': len(df.index),
             'white_balls': {
                 'even_odd': df_to_dct_arr(even_odd_prob.items()),

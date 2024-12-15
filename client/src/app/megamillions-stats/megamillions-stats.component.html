@@ -1,0 +1,135 @@
+<div class="p-2">
+    <h4 class="text-2xl mb-4 text-center">Mega Millions stats</h4>
+    <hr/>
+    <h4 class="mt-4 text-xl text-center">White ball even,odd frequency</h4>
+    <table class="w-full mt-4 border-double border-4">
+        <thead>
+            <tr class="border-double border-4">
+                <th class="border-double border-4 px-0 py-0">Type</th>
+                <th class="border-double border-4 px-0 py-0">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (eo of evenOdd; track eo) {
+                <tr class="border-double border-4 text-center">
+                    <td class="px-0 py-0 border-double border-4">{{eo['type']}}</td>
+                    <td class="px-0 py-0 border-double border-4">{{eo['pct']}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="p-2">
+    <h4 class="mt-2 text-xl text-center">White ball low,high frequency</h4>
+    <table class="w-full mt-4 border-double border-4">
+        <thead>
+            <tr class="border-double border-4">
+                <th class="border-double border-4 px-0 py-0">Type</th>
+                <th class="border-double border-4 px-0 py-0">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (lh of lowHigh; track lh) {
+                <tr class="border-double border-4 text-center">
+                    <td class="px-0 py-0 border-double border-4">{{lh['type']}}</td>
+                    <td class="px-0 py-0 border-double border-4">{{lh['pct']}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="p-2">
+    <h4 class="mt-2 text-xl text-center">White ball consecutives frequency</h4>
+    <table class="w-full mt-4 border-double border-4">
+        <thead>
+            <tr class="border-double border-4">
+                <th class="border-double border-4 px-0 py-0">Type</th>
+                <th class="border-double border-4 px-0 py-0">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (c of consecutives; track c) {
+                <tr class="border-double border-4 text-center">
+                    <td class="px-0 py-0 border-double border-4">{{c['type']}}</td>
+                    <td class="px-0 py-0 border-double border-4">{{c['pct']}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="p-2">
+    <h4 class="mt-2 text-xl text-center">White ball (even,odd),(low,high)  frequency</h4>
+    <table class="w-full mt-4 border-double border-4">
+        <thead>
+            <tr class="border-double border-4">
+                <th class="border-double border-4 px-0 py-0">Type</th>
+                <th class="border-double border-4 px-0 py-0">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (x of evenOddlowHigh; track x) {
+                <tr class="border-double border-4 text-center">
+                    <td class="px-0 py-0 border-double border-4">{{x['type']}}</td>
+                    <td class="px-0 py-0 border-double border-4">{{x['pct']}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="p-2">
+    <h4 class="mt-2 text-xl text-center">White ball (even,odd),(consecutive)  frequency</h4>
+    <table class="w-full mt-4 border-double border-4">
+        <thead>
+            <tr class="border-double border-4">
+                <th class="border-double border-4 px-0 py-0">Type</th>
+                <th class="border-double border-4 px-0 py-0">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (x of evenOddConsecutive; track x) {
+                <tr class="border-double border-4 text-center">
+                    <td class="px-0 py-0 border-double border-4">{{x['type']}}</td>
+                    <td class="px-0 py-0 border-double border-4">{{x['pct']}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="p-2">
+    <h4 class="mt-2 text-xl text-center">White ball (low,high),(consecutive)  frequency</h4>
+    <table class="w-full mt-4 border-double border-4">
+        <thead>
+            <tr class="border-double border-4">
+                <th class="border-double border-4 px-0 py-0">Type</th>
+                <th class="border-double border-4 px-0 py-0">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (x of lowHighConsecutive; track x) {
+                <tr class="border-double border-4 text-center">
+                    <td class="px-0 py-0 border-double border-4">{{x['type']}}</td>
+                    <td class="px-0 py-0 border-double border-4">{{x['pct']}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="p-2">
+    <h4 class="mt-2 text-xl text-center">White ball (even,odd),(low,high),(consecutive)  frequency</h4>
+    <table class="w-full mt-4 border-double border-4">
+        <thead>
+            <tr class="border-double border-4">
+                <th class="border-double border-4 px-0 py-0">Type</th>
+                <th class="border-double border-4 px-0 py-0">Percent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (x of evenOddLowHighConsecutive; track x) {
+                <tr class="border-double border-4 text-center">
+                    <td class="px-0 py-0 border-double border-4">{{x['type']}}</td>
+                    <td class="px-0 py-0 border-double border-4">{{x['pct']}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

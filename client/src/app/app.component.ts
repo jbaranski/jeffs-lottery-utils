@@ -19,9 +19,9 @@ export class AppComponent {
   powerballs: number[][] = [];
   powerup: number[] = [];
   // TODO: add types
-  megamillionsEvenOdd: any;
-  megamillionsLowHigh: any;
-  megamillionsConsecutives: any;
+  evenOdd: any;
+  lowHigh: any;
+  consecutives: any;
   powerballEvenOdd: any;
   powerballLowHigh: any;
   powerballConsecutives: any;
@@ -30,12 +30,12 @@ export class AppComponent {
 
   async ngOnInit(): Promise<void> {
     const megamillionsAnalysis: any = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions-analysis.json'));
-    this.megamillionsEvenOdd = megamillionsAnalysis.white_balls.even_odd;
-    this.megamillionsEvenOdd.sort((a: any, b: any) => b['count'] - a['count'])
-    this.megamillionsLowHigh = megamillionsAnalysis.white_balls.low_high;
-    this.megamillionsLowHigh.sort((a: any, b: any) => b['count'] - a['count'])
-    this.megamillionsConsecutives = megamillionsAnalysis.white_balls.consecutive;
-    this.megamillionsConsecutives.sort((a: any, b: any) => b['count'] - a['count'])
+    this.evenOdd = megamillionsAnalysis.white_balls.even_odd;
+    this.evenOdd.sort((a: any, b: any) => b['count'] - a['count'])
+    this.lowHigh = megamillionsAnalysis.white_balls.low_high;
+    this.lowHigh.sort((a: any, b: any) => b['count'] - a['count'])
+    this.consecutives = megamillionsAnalysis.white_balls.consecutive;
+    this.consecutives.sort((a: any, b: any) => b['count'] - a['count'])
 
     const powerballAnalysis: any = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball-analysis.json'));
     this.powerballEvenOdd = powerballAnalysis.white_balls.even_odd;
