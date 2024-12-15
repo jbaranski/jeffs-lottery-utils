@@ -6,6 +6,27 @@ import { firstValueFrom } from 'rxjs';
 // Mega Millions 1-70 white balls, 1-25 Mega Ball
 // Powerball 1-69 white balls, 1-26 Powerball
 
+export interface Statistic {
+  type: string
+  pct: string
+}
+
+export interface Analysis {
+  updated_date: string
+  total_draws: number
+  white_balls: WhiteBallsStats
+}
+
+export interface WhiteBallsStats {
+  even_odd: Statistic[];
+  low_high: Statistic[];
+  consecutive: Statistic[];
+  even_odd_lo_hi: Statistic[];
+  even_odd_consecutive: Statistic[];
+  lo_hi_consecutive: Statistic[];
+  even_odd_lo_hi_consecutive: Statistic[];
+}
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
