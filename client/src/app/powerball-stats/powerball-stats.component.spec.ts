@@ -9,8 +9,7 @@ describe('PowerballStatsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PowerballStatsComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PowerballStatsComponent);
     component = fixture.componentInstance;

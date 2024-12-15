@@ -9,8 +9,7 @@ describe('MegamillionsStatsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MegamillionsStatsComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MegamillionsStatsComponent);
     component = fixture.componentInstance;

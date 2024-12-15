@@ -20,11 +20,14 @@ export class MegamillionsStatsComponent {
   updatedDate: string = '';
   totalDraws: number = 0;
 
-
   constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
-    const megamillionsAnalysis: Analysis = await firstValueFrom(this.http.get('https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions-analysis.json')) as Analysis;
+    const megamillionsAnalysis: Analysis = (await firstValueFrom(
+      this.http.get(
+        'https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions-analysis.json'
+      )
+    )) as Analysis;
     this.evenOdd = megamillionsAnalysis.white_balls.even_odd;
     this.lowHigh = megamillionsAnalysis.white_balls.low_high;
     this.consecutives = megamillionsAnalysis.white_balls.consecutive;

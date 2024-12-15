@@ -7,14 +7,14 @@ import { firstValueFrom } from 'rxjs';
 // Powerball 1-69 white balls, 1-26 Powerball
 
 export interface Statistic {
-  type: string
-  pct: string
+  type: string;
+  pct: string;
 }
 
 export interface Analysis {
-  updated_date: string
-  total_draws: number
-  white_balls: WhiteBallsStats
+  updated_date: string;
+  total_draws: number;
+  white_balls: WhiteBallsStats;
 }
 
 export interface WhiteBallsStats {
