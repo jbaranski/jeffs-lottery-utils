@@ -9,8 +9,7 @@ describe('RngComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RngComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RngComponent);
     component = fixture.componentInstance;

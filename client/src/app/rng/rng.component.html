@@ -1,63 +1,62 @@
 <div class="p-2">
-    <h3 class="text-2xl mb-4 text-center">Random number generator</h3>
-    <hr />
-    <h3 class="text-xl mt-4 mb-4 text-center">Mega Millions Random Numbers</h3>
-    <div class="text-center">
-      <table class="w-full mt-4 border-double border-4">
-        <thead>
-          <tr class="border-double border-4">
-            <th class="border-double border-4 px-0 py-0">Number</th>
-            <th class="border-double border-4 px-0 py-0">Even,Odd</th>
-            <th class="border-double border-4 px-0 py-0">Low,High</th>
-            <th class="border-double border-4 px-0 py-0">Consecutive</th>
+  <h3 class="text-2xl mb-4 text-center">Random number generator</h3>
+  <hr />
+  <h3 class="text-xl mt-4 mb-4 text-center">Mega Millions</h3>
+  <div class="text-center">
+    <table class="w-full mt-4 border-double border-4">
+      <thead>
+        <tr class="border-double border-4">
+          <th class="border-double border-4 px-0 py-0">Number</th>
+          <th class="border-double border-4 px-0 py-0">Even,Odd</th>
+          <th class="border-double border-4 px-0 py-0">Low,High</th>
+          <th class="border-double border-4 px-0 py-0">Consecutive</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (megamillion of megamillions; track megamillion; let i = $index) {
+          <tr class="border-double border-4 text-center">
+            <td class="px-0 py-0 border-double border-4">
+              @for (num of megamillion.whiteBalls; track num) {
+                <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{ num }}</span>
+              }
+              <span class="mr-4 text-xl bg-black text-yellow-500 border-double rounded-lg">{{
+                megamillion.xupBall
+              }}</span>
+            </td>
+            <td class="px-0 py-0 border-double border-4">{{ megamillion.evenOdd }}</td>
+            <td class="px-0 py-0 border-double border-4">{{ megamillion.lowHigh }}</td>
+            <td class="px-0 py-0 border-double border-4">{{ megamillion.consecutive }}</td>
           </tr>
-        </thead>
-        <tbody>
-          @for (megamillion of megamillions; track megamillion; let i = $index) {
-            <tr class="border-double border-4 text-center">
-              <td class="px-0 py-0 border-double border-4">
-                @for (num of megamillion; track num) {
-                    <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
-                }
-                <span class="mr-4 text-xl bg-black text-yellow-500 border-double rounded-lg">{{megaplier[i]}}</span>
-              </td>
-              <td class="px-0 py-0 border-double border-4">
-                test
-              </td>
-              <td class="px-0 py-0 border-double border-4">test</td>
-              <td class="px-0 py-0 border-double border-4">0</td>
-          }
-        </tbody>
-      </table>
-    </div>
-    <h3 class="text-xl mt-4 mb-4 text-center">Powerball Random Numbers</h3>
-    <div class="text-center">
-      <table class="w-full mt-4 border-double border-4">
-        <thead>
-          <tr class="border-double border-4">
-            <th class="border-double border-4 px-0 py-0">Number</th>
-            <th class="border-double border-4 px-0 py-0">Even,Odd</th>
-            <th class="border-double border-4 px-0 py-0">Low,High</th>
-            <th class="border-double border-4 px-0 py-0">Consecutive</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (powerball of powerballs; track powerball; let i = $index) {
-            <tr class="border-double border-4 text-center">
-              <td class="px-0 py-0 border-double border-4">
-                @for (num of powerball; track num) {
-                    <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{num}}</span>
-                }
-                <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{powerup[i]}}</span>
-              </td>
-              <td class="px-0 py-0 border-double border-4">
-                test
-              </td>
-              <td class="px-0 py-0 border-double border-4">test</td>
-              <td class="px-0 py-0 border-double border-4">0</td>
-            </tr>
-          }
-        </tbody>
-      </table>
-    </div>
+        }
+      </tbody>
+    </table>
   </div>
+  <h3 class="text-xl mt-4 mb-4 text-center">Powerball</h3>
+  <div class="text-center">
+    <table class="w-full mt-4 border-double border-4">
+      <thead>
+        <tr class="border-double border-4">
+          <th class="border-double border-4 px-0 py-0">Number</th>
+          <th class="border-double border-4 px-0 py-0">Even,Odd</th>
+          <th class="border-double border-4 px-0 py-0">Low,High</th>
+          <th class="border-double border-4 px-0 py-0">Consecutive</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (powerball of powerballs; track powerball; let i = $index) {
+          <tr class="border-double border-4 text-center">
+            <td class="px-0 py-0 border-double border-4">
+              @for (num of powerball.whiteBalls; track num) {
+                <span class="mr-4 text-xl bg-black text-white border-double rounded-lg">{{ num }}</span>
+              }
+              <span class="mr-4 text-xl bg-black text-red-500 border-double rounded-lg">{{ powerball.xupBall }}</span>
+            </td>
+            <td class="px-0 py-0 border-double border-4">{{ powerball.evenOdd }}</td>
+            <td class="px-0 py-0 border-double border-4">{{ powerball.lowHigh }}</td>
+            <td class="px-0 py-0 border-double border-4">{{ powerball.consecutive }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
