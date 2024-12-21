@@ -1,52 +1,88 @@
 import { Component } from '@angular/core';
 
+interface Lottery {
+  whiteBalls: number[];
+  xupBall: number;
+  evenOdd: [number, number];
+  lowHigh: [number, number];
+  consecutive: number;
+}
+
 @Component({
   selector: 'app-rng',
   imports: [],
   templateUrl: './rng.component.html',
   styleUrl: './rng.component.css'
 })
-// Mega Millions 1-70 white balls, 1-25 Mega Ball
-// Powerball 1-69 white balls, 1-26 Powerball
 export class RngComponent {
   NUMS: number = 3; // Number of random draws to generate
-  megamillions: number[][] = [];
-  megaplier: number[] = [];
-  powerballs: number[][] = [];
-  powerup: number[] = [];
+  megamillions: Lottery[] = [];
+  powerballs: Lottery[] = [];
 
   ngOnInit(): void {
-    // TODO: add options to generate optimal numbers
-    this.whiteBall(this.megamillions, 70, new Set<number>());
-    this.xUpBall(this.megaplier, 25, new Set<number>());
-
-    this.whiteBall(this.powerballs, 69, new Set<number>());
-    this.xUpBall(this.powerup, 26, new Set<number>());
+    // Mega Millions 1-70 white balls, 1-25 Mega Ball
+    // Powerball 1-69 white balls, 1-26 Powerball
+    for (let i = 0; i < this.NUMS; i++) {
+      this.megamillions.push(this.lotteryRng(70, 25));
+      this.powerballs.push(this.lotteryRng(69, 26));
+    }
   }
 
-  whiteBall(target: number[][], max: number, seen: Set<number>) {
-    for (let i = 0; i < this.NUMS; i++) {
-      const nums: number[] = [];
-      for (let j = 0; j < 5; j++) {
-        nums.push(this.uniqueRandomNumber(max, seen));
+  lotteryRng(max: number, xupMax: number): Lottery {
+    while (true) {
+      const candidate: number[] = this.candidateWhiteBalls(max);
+      const candidateSet = new Set<number>(candidate);
+      let mid = Math.floor(max / 2);
+      let even = 0;
+      let low = 0;
+      let consecutive = 0;
+      for (let i = 0; i < candidate.length; i++) {
+        const num = candidate[i];
+        if (num % 2 == 0) {
+          even += 1;
+        }
+        if (num <= mid) {
+          low += 1;
+        }
+        if (num - 1 in candidateSet || num + 1 in candidateSet) {
+          consecutive += 1;
+        }
       }
-      target.push(nums);
+      // If even,odd and low,high are both 4,1 imbalanced
+      // If even,odd OR low,high are all one way or other
+      // If consecutives > 1 (never got any consecutives to show up though so it may never appear in practice...)
+      if (
+        ((even == 4 || even == 1) && (low == 4 || low == 1)) ||
+        even == 5 ||
+        even == 0 ||
+        low == 5 ||
+        low == 0 ||
+        consecutive > 1
+      ) {
+        continue;
+      }
+      return {
+        whiteBalls: candidate,
+        xupBall: this.generateRandomNumber(xupMax),
+        evenOdd: [even, 5 - even],
+        lowHigh: [low, 5 - low],
+        consecutive: consecutive
+      };
     }
   }
 
-  xUpBall(target: number[], max: number, seen: Set<number>) {
-    for (let i = 0; i < this.NUMS; i++) {
-      target.push(this.uniqueRandomNumber(max, seen));
+  candidateWhiteBalls(max: number): number[] {
+    const nums: number[] = [];
+    const seen = new Set<number>();
+    while (nums.length < 5) {
+      let num = this.generateRandomNumber(max);
+      while (seen.has(num)) {
+        num = this.generateRandomNumber(max);
+      }
+      nums.push(num);
+      seen.add(num);
     }
-  }
-
-  uniqueRandomNumber(max: number, seen: Set<number>): number {
-    let num = this.generateRandomNumber(max);
-    while (seen.has(num)) {
-      num = this.generateRandomNumber(max);
-    }
-    seen.add(num);
-    return num;
+    return nums;
   }
 
   generateRandomNumber(max: number): number {
