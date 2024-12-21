@@ -6,7 +6,6 @@ import sys
 import time
 from dataclasses import dataclass, field
 from datetime import datetime
-from datetime import UTC
 
 import pandas as pd
 import requests
