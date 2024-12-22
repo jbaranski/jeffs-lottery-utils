@@ -13,6 +13,6 @@ A client is available to view the analysis information as well as generate rando
 
 | UI |
 | -------------- |
-| [Mega Millions stats analysis](https://jeffs-lottery-utils.netlify.app/megamillions-stats) |
-| [Powerball stats analysis](https://jeffs-lottery-utils.netlify.app/powerball-stats) |
-| [Random number generator](https://jeffs-lottery-utils.netlify.app/rng) |
+| [Mega Millions stats analysis](https://lottery.jeffsoftware.com/megamillions-stats) |
+| [Powerball stats analysis](https://lottery.jeffsoftware.com/powerball-stats) |
+| [Random number generator](https://lottery.jeffsoftware.com/rng) |
