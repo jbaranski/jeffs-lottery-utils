@@ -10,7 +10,7 @@
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "prod:build": "ng build --c=production",
-    "prod:start": "http-server -a localhost -p 4200 dist/jeffs-word-bank/browser"
+    "prod:start": "http-server -a localhost -p 4200 dist/client/browser"
   },
   "private": true,
   "dependencies": {
