@@ -13714,5 +13714,17 @@
     ],
     "red_ball": 14,
     "power_play": "2X"
+  },
+  {
+    "date": "01/08/2025",
+    "white_balls": [
+      1,
+      20,
+      36,
+      38,
+      43
+    ],
+    "red_ball": 24,
+    "power_play": "2X"
   }
 ]
