@@ -32,6 +32,7 @@ export class RngComponent {
     while (true) {
       const candidate: number[] = this.candidateWhiteBalls(max);
       const candidateSet = new Set<number>(candidate);
+      const consecutiveSeen = new Set<number>();
       let mid = Math.floor(max / 2);
       let even = 0;
       let low = 0;
@@ -44,8 +45,15 @@ export class RngComponent {
         if (num <= mid) {
           low += 1;
         }
-        if (num - 1 in candidateSet || num + 1 in candidateSet) {
+        if (!consecutiveSeen.has(num - 1) && candidateSet.has(num - 1)) {
           consecutive += 1;
+          consecutiveSeen.add(num - 1);
+          consecutiveSeen.add(num);
+        }
+        if (!consecutiveSeen.has(num + 1) && candidateSet.has(num + 1)) {
+          consecutive += 1;
+          consecutiveSeen.add(num + 1);
+          consecutiveSeen.add(num);
         }
       }
       // If even,odd and low,high are both 4,1 imbalanced
@@ -82,7 +90,7 @@ export class RngComponent {
       nums.push(num);
       seen.add(num);
     }
-    return nums;
+    return nums.sort((a, b) => a - b);
   }
 
   generateRandomNumber(max: number): number {
