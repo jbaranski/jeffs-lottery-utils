@@ -9250,5 +9250,17 @@
     ],
     "yellow_ball": 24,
     "megaplier": "3X"
+  },
+  {
+    "date": "3/21/2025",
+    "white_balls": [
+      15,
+      22,
+      31,
+      52,
+      57
+    ],
+    "yellow_ball": 2,
+    "megaplier": "3X"
   }
 ]
