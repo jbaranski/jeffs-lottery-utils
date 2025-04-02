@@ -9286,5 +9286,17 @@
     ],
     "yellow_ball": 23,
     "megaplier": "5X"
+  },
+  {
+    "date": "4/1/2025",
+    "white_balls": [
+      11,
+      12,
+      21,
+      29,
+      49
+    ],
+    "yellow_ball": 3,
+    "megaplier": "2X"
   }
 ]
