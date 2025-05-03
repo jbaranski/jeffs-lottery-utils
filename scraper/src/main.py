@@ -170,6 +170,7 @@ class MegaMillions(Lottery):
 
     def get_latest_number(self) -> None:
         self.chrome_driver.get(self.url)
+        time.sleep(2)
         previous_draw = self.chrome_driver.find_elements(By.XPATH, '//a[@class="prevDrawItem"]')
         entry = MegaMillions.extract_one_draw(previous_draw[0])
         if entry.strip() != self.last_entry:
@@ -184,6 +185,7 @@ class MegaMillions(Lottery):
         count = 0
         while count < 100:
             try:
+                time.sleep(.5)
                 self.wait_and_click('//button[@class="loadMoreBtn button"]')
                 time.sleep(.5)
             except TimeoutException:
