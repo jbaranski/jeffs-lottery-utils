@@ -9766,5 +9766,17 @@
     ],
     "yellow_ball": 16,
     "megaplier": "N/A"
+  },
+  {
+    "date": "8/19/2025",
+    "white_balls": [
+      10,
+      19,
+      24,
+      49,
+      68
+    ],
+    "yellow_ball": 10,
+    "megaplier": "N/A"
   }
 ]
