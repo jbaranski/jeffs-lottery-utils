@@ -16,3 +16,4 @@ A client is available to view the analysis information as well as generate rando
 | [Mega Millions stats analysis](https://lottery.jeffsoftware.com/megamillions-stats) |
 | [Powerball stats analysis](https://lottery.jeffsoftware.com/powerball-stats) |
 | [Random number generator](https://lottery.jeffsoftware.com/rng) |
+
