@@ -185,9 +185,9 @@ class MegaMillions(Lottery):
         count = 0
         while count < 100:
             try:
-                time.sleep(.5)
+                time.sleep(1)
                 self.wait_and_click('//button[@class="loadMoreBtn button"]')
-                time.sleep(.5)
+                time.sleep(1)
             except TimeoutException:
                 # The load more button is no longer available
                 break
@@ -257,8 +257,9 @@ class Powerball(Lottery):
         count = 0
         while count < 100:
             try:
+                time.sleep(1)
                 self.wait_and_click('//button[@id="loadMore"]')
-                time.sleep(.5)
+                time.sleep(1)
             except TimeoutException:
                 # The load more button is no longer available
                 break
