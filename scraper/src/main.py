@@ -219,7 +219,16 @@ class Powerball(Lottery):
         super().__post_init__()
 
     def get_latest_number(self) -> None:
-        r = requests.get(self.url)
+        # Attempt to avoid detection
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+        }
+        r = requests.get(self.url, headers=headers)
         soup = BeautifulSoup(r.text, features='html.parser')
         previous_draw = soup.find_all('a', {'class': 'card'})[0]
         draw_date = previous_draw.find_all('h5', {'class': 'card-title'})[0].get_text(strip=True)
