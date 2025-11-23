@@ -15144,6 +15144,18 @@
     "power_play": "2X"
   },
   {
+    "date": "10/13/2025",
+    "white_balls": [
+      13,
+      14,
+      32,
+      52,
+      64
+    ],
+    "red_ball": 12,
+    "power_play": "2X"
+  },
+  {
     "date": "10/15/2025",
     "white_balls": [
       10,
@@ -15283,6 +15295,18 @@
       44,
       48,
       58
+    ],
+    "red_ball": 23,
+    "power_play": "2X"
+  },
+  {
+    "date": "11/12/2025",
+    "white_balls": [
+      29,
+      39,
+      43,
+      51,
+      65
     ],
     "red_ball": 23,
     "power_play": "2X"
