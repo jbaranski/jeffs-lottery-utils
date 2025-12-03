@@ -77,6 +77,9 @@ class Lottery:
             hi = 5 - lo
             return (lo, hi)
 
+        def get_sum(nums):
+            return sum([int(x) for x in nums.split('|')])
+
         def consecutive(nums):
             nums = sorted([int(x) for x in nums.split('|')])
             prev = -sys.maxsize
@@ -93,11 +96,15 @@ class Lottery:
                 consecutives.append(count)
             return tuple(consecutives) if consecutives else (0,)
 
-        def df_to_dct_arr(items):
+        def format_analysis_items(items):
             arr = []
             for k, v in items:
+                if isinstance(k, tuple):
+                    key_str = ','.join([str(x) for x in k])
+                else:
+                    key_str = str(k)
                 arr.append({
-                    'type': ','.join([str(x) for x in k]),
+                    'type': key_str,
                     'pct': f'{format(v * 100, ".2f")}%'
                 })
             return arr
@@ -106,6 +113,7 @@ class Lottery:
         df['even_odd'] = df['white_balls'].apply(lambda x: even_odd(x))
         df['lo_hi'] = df['white_balls'].apply(lambda x: lo_hi(x))
         df['consecutive'] = df['white_balls'].apply(lambda x: consecutive(x))
+        df['sum'] = df['white_balls'].apply(lambda x: get_sum(x))
 
         df['even_odd_lo_hi'] = df[['even_odd', 'lo_hi']].apply(tuple, axis=1)
         df['even_odd_consecutive'] = df[['even_odd', 'consecutive']].apply(tuple, axis=1)
@@ -120,19 +128,31 @@ class Lottery:
         lo_hi_consecutive_prob = Pmf.from_seq(df['lo_hi_consecutive']).sort_values(ascending=False)
         even_odd_lo_hi_consecutive_prob = Pmf.from_seq(df['even_odd_lo_hi_consecutive']).sort_values(ascending=False)
 
+        sum_bins = pd.cut(df['sum'], bins=range(0, 351, 50))
+        sum_prob = Pmf.from_seq(sum_bins).sort_values(ascending=False)
+
         stats = {
             'updated_date': f'{df.iloc[-1]["date"]}',
             'total_draws': len(df.index),
             'white_balls': {
-                'even_odd': df_to_dct_arr(even_odd_prob.items()),
-                'low_high': df_to_dct_arr(lo_hi_prob.items()),
-                'consecutive': df_to_dct_arr(consecutive_prob.items()),
-                'even_odd_lo_hi': df_to_dct_arr(even_odd_lo_hi_prob.items()),
-                'even_odd_consecutive': df_to_dct_arr(even_odd_consecutive_prob.items()),
-                'lo_hi_consecutive': df_to_dct_arr(lo_hi_consecutive_prob.items()),
-                'even_odd_lo_hi_consecutive': df_to_dct_arr(even_odd_lo_hi_consecutive_prob.items()),
+                'even_odd': format_analysis_items(even_odd_prob.items()),
+                'low_high': format_analysis_items(lo_hi_prob.items()),
+                'consecutive': format_analysis_items(consecutive_prob.items()),
+                'sum_distribution': format_analysis_items(sum_prob.items()),
+                'even_odd_lo_hi': format_analysis_items(even_odd_lo_hi_prob.items()),
+                'even_odd_consecutive': format_analysis_items(even_odd_consecutive_prob.items()),
+                'lo_hi_consecutive': format_analysis_items(lo_hi_consecutive_prob.items()),
+                'even_odd_lo_hi_consecutive': format_analysis_items(even_odd_lo_hi_consecutive_prob.items()),
             }
         }
+
+        if 'red_ball' in df.columns:
+            red_ball_prob = Pmf.from_seq(df['red_ball']).sort_values(ascending=False)
+            stats['red_ball_hotness'] = format_analysis_items(red_ball_prob.items())
+        if 'yellow_ball' in df.columns:
+            yellow_ball_prob = Pmf.from_seq(df['yellow_ball']).sort_values(ascending=False)
+            stats['yellow_ball_hotness'] = format_analysis_items(yellow_ball_prob.items())
+
         with open(self.output_absolute_path.replace('.csv', '-analysis.json'), 'w') as f:
             f.write(json.dumps(stats, indent=2))
 
@@ -230,7 +250,10 @@ class Powerball(Lottery):
         }
         r = requests.get(self.url, headers=headers)
         soup = BeautifulSoup(r.text, features='html.parser')
-        previous_draw = soup.find_all('a', {'class': 'card'})[0]
+        previous_draw_arr = soup.find_all('a', {'class': 'card'})
+        if len(previous_draw_arr) == 0:
+            raise Exception('Unable to find previous draw information on Powerball page')
+        previous_draw = previous_draw_arr[0]
         draw_date = previous_draw.find_all('h5', {'class': 'card-title'})[0].get_text(strip=True)
         # Example input: Wed, Nov 27, 2024
         draw_date_parsed = datetime.strptime(draw_date, '%a, %b %d, %Y').strftime('%m/%d/%Y')
