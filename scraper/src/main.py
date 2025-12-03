@@ -244,15 +244,17 @@ class Powerball(Lottery):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.5',
-            'Accept-Encoding': 'gzip, deflate',
+            'Accept-Encoding': 'gzip',
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1',
         }
         r = requests.get(self.url, headers=headers)
-        soup = BeautifulSoup(r.text, features='html.parser')
+        text = requests.utils.gzip_decompress(r.content).decode('utf-8', errors='ignore') if r.content.startswith(b"\x1f\x8b") else r.text
+        soup = BeautifulSoup(text, features='html.parser')
         previous_draw_arr = soup.find_all('a', {'class': 'card'})
         if len(previous_draw_arr) == 0:
             logging.error('Raw response:')
+            logging.error(f"Content-Encoding {r.headers.get('Content-Encoding', '')}")
             logging.error(r.text)
             raise Exception('Unable to find previous draw information on Powerball page')
         previous_draw = previous_draw_arr[0]
