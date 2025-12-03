@@ -252,6 +252,8 @@ class Powerball(Lottery):
         soup = BeautifulSoup(r.text, features='html.parser')
         previous_draw_arr = soup.find_all('a', {'class': 'card'})
         if len(previous_draw_arr) == 0:
+            logging.error('Raw response:')
+            logging.error(r.text)
             raise Exception('Unable to find previous draw information on Powerball page')
         previous_draw = previous_draw_arr[0]
         draw_date = previous_draw.find_all('h5', {'class': 'card-title'})[0].get_text(strip=True)
