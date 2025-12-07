@@ -81,6 +81,44 @@
   </table>
 </div>
 <div class="p-2">
+  <h4 class="mt-2 text-xl text-center">White ball sum distribution</h4>
+  <table class="w-full mt-4 border-double border-4">
+    <thead>
+      <tr class="border-double border-4">
+        <th class="border-double border-4 px-0 py-0">Type</th>
+        <th class="border-double border-4 px-0 py-0">Percent</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (s of sumDistribution; track s) {
+        <tr class="border-double border-4 text-center">
+          <td class="px-0 py-0 border-double border-4">{{ s['type'] }}</td>
+          <td class="px-0 py-0 border-double border-4">{{ s['pct'] }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div class="p-2">
+  <h4 class="mt-2 text-xl text-center">Powerball hotness</h4>
+  <table class="w-full mt-4 border-double border-4">
+    <thead>
+      <tr class="border-double border-4">
+        <th class="border-double border-4 px-0 py-0">Type</th>
+        <th class="border-double border-4 px-0 py-0">Percent</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (p of powerballHotness; track p) {
+        <tr class="border-double border-4 text-center">
+          <td class="px-0 py-0 border-double border-4">{{ p['type'] }}</td>
+          <td class="px-0 py-0 border-double border-4">{{ p['pct'] }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div class="p-2">
   <h4 class="mt-2 text-xl text-center">White ball (even,odd),(low,high) frequency</h4>
   <table class="w-full mt-4 border-double border-4">
     <thead>

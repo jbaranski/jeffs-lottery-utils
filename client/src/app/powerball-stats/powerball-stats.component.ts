@@ -17,25 +17,30 @@ export class PowerballStatsComponent {
   evenOddConsecutive: Statistic[] = [];
   lowHighConsecutive: Statistic[] = [];
   evenOddLowHighConsecutive: Statistic[] = [];
+  sumDistribution: Statistic[] = [];
+  powerballHotness: Statistic[] = [];
   updatedDate: string = '';
   totalDraws: number = 0;
 
   constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<void> {
-    const megamillionsAnalysis: Analysis = (await firstValueFrom(
+    const powerballAnalysis: Analysis = (await firstValueFrom(
       this.http.get(
         'https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball-analysis.json'
       )
     )) as Analysis;
-    this.evenOdd = megamillionsAnalysis.white_balls.even_odd;
-    this.lowHigh = megamillionsAnalysis.white_balls.low_high;
-    this.consecutives = megamillionsAnalysis.white_balls.consecutive;
-    this.evenOddlowHigh = megamillionsAnalysis.white_balls.even_odd_lo_hi;
-    this.evenOddConsecutive = megamillionsAnalysis.white_balls.even_odd_consecutive;
-    this.lowHighConsecutive = megamillionsAnalysis.white_balls.lo_hi_consecutive;
-    this.evenOddLowHighConsecutive = megamillionsAnalysis.white_balls.even_odd_lo_hi_consecutive;
-    this.updatedDate = megamillionsAnalysis.updated_date;
-    this.totalDraws = megamillionsAnalysis.total_draws;
+    this.evenOdd = powerballAnalysis.white_balls.even_odd;
+    this.lowHigh = powerballAnalysis.white_balls.low_high;
+    this.consecutives = powerballAnalysis.white_balls.consecutive;
+    this.sumDistribution = powerballAnalysis.white_balls.sum_distribution;
+    this.evenOddlowHigh = powerballAnalysis.white_balls.even_odd_lo_hi;
+    this.evenOddConsecutive = powerballAnalysis.white_balls.even_odd_consecutive;
+    this.lowHighConsecutive = powerballAnalysis.white_balls.lo_hi_consecutive;
+    this.evenOddLowHighConsecutive =
+      powerballAnalysis.white_balls.even_odd_lo_hi_consecutive;
+    this.powerballHotness = powerballAnalysis.red_ball_hotness!;
+    this.updatedDate = powerballAnalysis.updated_date;
+    this.totalDraws = powerballAnalysis.total_draws;
   }
 }

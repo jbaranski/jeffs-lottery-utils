@@ -6,6 +6,7 @@ interface Lottery {
   evenOdd: [number, number];
   lowHigh: [number, number];
   consecutive: number;
+  sum: number;
 }
 
 @Component({
@@ -37,8 +38,10 @@ export class RngComponent {
       let even = 0;
       let low = 0;
       let consecutive = 0;
+      let sum = 0;
       for (let i = 0; i < candidate.length; i++) {
         const num = candidate[i];
+        sum += num;
         if (num % 2 == 0) {
           even += 1;
         }
@@ -56,6 +59,12 @@ export class RngComponent {
           consecutiveSeen.add(num);
         }
       }
+
+      // Check if sum is in range (150, 200]
+      if (sum <= 150 || sum > 200) {
+        continue;
+      }
+
       // If even,odd and low,high are both 4,1 imbalanced
       // If even,odd OR low,high are all one way or other
       // If consecutives > 1 (never got any consecutives to show up though so it may never appear in practice...)
@@ -74,7 +83,8 @@ export class RngComponent {
         xupBall: this.generateRandomNumber(xupMax),
         evenOdd: [even, 5 - even],
         lowHigh: [low, 5 - low],
-        consecutive: consecutive
+        consecutive: consecutive,
+        sum: sum
       };
     }
   }
