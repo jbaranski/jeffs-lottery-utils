@@ -11,6 +11,7 @@ pandas = "*"
 scipy = "*"
 empiricaldist = "*"
 matplotlib = "*"
+brotli = "*"
 
 [dev-packages]
 snakeviz = "*"
