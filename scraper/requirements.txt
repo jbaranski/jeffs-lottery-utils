@@ -34,3 +34,4 @@ tzdata==2024.2; python_version >= '2'
 urllib3[socks]==2.2.3; python_version >= '3.8'
 websocket-client==1.8.0; python_version >= '3.8'
 wsproto==1.2.0; python_full_version >= '3.7.0'
+brotli
