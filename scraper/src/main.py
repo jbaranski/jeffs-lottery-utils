@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 
 import brotli
+import gzip
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -251,18 +252,18 @@ class Powerball(Lottery):
         }
         r = requests.get(self.url, headers=headers)
         encoding = r.headers.get('content-encoding', '')
-
+        logging.info(f'Content-Encoding={encoding}')
         if 'br' in encoding:
             text = brotli.decompress(r.content).decode('utf-8', errors='ignore')
         elif 'gzip' in encoding:
-            text = requests.utils.gzip_decompress(r.content).decode('utf-8', errors='ignore')
+            text = gzip.decompress(r.content).decode('utf-8', errors='ignore')
         else:
             text = r.text
         soup = BeautifulSoup(text, features='html.parser')
         previous_draw_arr = soup.find_all('a', {'class': 'card'})
         if len(previous_draw_arr) == 0:
             logging.error('Raw response:')
-            logging.error(f"Content-Encoding {r.headers.get('Content-Encoding', '')}")
+            logging.error(f'Content-Encoding={encoding}')
             logging.error(r.text)
             raise Exception('Unable to find previous draw information on Powerball page')
         previous_draw = previous_draw_arr[0]
