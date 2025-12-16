@@ -7,6 +7,7 @@ import time
 from dataclasses import dataclass, field
 from datetime import datetime
 
+import brotli
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -249,7 +250,14 @@ class Powerball(Lottery):
             'Upgrade-Insecure-Requests': '1',
         }
         r = requests.get(self.url, headers=headers)
-        text = requests.utils.gzip_decompress(r.content).decode('utf-8', errors='ignore') if r.content.startswith(b"\x1f\x8b") else r.text
+        encoding = r.headers.get('content-encoding', '')
+
+        if 'br' in encoding:
+            text = brotli.decompress(r.content).decode('utf-8', errors='ignore')
+        elif 'gzip' in encoding:
+            text = requests.utils.gzip_decompress(r.content).decode('utf-8', errors='ignore')
+        else:
+            text = r.text
         soup = BeautifulSoup(text, features='html.parser')
         previous_draw_arr = soup.find_all('a', {'class': 'card'})
         if len(previous_draw_arr) == 0:
