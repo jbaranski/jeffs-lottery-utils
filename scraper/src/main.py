@@ -246,19 +246,14 @@ class Powerball(Lottery):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.5',
-            'Accept-Encoding': 'gzip',
+            #'Accept-Encoding': 'gzip',
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1',
         }
         r = requests.get(self.url, headers=headers)
         encoding = r.headers.get('content-encoding', '')
         logging.info(f'Content-Encoding={encoding}')
-        if 'br' in encoding:
-            text = brotli.decompress(r.content).decode('utf-8', errors='ignore')
-        elif 'gzip' in encoding:
-            text = gzip.decompress(r.content).decode('utf-8', errors='ignore')
-        else:
-            text = r.text
+        text = r.text
         soup = BeautifulSoup(text, features='html.parser')
         previous_draw_arr = soup.find_all('a', {'class': 'card'})
         if len(previous_draw_arr) == 0:
