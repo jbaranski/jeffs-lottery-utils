@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 interface Lottery {
   whiteBalls: number[];
@@ -13,6 +13,7 @@ interface Lottery {
   selector: 'app-rng',
   imports: [],
   templateUrl: './rng.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './rng.component.css'
 })
 export class RngComponent {

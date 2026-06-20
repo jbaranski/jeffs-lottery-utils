@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Analysis, Statistic } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
@@ -7,6 +7,7 @@ import { firstValueFrom } from 'rxjs';
   selector: 'app-powerball-stats',
   imports: [],
   templateUrl: './powerball-stats.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './powerball-stats.component.css'
 })
 export class PowerballStatsComponent {
@@ -37,8 +38,7 @@ export class PowerballStatsComponent {
     this.evenOddlowHigh = powerballAnalysis.white_balls.even_odd_lo_hi;
     this.evenOddConsecutive = powerballAnalysis.white_balls.even_odd_consecutive;
     this.lowHighConsecutive = powerballAnalysis.white_balls.lo_hi_consecutive;
-    this.evenOddLowHighConsecutive =
-      powerballAnalysis.white_balls.even_odd_lo_hi_consecutive;
+    this.evenOddLowHighConsecutive = powerballAnalysis.white_balls.even_odd_lo_hi_consecutive;
     this.powerballHotness = powerballAnalysis.red_ball_hotness!;
     this.updatedDate = powerballAnalysis.updated_date;
     this.totalDraws = powerballAnalysis.total_draws;

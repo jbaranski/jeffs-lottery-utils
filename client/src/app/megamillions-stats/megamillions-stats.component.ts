@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Analysis, Statistic } from '../app.component';
 
@@ -7,6 +7,7 @@ import { Analysis, Statistic } from '../app.component';
   selector: 'app-megamillions-stats',
   imports: [],
   templateUrl: './megamillions-stats.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './megamillions-stats.component.css'
 })
 export class MegamillionsStatsComponent {
@@ -35,11 +36,9 @@ export class MegamillionsStatsComponent {
     this.consecutives = megamillionsAnalysis.white_balls.consecutive;
     this.sumDistribution = megamillionsAnalysis.white_balls.sum_distribution;
     this.evenOddlowHigh = megamillionsAnalysis.white_balls.even_odd_lo_hi;
-    this.evenOddConsecutive =
-      megamillionsAnalysis.white_balls.even_odd_consecutive;
+    this.evenOddConsecutive = megamillionsAnalysis.white_balls.even_odd_consecutive;
     this.lowHighConsecutive = megamillionsAnalysis.white_balls.lo_hi_consecutive;
-    this.evenOddLowHighConsecutive =
-      megamillionsAnalysis.white_balls.even_odd_lo_hi_consecutive;
+    this.evenOddLowHighConsecutive = megamillionsAnalysis.white_balls.even_odd_lo_hi_consecutive;
     this.megamillionsHotness = megamillionsAnalysis.yellow_ball_hotness!;
     this.updatedDate = megamillionsAnalysis.updated_date;
     this.totalDraws = megamillionsAnalysis.total_draws;
