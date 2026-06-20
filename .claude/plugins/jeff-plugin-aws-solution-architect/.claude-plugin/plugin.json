@@ -1,0 +1,8 @@
+{
+  "name": "jeff-plugin-aws-solution-architect",
+  "description": "Agents and skills for AWS CDK infrastructure, solution architecture, and infrastructure review with TypeScript tooling.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jeff Baranski"
+  }
+}

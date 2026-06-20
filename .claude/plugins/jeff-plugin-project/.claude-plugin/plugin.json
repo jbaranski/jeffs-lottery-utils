@@ -1,0 +1,8 @@
+{
+  "name": "jeff-plugin-project",
+  "description": "General project workflows that apply across technology stacks — dependency management, issue resolution, and project-level automation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jeff Baranski"
+  }
+}

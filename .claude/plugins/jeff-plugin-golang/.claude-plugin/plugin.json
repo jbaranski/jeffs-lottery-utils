@@ -1,0 +1,8 @@
+{
+  "name": "jeff-plugin-golang",
+  "description": "Agents and skills for idiomatic Go development, code review, and project configuration.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jeff Baranski"
+  }
+}
