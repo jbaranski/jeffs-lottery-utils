@@ -1,0 +1,8 @@
+{
+  "name": "jeff-plugin-typescript",
+  "description": "Agents and skills for TypeScript backend, CLI, and library development with modern tooling, strict type checking, and testing requirements.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jeff Baranski"
+  }
+}
