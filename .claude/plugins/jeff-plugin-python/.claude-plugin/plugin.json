@@ -1,0 +1,8 @@
+{
+  "name": "jeff-plugin-python",
+  "description": "Agents and skills for Python development using uv, ruff, and pytest with PEP standards and modern best practices.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jeff Baranski"
+  }
+}
