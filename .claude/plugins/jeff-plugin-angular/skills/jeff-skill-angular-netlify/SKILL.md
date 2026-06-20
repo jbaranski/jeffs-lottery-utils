@@ -99,7 +99,8 @@ test:
 	npx ng test --watch=false --browsers=ChromeHeadlessNoSandbox
 
 build:
-	npm run prod:build
+	npm run update-csp
+	npm run build:prod
 
 # netlify-cli is NOT added as a devDependency — npx downloads it at deploy time.
 # Update --dir to match angular.json outputPath (typically dist/<app-name>/browser).
@@ -111,25 +112,27 @@ deploy: build
 
 ---
 
-### `.github/workflows/<workflow-name>.yml`
+### `.github/workflows/deploy-web.yml`
 
-Fill in `<workflow-name>`, `<app-directory>`, `<node-version>`, `<lockfile-path>`, and `<github-environment>` from Steps 1–2.
+Fill in `<app-directory>`, `<node-version>`, and `<lockfile-path>` from Step 1. Add any additional environment secrets your app needs (e.g. API URLs, feature flags) alongside `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID` in the Deploy step.
 
 ```yaml
-name: <workflow-name>
+name: deploy-web
 
 on:
-  workflow_dispatch: # manual trigger only — no auto-deploy on push
+  push:
+    branches: [main]
+  workflow_dispatch: # also triggerable ad-hoc from the GitHub Actions UI
 
 concurrency:
-  group: <concurrency-group>
+  group: deploy-web
   cancel-in-progress: false # never cancel an in-flight deploy
 
 jobs:
   deploy:
     name: Angular — lint, test & deploy to Netlify
     runs-on: ubuntu-latest
-    environment: <github-environment> # GitHub environment gate; secrets live here
+    environment: prod # GitHub environment gate; secrets live here
     defaults:
       run:
         working-directory: <app-directory>
@@ -156,10 +159,11 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          # Add any additional secrets the app needs at build/deploy time:
+          # MY_API_URL: ${{ secrets.MY_API_URL }}
 ```
 
-**Why `workflow_dispatch` only?**
-Netlify deployments are intentional, not automatic. This prevents a bad push from immediately going to production. Trigger from the GitHub Actions UI or via `gh workflow run <workflow-name>`.
+**Triggers:** Deploys automatically on every merge to `main`, and can also be triggered ad-hoc from the GitHub Actions UI or via `gh workflow run deploy-web`.
 
 **Why `cancel-in-progress: false`?**
 An in-flight deploy to Netlify should never be interrupted mid-upload. A new deploy queues behind the current one.
@@ -190,6 +194,113 @@ Add to `app.routes.ts` for each static sub-page path:
 ```
 
 In production, Netlify serves the real file and the `301` redirect in `netlify.toml` handles the `/demo` → `/demo/` trailing-slash normalisation. The route guard only fires locally.
+
+---
+
+## Optional: PostHog Integration
+
+If the project uses PostHog analytics, keep the init snippet **inline in `src/index.html`**. Do not extract it to an external file.
+
+**Why inline is required:** Angular's build tool (Beasties) generates `<link onload="...">` event handlers for CSS preloading. These are inline event handlers that require `'unsafe-hashes'` in the CSP `script-src` — regardless of PostHog. Since `'unsafe-hashes'` must be present anyway, the PostHog inline script needs only a `sha256-...` hash added alongside it. Removing `'unsafe-hashes'` to avoid the hash breaks CSS entirely.
+
+### 1. Add the PostHog snippet inline in `src/index.html`
+
+Paste the PostHog snippet as the first inline `<script>` in `<head>`. Add a comment so future editors know the hash in `netlify.toml` must stay in sync:
+
+```html
+<!-- PostHog analytics — inline so Beasties CSS preload handlers (which also need
+     'unsafe-hashes') share the same CSP exception. If you change this snippet,
+     run `npm run update-csp` to recompute the sha256 hash in netlify.toml. -->
+<script>
+  /* paste PostHog snippet here */
+</script>
+```
+
+### 2. Add CSP headers to `netlify.toml`
+
+Add a headers block for `/*`. The `sha256-...` value covers the PostHog inline script; `'unsafe-hashes'` covers Beasties' `<link onload="...">` handlers. Add a comment so future editors know only the first `sha256-` token is replaced by the automation script:
+
+```toml
+# script-src: 'unsafe-hashes' is required for Angular's Beasties CSS preload <link onload="..."> handlers.
+# The sha256 hash covers the inline PostHog snippet in src/index.html.
+# Only the first 'sha256-...' token here is replaced by `npm run update-csp` — do not reorder.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-PLACEHOLDER'; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';"
+```
+
+Replace `PLACEHOLDER` by running `npm run update-csp` (see below). Adjust `connect-src` to match the PostHog region/endpoint in your PostHog project settings.
+
+### 3. Add `scripts/update-csp-hash.js`
+
+Create this file in the Angular app directory. It reads the first inline `<script>` from `index.html`, computes its SHA-256, and patches the hash in `netlify.toml` — so updating the PostHog snippet never requires manually touching the CSP:
+
+```js
+#!/usr/bin/env node
+// Recomputes the SHA-256 hash of the first inline <script> in src/index.html
+// and writes the updated hash into the script-src directive in netlify.toml.
+// Run this after changing the PostHog snippet, then commit both files.
+const { createHash } = require('node:crypto');
+const { readFileSync, writeFileSync } = require('node:fs');
+const { join } = require('node:path');
+
+const root = join(__dirname, '..');
+
+const indexHtml = readFileSync(join(root, 'src/index.html'), 'utf8');
+const match = indexHtml.match(/<script>([\s\S]*?)<\/script>/);
+if (!match) {
+  console.error('No inline <script> found in src/index.html');
+  process.exit(1);
+}
+
+const hash = `sha256-${createHash('sha256').update(match[1], 'utf8').digest('base64')}`;
+
+const tomlPath = join(root, 'netlify.toml');
+const toml = readFileSync(tomlPath, 'utf8');
+const updated = toml.replace(/'sha256-[A-Za-z0-9+/=]+'/, `'${hash}'`);
+
+if (updated === toml) {
+  console.log(`CSP hash already up to date: '${hash}'`);
+} else {
+  writeFileSync(tomlPath, updated);
+  console.log(`netlify.toml updated with: '${hash}'`);
+}
+```
+
+### 4. Expose as `npm run update-csp` and wire into `make build`
+
+In `package.json`:
+
+```json
+"scripts": {
+  "update-csp": "node scripts/update-csp-hash.js"
+}
+```
+
+In the `Makefile`, update the `build` target so the hash is recomputed first, then the Angular build runs:
+
+```makefile
+build:
+	npm run update-csp
+	npm run build:prod
+```
+
+### 5. Allow `scripts/*.js` in `.gitignore`
+
+If the repo's root `.gitignore` blocks `*.js`, add an exception in the Angular app directory's own `.gitignore`:
+
+```
+!scripts/*.js
+```
+
+### 6. Add `.prettierignore` for the script
+
+`scripts/update-csp-hash.js` uses CommonJS `require` — Prettier may flag it depending on your config. Add to `.prettierignore`:
+
+```
+scripts/update-csp-hash.js
+```
 
 ---
 

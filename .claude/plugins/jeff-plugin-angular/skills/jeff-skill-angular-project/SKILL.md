@@ -40,7 +40,7 @@ Before proceeding:
 
 5. Set up Netlify deployment using the `jeff-skill-angular-netlify` skill.
 
-6. Create `.nvmrc` in the project root with the current Node LTS major version (visit https://nodejs.org/en and look for the "LTS" badge):
+6. Create `.nvmrc` at the repo root (not inside the Angular project directory if it is a subproject) with the current Node LTS major version (visit https://nodejs.org/en and look for the "LTS" badge):
 
    ```
    <NODE_LTS>
@@ -56,7 +56,7 @@ Before proceeding:
    }
    ```
 
-   Create `.npmrc` in the project root:
+   Create `.npmrc` in the same directory as `package.json` (npm does not traverse up beyond the package root):
 
    ```
    engine-strict=true

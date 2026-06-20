@@ -264,7 +264,9 @@ touch src/index.ts tests/example.test.ts
 
 # Lock Node version and enforce it
 # Replace <NODE_LTS> with the current LTS major version from https://nodejs.org/en
+# .nvmrc goes at the repo root — if this project lives in a subdirectory, write it one level up
 echo "<NODE_LTS>" > .nvmrc
+# .npmrc goes co-located with package.json (npm does not traverse up beyond the package root)
 echo "engine-strict=true" > .npmrc
 ```
 
@@ -403,8 +405,8 @@ jobs:
 - Use `tsx` for development with hot reload
 - Build with `tsc` for production
 - Never commit `node_modules/` or `dist/`
-- Use `.nvmrc` (containing the current LTS major version from https://nodejs.org/en) to lock the Node version; nvm auto-switches when you `cd` into the repo
-- Create `.npmrc` containing `engine-strict=true` so any `npm` command on the wrong Node version fails loudly instead of silently corrupting the lock file
+- Place `.nvmrc` (containing the current LTS major version from https://nodejs.org/en) at the repo root — nvm traverses up so one file covers all subprojects
+- Place `.npmrc` containing `engine-strict=true` co-located with `package.json` — npm does not traverse up beyond the package root, so it must live alongside `package.json`
 - Configure the session-start hook via the `session-start-hook` skill so Claude Code web sessions auto-install the current Node LTS version at container startup
 - Export types from your library's main entry point
 
