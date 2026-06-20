@@ -221,13 +221,12 @@ Paste the PostHog snippet as the first inline `<script>` in `<head>`. Add a comm
 Add a headers block for `/*`. The `sha256-...` value covers the PostHog inline script; `'unsafe-hashes'` covers Beasties' `<link onload="...">` handlers. Add a comment so future editors know only the first `sha256-` token is replaced by the automation script:
 
 ```toml
-# script-src: 'unsafe-hashes' is required for Angular's Beasties CSS preload <link onload="..."> handlers.
-# The sha256 hash covers the inline PostHog snippet in src/index.html.
-# Only the first 'sha256-...' token here is replaced by `npm run update-csp` — do not reorder.
+# CRITICAL: PostHog sha256 MUST be first — `npm run update-csp` replaces only the first sha256 token.
+# Second sha256 = Beasties CSS preload handler (this.media='all') — static, never changes, do not remove.
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-PLACEHOLDER'; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-PLACEHOLDER' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';"
 ```
 
 Replace `PLACEHOLDER` by running `npm run update-csp` (see below). Adjust `connect-src` to match the PostHog region/endpoint in your PostHog project settings.
