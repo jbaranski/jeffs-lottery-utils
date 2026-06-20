@@ -154,6 +154,16 @@ jobs:
       - name: Test
         run: make test
 
+      - name: Commit netlify.toml if CSP hash was updated
+        working-directory: ${{ github.workspace }}
+        run: |
+          git diff --quiet <app-directory>/netlify.toml && exit 0
+          git config user.name "JEFF-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add <app-directory>/netlify.toml
+          git commit -m "chore: update PostHog CSP hash [skip ci]"
+          git push
+
       - name: Deploy
         run: make deploy
         env:
@@ -226,10 +236,10 @@ Add a headers block for `/*`. The `sha256-...` value covers the PostHog inline s
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-PLACEHOLDER' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='; connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-PLACEHOLDER' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=' https://p.jeffsoftware.com; connect-src 'self' https://p.jeffsoftware.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';"
 ```
 
-Replace `PLACEHOLDER` by running `npm run update-csp` (see below). Adjust `connect-src` to match the PostHog region/endpoint in your PostHog project settings.
+Replace `PLACEHOLDER` by running `npm run update-csp` (see below). The PostHog custom proxy `https://p.jeffsoftware.com` must appear in both `script-src` and `connect-src` — PostHog's inline init snippet dynamically fetches and injects `array.js` as a `<script>` element, so `connect-src` alone will not unblock it.
 
 ### 3. Add `scripts/update-csp-hash.js`
 
@@ -293,12 +303,17 @@ If the repo's root `.gitignore` blocks `*.js`, add an exception in the Angular a
 !scripts/*.js
 ```
 
-### 6. Add `.prettierignore` for the script
+### 6. Add `.prettierignore` entries in the Angular app directory
 
-`scripts/update-csp-hash.js` uses CommonJS `require` — Prettier may flag it depending on your config. Add to `.prettierignore`:
+Create (or update) a `.prettierignore` file **inside the Angular app directory** (same level as `angular.json`), not only at the repo root. CI invokes prettier from the Angular app directory, and prettier resolves ignore patterns relative to the CWD where it is invoked — patterns in a parent-directory `.prettierignore` are also resolved relative to that same CWD, so always put these entries in the app-directory `.prettierignore` to be explicit and safe:
 
 ```
+# CommonJS require() in the CSP hash script may be flagged by prettier
 scripts/update-csp-hash.js
+
+# PostHog inline snippet in index.html must never be reformatted by prettier
+# (reformatting changes whitespace inside the <script> block, invalidating the sha256 hash)
+src/index.html
 ```
 
 ---
