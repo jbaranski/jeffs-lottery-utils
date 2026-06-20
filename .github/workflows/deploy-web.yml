@@ -1,7 +1,9 @@
 name: deploy-web
 
 on:
-  workflow_dispatch: # manual trigger only -- no auto-deploy on push
+  push:
+    branches: [main]
+  workflow_dispatch: # also triggerable ad-hoc from the GitHub Actions UI
 
 concurrency:
   group: deploy-web

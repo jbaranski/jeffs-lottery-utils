@@ -9,6 +9,7 @@ test:
 	npx ng test --watch=false --browsers=ChromeHeadlessNoSandbox
 
 build:
+	npm run update-csp
 	npm run prod:build
 
 # netlify-cli is NOT added as a devDependency -- npx downloads it at deploy time.

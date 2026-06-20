@@ -9,6 +9,7 @@
     "test": "ng test",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
+    "update-csp": "node scripts/update-csp-hash.js",
     "prod:build": "ng build --c=production",
     "prod:start": "http-server -a localhost -p 4200 dist/client/browser"
   },
