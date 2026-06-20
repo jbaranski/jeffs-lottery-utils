@@ -1,0 +1,40 @@
+name: deploy-web
+
+on:
+  workflow_dispatch: # manual trigger only -- no auto-deploy on push
+
+concurrency:
+  group: deploy-web
+  cancel-in-progress: false # never cancel an in-flight deploy
+
+jobs:
+  deploy:
+    name: Angular -- lint, test & deploy to Netlify
+    runs-on: ubuntu-latest
+    environment: prod # GitHub environment gate; secrets live here
+    defaults:
+      run:
+        working-directory: client
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: make lint
+
+      - name: Test
+        run: make test
+
+      - name: Deploy
+        run: make deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

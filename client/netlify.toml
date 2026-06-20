@@ -1,4 +1,26 @@
+# SPA catch-all: all Angular routes serve index.html (status 200 = rewrite, not redirect)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# index.html: browser must always revalidate; Netlify CDN holds it durably
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Netlify-CDN-Cache-Control = "public, max-age=31536000, durable"
+
+# Hashed JS assets: immutable on the browser (filename changes every build)
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Netlify-CDN-Cache-Control = "public, max-age=31536000, durable"
+
+# Hashed CSS assets: same immutable strategy
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Netlify-CDN-Cache-Control = "public, max-age=31536000, durable"
