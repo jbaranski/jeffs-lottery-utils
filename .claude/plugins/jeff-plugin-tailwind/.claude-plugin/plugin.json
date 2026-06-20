@@ -1,0 +1,8 @@
+{
+  "name": "jeff-plugin-tailwind",
+  "description": "Agents and skills for Tailwind CSS v4 UI/UX development including design systems, design tokens, and component libraries.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jeff Baranski"
+  }
+}
