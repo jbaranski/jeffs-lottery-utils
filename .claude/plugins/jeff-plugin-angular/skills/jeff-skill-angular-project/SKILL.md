@@ -20,9 +20,11 @@ Before proceeding:
 1. Run `npm install -g @angular/cli` to install or update to the latest Angular CLI globally.
    - In the update scenario, run `ng update @angular/core @angular/cli` as well
 2. Verify installation by running `ng version` and ensure the Angular CLI version is the latest available version.
-3. Create a new project by running `ng new <project-name>` and follow the prompts to set up the project with the desired configuration.
+3. Create a new project by running `ng new <project-name> --zoneless` and follow the prompts to set up the project with the desired configuration.
    - Use `CSS` for stylesheet format
    - Do NOT enable server side rendering
+   - The `--zoneless` flag configures the project without `zone.js`, enabling zoneless change detection
+   - If adding zoneless to an existing project instead, update `app.config.ts` to use `provideZonelessChangeDetection()` and remove `zone.js` from the `polyfills` array in `angular.json`
 4. Use the latest stable version of `tailwindcss` as a `devDependency`. Refer to the documentation at https://tailwindcss.com/docs.
    - To install run `ng add tailwindcss` and confirm any prompts. This is equivalent to doing the following (just here for your reference in case something goes wrong or needs to be fixed):
      - `npm install -D tailwindcss @tailwindcss/postcss postcss`
