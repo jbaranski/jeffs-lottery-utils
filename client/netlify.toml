@@ -4,6 +4,8 @@
   to = "/index.html"
   status = 200
 
+# CRITICAL: PostHog sha256 MUST be first -- `npm run update-csp` replaces only the first sha256 token.
+# Second sha256 = Beasties CSS preload handler (this.media='all') -- static, never changes, do not remove.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -11,7 +13,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; object-src 'none'; frame-ancestors 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-KC2Bd7LdWxcC2FW6VEGgN6RlrKhDG4Guw4i8UQg0HBY=' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=' https://p.jeffsoftware.com; connect-src 'self' https://raw.githubusercontent.com https://p.jeffsoftware.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none'"
 
 # index.html: browser must always revalidate; Netlify CDN holds it durably
 [[headers]]

@@ -1,0 +1,6 @@
+node_modules
+dist
+build
+coverage
+client/scripts/update-csp-hash.js
+client/src/index.html

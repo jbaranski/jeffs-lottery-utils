@@ -3,3 +3,5 @@
 *.ico
 *.js
 *.png
+src/index.html
+public/site.webmanifest
