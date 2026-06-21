@@ -5,6 +5,7 @@ skills:
   - jeff-skill-tailwind-design-system
   - jeff-skill-angular-project
   - jeff-skill-angular-aws-cognito
+  - jeff-skill-install-prettier
 ---
 
 ## Startup Acknowledgment

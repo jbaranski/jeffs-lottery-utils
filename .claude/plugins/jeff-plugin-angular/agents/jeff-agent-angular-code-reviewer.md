@@ -32,6 +32,7 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 
 - [ ] Using standalone components (not NgModules)
 - [ ] NOT setting `standalone: true` explicitly (default in Angular 20+)
+- [ ] Using zoneless change detection — `provideZonelessChangeDetection()` in `app.config.ts` and `zone.js` absent from `polyfills` in `angular.json`
 - [ ] Using signals for state management
 - [ ] Using `input()` and `output()` functions, not decorators
 - [ ] Using `computed()` for derived state
@@ -129,6 +130,7 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 ### Critical Issues (Must Fix)
 
 - Using deprecated Angular APIs
+- `zone.js` present in `polyfills` in `angular.json`, or `provideZonelessChangeDetection()` missing from `app.config.ts` — project must be zoneless
 - Using `any` type extensively
 - Memory leaks (unsubscribed observables)
 - Security issues (XSS, unsafe bindings)
