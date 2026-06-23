@@ -265,11 +265,5 @@ jobs:
 
 ## Integration with Other Skills
 
-- **jeff-skill-error-debugging-rca**: Use when debugging errors or test failures in Angular projects or related tools
-
-## Additional Resources
-
-- uv documentation: https://docs.astral.sh/uv/
-- ruff documentation: https://docs.astral.sh/ruff/
-- pytest documentation: https://docs.pytest.org/
-- Python PEPs: https://peps.python.org/
+- **jeff-skill-install-dependabot** — Set up Dependabot to keep uv/Python dependencies up to date
+- **jeff-skill-dependabot-issue-resolution** — Resolve Dependabot PRs for Python package updates

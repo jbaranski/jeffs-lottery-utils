@@ -501,12 +501,5 @@ jobs:
 
 ## Integration with Other Skills
 
-- **jeff-skill-error-debugging-rca**: Use when debugging errors or test failures in Angular projects or related tools
-
-## Additional Resources
-
-- Official Go documentation: https://go.dev/doc/
-- Effective Go: https://go.dev/doc/effective_go
-- Go Code Review Comments: https://go.dev/wiki/CodeReviewComments
-- Go by Example: https://gobyexample.com/
-- golangci-lint: https://golangci-lint.run/
+- **jeff-skill-install-dependabot** — Set up Dependabot to keep Go module dependencies up to date
+- **jeff-skill-dependabot-issue-resolution** — Resolve Dependabot PRs for Go module updates

@@ -73,6 +73,36 @@ prettier-check:
 	npx prettier --check .
 ```
 
+## Monorepo Root Makefile
+
+In a monorepo where sub-packages own their own prettier config, the root `Makefile` must have `prettier` and `prettier-check` targets that:
+
+1. Delegate to each sub-package that owns its own prettier (via its `npm run prettier:fix` / `npm run prettier:check` script)
+2. Run the root prettier last (covering everything the sub-packages exclude)
+
+Each sub-package that has a buildable output (e.g. an Angular app) must also have a dedicated `build-<name>` target using `$(MAKE) -C <dir> build` — **never** `cd <dir> && make build`. This keeps the pattern consistent with other subproject targets and allows root-level build checks without entering subdirectories.
+
+```makefile
+prettier:
+	cd apps/web && npm run prettier:fix
+	cd infra && npm run prettier:fix
+	npx prettier --write .
+
+prettier-check:
+	cd apps/web && npm run prettier:check
+	cd infra && npm run prettier:check
+	npx prettier --check .
+
+build-web:
+	$(MAKE) -C apps/web build
+```
+
+Add `prettier`, `prettier-check`, and `build-web` (and any other build targets) to the `.PHONY` declaration.
+
+**Always run `make prettier` (not `npx prettier --write .` directly) when formatting the whole monorepo.** Running prettier from the root without the Makefile target skips sub-package formatting.
+
+**Always run `make build-web` (not `cd apps/web && make build`) for pre-commit build checks.** All subproject operations must go through root Makefile targets.
+
 ## .prettierignore Patterns by Context
 
 ### Single-package Angular project (one `.prettierignore` at root)
@@ -96,7 +126,9 @@ Also add `scripts/update-csp-hash.js` if that file exists in the project.
 
 Same as single-package Angular above — applied within the sub-package directory.
 
-### Root monorepo `.prettierignore` (covers everything not caught by sub-package ignores)
+### Root monorepo `.prettierignore`
+
+The root `.prettierignore` must **exclude the entire directory** of every sub-package that owns its own prettier config. This prevents the root prettier from touching files those sub-packages manage themselves:
 
 ```
 node_modules
@@ -104,9 +136,11 @@ dist
 build
 coverage
 client/src/index.html
+apps/web/
+infra/
 ```
 
-Also add `client/scripts/update-csp-hash.js` if that file exists. Replace `client/` with the actual client directory name (e.g. `apps/web/`).
+Replace `apps/web/` and `infra/` with the actual sub-package directories (e.g. `client/`, `client/src/`). Do **not** list individual file exclusions from sub-packages here — exclude the whole directory instead.
 
 ### CDK / infra package
 
@@ -136,16 +170,6 @@ coverage
 - Do not add prettier to `dependencies` (only `devDependencies`)
 - Do not put additional prettier config in sub-package `package.json` files beyond the two scripts
 - Do not have sub-package configs inherit or extend a parent config
+- Do not run `npx prettier --write .` from the monorepo root directly — always use `make prettier`
 
 If extra prettier configuration exists in `package.json` or any other non-standard location, remove it and consolidate everything into `.prettierrc.json` / `.prettierrc.yaml` and `.prettierignore`.
-
-## Key Notes
-
-- `src/index.html` is always excluded for Angular projects — it is framework-generated
-- `*.js` in TypeScript projects means compiled output — always exclude it
-- `cdk.out/` must be in CDK/infra `.prettierignore` — it contains synthesized CloudFormation
-- `scripts/update-csp-hash.js` appears in Angular ignore lists whenever a CSP hash update script is present
-
-## Additional Resources
-
-- Prettier documentation: https://prettier.io/docs/

@@ -183,8 +183,3 @@ Base styles → Variants → Sizes → States → Overrides
 ## Integration with Other Skills
 
 - **jeff-skill-angular-project**: Use to scaffold the Angular project and install Tailwind CSS before applying design system patterns from this skill
-- **jeff-skill-error-debugging-rca**: Use when debugging Tailwind configuration or CSS compilation issues
-
-## Detailed patterns and worked examples
-
-Detailed pattern documentation lives in `references/details.md`. Read that file when the navigation tier above is insufficient.
