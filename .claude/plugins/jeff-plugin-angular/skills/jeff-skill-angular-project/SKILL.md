@@ -76,11 +76,6 @@ Before proceeding:
 
 ## Integration with Other Skills
 
-- **jeff-skill-error-debugging-rca**: Use when debugging errors or test failures in Angular projects or related tools
 - **jeff-skill-angular-aws-cognito**: Integrate AWS Cognito authentication into the Angular app
 - **jeff-skill-angular-netlify**: Set up production Netlify deployment — full `netlify.toml` with caching headers, Makefile deploy target, and GitHub Actions CI/CD workflow
 - **jeff-skill-tailwind-design-system**: Apply Tailwind v4 design tokens, component patterns, and theming after initial project setup
-
-## Additional resources
-
-- Refer to the Angular documentation if you need help: https://angular.io/docs

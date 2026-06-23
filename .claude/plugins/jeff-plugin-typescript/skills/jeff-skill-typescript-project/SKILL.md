@@ -76,8 +76,8 @@ project-root/
     "test:coverage": "vitest run --coverage",
     "lint": "eslint src tests --ext .ts",
     "lint:fix": "eslint src tests --ext .ts --fix",
-    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "prettier:fix": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist node_modules",
     "prepublishOnly": "npm run build"
@@ -295,13 +295,13 @@ npm run test:coverage
 npm run lint
 
 # Format code
-npm run format
+npm run prettier:fix
 
 # Type check
 npm run typecheck
 
 # Run all checks (lint + format + typecheck + test)
-npm run lint && npm run format:check && npm run typecheck && npm run test:run
+npm run lint && npm run prettier:check && npm run typecheck && npm run test:run
 ```
 
 ## Testing Requirements
@@ -388,7 +388,7 @@ jobs:
         run: npm run lint
 
       - name: Format check
-        run: npm run format:check
+        run: npm run prettier:check
 
       - name: Run tests with coverage
         run: npm run test:coverage
@@ -580,11 +580,5 @@ npm install -D @types/aws-lambda
 
 ## Integration with Other Skills
 
-- **jeff-skill-error-debugging-rca**: Use when debugging errors or test failures in Angular projects or related tools
-
-## Additional Resources
-
-- TypeScript Documentation: https://www.typescriptlang.org/docs/
-- TypeScript ESLint: https://typescript-eslint.io/
-- Vitest Documentation: https://vitest.dev/
-- Node.js Best Practices: https://github.com/goldbergyoni/nodebestpractices
+- **jeff-skill-install-dependabot** — Set up Dependabot to keep npm dependencies up to date
+- **jeff-skill-dependabot-issue-resolution** — Resolve Dependabot PRs for npm package updates

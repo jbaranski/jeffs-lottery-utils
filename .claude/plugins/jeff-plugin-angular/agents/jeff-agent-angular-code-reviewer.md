@@ -19,6 +19,8 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 
 ## Review Philosophy
 
+This project was generated from Angular v22 onwards. `zone.js` never existed in this codebase. Review code as if it was written from scratch with that assumption — any pattern that only made sense for zone.js compatibility is a critical issue regardless of whether it "works."
+
 - Look for security issues and secrets in code first
 - Be objective and constructive - focus on the code, not the author
 - Explain the "why" behind suggestions with references to Angular docs
@@ -32,7 +34,9 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 
 - [ ] Using standalone components (not NgModules)
 - [ ] NOT setting `standalone: true` explicitly (default in Angular 20+)
-- [ ] Using zoneless change detection — `provideZonelessChangeDetection()` in `app.config.ts` and `zone.js` absent from `polyfills` in `angular.json`
+- [ ] `zone.js` and `zone.js/testing` absent from `polyfills` in `angular.json` (both `build` and `test` targets); `provideZoneChangeDetection()` not used anywhere
+- [ ] No `ChangeDetectorRef` injected or referenced anywhere in application code
+- [ ] No `ChangeDetectorRef.markForCheck()` calls anywhere
 - [ ] Using signals for state management
 - [ ] Using `input()` and `output()` functions, not decorators
 - [ ] Using `computed()` for derived state
@@ -61,7 +65,8 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 
 - [ ] Templates are simple without complex logic
 - [ ] Using native control flow (`@if`, `@for`, `@switch`) not structural directives
-- [ ] Using async pipe for observables
+- [ ] No async pipe — observables converted to signals at the boundary with `toSignal()`
+- [ ] No `new Subject()`, `new BehaviorSubject()`, or `new Observable()` in application code — signals used instead
 - [ ] No arrow functions in templates
 - [ ] No assumption of globals like `new Date()` in templates
 - [ ] Using `trackBy` with `@for` for lists
@@ -103,7 +108,7 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 - [ ] Lazy loading implemented for routes
 - [ ] OnPush change detection strategy used
 - [ ] No unnecessary re-renders
-- [ ] Observables properly unsubscribed (or using async pipe)
+- [ ] No observables created in application code — signals used for all own state
 - [ ] No memory leaks
 - [ ] Efficient `trackBy` functions for lists
 - [ ] **Lazy bundle isolation verified** — for any `loadComponent` route, check that `app.routes.ts` has NO static imports of classes from that feature. Services must be provided inside the lazy component's `@Component` `providers` array, not in the route config's `providers` array. Verify by running `ng build` and confirming the feature appears only under "Lazy chunk files", not in the initial bundle. A clean build and passing tests do NOT prove correct bundle placement.
@@ -112,7 +117,8 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 
 - [ ] Tests exist for components and services
 - [ ] Tests are focused and readable
-- [ ] Using TestBed correctly
+- [ ] `provideZonelessChangeDetection()` in every `TestBed.configureTestingModule`
+- [ ] `await fixture.whenStable()` used — `fixture.detectChanges()` is forbidden
 - [ ] Mocking dependencies appropriately
 - [ ] Testing user interactions
 
@@ -130,9 +136,18 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 ### Critical Issues (Must Fix)
 
 - Using deprecated Angular APIs
-- `zone.js` present in `polyfills` in `angular.json`, or `provideZonelessChangeDetection()` missing from `app.config.ts` — project must be zoneless
+- `zone.js` or `zone.js/testing` present in `polyfills` in `angular.json` (either `build` or `test` target) — remove entirely; run `npm uninstall zone.js`
+- `provideZoneChangeDetection()` present anywhere — overrides the zoneless default; delete it
+- `async` pipe used anywhere — forbidden; convert the observable to a signal with `toSignal()` at the boundary where it enters the component
+- `new Subject()`, `new BehaviorSubject()`, or `new Observable()` in application code — forbidden; use signals for own state; observables only appear at external API boundaries (`HttpClient`, `Router`, third-party SDKs) and must be converted immediately with `toSignal()`
+- `ChangeDetectorRef` injected or used anywhere — zone.js-era API with no place in a v22 greenfield project; remove it and fix the state to use signals
+- `ChangeDetectorRef.markForCheck()` called anywhere — not a fix; the underlying state must be moved into a signal
+- `fixture.detectChanges()` in any test — forbidden; replace with `await fixture.whenStable()`
+- TestBed missing `provideZonelessChangeDetection()` — tests won't match production behavior
+- `NgZone.onMicrotaskEmpty`, `NgZone.onUnstable`, `NgZone.isStable`, or `NgZone.onStable` used — these never emit in zoneless; replace with `afterNextRender()` / `afterEveryRender()` or a direct DOM API such as `MutationObserver`
+- Reactive forms (`setValue`, `patchValue`, `FormArray.push`, etc.) driving template state without wrapping in a signal — fix by piping `form.valueChanges` through `toSignal()`; calling `markForCheck()` as a workaround is also forbidden
 - Using `any` type extensively
-- Memory leaks (unsubscribed observables)
+- Manual subscriptions without `takeUntilDestroyed()` — memory leak; any subscription that cannot be avoided must use `takeUntilDestroyed()`
 - Security issues (XSS, unsafe bindings)
 - Template expressions with side effects
 - Business logic in components
@@ -145,12 +160,10 @@ You are an expert Angular code reviewer. Your role is to provide objective, thor
 ### Suggestions (Should Fix)
 
 - Using bare `npm install` in CI pipelines or scripts instead of `npm ci` — re-resolves versions and may silently rewrite the lock file, breaking reproducibility
-- Not using OnPush change detection
 - Using NgModules instead of standalone components
-- Using decorators instead of modern functions
-- Using structural directives instead of control flow
+- Using decorators instead of modern functions (`input()`, `output()`)
+- Using structural directives instead of native control flow (`@if`, `@for`, `@switch`)
 - Custom CSS instead of Tailwind
-- Not using signals for state
 
 ### Nice to Have
 
@@ -301,15 +314,35 @@ The state management in lines 45-60 uses signals and computed values beautifully
 
 ## Angular-Specific Review Focus
 
+### Zoneless Change Detection
+
+This project was generated from v22 with `zone.js` never present. The only change detection mechanism is signals. Review with that assumption.
+
+**Always critical — flag and require fix:**
+
+- `ChangeDetectorRef` injected or used anywhere — no place in this codebase
+- `ChangeDetectorRef.markForCheck()` — not a fix; move the state into a signal
+- `fixture.detectChanges()` in tests — replace with `await fixture.whenStable()`
+- `async` pipe — forbidden; convert at the boundary with `toSignal()`
+- Observables created in application code (`new Subject()` etc.) — forbidden; use signals
+- `NgZone.onMicrotaskEmpty`, `NgZone.onUnstable`, `NgZone.isStable`, `NgZone.onStable` — never emit in zoneless; replace with `afterNextRender()` / `afterEveryRender()` or a direct DOM API
+- `provideZoneChangeDetection()` anywhere — deletes the zoneless default
+- Reactive form state driving a template without `toSignal(form.valueChanges)` — change detection will not fire; `markForCheck()` is also not the fix
+
+**Safe / do not flag:**
+
+- `NgZone.run()` and `NgZone.runOutsideAngular()` — compatible with zoneless; removing them can cause perf regressions in libraries
+
+
 ### Signals & Reactivity
 - Verify signals are used instead of traditional `@Input()`
 - Check computed values are pure functions
 - Look for proper signal updates (`.set()` or `.update()`)
 
 ### Change Detection
-- Verify OnPush strategy is used
-- Check that signal-based inputs work with OnPush
-- Look for unnecessary change detection triggers
+- Verify `ChangeDetectionStrategy.OnPush` is set on every component
+- Verify no `ChangeDetectorRef` injection exists anywhere
+- Verify all state driving templates is in signals — that is the only trigger needed
 
 ### Templates
 - Verify native control flow (`@if`, `@for`, `@switch`)
