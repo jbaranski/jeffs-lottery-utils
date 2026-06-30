@@ -73,7 +73,8 @@ passes its tests, and dropping any update that breaks the build.
    - **Only consider PRs and issues authored by Dependabot.** Ignore any open
      PRs or issues created by other authors — they are out of scope for this skill.
    - **If zero open Dependabot PRs exist: stop here. Report the result and end the task.**
-2. Create a new feature branch off `main` (e.g. `chore/dependabot-batch-<date>`).
+2. Identify if an existing `chore/dependabot-batch-*` feature branch exists, and if so continue to modify that branch.
+   Otherwise create a new feature branch off `main` (e.g. `chore/dependabot-batch-<date>`).
    All consolidated changes go here — do not commit directly to `main`.
 3. Note that this repo may contain multiple independent sub-projects in
    different directories (e.g. an Angular frontend AND a Go/Python/etc. backend).
