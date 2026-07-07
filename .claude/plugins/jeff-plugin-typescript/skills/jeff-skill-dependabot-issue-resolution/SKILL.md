@@ -36,6 +36,15 @@ passes its tests, and dropping any update that breaks the build.
       another package at a different version)
 - [ ] Confirmed `ng build` and full test suite still pass after standalone updates
 
+## Tailwind CSS (if a sub-project depends on it)
+- [ ] Checked https://tailwindcss.com/docs for the current latest stable version
+- [ ] Confirmed the `tailwindcss` devDependency (and `@tailwindcss/postcss` /
+      `@tailwindcss/vite`, if present) is bumped to that latest stable version
+- [ ] If crossing a major version (e.g. v3 → v4): ran the official upgrade tool
+      (`npx @tailwindcss/upgrade`) and followed https://tailwindcss.com/docs/upgrade-guide
+      rather than hand-editing config
+- [ ] Ran the project's build and full test suite with the updated Tailwind version
+
 ## Other ecosystems (repeat block for each — Go, Python, etc.)
 - [ ] <ecosystem>: applied all Dependabot version bumps from the relevant PRs
 - [ ] <ecosystem>: full test suite passes
@@ -111,6 +120,25 @@ force the version.
    package — that is a compatibility conflict. Treat that bump as a failure and
    exclude it following the steps in "On failure or incompatibility" below. This
    is a mechanical, checkable rule, not a judgment call.
+
+## Within any Tailwind CSS sub-project (if one exists)
+
+Tailwind's own release notes at https://tailwindcss.com/docs are the source of
+truth for the current latest stable version — always confirm there rather than
+trusting a Dependabot PR's target version in isolation.
+
+1. Check https://tailwindcss.com/docs for the latest stable release and
+   confirm the Dependabot bump target matches it. If Dependabot is behind the
+   true latest, bump further to match the docs.
+2. If the update crosses a major version boundary (e.g. v3 → v4), do not
+   hand-edit `tailwind.config.*` or the CSS entrypoint. Run the official
+   upgrade tool (`npx @tailwindcss/upgrade`) and follow
+   https://tailwindcss.com/docs/upgrade-guide step by step — this handles the
+   `@tailwind` directive → `@import "tailwindcss"` conversion, config → `@theme`
+   migration, and renamed utilities.
+3. Run the project's build and full test suite with the update applied. Treat
+   any failure the same as other ecosystems: isolate, exclude, and comment
+   per "On failure or incompatibility" below.
 
 ## Within any other sub-project / ecosystem (Go, Python, etc.)
 
