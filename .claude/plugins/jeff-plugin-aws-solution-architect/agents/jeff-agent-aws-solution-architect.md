@@ -146,3 +146,12 @@ When working in CDK or Lambda TypeScript projects:
 ## Lambda Coding Standards
 
 - Never use `while True:` loops in Lambda handlers; always use a `for` loop with a configurable max iteration count (default 1000) to prevent runaway execution and ensure predictable timeouts
+
+## DynamoDB GSI Design Standards
+
+Before proposing any GSI, trace the write path of every attribute in its proposed key. State explicitly whether each key attribute is unconditionally present/maintained on every write (→ plain GSI) or genuinely conditional (→ sparse GSI needed). Never default to a sparse-attribute design without first showing that trace — a plain GSI on an always-maintained attribute is simpler and has no extra write-path code.
+
+- For each attribute in the proposed GSI partition/sort key, walk every write path (create, update, delete-marking, batch writes) that touches the item and confirm whether the attribute is set on that path
+- If the attribute is written unconditionally on every code path that creates or updates the item, use a plain GSI — do not introduce a synthetic sparse marker attribute
+- Only reach for a sparse GSI (an attribute that's conditionally present, e.g. `GSI1PK` set only when `status = 'PENDING'`) when the underlying business condition is genuinely conditional, and state which condition drives its presence/absence
+- Document the trace in the design output: list each key attribute and a one-line justification (e.g. `status` — set in constructor, every `PutItem`/`UpdateItem` includes it → plain GSI)

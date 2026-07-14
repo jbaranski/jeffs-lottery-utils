@@ -91,6 +91,13 @@ Every event source, queue, and async invocation must have an explicit, small ret
 - [ ] **Dead-letter queues exist** for every async path: DynamoDB stream `onFailure`, SQS `deadLetterQueue`, EventBridge `deadLetterQueue`
 - [ ] **CDK infra tests assert the retry limit** for every event source mapping (`MaximumRetryAttempts` in CloudFormation)
 
+### 12b. DynamoDB GSI Design
+
+- [ ] For every proposed/reviewed GSI, the write path of each key attribute has been traced (create, update, delete-marking, batch writes)
+- [ ] Attributes that are unconditionally present/maintained on every write use a plain GSI — no synthetic sparse marker attribute introduced without justification
+- [ ] Sparse GSIs (conditionally-present key attributes) are only used when the underlying business condition is genuinely conditional, with that condition stated explicitly
+- [ ] The design output documents the trace: each key attribute paired with a one-line justification for plain vs. sparse
+
 ### 6. Scalability
 
 - [ ] Architecture can scale horizontally
@@ -159,6 +166,7 @@ Every event source, queue, and async invocation must have an explicit, small ret
 - CloudWatch LogGroups without retention, or retention longer than 5 days
 - Resources missing `removalPolicy: RemovalPolicy.DESTROY`
 - `while True:` loops in Lambda handler code (use `for` loops with a configurable max, default 1000)
+- Proposing or accepting a sparse GSI without first tracing the write path of every key attribute — flag as: state whether each attribute is unconditionally maintained (→ plain GSI) or genuinely conditional (→ sparse GSI), a plain GSI on an always-maintained attribute is simpler and needs no extra write-path code
 
 ### Suggestions (Should Fix)
 
