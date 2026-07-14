@@ -173,3 +173,13 @@ coverage
 - Do not run `npx prettier --write .` from the monorepo root directly — always use `make prettier`
 
 If extra prettier configuration exists in `package.json` or any other non-standard location, remove it and consolidate everything into `.prettierrc.json` / `.prettierrc.yaml` and `.prettierignore`.
+
+## `<!-- prettier-ignore -->` Is a Last Resort
+
+Never add a `<!-- prettier-ignore -->` (or `// prettier-ignore` / `# prettier-ignore`) comment to silence a formatting failure. First try, in order:
+
+1. Reformat the offending block by hand so Prettier's own output is acceptable.
+2. Adjust the file's config (`.prettierrc.json` / `.prettierrc.yaml`) if the universal fingerprint genuinely doesn't fit the file type.
+3. Exclude the specific file or directory via `.prettierignore` if it shouldn't be formatted at all.
+
+Only reach for an inline `prettier-ignore` directive after all three of the above are exhausted and there is no other path forward — e.g. hand-aligned ASCII tables or output that must preserve exact whitespace for a downstream tool. Treat every use as exceptional: state in a PR description or nearby comment why none of the alternatives worked.
