@@ -207,7 +207,9 @@ def test_example_function_edge_case():
 
 ## GitHub Actions
 
-Create `.github/workflows/ci.yml` for continuous integration:
+Create `.github/workflows/ci.yml` for continuous integration.
+
+**Scope triggers to this project's directory.** If this project lives at the repo root, omit `paths:` entirely — every change in the repo is relevant. If it shares a monorepo with other stacks (e.g. this Python service next to a `web/` frontend or `infra/`), scope `paths:` to the project directory so an unrelated change (a README edit, another service's change) doesn't trigger this build. Always include the workflow file itself in `paths:` so edits to the CI config are still validated.
 
 ```yaml
 name: jeff-skill-python-project
@@ -215,8 +217,14 @@ name: jeff-skill-python-project
 on:
   push:
     branches: [main]
+    paths:
+      - '<project-dir>/**' # e.g. 'infra/**' — omit this whole `paths:` key if the project is at repo root
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [main]
+    paths:
+      - '<project-dir>/**'
+      - '.github/workflows/ci.yml'
 
 jobs:
   test:
