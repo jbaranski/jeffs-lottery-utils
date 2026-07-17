@@ -383,7 +383,9 @@ func TestDivide(t *testing.T) {
 
 ## GitHub Actions
 
-Create `.github/workflows/ci.yml` for continuous integration:
+Create `.github/workflows/ci.yml` for continuous integration.
+
+**Scope triggers to the Go module's directory.** If this module lives at the repo root, omit `paths:` entirely — every change in the repo is relevant. If it shares a monorepo with other stacks (e.g. a `web/` frontend next to a `golang/` service, or `infra/`), scope `paths:` to the module directory so an unrelated change (a README edit, a frontend-only change) doesn't trigger a Go build. Always include the workflow file itself in `paths:` so edits to the CI config are still validated.
 
 ```yaml
 name: jeff-skill-golang-project
@@ -391,8 +393,14 @@ name: jeff-skill-golang-project
 on:
   push:
     branches: [main]
+    paths:
+      - '<module-dir>/**' # e.g. 'golang/**' — omit this whole `paths:` key if the module is at repo root
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [main]
+    paths:
+      - '<module-dir>/**'
+      - '.github/workflows/ci.yml'
 
 jobs:
   test:

@@ -355,7 +355,9 @@ export function add(a: number, b: number): number {
 
 ## GitHub Actions
 
-Create `.github/workflows/ci.yml`:
+Create `.github/workflows/ci.yml`.
+
+**Scope triggers to this project's directory.** If this project lives at the repo root, omit `paths:` entirely — every change in the repo is relevant. If it shares a monorepo with other stacks (e.g. this TypeScript service next to a `golang/` backend or `infra/`), scope `paths:` to the project directory so an unrelated change (a README edit, another service's change) doesn't trigger this build. Always include the workflow file itself in `paths:` so edits to the CI config are still validated.
 
 ```yaml
 name: jeff-skill-typescript-project
@@ -363,8 +365,14 @@ name: jeff-skill-typescript-project
 on:
   push:
     branches: [main]
+    paths:
+      - '<project-dir>/**' # e.g. 'web/**' — omit this whole `paths:` key if the project is at repo root
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [main]
+    paths:
+      - '<project-dir>/**'
+      - '.github/workflows/ci.yml'
 
 jobs:
   test:
