@@ -59,8 +59,24 @@ description: Install and configure Dependabot for automated dependency updates i
 
 7. Explain to the user why you chose the specific `directory` path, `groups` breakdown, and `interval` for each entry in the dependabot.yml file, and give links to specific documentation if available to further help them understand it's truly correct.
 
+8. **Cap `open-pull-requests-limit`.** Set it explicitly on every entry (e.g. `open-pull-requests-limit: 5`) rather than leaving the default (5, but easy to accidentally raise). This bounds the worst case where many dependencies go stale at once and Dependabot would otherwise try to open a PR per update.
+
+9. **Check whether the repo's own CI workflows run on Dependabot PRs, and if so, skip them.** Dependabot itself runs on GitHub's own infrastructure for free (public and private repos alike), but every PR/push it opens re-triggers the repo's `pull_request`/`push` workflows, and those DO consume the repo's included Actions minutes (and can incur overage on private repos). Add an actor guard to the jobs in `.github/workflows/*.yml` that build/test/lint on PRs:
+
+   ```yaml
+   jobs:
+     build:
+       if: github.actor != 'dependabot[bot]'
+       # ...
+   ```
+
+   Only suggest this if the project actually wants to skip CI on dependency-bump PRs (e.g. it relies on merge protection / a separate required check instead). Do not apply it silently — explain the tradeoff (you lose the safety net of seeing test results on the PR itself) and let the user decide.
+
+10. **Confirm Dependabot is using GitHub-hosted standard runners, not custom/larger runners.** Standard runners are free for Dependabot's own update-check jobs; if `runs-on` for Dependabot's workflow (or any workflow triggered by its PRs) points at a larger or self-hosted runner, that compute is billed at the regular rate regardless of repo visibility. Flag this if you see it.
+
 ## Additional resources
 
 - For the complete YAML spec, refer https://docs.github.com/en/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file
 - For the official up to date list of supported languages and technologies, refer https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
 - For grouped updates, refer https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups
+- For GitHub Actions billing and included minutes, refer https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
