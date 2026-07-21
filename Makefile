@@ -4,7 +4,7 @@ sync-plugins:
 	@mkdir -p .claude/plugins
 	@TMPDIR=$$(mktemp -d) && \
 	  git clone --depth=1 https://github.com/jbaranski/jeff-claude.git $$TMPDIR && \
-	  for plugin in jeff-plugin-angular jeff-plugin-aws-solution-architect jeff-plugin-golang jeff-plugin-project jeff-plugin-python jeff-plugin-tailwind jeff-plugin-typescript; do \
+	  for plugin in jeff-plugin-angular jeff-plugin-project jeff-plugin-python jeff-plugin-tailwind jeff-plugin-typescript; do \
 	    rm -rf .claude/plugins/$$plugin; \
 	    cp -rL $$TMPDIR/plugins/$$plugin .claude/plugins/$$plugin 2>/dev/null || true; \
 	    for skill_dir in .claude/plugins/$$plugin/skills/*/; do \
