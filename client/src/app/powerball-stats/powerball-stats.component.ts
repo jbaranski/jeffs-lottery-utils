@@ -1,7 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Analysis, Statistic } from '../app.component';
 import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+
+const NO_STATS: Statistic[] = [];
 
 @Component({
   selector: 'app-powerball-stats',
@@ -11,36 +13,25 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './powerball-stats.component.css'
 })
 export class PowerballStatsComponent {
-  evenOdd: Statistic[] = [];
-  lowHigh: Statistic[] = [];
-  consecutives: Statistic[] = [];
-  evenOddlowHigh: Statistic[] = [];
-  evenOddConsecutive: Statistic[] = [];
-  lowHighConsecutive: Statistic[] = [];
-  evenOddLowHighConsecutive: Statistic[] = [];
-  sumDistribution: Statistic[] = [];
-  powerballHotness: Statistic[] = [];
-  updatedDate: string = '';
-  totalDraws: number = 0;
+  private readonly http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+  private readonly analysis = toSignal(
+    this.http.get<Analysis>(
+      'https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball-analysis.json'
+    )
+  );
 
-  async ngOnInit(): Promise<void> {
-    const powerballAnalysis: Analysis = (await firstValueFrom(
-      this.http.get(
-        'https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/powerball-analysis.json'
-      )
-    )) as Analysis;
-    this.evenOdd = powerballAnalysis.white_balls.even_odd;
-    this.lowHigh = powerballAnalysis.white_balls.low_high;
-    this.consecutives = powerballAnalysis.white_balls.consecutive;
-    this.sumDistribution = powerballAnalysis.white_balls.sum_distribution;
-    this.evenOddlowHigh = powerballAnalysis.white_balls.even_odd_lo_hi;
-    this.evenOddConsecutive = powerballAnalysis.white_balls.even_odd_consecutive;
-    this.lowHighConsecutive = powerballAnalysis.white_balls.lo_hi_consecutive;
-    this.evenOddLowHighConsecutive = powerballAnalysis.white_balls.even_odd_lo_hi_consecutive;
-    this.powerballHotness = powerballAnalysis.red_ball_hotness!;
-    this.updatedDate = powerballAnalysis.updated_date;
-    this.totalDraws = powerballAnalysis.total_draws;
-  }
+  readonly evenOdd = computed(() => this.analysis()?.white_balls.even_odd ?? NO_STATS);
+  readonly lowHigh = computed(() => this.analysis()?.white_balls.low_high ?? NO_STATS);
+  readonly consecutives = computed(() => this.analysis()?.white_balls.consecutive ?? NO_STATS);
+  readonly sumDistribution = computed(() => this.analysis()?.white_balls.sum_distribution ?? NO_STATS);
+  readonly evenOddlowHigh = computed(() => this.analysis()?.white_balls.even_odd_lo_hi ?? NO_STATS);
+  readonly evenOddConsecutive = computed(() => this.analysis()?.white_balls.even_odd_consecutive ?? NO_STATS);
+  readonly lowHighConsecutive = computed(() => this.analysis()?.white_balls.lo_hi_consecutive ?? NO_STATS);
+  readonly evenOddLowHighConsecutive = computed(
+    () => this.analysis()?.white_balls.even_odd_lo_hi_consecutive ?? NO_STATS
+  );
+  readonly powerballHotness = computed(() => this.analysis()?.red_ball_hotness ?? NO_STATS);
+  readonly updatedDate = computed(() => this.analysis()?.updated_date ?? '');
+  readonly totalDraws = computed(() => this.analysis()?.total_draws ?? 0);
 }
