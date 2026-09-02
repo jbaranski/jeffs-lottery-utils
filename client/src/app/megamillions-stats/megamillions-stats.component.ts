@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { Component, ChangeDetectionStrategy, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Analysis, Statistic } from '../app.component';
+import { HttpClient } from '@angular/common/http';
+
+const NO_STATS: Statistic[] = [];
 
 @Component({
   selector: 'app-megamillions-stats',
@@ -11,36 +13,25 @@ import { Analysis, Statistic } from '../app.component';
   styleUrl: './megamillions-stats.component.css'
 })
 export class MegamillionsStatsComponent {
-  evenOdd: Statistic[] = [];
-  lowHigh: Statistic[] = [];
-  consecutives: Statistic[] = [];
-  evenOddlowHigh: Statistic[] = [];
-  evenOddConsecutive: Statistic[] = [];
-  lowHighConsecutive: Statistic[] = [];
-  evenOddLowHighConsecutive: Statistic[] = [];
-  sumDistribution: Statistic[] = [];
-  megamillionsHotness: Statistic[] = [];
-  updatedDate: string = '';
-  totalDraws: number = 0;
+  private readonly http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+  private readonly analysis = toSignal(
+    this.http.get<Analysis>(
+      'https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions-analysis.json'
+    )
+  );
 
-  async ngOnInit(): Promise<void> {
-    const megamillionsAnalysis: Analysis = (await firstValueFrom(
-      this.http.get(
-        'https://raw.githubusercontent.com/jbaranski/jeffs-lottery-utils/refs/heads/main/numbers/megamillions-analysis.json'
-      )
-    )) as Analysis;
-    this.evenOdd = megamillionsAnalysis.white_balls.even_odd;
-    this.lowHigh = megamillionsAnalysis.white_balls.low_high;
-    this.consecutives = megamillionsAnalysis.white_balls.consecutive;
-    this.sumDistribution = megamillionsAnalysis.white_balls.sum_distribution;
-    this.evenOddlowHigh = megamillionsAnalysis.white_balls.even_odd_lo_hi;
-    this.evenOddConsecutive = megamillionsAnalysis.white_balls.even_odd_consecutive;
-    this.lowHighConsecutive = megamillionsAnalysis.white_balls.lo_hi_consecutive;
-    this.evenOddLowHighConsecutive = megamillionsAnalysis.white_balls.even_odd_lo_hi_consecutive;
-    this.megamillionsHotness = megamillionsAnalysis.yellow_ball_hotness!;
-    this.updatedDate = megamillionsAnalysis.updated_date;
-    this.totalDraws = megamillionsAnalysis.total_draws;
-  }
+  readonly evenOdd = computed(() => this.analysis()?.white_balls.even_odd ?? NO_STATS);
+  readonly lowHigh = computed(() => this.analysis()?.white_balls.low_high ?? NO_STATS);
+  readonly consecutives = computed(() => this.analysis()?.white_balls.consecutive ?? NO_STATS);
+  readonly sumDistribution = computed(() => this.analysis()?.white_balls.sum_distribution ?? NO_STATS);
+  readonly evenOddlowHigh = computed(() => this.analysis()?.white_balls.even_odd_lo_hi ?? NO_STATS);
+  readonly evenOddConsecutive = computed(() => this.analysis()?.white_balls.even_odd_consecutive ?? NO_STATS);
+  readonly lowHighConsecutive = computed(() => this.analysis()?.white_balls.lo_hi_consecutive ?? NO_STATS);
+  readonly evenOddLowHighConsecutive = computed(
+    () => this.analysis()?.white_balls.even_odd_lo_hi_consecutive ?? NO_STATS
+  );
+  readonly megamillionsHotness = computed(() => this.analysis()?.yellow_ball_hotness ?? NO_STATS);
+  readonly updatedDate = computed(() => this.analysis()?.updated_date ?? '');
+  readonly totalDraws = computed(() => this.analysis()?.total_draws ?? 0);
 }

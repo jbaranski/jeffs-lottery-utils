@@ -21,7 +21,7 @@
     >
   </p>
   <p class="text-center mb-4 text-gray-500">
-    Last updated: <span class="italic">{{ updatedDate }}</span>
+    Last updated: <span class="italic">{{ updatedDate() }}</span>
   </p>
   <hr />
   <h4 class="mt-4 text-xl text-center">White ball even,odd frequency</h4>
@@ -33,7 +33,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (eo of evenOdd; track eo) {
+      @for (eo of evenOdd(); track eo) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ eo['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ eo['pct'] }}</td>
@@ -52,7 +52,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (lh of lowHigh; track lh) {
+      @for (lh of lowHigh(); track lh) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ lh['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ lh['pct'] }}</td>
@@ -71,7 +71,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (c of consecutives; track c) {
+      @for (c of consecutives(); track c) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ c['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ c['pct'] }}</td>
@@ -90,7 +90,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (s of sumDistribution; track s) {
+      @for (s of sumDistribution(); track s) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ s['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ s['pct'] }}</td>
@@ -109,7 +109,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (p of powerballHotness; track p) {
+      @for (p of powerballHotness(); track p) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ p['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ p['pct'] }}</td>
@@ -128,7 +128,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (x of evenOddlowHigh; track x) {
+      @for (x of evenOddlowHigh(); track x) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ x['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ x['pct'] }}</td>
@@ -147,7 +147,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (x of evenOddConsecutive; track x) {
+      @for (x of evenOddConsecutive(); track x) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ x['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ x['pct'] }}</td>
@@ -166,7 +166,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (x of lowHighConsecutive; track x) {
+      @for (x of lowHighConsecutive(); track x) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ x['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ x['pct'] }}</td>
@@ -185,7 +185,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (x of evenOddLowHighConsecutive; track x) {
+      @for (x of evenOddLowHighConsecutive(); track x) {
         <tr class="border-double border-4 text-center">
           <td class="px-0 py-0 border-double border-4">{{ x['type'] }}</td>
           <td class="px-0 py-0 border-double border-4">{{ x['pct'] }}</td>
