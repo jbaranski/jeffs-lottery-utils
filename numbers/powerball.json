@@ -16870,5 +16870,17 @@
     ],
     "red_ball": 3,
     "power_play": "2X"
+  },
+  {
+    "date": "09/14/2026",
+    "white_balls": [
+      19,
+      20,
+      57,
+      61,
+      67
+    ],
+    "red_ball": 22,
+    "power_play": "2X"
   }
 ]
