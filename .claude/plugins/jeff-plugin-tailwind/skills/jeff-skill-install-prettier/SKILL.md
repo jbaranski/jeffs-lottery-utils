@@ -7,7 +7,7 @@ Before proceeding, ensure nvm (Node Version Manager) and Node.js are installed u
 
 ## Universal Config Rules
 
-These six formatting options are a fixed fingerprint — apply them exactly in every project and sub-package. Never change, omit, or add to them without explicit instruction:
+These six formatting options are a fixed fingerprint — apply them exactly in every project and sub-package. Never change, omit, or add to these six options without explicit instruction. The only other config permitted is the required Angular template override (see [Angular Template Override](#angular-template-override-required)), which applies to Angular client sub-packages only and sits alongside the six options without altering them:
 
 ```json
 {
@@ -25,7 +25,7 @@ These six formatting options are a fixed fingerprint — apply them exactly in e
 - **Root-level, CDK/infra packages, backend packages**: use `.prettierrc.json`
 - **Angular client sub-packages** (inside a monorepo `client/` or `apps/web/` directory): use `.prettierrc.yaml`
 
-`.prettierrc.yaml` format:
+The six universal options in `.prettierrc.yaml` form (Angular client sub-packages must also add the override below — this block alone is incomplete for them):
 
 ```yaml
 printWidth: 120
@@ -35,6 +35,25 @@ tabWidth: 2
 trailingComma: 'none'
 endOfLine: 'lf'
 ```
+
+### Angular Template Override (Required)
+
+Angular 17+ generates component templates named `*.html` (not `*.component.html`), so Prettier does not infer the `angular` parser for them and formats them as plain HTML — which mangles `@if` / `@for` / `@switch` control-flow blocks. Every Angular client sub-package `.prettierrc.yaml` must therefore be the six universal options plus this override:
+
+```yaml
+printWidth: 120
+singleQuote: true
+semi: true
+tabWidth: 2
+trailingComma: 'none'
+endOfLine: 'lf'
+overrides:
+  - files: '*.html'
+    options:
+      parser: angular
+```
+
+This override is part of the Angular config, not an exception to the "never add to the six options" rule: the six options stay exactly as specified, and the override only selects the parser for Angular templates. Non-Angular configs (root, CDK/infra, backend) stay exactly the six options with no `overrides` key.
 
 **Sub-packages never extend or reference a parent config.** Each package that has its own config duplicates the full rule set verbatim.
 

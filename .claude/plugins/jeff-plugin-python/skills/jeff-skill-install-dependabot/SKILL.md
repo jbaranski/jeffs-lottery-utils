@@ -61,16 +61,26 @@ description: Install and configure Dependabot for automated dependency updates i
 
 8. **Cap `open-pull-requests-limit`.** Set it explicitly on every entry (e.g. `open-pull-requests-limit: 5`) rather than leaving the default (5, but easy to accidentally raise). This bounds the worst case where many dependencies go stale at once and Dependabot would otherwise try to open a PR per update.
 
-9. **Check whether the repo's own CI workflows run on Dependabot PRs, and if so, skip them.** Dependabot itself runs on GitHub's own infrastructure for free (public and private repos alike), but every PR/push it opens re-triggers the repo's `pull_request`/`push` workflows, and those DO consume the repo's included Actions minutes (and can incur overage on private repos). Add an actor guard to the jobs in `.github/workflows/*.yml` that build/test/lint on PRs:
+9. **Skip every CI job that a Dependabot PR or push can trigger — this is mandatory.** Dependabot itself runs on GitHub's own infrastructure for free (public and private repos alike), but every PR/push it opens re-triggers the repo's `pull_request`/`push` workflows, and those DO consume the repo's included Actions minutes (and can incur overage on private repos). Go through every workflow in `.github/workflows/*.yml` and add a Dependabot guard to **every job** in any workflow a Dependabot PR or push can trigger:
+   - **Workflows triggered by `pull_request` (alone or together with `push` or other events)** — use the full guard, which covers both the actor and the PR author:
 
-   ```yaml
-   jobs:
-     build:
-       if: github.actor != 'dependabot[bot]'
-       # ...
-   ```
+     ```yaml
+     jobs:
+       build:
+         if: github.actor != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot[bot]'
+         # ...
+     ```
 
-   Only suggest this if the project actually wants to skip CI on dependency-bump PRs (e.g. it relies on merge protection / a separate required check instead). Do not apply it silently — explain the tradeoff (you lose the safety net of seeing test results on the PR itself) and let the user decide.
+   - **Push-only workflows** (`on: push` with no `pull_request` trigger) — the actor check alone is enough:
+
+     ```yaml
+     jobs:
+       build:
+         if: github.actor != 'dependabot[bot]'
+         # ...
+     ```
+
+   If a job already has an `if:` condition, combine it with the guard using `&&` rather than replacing it, wrapping the existing condition in parentheses (e.g. `if: (existing-condition) && github.actor != 'dependabot[bot]' && ...`). Apply the guard to every job in the workflow, not just build/test/lint jobs — a single unguarded job still spins up a runner.
 
 10. **Confirm Dependabot is using GitHub-hosted standard runners, not custom/larger runners.** Standard runners are free for Dependabot's own update-check jobs; if `runs-on` for Dependabot's workflow (or any workflow triggered by its PRs) points at a larger or self-hosted runner, that compute is billed at the regular rate regardless of repo visibility. Flag this if you see it.
 
