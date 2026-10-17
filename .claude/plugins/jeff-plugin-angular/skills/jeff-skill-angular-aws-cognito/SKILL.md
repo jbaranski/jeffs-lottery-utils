@@ -1,440 +1,247 @@
 ---
 name: jeff-skill-angular-aws-cognito
-description: Integrate AWS Cognito authentication into an Angular app using AWS Amplify v6. Implement an auth guard, auth service, and use the Cognito hosted UI for login. Use when setting up authentication for an Angular project with AWS Cognito, or when asked to "add login" or "integrate AWS Cognito" in an Angular app.
+description: Integrate AWS Cognito authentication into a zoneless, signal-based Angular app using AWS Amplify v6 and the Cognito hosted UI — Amplify setup, auth service, functional guard, OAuth callback, and an interceptor that attaches the ID token to API calls. Use when adding login, sign-out, or route protection to an Angular app with AWS Cognito.
 ---
 
-# Auth Guard, Auth Service & AWS Cognito Integration
+# Angular + AWS Cognito (Amplify v6, hosted UI)
 
-## Overview
+Authentication uses Cognito User Pools through the **hosted UI** with the OAuth 2.0 authorization code flow (Amplify adds PKCE automatically). There is no embedded login form and no `@aws-amplify/ui-angular`.
 
-**AWS Amplify v6** with **Cognito User Pools** for authentication via **OAuth 2.0 authorization code flow**. There is no embedded login
-form — all authentication goes through the Cognito hosted UI.
+The code below follows the Angular conventions in `jeff-skill-angular-project` and the Angular agents: standalone, zoneless, `inject()`, signals, lazy-loaded routes, Angular v20+ file naming (`sign-in.ts`, class `SignIn`).
 
----
+## Contract with the backend
 
-## Dependencies
+- API calls send the Cognito **ID token** (not the access token) in the `Authorization` header as the raw token string — **no `Bearer` prefix**. The API Gateway Cognito authorizer must be configured for ID tokens.
+- The token is attached only to requests for `environment.api`, never to third-party URLs.
 
-**`package.json`**
+If the backend expects something else, change the interceptor, not every call site.
 
-```json
-{
-  "dependencies": {
-    "aws-amplify": "^6.8.0"
-  }
-}
+## Install
+
+```bash
+npm install aws-amplify
 ```
 
-No `@aws-amplify/ui-angular`. The Cognito hosted UI is used exclusively.
+Use the latest v6 release.
 
----
+## Configuration values
 
-## AWS Cognito Configuration Values
+| Key                 | Value                                                                       |
+| ------------------- | --------------------------------------------------------------------------- |
+| User Pool ID        | `<USER_POOL_ID>`                                                            |
+| User Pool Client ID | `<USER_POOL_CLIENT_ID>` (no secret)                                         |
+| OAuth domain        | `<COGNITO_DOMAIN>` (e.g. `auth.example.com`)                                |
+| Scopes              | `email`, `openid`                                                           |
+| Redirect sign-in    | dev `http://localhost:4200/callback`, prod `https://<PROD_DOMAIN>/callback` |
+| Redirect sign-out   | dev `http://localhost:4200`, prod `https://<PROD_DOMAIN>`                   |
 
-| Key                    | Value                                             |
-| ---------------------- | ------------------------------------------------- |
-| Region                 | `<YOUR_AWS_REGION>` (e.g. `us-east-1`)            |
-| User Pool ID           | `<YOUR_USER_POOL_ID>`                             |
-| User Pool Client ID    | `<YOUR_USER_POOL_CLIENT_ID>`                      |
-| OAuth Domain           | `<YOUR_COGNITO_DOMAIN>` (e.g. `auth.example.com`) |
-| OAuth Scopes           | `email`, `openid`                                 |
-| Response Type          | `code` (authorization code flow)                  |
-| Sign-up Verification   | Code-based                                        |
-| Required User Attr     | Email                                             |
-| Dev Redirect Sign-In   | `http://localhost:4200/callback`                  |
-| Dev Redirect Sign-Out  | `http://localhost:4200`                           |
-| Prod Redirect Sign-In  | `https://<YOUR_PROD_DOMAIN>/callback`             |
-| Prod Redirect Sign-Out | `https://<YOUR_PROD_DOMAIN>`                      |
+Both redirect URLs for each environment must also be registered on the Cognito app client.
 
----
-
-## Environment Files
-
-**`src/environments/environment.ts`** (development)
+**`src/environments/environment.ts`** (and `environment.prod.ts` with the production URLs):
 
 ```typescript
 export const environment = {
-  api: 'https://<YOUR_API_GATEWAY_ID>.execute-api.<REGION>.amazonaws.com/<STAGE>',
-  userPoolId: '<YOUR_USER_POOL_ID>',
-  userPoolClientId: '<YOUR_USER_POOL_CLIENT_ID>',
-  oauthDomain: '<YOUR_COGNITO_DOMAIN>',
+  api: 'https://<API_ID>.execute-api.<REGION>.amazonaws.com/<STAGE>',
+  userPoolId: '<USER_POOL_ID>',
+  userPoolClientId: '<USER_POOL_CLIENT_ID>',
+  oauthDomain: '<COGNITO_DOMAIN>',
   oauthRedirectSignIn: 'http://localhost:4200/callback',
   oauthRedirectSignOut: 'http://localhost:4200'
 };
 ```
 
-**`src/environments/environment.prod.ts`** (production)
+These values are public client configuration, not secrets.
 
-```typescript
-export const environment = {
-  api: 'https://<YOUR_API_GATEWAY_ID>.execute-api.<REGION>.amazonaws.com/<STAGE>',
-  userPoolId: '<YOUR_USER_POOL_ID>',
-  userPoolClientId: '<YOUR_USER_POOL_CLIENT_ID>',
-  oauthDomain: '<YOUR_COGNITO_DOMAIN>',
-  oauthRedirectSignIn: 'https://<YOUR_PROD_DOMAIN>/callback',
-  oauthRedirectSignOut: 'https://<YOUR_PROD_DOMAIN>'
-};
-```
-
----
-
-## Amplify Initialization
-
-Amplify is configured once in `AppComponent.ngOnInit()` — **not** in `main.ts` or `app.config.ts`.
-
-**`src/app/app.component.ts`**
-
-```typescript
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { Amplify } from 'aws-amplify';
-import { environment } from '../environments/environment';
-import { NgxSpinnerModule } from 'ngx-spinner';
-
-@Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, NgxSpinnerModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
-})
-export class AppComponent {
-  ngOnInit(): void {
-    Amplify.configure({
-      Auth: {
-        Cognito: {
-          userPoolId: environment.userPoolId,
-          userPoolClientId: environment.userPoolClientId,
-          signUpVerificationMethod: 'code',
-          userAttributes: {
-            email: { required: true }
-          },
-          loginWith: {
-            oauth: {
-              domain: environment.oauthDomain,
-              scopes: ['email', 'openid'],
-              redirectSignIn: [environment.oauthRedirectSignIn],
-              redirectSignOut: [environment.oauthRedirectSignOut],
-              responseType: 'code'
-            }
-          }
-        }
-      }
-    });
-  }
-}
-```
-
----
-
-## Auth Service
-
-**`src/app/auth.service.ts`**
-
-```typescript
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { fetchAuthSession, signInWithRedirect } from 'aws-amplify/auth';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthService {
-  constructor(private router: Router) {}
-
-  async isAuthenticated(): Promise<boolean> {
-    const session = await fetchAuthSession();
-    return session?.tokens !== undefined;
-  }
-
-  async redirectLogin(): Promise<void> {
-    await signInWithRedirect();
-  }
-
-  async redirectHomeOrLogin(): Promise<void> {
-    if (await this.isAuthenticated()) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.redirectLogin();
-    }
-  }
-}
-```
-
-- `isAuthenticated()` — calls `fetchAuthSession()` and checks for presence of `tokens`
-- `redirectLogin()` — calls `signInWithRedirect()` which redirects to the Cognito hosted UI
-- `redirectHomeOrLogin()` — used by both `SignInComponent` and `AuthCallbackComponent` to route the user after auth state is determined
-
----
-
-## Auth Guard
-
-**`src/app/auth.guard.ts`**
-
-```typescript
-import { inject } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot } from '@angular/router';
-import { AuthService } from './auth.service';
-
-export const authGuard: CanActivateFn = async (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-  const authService = inject(AuthService);
-
-  if (!(await authService.isAuthenticated())) {
-    authService.redirectLogin();
-    return false;
-  }
-
-  return true;
-};
-```
-
-- Functional guard (`CanActivateFn`), not a class-based guard
-- Uses `inject()` for DI (Angular 14+ pattern)
-- Applied to all protected routes (e.g. `/dashboard`, `/feature`)
-
----
-
-## Sign-In Component
-
-**`src/app/sign-in/sign-in.component.ts`**
-
-```typescript
-import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
-
-@Component({
-  selector: 'app-sign-in',
-  imports: [],
-  templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.css'
-})
-export class SignInComponent {
-  constructor(private authService: AuthService) {}
-
-  async ngOnInit(): Promise<void> {
-    await this.authService.redirectHomeOrLogin();
-  }
-}
-```
-
-- No UI — immediately redirects on `ngOnInit`
-- If already authenticated, goes to `/dashboard`; otherwise triggers Cognito OAuth redirect
-
----
-
-## Auth Callback Component
-
-**`src/app/auth-callback/auth-callback.component.ts`**
-
-```typescript
-import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
-
-@Component({
-  selector: 'app-auth-callback',
-  imports: [],
-  templateUrl: './auth-callback.component.html',
-  styleUrl: './auth-callback.component.css'
-})
-export class AuthCallbackComponent {
-  constructor(private authService: AuthService) {}
-
-  async ngOnInit(): Promise<void> {
-    await this.authService.redirectHomeOrLogin();
-  }
-}
-```
-
-- Handles the `/callback` route — the OAuth return URL from Cognito
-- Amplify automatically exchanges the `?code=...` query param for tokens before component logic runs
-- Calls `redirectHomeOrLogin()` to route the user to `/dashboard`
-
----
-
-## Routing
-
-**`src/app/app.routes.ts`**
-
-```typescript
-import { Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FeatureOneComponent } from './feature-one/feature-one.component';
-import { StaticPageComponent } from './static-page/static-page.component';
-import { authGuard } from './auth.guard';
-
-export const routes: Routes = [
-  { path: '', component: LandingPageComponent },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'callback', component: AuthCallbackComponent },
-  { path: 'static-page', component: StaticPageComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
-  { path: 'feature', component: FeatureOneComponent, canActivate: [authGuard] },
-  { path: '**', redirectTo: '/', pathMatch: 'full' }
-];
-```
-
-| Route          | Protected       | Purpose                                   |
-| -------------- | --------------- | ----------------------------------------- |
-| `/`            | No              | Landing page                              |
-| `/sign-in`     | No              | Triggers OAuth redirect                   |
-| `/callback`    | No              | OAuth return URL (Cognito redirects here) |
-| `/static-page` | No              | Example unprotected static page           |
-| `/dashboard`   | Yes (authGuard) | Post-login home / main feature            |
-| `/feature`     | Yes (authGuard) | Any additional protected route            |
-
-Add `canActivate: [authGuard]` to every protected route. Unprotected routes require no guard.
-
----
-
-## Application Config
-
-**`src/app/app.config.ts`**
-
-```typescript
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { provideAnimations } from '@angular/platform-browser/animations';
-
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-    provideHttpClient(withInterceptors([])),
-    provideAnimations()
-  ]
-};
-```
-
-- Standalone application config (no NgModule)
-- No auth-specific HTTP interceptor — token attachment is done manually per-request
-
----
-
-## Token Usage in API Calls
-
-There is **no auth HTTP interceptor**. Every component that calls the API manually
-fetches the session and attaches the Cognito **ID token** as an `Authorization` header.
-
-```typescript
-import { fetchAuthSession } from 'aws-amplify/auth';
-import { environment } from '../../environments/environment';
-
-// Inside any async method that calls the API:
-const session = await fetchAuthSession();
-this.http.get(`${environment.api}/some-endpoint`, {
-  headers: {
-    Authorization: session.tokens?.idToken?.toString() || ''
-  }
-}).subscribe({ ... });
-```
-
-- Token type: **ID token** (not access token)
-- Header name: `Authorization`
-- No `Bearer ` prefix — raw token string
-- Fallback: empty string `''` if token is undefined
-- All HTTP verbs (GET, POST, PUT, DELETE) follow this same pattern
-
----
-
-## HTTP Interceptor (spinner only — not auth-related)
-
-If the project includes a loading spinner, a functional interceptor handles show/hide around HTTP requests. This is **not** related to auth.
-
-**`src/app/spinner.interceptor.ts`**
-
-```typescript
-import { HttpErrorResponse, HttpEventType, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
-import { inject } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { catchError, tap, throwError } from 'rxjs';
-
-export const spinnerInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
-  const spinner = inject(NgxSpinnerService);
-  spinner.show();
-  return next(req).pipe(
-    tap((event) => {
-      if (event.type === HttpEventType.Response) {
-        spinner.hide();
-      }
-    }),
-    catchError((error: HttpErrorResponse) => {
-      spinner.hide();
-      return throwError(() => error);
-    })
-  );
-};
-```
-
-- Functional interceptor (`HttpInterceptorFn`)
-- Handles loading spinner only — does **not** attach auth tokens
-
----
-
-## Bootstrap
+## Configure Amplify before bootstrap
 
 **`src/main.ts`**
 
 ```typescript
 import { bootstrapApplication } from '@angular/platform-browser';
+import { Amplify } from 'aws-amplify';
+import 'aws-amplify/auth/enable-oauth-listener'; // completes the code exchange when Cognito redirects back
+import { App } from './app/app';
 import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { environment } from './environments/environment';
 
-bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
+Amplify.configure({
+  Auth: {
+    Cognito: {
+      userPoolId: environment.userPoolId,
+      userPoolClientId: environment.userPoolClientId,
+      signUpVerificationMethod: 'code',
+      userAttributes: { email: { required: true } },
+      loginWith: {
+        oauth: {
+          domain: environment.oauthDomain,
+          scopes: ['email', 'openid'],
+          redirectSignIn: [environment.oauthRedirectSignIn],
+          redirectSignOut: [environment.oauthRedirectSignOut],
+          responseType: 'code'
+        }
+      }
+    }
+  }
+});
+
+bootstrapApplication(App, appConfig).catch((err) => console.error(err));
 ```
 
-`Amplify.configure()` runs inside `AppComponent.ngOnInit()` — after bootstrap, not before.
+## Auth service
 
----
+**`src/app/auth/auth.service.ts`**
 
-## End-to-End Authentication Flow
+```typescript
+import { Injectable, signal } from '@angular/core';
+import { fetchAuthSession, signInWithRedirect, signOut } from 'aws-amplify/auth';
 
-```
-1. User visits /sign-in
-   └── SignInComponent.ngOnInit()
-       └── authService.redirectHomeOrLogin()
-           ├── isAuthenticated() → false
-           └── signInWithRedirect()
-               └── browser redirects to Cognito hosted UI:
-                   https://<YOUR_COGNITO_DOMAIN>/login
-                   ?client_id=<YOUR_USER_POOL_CLIENT_ID>
-                   &redirect_uri=<REDIRECT_SIGN_IN_URL>
-                   &response_type=code
-                   &scope=email+openid
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  readonly authenticated = signal(false);
 
-2. User authenticates on Cognito hosted UI
+  async isAuthenticated(): Promise<boolean> {
+    const { tokens } = await fetchAuthSession();
+    this.authenticated.set(tokens !== undefined);
+    return this.authenticated();
+  }
 
-3. Cognito redirects to /callback?code=AUTH_CODE
-   └── Amplify SDK automatically exchanges the code for tokens
-   └── AuthCallbackComponent.ngOnInit()
-       └── authService.redirectHomeOrLogin()
-           ├── isAuthenticated() → true (tokens now in Amplify session)
-           └── router.navigate(['/dashboard'])
+  async idToken(): Promise<string | undefined> {
+    const { tokens } = await fetchAuthSession(); // refreshes expired tokens automatically
+    return tokens?.idToken?.toString();
+  }
 
-4. User navigates to a protected route (e.g. /dashboard, /feature)
-   └── authGuard runs (NOTE: has bug — missing await, always passes)
-       └── returns true
+  signIn(): Promise<void> {
+    return signInWithRedirect();
+  }
 
-5. Any authenticated API call
-   └── fetchAuthSession() → session.tokens.idToken
-   └── HTTP request with header: Authorization: <raw idToken string>
+  async signOut(): Promise<void> {
+    await signOut(); // redirects through the hosted UI to redirectSignOut
+    this.authenticated.set(false);
+  }
+}
 ```
 
----
+## Guard
 
-## Notable Implementation Details
+**`src/app/auth/auth.guard.ts`**
 
-1. **No logout** — `signOut()` is not implemented; add it to `AuthService` if required
-2. **No token refresh logic** — Amplify handles refresh automatically inside `fetchAuthSession()`
-3. **Auth guard bug** — `authGuard` calls `authService.isAuthenticated()` without `await`; the guard always returns `true` regardless of auth state
-4. **Amplify configured in component** — `Amplify.configure()` is in `AppComponent.ngOnInit()` rather than in `main.ts` before bootstrap; this works but is atypical
-5. **ID token, not access token** — API calls use `idToken`; the backend (API Gateway) must be configured to validate Cognito ID tokens
-6. **No PKCE config** — Amplify v6 handles PKCE automatically for `responseType: 'code'`
-7. **No `Bearer` prefix** — the `Authorization` header is the raw token string, not `Bearer <token>`; the backend must match this expectation
+```typescript
+import { inject } from '@angular/core';
+import { CanActivateFn } from '@angular/router';
+import { AuthService } from './auth.service';
 
-## Integration with Other Skills
+export const authGuard: CanActivateFn = async () => {
+  const auth = inject(AuthService);
+  if (await auth.isAuthenticated()) {
+    return true;
+  }
+  await auth.signIn();
+  return false;
+};
+```
 
-- **jeff-skill-angular-project**: Angular test creation and standards reference
+## OAuth callback
+
+Cognito redirects to `/callback?code=...`. Wait for Amplify's `signInWithRedirect` Hub event rather than assuming the exchange has already finished.
+
+**`src/app/auth/callback.ts`**
+
+```typescript
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
+import { Hub } from 'aws-amplify/utils';
+
+@Component({
+  selector: 'app-callback',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    @if (error()) {
+      <p>Sign-in failed. <a href="/">Return home</a></p>
+    } @else {
+      <p>Signing you in…</p>
+    }
+  `
+})
+export class Callback {
+  readonly error = signal(false);
+
+  constructor() {
+    const router = inject(Router);
+    const stop = Hub.listen('auth', ({ payload }) => {
+      if (payload.event === 'signInWithRedirect') {
+        void router.navigateByUrl('/dashboard');
+      } else if (payload.event === 'signInWithRedirect_failure') {
+        this.error.set(true);
+      }
+    });
+    inject(DestroyRef).onDestroy(stop);
+  }
+}
+```
+
+A `/sign-in` route needs no component: protect a route with `authGuard` and link to it, or call `AuthService.signIn()` from a button.
+
+## Routes
+
+**`src/app/app.routes.ts`** — protected features are lazy-loaded; nothing from them is imported here.
+
+```typescript
+import { Routes } from '@angular/router';
+import { authGuard } from './auth/auth.guard';
+
+export const routes: Routes = [
+  { path: '', loadComponent: () => import('./landing/landing').then((m) => m.Landing) },
+  { path: 'callback', loadComponent: () => import('./auth/callback').then((m) => m.Callback) },
+  {
+    path: 'dashboard',
+    canActivate: [authGuard],
+    loadComponent: () => import('./dashboard/dashboard').then((m) => m.Dashboard)
+  },
+  { path: '**', redirectTo: '' }
+];
+```
+
+Add `canActivate: [authGuard]` to every protected route.
+
+## Attach the token to API calls
+
+**`src/app/auth/auth.interceptor.ts`**
+
+```typescript
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { from, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
+
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  if (!req.url.startsWith(environment.api)) {
+    return next(req);
+  }
+  const auth = inject(AuthService);
+  return from(auth.idToken()).pipe(
+    switchMap((token) => next(token ? req.clone({ setHeaders: { Authorization: token } }) : req))
+  );
+};
+```
+
+**`src/app/app.config.ts`**
+
+```typescript
+import { ApplicationConfig } from '@angular/core';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { authInterceptor } from './auth/auth.interceptor';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes), provideHttpClient(withInterceptors([authInterceptor]))]
+};
+```
+
+Components then call the API through services that use `HttpClient` and expose results as signals (`toSignal()` at the boundary) — no per-call token handling.
+
+## Testing
+
+- Mock `aws-amplify/auth` (`fetchAuthSession`, `signInWithRedirect`, `signOut`) with `vi.mock`; never hit Cognito from unit tests.
+- Cover: guard allows with tokens and redirects without; interceptor adds the header only for `environment.api`; callback navigates on `signInWithRedirect` and shows the error state on failure.

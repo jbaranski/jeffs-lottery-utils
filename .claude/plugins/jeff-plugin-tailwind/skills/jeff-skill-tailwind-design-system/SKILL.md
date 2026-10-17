@@ -1,22 +1,11 @@
 ---
 name: jeff-skill-tailwind-design-system
-description: Build scalable design systems with Tailwind CSS v4, design tokens, component libraries, and responsive patterns. Use when creating component libraries, implementing design systems, or standardizing UI patterns.
+description: Build scalable design systems with Tailwind CSS v4 — CSS-first @theme configuration, OKLCH semantic design tokens, class-based dark mode, animation tokens, and component variant structure. Use when creating component libraries, implementing design systems, theming, migrating from Tailwind v3, or standardizing UI patterns.
 ---
 
 # Tailwind Design System (v4)
 
-Build production-ready design systems with Tailwind CSS v4, including CSS-first configuration, design tokens, component variants, and responsive patterns.
-
-> **Note**: This skill targets Tailwind CSS v4 (2024+). For v3 projects, refer to the [upgrade guide](https://tailwindcss.com/docs/upgrade-guide).
-
-## When to Use This Skill
-
-- Creating a component library with Tailwind v4
-- Implementing design tokens and theming with CSS-first configuration
-- Building responsive components
-- Standardizing UI patterns across a codebase
-- Migrating from Tailwind v3 to v4
-- Setting up dark mode with native CSS features
+CSS-first Tailwind v4: tokens live in CSS, components use semantic utilities, and there is no `tailwind.config.*`. To move a v3 project, run `npx @tailwindcss/upgrade` and follow the [upgrade guide](https://tailwindcss.com/docs/upgrade-guide).
 
 ## Key v4 Changes
 
@@ -174,11 +163,19 @@ Example:
     oklch(45% 0.2 260) → --color-primary → bg-primary
 ```
 
+Components use semantic utilities (`bg-primary`, `text-muted-foreground`, `border-border`), never palette values (`bg-blue-500`) or arbitrary values (`bg-[#3b82f6]`). Add a new token to `@theme` instead.
+
 ### 2. Component Architecture
 
 ```
 Base styles → Variants → Sizes → States → Overrides
 ```
+
+Variants and sizes are maps from a prop value to a class string; states use Tailwind variants (`hover:`, `focus-visible:`, `disabled:`, `aria-*:`, `data-*:`), not extra CSS.
+
+### 3. No custom CSS
+
+Everything is utilities. If a pattern repeats across components and can't be a component, define it once with `@utility` in the theme CSS rather than writing ad-hoc classes.
 
 ## Integration with Other Skills
 

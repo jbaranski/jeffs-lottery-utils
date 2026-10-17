@@ -3,14 +3,23 @@ name: jeff-skill-install-nodejs
 description: Install the latest LTS (Long Term Support) version of Node.js using nvm (Node Version Manager). Use when setting up a dev environment, fixing Node.js version issues, or asked to "install node", "update node", or "set up nvm".
 ---
 
-1. Check if `nvm` is already installed by running `nvm --version`.
-   - If not installed, install it using the host's package manager (Homebrew for macOS, apt for Ubuntu, etc...).
-   - After installing, ensure `nvm` is loaded in the current shell (restart the shell if not detected after install).
-2. Check the latest LTS version available:
-   - Run `nvm version-remote --lts` and note the version.
-3. Check the currently active Node.js version:
-   - Run `nvm current`.
-4. If the versions do not match:
-   - Run `nvm install --lts` to install.
-   - Run `nvm alias default lts/*` to set it as the default for new shells.
-   - Run `node --version` to verify it matches the LTS version from step 2.
+`nvm` is a shell function, not a binary, so non-interactive shells (including Claude Code's Bash tool) must load it first. Prefix every `nvm` command in this skill with:
+
+```bash
+export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh"
+```
+
+1. Run `nvm --version`. If nvm is missing, install it with the official script, using the latest release tag from https://github.com/nvm-sh/nvm/releases:
+
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/<latest-tag>/install.sh | bash
+   ```
+
+   Don't install nvm through Homebrew or apt; nvm doesn't support those installs.
+
+2. Compare `nvm version-remote --lts` with `nvm current`.
+3. If they differ:
+   - `nvm install --lts`
+   - `nvm alias default 'lts/*'` so new shells use it
+   - Confirm `node --version` matches the LTS version from step 2.
+4. If the repo has an `.nvmrc`, run `nvm use` in the repo and make sure `.nvmrc` holds the current LTS major.

@@ -1,92 +1,74 @@
 ---
 name: jeff-skill-install-dependabot
-description: Install and configure Dependabot for automated dependency updates in the project. Use when setting up a new dev environment, repository, adding dependency management, or asked to "install dependabot" or "set up automated updates".
+description: Install and configure Dependabot for automated dependency updates in the project, with grouped PRs, capped intervals, and CI guards so Dependabot doesn't burn Actions minutes. Use when setting up a new repository, adding dependency management, or asked to "install dependabot" or "set up automated updates".
 ---
 
-1. Check if `.github/dependabot.yml` already exists in the project.
-2. If `.github/dependabot.yml` does not already exist, create it.
-   - For your reference, here is a minimal dependabot.yml file that monitors npm dependencies weekly, with updates grouped into a single PR:
-   ```yaml
-   version: 2
-   updates:
-   - package-ecosystem: "npm"
-      directory: "/"
-      schedule:
-         interval: "weekly"
-      groups:
-         npm-dependencies:
-            patterns:
-               - "*"
-   ```
-3. Populate `.github/dependabot.yml` with the correct configuration for the project's dependencies. Here is a common use cases you will encounter (but this is listed just as an example, it is not exhaustive so refer to the "Additonal resources" if other dependencies are in scope):
-   - Search the root of the project, and all subdirectories recursively, for `package.json` files. For each `package.json` file found, add an entry for `npm` dependencies in the `.github/dependabot.yml` file with the correct directory path to the `package.json` file. For example, if a `package.json` file is found in the root of the project, in a `client` directory, and in a `cdk` directory, the dependabot.yml file should have 3 entries for npm dependencies with the correct directory paths:
+## Steps
 
-   ```yaml
-   updates:
-     - package-ecosystem: 'npm'
-       directory: '/'
-       schedule:
-         interval: 'weekly'
-       groups:
-         npm-dependencies:
-           patterns:
-             - '*'
-     - package-ecosystem: 'npm'
-       directory: '/cdk'
-       schedule:
-         interval: 'weekly'
-       groups:
-         npm-dependencies:
-           patterns:
-             - '*'
-     - package-ecosystem: 'npm'
-       directory: '/client'
-       schedule:
-         interval: 'weekly'
-       groups:
-         npm-dependencies:
-           patterns:
-             - '*'
-   ```
+1. Read `.github/dependabot.yml` if it exists; extend it rather than replacing it.
+2. Find every manifest in the repo (root and all subdirectories, excluding `node_modules`, `.venv`, `vendor`): `package.json` → `npm`, `go.mod` → `gomod`, `pyproject.toml` with `uv.lock` → `uv`, `Dockerfile` → `docker`, and so on. Check the [options reference](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference) for the ecosystem name of anything else.
+3. Add one entry per manifest directory, plus one `github-actions` entry for `/`.
+4. Add the Dependabot guard to every CI job (below).
+5. Tell the user, per entry, why you chose its `directory`, `groups` and `interval`.
 
-   - As of 02/08/2026, the full list of languages/technologies supported are: Bazel, Bundler, Bun, Cargo, Composer, Devcontainers, Docker, Docker Compose, Dotnet SDK, Elm, GitHub Actions, Gitsubmodule, Gomod (Go Modules), Gradle, Helm, Hex (Hex), Julia, Maven, NPM and Yarn, NuGet, OpenTofu, Pip, Pub, Swift, Terraform, UV. But you should always double check the "Additional resources" link below via WebSearch for the most up to date list of supported languages and technologies. Do not skip the WebSearch when confirming this.
+## Rules for every entry
 
-4. **Every entry must include a `groups:` block.** Use `patterns: ['*']` to consolidate all of that entry's updates into a single PR (or a more deliberate split, e.g. by package prefix or major/minor/patch, if the project needs finer-grained review batches). An ungrouped entry lets Dependabot open one PR per outdated dependency — this is the single biggest driver of PR/issue floods and, on private repos, of wasted GitHub Actions minutes (each Dependabot update-check job itself runs on Actions-hosted runners). Never leave a `groups:` block out.
+- **`groups:` is mandatory.** `patterns: ['*']` puts all of the entry's updates in one PR (split by prefix or update type only if the project needs smaller review batches). Without it, Dependabot opens one PR per dependency — the main source of PR floods and wasted Actions minutes.
+- **`interval` is `weekly` at most** — never `daily`. Use `monthly` for low-churn directories (one-off scripts, archived tooling). If you can't tell a directory's churn, ask.
+- **`open-pull-requests-limit: 5`**, set explicitly.
 
-5. **Cap `interval` at `weekly`.** Do not configure `daily` for any entry, regardless of what a default example elsewhere suggests — daily simply multiplies the Actions-minute cost of Dependabot's own update checks for negligible benefit over weekly.
+```yaml
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns: ['*']
 
-6. **Use `monthly` for low-churn directories** — one-off migration/backfill/seed scripts, archived or rarely-touched tooling, or any directory that isn't under active development. Reserve `weekly` for directories with actively-maintained, regularly-changing dependencies (main app/service code). When in doubt about a directory's churn, ask the user rather than defaulting to `weekly`.
+  - package-ecosystem: 'npm'
+    directory: '/client'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 5
+    groups:
+      client-npm:
+        patterns: ['*']
 
-7. Explain to the user why you chose the specific `directory` path, `groups` breakdown, and `interval` for each entry in the dependabot.yml file, and give links to specific documentation if available to further help them understand it's truly correct.
+  - package-ecosystem: 'npm'
+    directory: '/scripts/backfill' # rarely touched
+    schedule:
+      interval: 'monthly'
+    open-pull-requests-limit: 5
+    groups:
+      backfill-npm:
+        patterns: ['*']
+```
 
-8. **Cap `open-pull-requests-limit`.** Set it explicitly on every entry (e.g. `open-pull-requests-limit: 5`) rather than leaving the default (5, but easy to accidentally raise). This bounds the worst case where many dependencies go stale at once and Dependabot would otherwise try to open a PR per update.
+## Guard every CI job
 
-9. **Skip every CI job that a Dependabot PR or push can trigger — this is mandatory.** Dependabot itself runs on GitHub's own infrastructure for free (public and private repos alike), but every PR/push it opens re-triggers the repo's `pull_request`/`push` workflows, and those DO consume the repo's included Actions minutes (and can incur overage on private repos). Go through every workflow in `.github/workflows/*.yml` and add a Dependabot guard to **every job** in any workflow a Dependabot PR or push can trigger:
-   - **Workflows triggered by `pull_request` (alone or together with `push` or other events)** — use the full guard, which covers both the actor and the PR author:
+Dependabot's own update checks are free, but every PR or push it creates re-triggers the repo's workflows, which consume Actions minutes. Add a guard to **every job** in every workflow a Dependabot PR or push can trigger — not just build/test jobs:
 
-     ```yaml
-     jobs:
-       build:
-         if: github.actor != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot[bot]'
-         # ...
-     ```
+- Workflows with a `pull_request` trigger (alone or with others):
 
-   - **Push-only workflows** (`on: push` with no `pull_request` trigger) — the actor check alone is enough:
+  ```yaml
+  if: github.actor != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot[bot]'
+  ```
 
-     ```yaml
-     jobs:
-       build:
-         if: github.actor != 'dependabot[bot]'
-         # ...
-     ```
+- Push-only workflows:
 
-   If a job already has an `if:` condition, combine it with the guard using `&&` rather than replacing it, wrapping the existing condition in parentheses (e.g. `if: (existing-condition) && github.actor != 'dependabot[bot]' && ...`). Apply the guard to every job in the workflow, not just build/test/lint jobs — a single unguarded job still spins up a runner.
+  ```yaml
+  if: github.actor != 'dependabot[bot]'
+  ```
 
-10. **Confirm Dependabot is using GitHub-hosted standard runners, not custom/larger runners.** Standard runners are free for Dependabot's own update-check jobs; if `runs-on` for Dependabot's workflow (or any workflow triggered by its PRs) points at a larger or self-hosted runner, that compute is billed at the regular rate regardless of repo visibility. Flag this if you see it.
+If a job already has an `if:`, combine with `&&` and wrap the existing condition in parentheses: `if: (existing-condition) && github.actor != 'dependabot[bot]' && ...`.
 
-## Additional resources
+Flag any workflow triggered by Dependabot PRs that runs on larger or self-hosted runners — that compute is billed at the regular rate.
 
-- For the complete YAML spec, refer https://docs.github.com/en/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file
-- For the official up to date list of supported languages and technologies, refer https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
-- For grouped updates, refer https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups
-- For GitHub Actions billing and included minutes, refer https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
+## References
+
+- [dependabot.yml options](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference)
+- [Actions billing](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions)
