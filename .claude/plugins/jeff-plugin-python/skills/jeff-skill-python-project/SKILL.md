@@ -7,31 +7,17 @@ This is an opinionated view for how Python projects should be configured and mai
 
 ## Prerequisites
 
-Before proceeding:
-
-1. Check if `uv` is installed by running `uv --version`.
-   - If not installed, install it: `curl -LsSf https://astral.sh/uv/install.sh | sh` (if on macOS Homebrew is an option as well `brew install uv`)
-   - Verify installation: `uv --version`
-2. Use WebSearch to verify current versions:
-   - "Python latest stable version [current-year]"
-   - "pytest latest version [current-year]"
-   - "ruff python linter latest version [current-year]"
-   - "pytest-cov latest version [current-year]"
-   - Update all version numbers in examples below with verified versions
-   - DO NOT skip this step. DO NOT guess at version numbers.
+1. Check `uv --version`. If missing, install with `brew install uv` (macOS) or `curl -LsSf https://astral.sh/uv/install.sh | sh`.
+2. Use WebSearch to verify the current stable Python, pytest, pytest-cov and ruff versions, and update the versions below to match. Do not guess version numbers.
 
 ## Goals
 
-- Use uv for Python version management and dependency management
-- Enforce PEP 8 and modern Python best practices
-- Use ruff for fast linting and formatting
-- Use pytest with 80%+ code coverage
-- Keep dependencies minimal and deliberate
-- Make test/lint/format repeatable and auditable
+- uv for Python versions, dependencies and the lockfile
+- ruff for linting and formatting
+- pytest with 80%+ coverage, enforced
+- Minimal, deliberate dependencies; repeatable lint/test runs
 
-## Required Layout
-
-### Project Structure
+## Layout
 
 ```
 project-root/
@@ -40,30 +26,27 @@ project-root/
 │       ├── __init__.py
 │       └── main.py
 ├── tests/
-│   ├── __init__.py
 │   └── test_main.py
 ├── pyproject.toml
+├── uv.lock                 # committed
 ├── .python-version
-├── README.md
-└── .github/
-    └── workflows/
-        └── ci.yml
+└── README.md
 ```
 
-### Python Version
+`.python-version` holds the latest stable Python (`3.15` as of October 2026).
 
-- Always use the latest stable Python version
-- Create `.python-version` file in project root:
-  ```
-  3.14
-  ```
-  (Update to current latest stable version)
+## Setup
 
-## Configuration Files
+```bash
+uv init --package project-name   # src layout with a build backend and .python-version
+cd project-name
+uv add --dev pytest pytest-cov ruff
+mkdir tests
+```
 
-### pyproject.toml
+Then merge the tool configuration below into the generated `pyproject.toml`.
 
-This is the single source of truth for project configuration (PEP 621).
+## pyproject.toml
 
 ```toml
 [project]
@@ -71,14 +54,14 @@ name = "package-name"
 version = "0.1.0"
 description = "Project description"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.15"
 dependencies = []
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "pytest>=9.1.0",
-    "pytest-cov>=7.0.0",
-    "ruff>=0.15.0",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.0",
 ]
 
 [build-system]
@@ -87,7 +70,7 @@ build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 120
-target-version = "py314"
+target-version = "py315"
 
 [tool.ruff.lint]
 select = [
@@ -99,179 +82,108 @@ select = [
     "C4",  # flake8-comprehensions
     "UP",  # pyupgrade
 ]
-ignore = []
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
 addopts = [
     "--strict-markers",
     "--strict-config",
     "--cov=src",
     "--cov-report=term-missing",
-    "--cov-report=html",
     "--cov-fail-under=80",
 ]
 
 [tool.coverage.run]
 source = ["src"]
-omit = ["*/tests/*", "*/__pycache__/*"]
-
-[tool.coverage.report]
-precision = 2
-show_missing = true
-skip_covered = false
 ```
 
-## Project Setup Commands
+Dev tools live in `[dependency-groups]` (what `uv add --dev` writes); `uv sync` installs the `dev` group by default.
 
-### Initialize Project
+## Checks
 
-1. Create project directory: `mkdir project-name && cd project-name`
-2. Initialize uv project: `uv init`
-3. Create required directories:
-   ```bash
-   mkdir -p src/package_name tests
-   touch src/package_name/__init__.py
-   touch tests/__init__.py
-   ```
-4. Create `.python-version` file with latest stable Python version
-5. Install dev dependencies: `uv add --dev pytest pytest-cov ruff`
-6. Create `pyproject.toml` with configuration above
-
-### Common Commands
-
-Create a simple script or document these for users:
+Run before calling work done:
 
 ```bash
-# Install dependencies
-uv sync
-
-# Run tests with coverage
-uv run pytest
-
-# Run linting
-uv run ruff check .
-
-# Auto-fix linting issues
-uv run ruff check --fix .
-
-# Format code
-uv run ruff format .
-
-# Run all checks (lint + format check + tests)
 uv run ruff check . && uv run ruff format --check . && uv run pytest
 ```
 
-## Testing Requirements
-
-- Use pytest for all tests
-- Tests must live in `tests/` directory
-- Minimum 80% code coverage required
-- Coverage reports generated in `htmlcov/` directory
-- Tests must be runnable via `uv run pytest`
-
-### Example Test
-
-```python
-# tests/test_main.py
-import pytest
-from package_name.main import example_function
-
-
-def test_example_function():
-    """Test that example function works correctly."""
-    result = example_function(5)
-    assert result == 10
-
-
-def test_example_function_edge_case():
-    """Test edge cases."""
-    with pytest.raises(ValueError):
-        example_function(-1)
-```
-
-## Code Quality Standards
-
-- All code must pass `ruff check` with no errors
-- All code must be formatted with `ruff format`
-- Follow PEP 8 style guide
-- Use type hints where appropriate (PEP 484)
-- Document functions and classes with docstrings (PEP 257)
+Use `uv run ruff check --fix .` and `uv run ruff format .` to fix. Tests live in `tests/`, use pytest, and must keep coverage at 80% or above.
 
 ## GitHub Actions
 
-Create `.github/workflows/ci.yml` for continuous integration.
+Create `.github/workflows/<project>-ci.yml`, named after the project (e.g. `api-ci.yml`) so several projects in one repo don't overwrite each other's workflow.
 
-**Scope triggers to this project's directory.** If this project lives at the repo root, omit `paths:` entirely — every change in the repo is relevant. If it shares a monorepo with other stacks (e.g. this Python service next to a `web/` frontend or `infra/`), scope `paths:` to the project directory so an unrelated change (a README edit, another service's change) doesn't trigger this build. Always include the workflow file itself in `paths:` so edits to the CI config are still validated.
+- **Scope triggers to this project's directory.** If the project is at the repo root, omit `paths:`. In a monorepo, scope `paths:` to the project directory, and always include the workflow file itself.
+- **Skip Dependabot-triggered runs** with the guard from `jeff-skill-install-dependabot`. If a job already has an `if:`, combine with `&&`, wrapping the existing condition in parentheses.
+- **Run steps in the project directory** with `defaults.run.working-directory`; omit it if the project is at the repo root.
+- **Least privilege:** `contents: read`, and checkout with `persist-credentials: false`.
 
 ```yaml
-name: jeff-skill-python-project
+name: <project>-ci
 
 on:
   push:
     branches: [main]
     paths:
-      - '<project-dir>/**' # e.g. 'infra/**' — omit this whole `paths:` key if the project is at repo root
-      - '.github/workflows/ci.yml'
+      - '<project-dir>/**' # omit this whole `paths:` key if the project is at repo root
+      - '.github/workflows/<project>-ci.yml'
   pull_request:
     branches: [main]
     paths:
       - '<project-dir>/**'
-      - '.github/workflows/ci.yml'
+      - '.github/workflows/<project>-ci.yml'
+
+permissions:
+  contents: read
 
 jobs:
   test:
+    if: github.actor != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot[bot]'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: <project-dir> # omit this whole `defaults:` block if the project is at repo root
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@v10
+        with:
+          enable-cache: true
 
-      - name: Set up Python
-        run: uv python install
+      - name: Install Python and dependencies
+        run: uv sync --locked
 
-      - name: Install dependencies
-        run: uv sync --all-extras --dev
-
-      - name: Run ruff linting
+      - name: Lint
         run: uv run ruff check .
 
-      - name: Run ruff formatting check
+      - name: Format check
         run: uv run ruff format --check .
 
-      - name: Run tests with coverage
+      - name: Test with coverage
         run: uv run pytest
 ```
 
-## Best Practices
+`uv sync --locked` fails if `uv.lock` is out of date instead of silently re-resolving. CI never sends code or coverage to third-party services; the 80% threshold is enforced by pytest.
 
-- Keep dependencies minimal - only add what you truly need
-- Pin dependency versions in `pyproject.toml` for reproducibility
-- Use virtual environments (uv handles this automatically)
-- Never commit `__pycache__/`, `.pytest_cache/`, or `htmlcov/` directories
-- Add `.gitignore` with common Python exclusions:
-  ```
-  __pycache__/
-  *.py[cod]
-  *$py.class
-  .pytest_cache/
-  htmlcov/
-  .coverage
-  .venv/
-  dist/
-  build/
-  *.egg-info/
-  ```
+## .gitignore
+
+```
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.venv/
+dist/
+build/
+*.egg-info/
+```
 
 ## Integration with Other Skills
 
-- **jeff-skill-install-dependabot** — Set up Dependabot to keep uv/Python dependencies up to date
-- **jeff-skill-dependabot-issue-resolution** — Resolve Dependabot PRs for Python package updates
+- **jeff-skill-install-dependabot** — keep uv/Python dependencies up to date
+- **jeff-skill-dependabot-issue-resolution** — resolve Dependabot PRs for Python package updates

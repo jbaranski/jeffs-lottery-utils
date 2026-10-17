@@ -11,177 +11,81 @@ skills:
   - jeff-skill-install-dependabot
 ---
 
-## Startup Acknowledgment
+You build Angular apps that are signal-first and zoneless from the start. `zone.js` never exists in these projects — write code as if it never did.
 
-At the start of every conversation, before anything else, tell the user: "Plugin **jeff-plugin-angular** loaded — agent **jeff-angular-software-developer** is ready."
+## Components and services
 
-You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, and performant code following Angular and TypeScript best practices.
+- Standalone components only; never set `standalone: true` (it is the default).
+- `ChangeDetectionStrategy.OnPush` on every component.
+- `input()` / `output()` functions, not `@Input` / `@Output`.
+- Put host bindings in the `host` object of `@Component` / `@Directive`; never use `@HostBinding` / `@HostListener`.
+- Inline templates for small components; external template/style paths are relative to the component file.
+- Reactive forms, not template-driven.
+- Class and style bindings, not `ngClass` / `ngStyle`.
+- `NgOptimizedImage` for static images (it does not work for inline base64).
+- Services: single responsibility, `providedIn: 'root'` for singletons, `inject()` instead of constructor injection.
+- Lazy-load feature routes.
 
-## TypeScript Best Practices
+## Zoneless and signals
 
-- Use strict type checking
-- Prefer type inference when the type is obvious
-- Avoid the `any` type; use `unknown` when type is uncertain
-
-## Angular Best Practices
-
-- Always use standalone components over NgModules
-- Must NOT set `standalone: true` inside Angular decorators. It's the default in Angular v20+.
-- Always use zoneless change detection. Zoneless is the default in Angular v21+; do not add `provideZoneChangeDetection()` anywhere. If on v20, add `provideZonelessChangeDetection()` explicitly in `app.config.ts`. Always remove `zone.js` and `zone.js/testing` from `polyfills` in `angular.json` (both `build` and `test` targets) and run `npm uninstall zone.js`.
-- Use signals for state management
-- Implement lazy loading for feature routes
-- Do NOT use the `@HostBinding` and `@HostListener` decorators. Put host bindings inside the `host` object of the `@Component` or `@Directive` decorator instead
-- Use `NgOptimizedImage` for all static images.
-  - `NgOptimizedImage` does not work for inline base64 images.
-
-### Components
-
-- Keep components small and focused on a single responsibility
-- Use `input()` and `output()` functions instead of decorators
-- Use `computed()` for derived state
-- Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
-- Prefer inline templates for small components
-- Prefer Reactive forms instead of Template-driven ones
-- Do NOT use `ngClass`, use `class` bindings instead
-- Do NOT use `ngStyle`, use `style` bindings instead
-- When using external templates/styles, use paths relative to the component TS file.
-
-## State Management
-
-- Use signals for local component state
-- Use `computed()` for derived state
-- Keep state transformations pure and predictable
-- Do NOT use `mutate` on signals, use `update` or `set` instead
-
-## Zoneless Change Detection
-
-Angular is fully zoneless — `zone.js` is never present. This is not a migration target; it is the starting point. Write code as if `zone.js` never existed.
-
-**The only change detection mechanism: signals.** All state that drives the template must live in a `signal()` or `computed()`. When a signal value changes, Angular schedules a render automatically. There are no other mechanisms you should ever need in new code.
-
-**Never use `ChangeDetectorRef.markForCheck()`.** If you think you need it, your state is not in a signal yet — fix the state, not the detection.
-
-**Never inject or reference `ChangeDetectorRef`** in application code. It is a zone.js-era API with no place in a signal-first project.
-
-**Side effects:** Use `effect()` to react to signal changes with side effects (logging, DOM writes outside Angular, storage sync). Never derive new state inside `effect()` — use `computed()` for derivation.
-
-**Post-render DOM operations:**
-
-- `afterNextRender()` — runs once after the next render cycle
-- `afterEveryRender()` — runs after every render cycle
-
-Do not use `NgZone.onMicrotaskEmpty` or `NgZone.onStable` — these never emit in zoneless. Replace them with the hooks above or a direct DOM API (e.g. `MutationObserver`).
-
-**NgZone:** `NgZone.run()` and `NgZone.runOutsideAngular()` are harmless in zoneless but should never be written in new code — they indicate a misunderstanding of the model.
-
-**Reactive forms:** `setValue`, `patchValue`, `FormArray.push`, and similar APIs do not notify Angular's change detection. Expose form state to templates through signals:
-
-```typescript
-readonly formValue = toSignal(this.form.valueChanges, { initialValue: this.form.value });
-```
-
-Never call `markForCheck()` as a workaround for reactive form updates.
-
-**RxJS interop:** Do not create observables (`new Subject()`, `new BehaviorSubject()`, `new Observable()`) in your own code — use signals instead. Observables will appear at external API boundaries (`HttpClient`, `Router`, `ActivatedRoute`, third-party SDKs); convert them immediately with `toSignal()` and do not propagate them further. Never use the async pipe.
-
-- `toSignal(obs, { initialValue })` — convert at the boundary; import from `@angular/core/rxjs-interop`
-- `takeUntilDestroyed()` — clean up any subscription that cannot be avoided; import from `@angular/core/rxjs-interop`
-- `toObservable()` — only when a third-party API requires an observable as input
-
-**Testing:**
-
-- Add `provideZonelessChangeDetection()` to `TestBed.configureTestingModule`
-- Use `await fixture.whenStable()` — never `fixture.detectChanges()`. Let Angular schedule change detection from signal updates, exactly as it does in production.
-- For debug mode, use `provideCheckNoChangesConfig({ exhaustive: true, interval: <ms> })` to catch any bindings updated without a signal notification
+- Zoneless is the default from v21: never add `provideZoneChangeDetection()`. On v20, add `provideZonelessChangeDetection()` in `app.config.ts`. Remove `zone.js` and `zone.js/testing` from `polyfills` in both the `build` and `test` targets of `angular.json`, and `npm uninstall zone.js`.
+- All template-driving state lives in `signal()` or `computed()`. Update with `set` / `update`, never `mutate`.
+- Never inject `ChangeDetectorRef` or call `markForCheck()`. If you think you need it, the state isn't in a signal yet — fix the state.
+- `effect()` is for side effects only (logging, storage sync, DOM writes outside Angular); derive state with `computed()`.
+- After-render DOM work: `afterNextRender()` / `afterEveryRender()`. `NgZone.onStable` / `onMicrotaskEmpty` never emit in zoneless. Don't write `NgZone.run()` / `runOutsideAngular()` in new code.
+- Reactive forms don't notify change detection: expose form state with `toSignal(this.form.valueChanges, { initialValue: this.form.value })`.
+- RxJS: never create your own `Subject` / `BehaviorSubject` / `Observable`, and never use the `async` pipe. Observables only appear at external boundaries (`HttpClient`, `Router`, `ActivatedRoute`, SDKs) — convert them immediately with `toSignal()`. Use `takeUntilDestroyed()` for any subscription you can't avoid; `toObservable()` only when a third-party API requires an observable.
 
 ## Templates
 
-- Keep templates simple and avoid complex logic
-- Use native control flow (`@if`, `@for`, `@switch`) instead of `*ngIf`, `*ngFor`, `*ngSwitch`
-- Never use the async pipe — convert observables to signals at the boundary with `toSignal()` (see RxJS interop above)
-- Do not assume globals like (`new Date()`) are available.
-- Do not write arrow functions in templates (they are not supported).
-- **Never use a component method for display-only value transformation.** Use Angular pipes instead — built-in pipes for standard formatting, custom `@Pipe` classes for app-specific transformation. Calling a method from a template for formatting is unacceptable.
-  - Date formatting: `| date:'MM/dd/yyyy':'UTC'` — never `toLocaleDateString()`, manual date construction, or a wrapper method
-  - Number formatting: `| number:'1.1-1'` — never `.toFixed()` called in the template
-  - Type unwrapping / value extraction for display: create a custom `@Pipe` — never a `getXxx()` method called from a template
-  - If the same transformation is needed in component logic (e.g. building a request payload), keep the method for that side and use a pipe for the template side — do not call the method from the template
+- Native control flow (`@if`, `@for` with a `track` expression, `@switch`), not structural directives.
+- No arrow functions in templates, and don't assume globals like `new Date()` are available.
+- Never call a component method for display-only formatting — use pipes:
+  - Dates: `| date:'MM/dd/yyyy':'UTC'`, never `toLocaleDateString()` or a wrapper method.
+  - Numbers: `| number:'1.1-1'`, never `.toFixed()`.
+  - App-specific extraction or unwrapping: a custom `@Pipe`, never a `getXxx()` method.
+  - If component logic needs the same transformation (e.g. a request payload), keep the method for that and use a pipe in the template.
 
-## Services
+## Lazy-loading bundle isolation
 
-- Design services around a single responsibility
-- Use the `providedIn: 'root'` option for singleton services
-- Use the `inject()` function instead of constructor injection
-
-## CSS Styling
-
-Use the Tailwind CSS framework, and do not use any other CSS framework.
-
-- Utility-First: Only use Tailwind utility classes; do not write custom CSS in a `<style>` block
-- Responsiveness: Ensure all designs are responsive using Tailwind's breakpoints (`sm:`, `md:`, `lg:`, etc...)
-- Iterative: Be prepared to iterate on the design based on user feedback
-- Be consistent when spacing elements with padding and margins for a pleasing aesthetic
-
-## 3rd Party Dependencies
-
-You are pragmatic about using third-party libraries and dependencies.
-
-- Prefer dependencies maintained by the core Angular developer team
-- If not a core Angular library, prefer a library that is mature, actively maintained, and widely adopted
-- 3rd party dependencies are ok if the functionality is complex and well-solved (AWS integration, complex date handling, charting, logging, analytics, state management, etc...)
-- 3rd party dependencies are ok if building from scratch would take significant time and cost with marginal benefit
-- Security or performance requirements favor battle-tested solutions
-- The library has strong TypeScript support and good documentation
-
-## Security
-
-- Never commit secrets or API keys
-- Use environment variables for configuration
-- Use `environment` and `environment.prod` for configuration
-- Validate and sanitize user input
-- Keep dependencies updated
-
-## Dependency Management
-
-- **Use `npm ci`** in CI pipelines, fresh checkouts, and Claude Code web sessions — installs exactly what is in `package-lock.json`, never modifies the lock file.
-- **Use `npm install <package>`** only when intentionally adding or updating a dependency.
-- **Never run bare `npm install`** (no arguments) in CI or scripts — it re-resolves versions and may silently rewrite the lock file, breaking reproducibility.
-
-## Angular Updates
-
-Angular updates must follow the official update process defined at https://angular.dev/update-guide. Do not manually bump Angular version numbers in package.json without following this guide.
-
-## Lazy-Loading Bundle Isolation
-
-**Static imports in `app.routes.ts` (or any eagerly-loaded file) pull code into the main bundle — even when the route uses `loadComponent`.** Only the dynamic `import()` string is lazy. Any class referenced directly in a `providers` array in the route config is statically imported and lands in the initial bundle.
-
-**Always provide route-scoped services inside the lazy component's `@Component` `providers` array, not in the route config:**
+A static import in `app.routes.ts` (or any eagerly loaded file) pulls code into the main bundle even when the route uses `loadComponent`. Provide route-scoped services in the lazy component's own `providers`, never in the route config:
 
 ```typescript
-// WRONG — service ends up in the main bundle
-import { MyService } from './features/my-feature/my.service'; // static!
-{ path: 'foo', loadComponent: () => import(...), providers: [MyService] }
+// WRONG — MyService lands in the main bundle
+import { MyService } from './features/my-feature/my.service';
+{ path: 'foo', loadComponent: () => import('./features/my-feature/my.component'), providers: [MyService] }
 
-// CORRECT — service stays in the lazy chunk
-// app.routes.ts — no import of MyService
-{ path: 'foo', loadComponent: () => import('./features/my-feature/my.component')... }
-// my.component.ts (lazy-loaded)
-@Component({ providers: [MyService], ... })
+// RIGHT — no import in app.routes.ts; my.component.ts declares @Component({ providers: [MyService] })
+{ path: 'foo', loadComponent: () => import('./features/my-feature/my.component') }
 ```
 
-**After any lazy-loading work, verify bundle placement before considering the task done:**
+After any lazy-loading work, check the build output — passing tests don't prove placement:
 
 ```bash
 cd apps/web && npx ng build --configuration development 2>&1 | grep -E "Initial total|Lazy chunk|<feature-name>"
 ```
 
-The feature must appear **only** under "Lazy chunk files". A passing build and passing tests do **not** verify this — only inspecting the build output does.
+The feature must appear only under "Lazy chunk files".
 
-## Documentation references
+## Testing
 
-- Angular best practices: https://angular.dev/assets/context/best-practices.md
-- Angular style guide: https://angular.dev/style-guide
-- Angular zoneless guide: https://angular.dev/guide/zoneless
-- Angular llms.txt: https://angular.dev/llms.txt
-- Angular llms-full.txt: https://angular.dev/assets/context/llms-full.txt
-- Tailwind CSS docs: https://tailwindcss.com/docs
+- `provideZonelessChangeDetection()` in every `TestBed.configureTestingModule`.
+- `await fixture.whenStable()`, never `fixture.detectChanges()`.
+- In debug mode, `provideCheckNoChangesConfig({ exhaustive: true, interval: <ms> })` catches bindings updated without a signal.
+
+## Styling
+
+Tailwind only (see `jeff-skill-tailwind-design-system`): utility classes, no custom CSS in `<style>` blocks or component stylesheets, responsive via breakpoints.
+
+## Dependencies and updates
+
+- Prefer Angular-team libraries; otherwise mature, actively maintained, widely adopted libraries with strong TypeScript support — and only when the problem is complex and well-solved (AWS integration, dates, charting, analytics) or building it would cost far more than it's worth.
+- Configuration through `environment` / `environment.prod`; never commit secrets.
+- `npm ci` in CI, fresh checkouts and Claude Code web sessions; `npm install <package>` only to add or update a dependency; never bare `npm install` in CI or scripts.
+- Angular version upgrades follow https://angular.dev/update-guide — never hand-bump versions in `package.json`.
+
+## References
+
+- https://angular.dev/assets/context/best-practices.md
+- https://angular.dev/guide/zoneless
+- https://angular.dev/llms.txt

@@ -1,30 +1,24 @@
 ---
 name: jeff-skill-angular-project
-description: Install or update the Angular CLI to the latest version globally. Use when setting up a dev environment, ensuring Angular CLI is current, generating new projects, or when asked to "install Angular", "update Angular", "setup Angular", or "create a new Angular app".
+description: Install or update the Angular CLI and create zoneless, Tailwind-styled Angular apps with Node version pinning and a GitHub Actions CI workflow. Use when setting up an Angular dev environment, creating a new Angular app, updating Angular, or asked to "install Angular", "update Angular", or "create a new Angular app".
 ---
 
 ## Prerequisites
-
-Before proceeding:
 
 1. Ensure nvm (Node Version Manager) and Node.js are installed using the `jeff-skill-install-nodejs` skill.
 2. Use WebSearch to verify current versions:
    - "Angular latest version [current-year]"
    - "Tailwind CSS latest version [current-year]"
    - Visit https://nodejs.org/en to find the current Node.js LTS major version (look for the "LTS" badge)
-   - Update any version references in examples below with verified versions
-   - DO NOT skip this step. DO NOT guess at version numbers.
+   - Update any version references in examples below with verified versions; don't guess them.
 
 ## Steps
 
-1. Run `npm install -g @angular/cli` to install or update to the latest Angular CLI globally.
-   - In the update scenario, run `ng update @angular/core @angular/cli` as well
-2. Verify installation by running `ng version` and ensure the Angular CLI version is the latest available version.
-3. Create a new project by running `ng new <project-name> --zoneless` and follow the prompts to set up the project with the desired configuration.
-   - Use `CSS` for stylesheet format
-   - Do NOT enable server side rendering
-   - The `--zoneless` flag configures the project without `zone.js`, enabling zoneless change detection
-   - If adding zoneless to an existing project instead, update `app.config.ts` to use `provideZonelessChangeDetection()` and remove `zone.js` from the `polyfills` array in `angular.json`
+1. Run `npm install -g @angular/cli` to install or update the CLI globally. For an existing app, update it with `ng update @angular/core @angular/cli`, following https://angular.dev/update-guide.
+2. Confirm with `ng version` that the CLI is the latest release.
+3. Create the app: `ng new <project-name> --style=css --ssr=false` (zoneless is the default from v21; on v20 add `--zoneless`).
+   - For an existing app that still has zone.js, follow the zoneless steps in the Angular developer agent: `provideZonelessChangeDetection()` on v20, remove `zone.js` from `polyfills` in both `build` and `test` targets, `npm uninstall zone.js`.
+   - Add `"build:prod": "ng build --configuration production"` to `package.json` scripts (the Netlify skill's Makefile uses it).
 4. Use the latest stable version of `tailwindcss` as a `devDependency`. Refer to the documentation at https://tailwindcss.com/docs.
    - To install run `ng add tailwindcss` and confirm any prompts. This is equivalent to doing the following (just here for your reference in case something goes wrong or needs to be fixed):
      - `npm install -D tailwindcss @tailwindcss/postcss postcss`
@@ -65,8 +59,6 @@ Before proceeding:
    ```
 
    With `engine-strict=true`, any `npm` command on the wrong Node version will error immediately instead of silently corrupting the lock file.
-
-8. Configure the session-start hook using the `session-start-hook` skill so that Claude Code web sessions automatically install the current Node LTS version at container startup.
 
 ## GitHub Actions
 
@@ -110,12 +102,12 @@ jobs:
       run:
         working-directory: <project-dir> # e.g. 'web' — omit this whole `defaults:` block if the project is at repo root
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc # repo root, shared by all Node projects
           cache: 'npm'
@@ -136,9 +128,7 @@ jobs:
 
 ## npm ci vs npm install
 
-- **Use `npm ci`** in CI pipelines, fresh checkouts, and Claude Code web sessions. It installs exactly what is in `package-lock.json`, never modifies the lock file, and fails fast if the lock file is missing or inconsistent.
-- **Use `npm install <package>`** only when intentionally adding or updating a dependency.
-- **Never run bare `npm install`** (no arguments) in CI or fresh environments — it re-resolves versions and may silently rewrite the lock file, which defeats reproducibility and can break CI.
+`npm ci` in CI, fresh checkouts and Claude Code web sessions; `npm install <package>` only to add or update a dependency; never bare `npm install` in CI or scripts (it can rewrite the lockfile).
 
 ## Integration with Other Skills
 

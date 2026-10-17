@@ -17,7 +17,7 @@ Before proceeding:
    - "ESLint TypeScript latest version [current-year]"
    - Visit https://nodejs.org/en to find the current Node.js LTS major version (look for the "LTS" badge)
    - Update all version numbers in examples below with verified versions
-   - DO NOT skip this step. DO NOT guess at version numbers.
+   - Verify rather than guess; versions in this skill go stale.
 
 ## Goals
 
@@ -45,7 +45,7 @@ project-root/
 ├── tsconfig.json
 ├── tsconfig.build.json     # Separate config for building
 ├── package.json
-├── .eslintrc.json
+├── eslint.config.js
 ├── .gitignore
 ├── vitest.config.ts
 └── README.md
@@ -74,8 +74,8 @@ project-root/
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint src tests --ext .ts",
-    "lint:fix": "eslint src tests --ext .ts --fix",
+    "lint": "eslint src tests",
+    "lint:fix": "eslint src tests --fix",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
@@ -84,21 +84,23 @@ project-root/
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.54.0",
-    "@typescript-eslint/parser": "^8.54.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^10.0.0",
-    "tsx": "^4.0.0",
-    "typescript": "^5.9.0",
-    "vitest": "^4.0.18"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^<NODE_LTS>.0.0",
+    "@vitest/coverage-v8": "^5.0.4",
+    "eslint": "^10.12.0",
+    "typescript-eslint": "^8.71.2",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.4"
   }
 }
 ```
 
+TypeScript stays on `~6.0.x` until `typescript-eslint` supports 7.x — as of October 2026 its peer range is `>=4.8.4 <6.1.0`, while TypeScript 7.0 is the npm `latest`. Check `npm view typescript-eslint peerDependencies` before moving to 7.
+
 ### tsconfig.json
 
-Main TypeScript configuration with strict settings:
+Type-checks sources and tests (`npm run typecheck`); it never emits.
 
 ```json
 {
@@ -107,12 +109,9 @@ Main TypeScript configuration with strict settings:
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "lib": ["ES2022"],
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "types": ["node"],
     "strict": true,
+    "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
@@ -120,58 +119,54 @@ Main TypeScript configuration with strict settings:
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*", "tests/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*", "tests/**/*"]
 }
 ```
 
 ### tsconfig.build.json
 
-Separate configuration for production builds:
+Emits `src/` only, with declarations, into `dist/`:
 
 ```json
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "sourceMap": false,
-    "declarationMap": false
+    "noEmit": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declaration": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "tests", "**/*.test.ts"]
+  "include": ["src/**/*"]
 }
 ```
 
-### .eslintrc.json
+### eslint.config.js
 
-```json
-{
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2022,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
-  ],
-  "plugins": ["@typescript-eslint"],
-  "root": true,
-  "env": {
-    "node": true,
-    "es2022": true
-  },
-  "rules": {
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/explicit-function-return-type": "warn",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-floating-promises": "error"
+ESLint 10 only reads flat config — `.eslintrc.*` files and the `--ext` flag were removed, so don't create or keep them.
+
+```js
+import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
+
+export default defineConfig(
+  { ignores: ['dist/', 'coverage/'] },
+  js.configs.recommended,
+  tseslint.configs.recommendedTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname }
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/explicit-function-return-type': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-floating-promises': 'error'
+    }
   }
-}
+);
 ```
 
 ### vitest.config.ts
@@ -254,7 +249,7 @@ npm install -D typescript @types/node tsx
 npm install -D vitest @vitest/coverage-v8
 
 # Install linting
-npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+npm install -D eslint @eslint/js typescript-eslint
 
 # Create directory structure
 mkdir -p src/lib tests
@@ -276,34 +271,6 @@ echo "engine-strict=true" > .npmrc
 - **Use `npm install <package>`** only when intentionally adding or updating a dependency.
 - **Never run bare `npm install`** (no arguments) in CI or fresh environments — it re-resolves versions and may silently rewrite the lock file, which defeats reproducibility and can break CI.
 
-### Common Commands
-
-```bash
-# Development with hot reload
-npm run dev
-
-# Build for production
-npm run build
-
-# Run tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Lint code
-npm run lint
-
-# Format code
-npm run prettier:fix
-
-# Type check
-npm run typecheck
-
-# Run all checks (lint + format + typecheck + test)
-npm run lint && npm run prettier:check && npm run typecheck && npm run test:run
-```
-
 ## Testing Requirements
 
 - Use Vitest for all tests
@@ -311,47 +278,6 @@ npm run lint && npm run prettier:check && npm run typecheck && npm run test:run
 - Minimum 80% code coverage required
 - Coverage reports generated in `coverage/` directory
 - Tests must be runnable via `npm test`
-
-### Example Test
-
-```typescript
-// tests/example.test.ts
-import { describe, it, expect } from 'vitest';
-import { add } from '../src/lib/example';
-
-describe('add', () => {
-  it('should add two positive numbers', () => {
-    expect(add(2, 3)).toBe(5);
-  });
-
-  it('should add negative numbers', () => {
-    expect(add(-2, -3)).toBe(-5);
-  });
-
-  it('should handle zero', () => {
-    expect(add(0, 5)).toBe(5);
-  });
-});
-```
-
-### Example Source
-
-```typescript
-// src/lib/example.ts
-export function add(a: number, b: number): number {
-  return a + b;
-}
-```
-
-## Code Quality Standards
-
-- All code must pass `npm run lint` with no errors
-- All code must be formatted with Prettier
-- All code must pass `npm run typecheck` with no errors
-- Use strict TypeScript settings
-- No `any` types (use `unknown` when necessary)
-- Explicit return types for functions
-- Handle promises properly (no floating promises)
 
 ## GitHub Actions
 
@@ -393,12 +319,12 @@ jobs:
       run:
         working-directory: <project-dir> # e.g. 'web' — omit this whole `defaults:` block if the project is at repo root
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc # repo root, shared by all Node projects
           cache: 'npm'
@@ -425,16 +351,10 @@ jobs:
 
 ## Best Practices
 
-- Keep dependencies minimal
-- Use `type: "module"` in package.json for ESM
-- Pin dependency versions for reproducibility
-- Use `tsx` for development with hot reload
-- Build with `tsc` for production
-- Never commit `node_modules/` or `dist/`
+- ESM only: `"type": "module"` in package.json
+- `tsx` for development with hot reload; `tsc` for production builds
 - Place `.nvmrc` (containing the current LTS major version from https://nodejs.org/en) at the repo root — nvm traverses up so one file covers all subprojects
 - Place `.npmrc` containing `engine-strict=true` co-located with `package.json` — npm does not traverse up beyond the package root, so it must live alongside `package.json`
-- Configure the session-start hook via the `session-start-hook` skill so Claude Code web sessions auto-install the current Node LTS version at container startup
-- Export types from your library's main entry point
 
 ## For Library Projects
 
@@ -445,68 +365,16 @@ If building a library (not an application):
 - Consider dual ESM/CJS exports if needed
 - Test your library as a consumer would use it
 
-## For Backend/API Projects
-
-If building a backend API:
-
-- Use environment variables for configuration
-- Add request validation
-- Use structured logging (pino, winston)
-
 ## AWS Lambda Development
 
 When building AWS Lambda functions with TypeScript, use **AWS Lambda Powertools for TypeScript**:
 
-```typescript
-import { Logger } from '@aws-lambda-powertools/logger';
-import { Tracer } from '@aws-lambda-powertools/tracer';
-import type { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
-
-const logger = new Logger({ serviceName: 'userService' });
-const tracer = new Tracer({ serviceName: 'userService' });
-
-export const handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
-  logger.addContext(context);
-
-  logger.info('Processing request', { requestId: context.requestId });
-
-  try {
-    // Your business logic here
-    const result = { message: 'Success' };
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify(result)
-    };
-  } catch (error) {
-    logger.error('Error processing request', { error });
-
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Internal server error' })
-    };
-  }
-};
-```
-
-### Key Powertools Features
-
-- **Logger**: Structured JSON logging with context injection
-- **Tracer**: X-Ray tracing for debugging and performance (normally disabled, enable when explicitly needed)
-- **Event Handler**: Type-safe routing for API Gateway, ALB, Lambda Function URLs, AppSync - handles multiple routes
-- **Parameters**: Easy access to SSM Parameter Store and Secrets Manager
-- **Idempotency**: Built-in idempotency handling
-
-### Lambda Best Practices for TypeScript
-
-- Keep functions small and focused (single responsibility)
-- Use environment variables for configuration
-- Optimize for cold starts (minimize dependencies, avoid lazy loading, keep imports at top)
-- Use typed event structures from `@types/aws-lambda`
-- Return proper API Gateway response format
-- Set appropriate memory and timeout values
-- Use ARM64 (Graviton) architecture for better price/performance
-- Use structured logging, not console.log
+- **Logger** for structured JSON logging with the Lambda context injected (`logger.addContext(context)`); never `console.log`.
+- **Tracer** (X-Ray) only when explicitly requested.
+- **Parameters** for SSM Parameter Store and Secrets Manager; **Idempotency** where retries could double-apply.
+- Type events with `@types/aws-lambda`, preferring `APIGatewayProxyEventV2` / `APIGatewayProxyResultV2`.
+- Cold starts: minimal dependencies, static imports at the top, no lazy loading.
+- ARM64 (Graviton); explicit memory and timeout; configuration from environment variables.
 
 ### Handling Multiple Routes
 
@@ -565,40 +433,17 @@ async function handleGetUser(id: string): Promise<APIGatewayProxyResultV2> {
 
 **Last Resort: Event Handler (Only for 10+ routes)**
 
-If you have 10+ routes in a single Lambda (which usually means you're doing something wrong - consider splitting into focused functions), use Event Handler:
-
-```typescript
-import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
-import { Logger } from '@aws-lambda-powertools/logger';
-import { ApiGatewayResolver } from '@aws-lambda-powertools/event-handler';
-
-const logger = new Logger();
-const app = new ApiGatewayResolver();
-
-app.get('/users', async () => ({ users: [] }));
-app.post('/users', async (event) => {
-  const body = JSON.parse(event.body || '{}');
-  return { user: { id: '123', ...body } };
-});
-app.get('/users/:id', async (event) => {
-  const { id } = event.pathParameters || {};
-  return { user: { id } };
-});
-// ... 7+ more routes (consider splitting!)
-
-export const handler = (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
-  return app.resolve(event, context);
-};
-```
-
-**Note:** Having 10+ routes in a single Lambda suggests poor function design. Lambda functions should be small and focused. Consider splitting into separate functions or using API Gateway to route to different Lambdas.
+If a single Lambda needs 10+ routes, that usually means it should be split into focused functions, or API Gateway should route to separate Lambdas. Only when splitting isn't an option, use `@aws-lambda-powertools/event-handler` — check its current docs for the router API rather than writing it from memory.
 
 ### Installing Powertools
 
 ```bash
-# Core utilities (always install these)
-npm install @aws-lambda-powertools/logger @aws-lambda-powertools/tracer
+# Core (always)
+npm install @aws-lambda-powertools/logger
 npm install -D @types/aws-lambda
+
+# Tracer (only when X-Ray is explicitly requested)
+# npm install @aws-lambda-powertools/tracer
 
 # Event Handler (only if you have 10+ routes - see routing section above)
 # npm install @aws-lambda-powertools/event-handler

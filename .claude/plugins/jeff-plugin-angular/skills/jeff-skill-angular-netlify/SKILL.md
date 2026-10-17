@@ -3,11 +3,7 @@ name: jeff-skill-angular-netlify
 description: Scaffold Netlify deployment for an Angular SPA project. Generates netlify.toml, a Makefile deploy target, and a GitHub Actions workflow. Use when asked to "deploy to Netlify", "set up Netlify for Angular", or "add Netlify CI/CD".
 ---
 
-# Netlify Angular Deployment Skill
-
-Use this skill to scaffold Netlify deployment for an Angular SPA project.
-
----
+# Netlify Deployment for an Angular SPA
 
 ## Step 1 — Discover from the codebase
 
@@ -96,7 +92,7 @@ lint:
 	npm run prettier:check
 
 test:
-	npx ng test --watch=false --browsers=ChromeHeadlessNoSandbox
+	npx ng test --watch=false
 
 # update-csp hashes the inline scripts in the BUILT index.html, so it must run after the build.
 build:
@@ -111,11 +107,13 @@ deploy: build
 
 > If `lint`, `test`, or `build` targets already exist in the Makefile, only add the `deploy` target and update the `.PHONY` line.
 
+`build:prod` is a `package.json` script: `"build:prod": "ng build --configuration production"`.
+
 ---
 
 ### `.github/workflows/deploy-web.yml`
 
-Fill in `<app-directory>`, `<node-version>`, and `<lockfile-path>` from Step 1. Add any additional environment secrets your app needs (e.g. API URLs, feature flags) alongside `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID` in the Deploy step.
+Fill in `<app-directory>` and `<lockfile-path>` from Step 1. Add any additional environment secrets your app needs (e.g. API URLs, feature flags) alongside `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID` in the Deploy step.
 
 ```yaml
 name: deploy-web
@@ -132,6 +130,9 @@ concurrency:
   group: deploy-web
   cancel-in-progress: false # never cancel an in-flight deploy
 
+permissions:
+  contents: write # the last step pushes regenerated CSP hashes
+
 jobs:
   deploy:
     name: Angular — lint, test & deploy to Netlify
@@ -141,11 +142,11 @@ jobs:
       run:
         working-directory: <app-directory>
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: '<node-version>'
+          node-version-file: .nvmrc # repo root
           cache: npm
           cache-dependency-path: <lockfile-path>
 
@@ -178,8 +179,6 @@ jobs:
           git push
 ```
 
-The job also needs `permissions: contents: write` for that push.
-
 **Triggers:** Deploys automatically on every merge to `main` that touches `<app-directory>/**` (or the workflow file itself), and can also be triggered ad-hoc from the GitHub Actions UI or via `gh workflow run deploy-web`. If `<app-directory>` is the repo root (not a monorepo), drop the `paths:` filter — every change is relevant.
 
 **Why `cancel-in-progress: false`?**
@@ -206,7 +205,7 @@ Add to `app.routes.ts` for each static sub-page path:
       return false;
     }
   ],
-  component: AppComponent,    // placeholder, never rendered
+  children: [],    // a route needs a target; this one is never rendered
 },
 ```
 
@@ -331,6 +330,9 @@ on:
       - <app-directory>/**
       - .github/workflows/csp-check.yml
 
+permissions:
+  contents: read
+
 jobs:
   csp-check:
     name: CSP hashes match build output
@@ -339,11 +341,13 @@ jobs:
       run:
         working-directory: <app-directory>
     steps:
-      - uses: actions/checkout@v6
-
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
         with:
-          node-version: '<node-version>'
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: <lockfile-path>
 
@@ -369,7 +373,7 @@ If the repo's root `.gitignore` blocks `*.js`, add an exception in the Angular a
 Create (or update) a `.prettierignore` file **inside the Angular app directory** (same level as `angular.json`), not only at the repo root. CI invokes prettier from the Angular app directory, and prettier resolves ignore patterns relative to the CWD where it is invoked — patterns in a parent-directory `.prettierignore` are also resolved relative to that same CWD, so always put these entries in the app-directory `.prettierignore` to be explicit and safe:
 
 ```
-# CommonJS require() in the CSP hash script may be flagged by prettier
+# CSP hash script is kept exactly as generated
 scripts/update-csp-hash.js
 
 # PostHog inline snippet in index.html must never be reformatted by prettier

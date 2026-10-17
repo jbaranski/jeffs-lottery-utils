@@ -1,184 +1,58 @@
 ---
 name: jeff-skill-dependabot-issue-resolution
-description: Resolve all open Dependabot PRs by consolidating updates into a single feature branch, with ecosystem-specific ordering rules. Use when asked to "resolve dependabot PRs", "batch dependabot updates", or "consolidate dependabot issues".
+description: Resolve all open Dependabot PRs by consolidating updates into a single feature branch, with ecosystem-specific ordering rules (Angular first via ng update, Tailwind major upgrades via the official tool), bisecting failures, and commenting on skipped PRs. Use when asked to "resolve dependabot PRs", "batch dependabot updates", or "consolidate dependabot issues".
 ---
 
-Goal: Resolve all open Dependabot PRs in this project by consolidating their
-dependency updates into a single feature branch, verifying the project still
-passes its tests, and dropping any update that breaks the build.
+Consolidate every open Dependabot PR into one feature branch, keep the largest set of updates that still builds and passes tests, and explain every update you skip.
 
-**Before starting, copy this checklist and track each item as you work:**
+## 1. Scope
 
-```
-## Setup
-- [ ] Listed every open Dependabot PR and its linked issue (if any) — skipped closed/merged items and ignored non-Dependabot PRs/issues
-- [ ] ⚠️  CRITICAL STOP CONDITION: If zero open Dependabot PRs exist → STOP IMMEDIATELY.
-      Do NOT look for other work. Do NOT skip this check. Do NOT proceed to any other step.
-      Report "No open Dependabot PRs found — nothing to do." and end the task.
-- [ ] Created branch chore/dependabot-batch-<date> off main
-
-## Angular
-- [ ] Opened https://angular.dev/update-guide and confirmed the correct upgrade
-      path from the current Angular version to the latest
-- [ ] Ran `ng update @angular/core @angular/cli` following the guide's steps
-- [ ] For every OTHER npm dependency being bumped by Dependabot: checked its
-      required version range against the new Angular version's peer dependency
-      constraints — any conflict must be treated as a failure (do NOT force the
-      version); see "On failure or incompatibility" below
-- [ ] Applied only the npm deps that are required to satisfy Angular's new
-      peer dependency constraints (zone.js, typescript, test tooling, etc.)
-- [ ] Confirmed `ng build` and full test suite pass before touching anything else
-- [ ] Applied remaining standalone npm updates that are not Angular-constrained
-- [ ] For each npm package bumped: ran `npm install <pkg>@<new-version> --dry-run`
-      OR ran `npm ls <package-name>` after install to detect split versions
-- [ ] Ran `npm ls` for each bumped package and confirmed no split versions appear
-      in the tree (i.e., the bumped package is not also installed privately under
-      another package at a different version)
-- [ ] Confirmed `ng build` and full test suite still pass after standalone updates
-
-## Tailwind CSS (if a sub-project depends on it)
-- [ ] Checked https://tailwindcss.com/docs for the current latest stable version
-- [ ] Confirmed the `tailwindcss` devDependency (and `@tailwindcss/postcss` /
-      `@tailwindcss/vite`, if present) is bumped to that latest stable version
-- [ ] If crossing a major version (e.g. v3 → v4): ran the official upgrade tool
-      (`npx @tailwindcss/upgrade`) and followed https://tailwindcss.com/docs/upgrade-guide
-      rather than hand-editing config
-- [ ] Ran the project's build and full test suite with the updated Tailwind version
-
-## Other ecosystems (repeat block for each — Go, Python, etc.)
-- [ ] <ecosystem>: applied all Dependabot version bumps from the relevant PRs
-- [ ] <ecosystem>: full test suite passes
-
-## For every dependency that was skipped or failed
-- [ ] Posted a comment on the Dependabot PR stating: which constraint or test
-      failed, the exact error or version conflict, and that it was excluded from
-      this batch for independent follow-up
-- [ ] Posted the same explanation on the linked issue (if one exists)
-
-## Finalize
-- [ ] Full test suite passes for all sub-projects with all applied updates
-- [ ] Written report lists every dependency: updated vs. skipped, with reasons
-- [ ] Closed the Dependabot PR and linked issue for every successfully updated dep
-- [ ] Consolidated PR body includes every checklist item above with a written
-      explanation of what was done — no item is omitted if the technology exists
-      in this repo (e.g., if Angular is present, every Angular item must appear)
-- [ ] Consolidated PR merged to main
+```bash
+gh pr list --author app/dependabot --state open --json number,title,headRefName,url
 ```
 
----
+- Only **open** PRs (and their linked issues) authored by Dependabot are in scope. Ignore everything else.
+- **If there are none, report "No open Dependabot PRs found — nothing to do." and stop.** Don't look for other work.
 
-## Setup
+## 2. Branch
 
-> **⚠️ VERY IMPORTANT — CRITICAL STOP CONDITION:**
-> After listing open Dependabot PRs, if the count is **zero**, **STOP IMMEDIATELY**.
-> Do **not** go looking for other work. Do **not** treat issues, stale branches, or
-> anything else as a substitute task. Do **not** skip or reinterpret this requirement.
-> Simply report "No open Dependabot PRs found — nothing to do." and end the task.
-> This is non-negotiable and must be followed exactly as written.
+Reuse an existing `chore/dependabot-batch-*` branch if there is one; otherwise create `chore/dependabot-batch-<YYYY-MM-DD>` off `main`. Never commit to `main` directly.
 
-1. Identify all open Dependabot PRs and their associated issues (if any).
-   - **Only consider PRs and issues that are currently open.** Do not revisit
-     closed issues or merged PRs — they are already resolved.
-   - **Only consider PRs and issues authored by Dependabot.** Ignore any open
-     PRs or issues created by other authors — they are out of scope for this skill.
-   - **If zero open Dependabot PRs exist: stop here. Report the result and end the task.**
-2. Identify if an existing `chore/dependabot-batch-*` feature branch exists, and if so continue to modify that branch.
-   Otherwise create a new feature branch off `main` (e.g. `chore/dependabot-batch-<date>`).
-   All consolidated changes go here — do not commit directly to `main`.
-3. Note that this repo may contain multiple independent sub-projects in
-   different directories (e.g. an Angular frontend AND a Go/Python/etc. backend).
-   Each ecosystem is an independent track. There is NO required ordering
-   between tracks — the backend (Go modules, etc.) can be updated before, after,
-   or alongside the frontend. The ordering rules below apply only WITHIN a track.
+A repo can contain several independent sub-projects (e.g. an Angular frontend and a Go backend). Each ecosystem is its own track with no ordering between tracks; the ordering rules below apply only within a track.
 
-## Within the Angular sub-project (if one exists)
+## 3. Apply updates per track
 
-The Angular-first rule is scoped to this sub-project only — it does not block or
-gate updates in other directories/ecosystems.
+### Angular sub-project
 
-**Do not skip the version compatibility check.** Before applying any update,
-confirm it is compatible with the current (or newly updated) Angular version.
-If a dependency's required version range conflicts with Angular's constraints,
-treat it as a failure and follow the "comment and skip" steps below — do not
-force the version.
+1. **Update Angular first**, before any other npm dependency in that sub-project: follow https://angular.dev/update-guide for the path from the current version and run `ng update @angular/core @angular/cli` as it directs.
+2. Apply the npm updates Angular's new peer dependencies require (TypeScript, test tooling, builder packages). Confirm `ng build` and the full test suite pass.
+3. Then apply the remaining standalone npm updates.
+4. For every bumped package, run `npm ls <package>` after installing. Two different versions of the same package in the tree (top level plus one nested under another package) is a conflict — treat that bump as a failure (step 4). Never force a version past a peer-dependency conflict.
 
-1. Before touching ANY other npm dependency in this sub-project, update Angular
-   itself first. Consult https://angular.dev/update-guide for the correct upgrade
-   path to the latest version, and perform the update via `ng update` (core + CLI)
-   following the guide's steps.
-2. After Angular is updated, determine which other npm dependencies must change
-   to satisfy Angular's version constraints (e.g. test tooling, zone.js,
-   typescript, build/peer-dep requirements). Apply those — they are mandatory if
-   the project would otherwise break against the new Angular version.
-3. Only AFTER the above is stable, apply any remaining standalone npm updates
-   that are independent of Angular. Do these LAST to avoid conflicts with the
-   Angular update process.
-4. **For every npm package bumped (Angular-constrained or standalone):** before
-   applying, run `npm install <pkg>@<new-version> --dry-run`, OR after installing
-   run `npm ls <package-name>`. If the tree shows two different versions of the
-   same package — one at the top level and one nested privately under another
-   package — that is a compatibility conflict. Treat that bump as a failure and
-   exclude it following the steps in "On failure or incompatibility" below. This
-   is a mechanical, checkable rule, not a judgment call.
+### Tailwind CSS (if present)
 
-## Within any Tailwind CSS sub-project (if one exists)
+1. Check https://tailwindcss.com/docs for the latest stable release; if Dependabot's target is behind it, bump to the latest. Keep `@tailwindcss/postcss` / `@tailwindcss/vite` in step.
+2. Across a major version, run `npx @tailwindcss/upgrade` and follow https://tailwindcss.com/docs/upgrade-guide instead of hand-editing config.
+3. Build and run the full test suite.
 
-Tailwind's own release notes at https://tailwindcss.com/docs are the source of
-truth for the current latest stable version — always confirm there rather than
-trusting a Dependabot PR's target version in isolation.
+### Other ecosystems (Go, Python, GitHub Actions, ...)
 
-1. Check https://tailwindcss.com/docs for the latest stable release and
-   confirm the Dependabot bump target matches it. If Dependabot is behind the
-   true latest, bump further to match the docs.
-2. If the update crosses a major version boundary (e.g. v3 → v4), do not
-   hand-edit `tailwind.config.*` or the CSS entrypoint. Run the official
-   upgrade tool (`npx @tailwindcss/upgrade`) and follow
-   https://tailwindcss.com/docs/upgrade-guide step by step — this handles the
-   `@tailwind` directive → `@import "tailwindcss"` conversion, config → `@theme`
-   migration, and renamed utilities.
-3. Run the project's build and full test suite with the update applied. Treat
-   any failure the same as other ecosystems: isolate, exclude, and comment
-   per "On failure or incompatibility" below.
+Apply the bumps from the relevant PRs (`go get <mod>@<ver> && go mod tidy`, `uv lock --upgrade-package <pkg>`, editing workflow `uses:` tags), then run that sub-project's full checks.
 
-## Within any other sub-project / ecosystem (Go, Python, etc.)
+## 4. On failure: isolate, exclude, comment
 
-Coalesce the dependency bumps from the relevant Dependabot PRs into the feature
-branch. No special ordering required.
+If a build or test fails, or an update can't be applied cleanly:
 
-## Verify
+1. Find the specific update responsible (revert bumps one at a time).
+2. Revert just that update.
+3. Comment on its Dependabot PR (and linked issue, if any) with the failing check or version conflict, the exact error, and that it was excluded from this batch for follow-up. Leave that PR open.
+4. Re-run the checks and continue until everything passes with the largest possible set of updates.
 
-Run the full test suite (and build, if applicable) for each affected sub-project
-with all the updates applied.
+## 5. Finalize
 
-## On failure or incompatibility — comment, isolate, and exclude
-
-If any test or build fails, OR if a dependency cannot be applied due to version
-incompatibility (e.g. conflicts with Angular's peer dependency constraints):
-
-1. Methodically determine which specific dependency update caused the failure
-   (e.g. bisect by reverting bumps one at a time).
-2. Exclude that single dependency from the batch (revert it to its prior version).
-3. Post a comment on the corresponding Dependabot PR (and linked issue, if any)
-   explaining why it was skipped: the incompatibility or failure encountered,
-   the error message or constraint summary, and that the PR was excluded from
-   this batch so it can be revisited independently.
-4. Re-run the tests and continue with the remaining updates.
-5. Repeat until the test suite passes with the largest possible set of updates.
-
-## Report and finalize
-
-1. Produce a clear report listing, per sub-project:
-   - Dependencies successfully updated.
-   - Dependencies that could NOT be updated, with the reason (which test/build
-     broke, which version constraint was violated, or why, if known).
-2. For each dependency that was successfully updated, close its corresponding
-   Dependabot PR and any linked issue.
-3. Write the consolidated PR body by going through every checklist item and
-   writing a short explanation of what was done for that item. Never omit a
-   checklist item that applies to this repo — if Angular is present, every Angular
-   item must appear in the PR body with its explanation. The PR body is the
-   canonical record of what was checked and why each decision was made.
-4. Merge the consolidated feature branch's PR into `main`.
-
-Leave the Dependabot PRs for the excluded/failed dependencies open so they can
-be revisited.
+1. Open the consolidated PR. Its body is the record of the run — for each sub-project:
+   - every update applied
+   - every update skipped, with the reason
+   - for Angular and Tailwind, what you did for each step above
+2. Once its checks pass, merge it into `main`.
+3. Close the Dependabot PRs (and linked issues) for every update that was applied. Leave the excluded ones open.

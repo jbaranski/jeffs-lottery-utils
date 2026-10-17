@@ -1,7 +1,7 @@
 {
   "name": "jeff-plugin-angular",
   "description": "Agents and skills for Angular frontend development with modern patterns, accessibility, and Tailwind CSS.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Jeff Baranski"
   }
