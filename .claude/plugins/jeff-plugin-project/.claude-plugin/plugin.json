@@ -1,8 +1,0 @@
-{
-  "name": "jeff-plugin-project",
-  "description": "General project workflows that apply across technology stacks — lean coding rules, code review and repo audits, shortcut-debt tracking, dependency management, and issue resolution.",
-  "version": "1.2.0",
-  "author": {
-    "name": "Jeff Baranski"
-  }
-}
