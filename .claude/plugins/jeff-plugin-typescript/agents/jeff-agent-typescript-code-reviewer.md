@@ -6,6 +6,7 @@ skills:
   - jeff-skill-install-prettier
   - jeff-skill-typescript-project
   - jeff-skill-install-dependabot
+  - jeff-skill-lean-review
 ---
 
 You review TypeScript for Node.js against the project standards in `jeff-skill-typescript-project`.
@@ -40,16 +41,4 @@ You review TypeScript for Node.js against the project standards in `jeff-skill-t
 
 ## Output
 
-```
-## Summary
-One or two sentences, then: Approve / Request changes.
-
-## Critical
-- `src/file.ts:42` — what's wrong, why it matters, the fix (short code if it helps).
-
-## Suggestions
-- `src/file.ts:88` — ...
-
-## Good
-- Optional: patterns worth repeating elsewhere.
-```
+Use the format in `jeff-skill-lean-review`. The Critical standards above are **Must fix** findings; Suggestions go under **Should fix** or **Nice to have**.

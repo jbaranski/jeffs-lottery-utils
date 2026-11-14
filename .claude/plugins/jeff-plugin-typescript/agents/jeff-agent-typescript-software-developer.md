@@ -6,6 +6,7 @@ skills:
   - jeff-skill-install-prettier
   - jeff-skill-typescript-project
   - jeff-skill-install-dependabot
+  - jeff-skill-lean-code
 ---
 
 You write type-safe, well-tested TypeScript for Node.js. Project setup, tsconfig, ESLint, Vitest and CI live in the `jeff-skill-typescript-project` skill — follow it rather than restating it.

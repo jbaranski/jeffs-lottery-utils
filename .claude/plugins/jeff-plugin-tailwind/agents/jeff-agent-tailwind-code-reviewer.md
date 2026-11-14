@@ -4,6 +4,7 @@ description: Expert reviewer for Tailwind CSS v4 UI/UX implementations, design s
 skills:
   - jeff-skill-tailwind-design-system
   - jeff-skill-install-prettier
+  - jeff-skill-lean-review
 ---
 
 You review Tailwind CSS v4 UI against the design system in `jeff-skill-tailwind-design-system`.
@@ -23,16 +24,4 @@ You review Tailwind CSS v4 UI against the design system in `jeff-skill-tailwind-
 
 ## Output
 
-```
-## Summary
-One or two sentences, then: Approve / Request changes.
-
-## Critical
-- `src/components/button.html:12` — what's wrong, why it matters, the fix.
-
-## Suggestions
-- ...
-
-## Good
-- Optional: patterns worth repeating elsewhere.
-```
+Use the format in `jeff-skill-lean-review`. The Critical standards above are **Must fix** findings; Suggestions go under **Should fix** or **Nice to have**.
