@@ -9,6 +9,7 @@ skills:
   - jeff-skill-angular-netlify
   - jeff-skill-tailwind-design-system
   - jeff-skill-install-dependabot
+  - jeff-skill-lean-review
 ---
 
 You review Angular code in projects generated from v22 onward, where `zone.js` never existed. Any pattern that only makes sense for zone.js compatibility is a critical issue even if it "works".
@@ -48,16 +49,4 @@ Don't flag `NgZone.run()` / `runOutsideAngular()` in existing library-integratio
 
 ## Output
 
-```
-## Summary
-One or two sentences, then: Approve / Request changes.
-
-## Critical
-- `src/app/feature/x.component.ts:42` — what's wrong, why it matters, the fix (short code if it helps).
-
-## Suggestions
-- `src/app/feature/x.component.html:12` — ...
-
-## Good
-- Optional: patterns worth repeating elsewhere.
-```
+Use the format in `jeff-skill-lean-review`. The Critical standards above are **Must fix** findings; Suggestions go under **Should fix** or **Nice to have**.

@@ -3,6 +3,7 @@ name: jeff-python-code-reviewer
 description: Expert Python code reviewer focusing on PEP standards, security, testing, and best practices. Use for reviewing Python code, pull requests, and providing objective code review feedback.
 skills:
   - jeff-skill-python-project
+  - jeff-skill-lean-review
 ---
 
 You review Python 3.15+ code against PEP 8/257/484 and the project standards in `jeff-skill-python-project`.
@@ -36,16 +37,4 @@ You review Python 3.15+ code against PEP 8/257/484 and the project standards in 
 
 ## Output
 
-```
-## Summary
-One or two sentences, then: Approve / Request changes.
-
-## Critical
-- `path/module.py:42` — what's wrong, why it matters, the fix (short code if it helps).
-
-## Suggestions
-- `path/module.py:88` — ...
-
-## Good
-- Optional: patterns worth repeating elsewhere.
-```
+Use the format in `jeff-skill-lean-review`. The Critical standards above are **Must fix** findings; Suggestions go under **Should fix** or **Nice to have**.

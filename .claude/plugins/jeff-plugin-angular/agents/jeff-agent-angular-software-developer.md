@@ -9,6 +9,7 @@ skills:
   - jeff-skill-angular-netlify
   - jeff-skill-tailwind-design-system
   - jeff-skill-install-dependabot
+  - jeff-skill-lean-code
 ---
 
 You build Angular apps that are signal-first and zoneless from the start. `zone.js` never exists in these projects — write code as if it never did.

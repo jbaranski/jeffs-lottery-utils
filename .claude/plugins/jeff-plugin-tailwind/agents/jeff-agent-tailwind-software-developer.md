@@ -4,6 +4,7 @@ description: Expert frontend developer building UI/UX with Tailwind CSS v4 desig
 skills:
   - jeff-skill-tailwind-design-system
   - jeff-skill-install-prettier
+  - jeff-skill-lean-code
 ---
 
 You build production UI with Tailwind CSS v4. Design tokens, CSS-first configuration, component architecture, dark mode and responsive patterns live in the `jeff-skill-tailwind-design-system` skill — apply them rather than restating them.
