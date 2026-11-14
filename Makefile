@@ -1,20 +1,23 @@
 .PHONY: sync-plugins
 
+PLUGINS := jeff-plugin-angular jeff-plugin-project jeff-plugin-python jeff-plugin-tailwind jeff-plugin-typescript
+
 sync-plugins:
-	@mkdir -p .claude/plugins
+	@mkdir -p .claude/agents .claude/skills
 	@TMPDIR=$$(mktemp -d) && \
-	  git clone --depth=1 https://github.com/jbaranski/jeff-claude.git $$TMPDIR && \
-	  for plugin in jeff-plugin-angular jeff-plugin-project jeff-plugin-python jeff-plugin-tailwind jeff-plugin-typescript; do \
-	    rm -rf .claude/plugins/$$plugin; \
-	    cp -rL $$TMPDIR/plugins/$$plugin .claude/plugins/$$plugin 2>/dev/null || true; \
-	    for skill_dir in .claude/plugins/$$plugin/skills/*/; do \
-	      [ -d "$$skill_dir" ] || continue; \
-	      skill=$$(basename $$skill_dir); \
-	      if [ ! -f "$${skill_dir}SKILL.md" ] && [ -d "$$TMPDIR/.claude/skills/$$skill" ]; then \
-	        rm -rf "$$skill_dir"; \
-	        cp -r "$$TMPDIR/.claude/skills/$$skill" ".claude/plugins/$$plugin/skills/"; \
-	      fi; \
+	  trap 'rm -rf "$$TMPDIR"' EXIT && \
+	  git clone --quiet --depth=1 https://github.com/jbaranski/jeff-claude.git "$$TMPDIR" && \
+	  for plugin in $(PLUGINS); do \
+	    src="$$TMPDIR/plugins/$$plugin"; \
+	    if [ ! -d "$$src" ]; then echo "Unknown plugin: $$plugin" >&2; exit 1; fi; \
+	    for agent in "$$src"/agents/*.md; do \
+	      [ -e "$$agent" ] || continue; \
+	      cp -L "$$agent" .claude/agents/; \
 	    done; \
-	  done && \
-	  rm -rf $$TMPDIR
-	@echo "Plugins synced to .claude/plugins/"
+	    for skill in "$$src"/skills/*; do \
+	      [ -e "$$skill" ] || continue; \
+	      rm -rf ".claude/skills/$$(basename "$$skill")"; \
+	      cp -RL "$$skill" .claude/skills/; \
+	    done; \
+	  done
+	@echo "Synced agents to .claude/agents/ and skills to .claude/skills/"
