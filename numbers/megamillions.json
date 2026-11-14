@@ -11314,5 +11314,17 @@
     ],
     "yellow_ball": 22,
     "megaplier": "N/A"
+  },
+  {
+    "date": "11/13/2026",
+    "white_balls": [
+      10,
+      22,
+      33,
+      49,
+      57
+    ],
+    "yellow_ball": 18,
+    "megaplier": "N/A"
   }
 ]
